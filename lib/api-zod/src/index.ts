@@ -12,6 +12,8 @@ export * from "./blog-social-metadata";
 export * from "./testimonial-governance";
 export * from "./entity-architecture";
 export * from "./consultation-products";
+export * from "./saudi-consultation-pricing";
+export * from "./regional-consultation-pricing";
 export * from "./platform-positioning";
 export * from "./acquisition-context";
 
@@ -34,3 +36,7 @@ export * from "./portfolio-capabilities";
 export * from "./portfolio-facts";
 
 export * from "./work-jurisdiction";
+export * from "./work-publication";
+export * from "./portfolio-page-copy";
+
+export * from "./work-team-copy";

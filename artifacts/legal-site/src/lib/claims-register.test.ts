@@ -188,15 +188,16 @@ test("unverified testimonial outcomes and unsupported personal licence numbers s
   assert.match(copy, /Published work samples are redacted and illustrative|نماذج الأعمال المنشورة منقحة وتوضيحية/);
 });
 
-test("professional-role boundary qualifies legacy representation wording", () => {
+test("professional-role copy keeps representation with locally licensed team lawyers", () => {
   const qualified = qualifyProfessionalRoleCopy({
     en: "At CounselO Legal, we represent clients before courts. We manage the full appeal process.",
     ar: "نحن نمثل العملاء أمام المحاكم ونقدم تمثيل كامل.",
   });
-  assert.match(qualified.en, /separately engaged, appropriately licensed practitioner/i);
-  assert.match(qualified.en, /separate filing or representation engagement/i);
-  assert.match(qualified.ar, /بشكل منفصل عبر مهني مرخص مناسب/);
-  assert.match(qualified.ar, /بموجب تكليف مستقل/);
+  assert.match(qualified.en, /locally licensed team lawyers represent clients/i);
+  assert.match(qualified.en, /manage the full appeal process/i);
+  assert.doesNotMatch(qualified.en, /separate engagement|separately engaged/i);
+  assert.match(qualified.ar, /محامو فريقنا المرخصون محلياً/);
+  assert.doesNotMatch(qualified.ar, /تكليف مستقل|بشكل منفصل/);
 });
 
 test("EEAT boundary qualifies legacy outcome, timing and online-service claims", () => {
@@ -212,20 +213,25 @@ test("EEAT boundary qualifies legacy outcome, timing and online-service claims",
   assert.doesNotMatch(arabic, /استشارة أولية/);
 });
 
-test("About missions avoid immediate advice, continuous availability and bundled representation claims", () => {
+test("About missions describe one team without promising instant or continuous availability", () => {
   for (const [locale, copy] of Object.entries({ en, ar, enSyr, arSyr, enUae, arUae })) {
     const mission = Object.values(copy.aboutPage.mission).join(" ");
     assert.doesNotMatch(mission, /instantly|24\/7|expert representation|على مدار الساعة|تمثيلاً متخصصاً/, locale);
-    assert.match(mission, /separate agreement|separately agreed|identified separately|اتفاق مستقل|اتفاقاً مستقلاً|بشكل مستقل|بصورة منفصلة/, locale);
+    assert.match(mission, /team|فريق/, locale);
+    assert.match(mission, /represent|التمثيل/, locale);
+    assert.doesNotMatch(mission, /separate agreement|separately agreed|اتفاق مستقل|بصورة منفصلة/, locale);
   }
 });
 
-test("About missions avoid immediate advice, continuous availability and bundled representation claims", () => {
+test("About mission sources keep authorised team representation within an agreed scope and fees", () => {
   for (const locale of ["en", "ar", "en-syr", "ar-syr", "en-uae", "ar-uae"]) {
     const source = readFileSync(resolve(process.cwd(), `src/translations/${locale}.ts`), "utf8");
     const about = source.slice(source.indexOf("  aboutPage: {"));
     const mission = about.slice(about.indexOf("    mission: {"), about.indexOf("    founder: {"));
     assert.doesNotMatch(mission, /instantly|24\/7|expert representation|على مدار الساعة|تمثيلاً متخصصاً/, locale);
-    assert.match(mission, /separate agreement|separately agreed|identified separately|اتفاق مستقل|اتفاقاً مستقلاً|بشكل مستقل|بصورة منفصلة/, locale);
+    assert.match(mission, /scope, fees.*before work begins|نطاق العمل والأتعاب.*قبل البدء/, locale);
+    assert.match(mission, /appropriately authorised lawyers within our team|المحامون المخولون في فريقنا/, locale);
+    assert.doesNotMatch(mission, /separate agreement|separately engaged|تكليف مستقل|اتفاق مستقل/, locale);
+    assert.doesNotMatch(mission, /representation (?:is )?(?:included|free)|التمثيل.*(?:مجاناً|مشمول في رسوم الاستشارة)/i, locale);
   }
 });

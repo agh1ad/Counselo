@@ -12,7 +12,7 @@ import { fetchPublicJson } from "@/lib/public-api";
 import { ContentRecovery } from "@/components/content/content-recovery";
 import { PlatformFacts } from "@/components/legal/platform-facts";
 import { PortfolioCapabilities } from "@/components/work/portfolio-capabilities";
-import { COUNSELO_ENTITY_IDS, WORK_CONTEXT } from "@workspace/api-zod/browser";
+import { COUNSELO_ENTITY_IDS, PORTFOLIO_PAGE_COPY, WORK_CONTEXT } from "@workspace/api-zod/browser";
 
 declare global {
   interface Window {
@@ -40,47 +40,20 @@ export default function OurWork() {
   const workBasePath = ar ? "/ar/our-work" : "/our-work";
   const visibleSamples = samples.filter((sample) => ar ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
   const matchingSamples = visibleSamples.filter(sample => readingSearchKey(`${sample.titleEn} ${sample.titleAr} ${sample.workTypeEn} ${sample.workTypeAr} ${sample.jurisdictionEn} ${sample.jurisdictionAr}`).includes(readingSearchKey(search)));
-  const ui = ar ? {
-    eyebrow: "كاونسلو للاستشارات القانونية · نماذج الأعمال",
-    title: "أعمالنا القانونية ودراسات القضايا",
-    intro: "من مراجعة عقد إلى إعداد ملف نزاع تجاري أو تحكيم أو قضية عابرة للحدود: اطّلع على دراسات تشرح المسألة، ودور كاونسلو، والتحليل والمستندات التي استند إليها العمل. تشمل خدماتنا الاستشارة والاستراتيجية والصياغة ودعم إجراءات النزاع، مع التمثيل أمام المحاكم والجهات المختصة بواسطة المحامين المحليين المرخصين وفق نطاق التكليف.",
-    trustTitle: "كيف نحمي خصوصية العملاء",
-    trustText: "لا ننشر أسماء العملاء أو بياناتهم أو تفاصيل تسمح بالتعرف عليهم. تُعرض هذه النماذج لإيضاح منهجية العمل وجودة الصياغة فقط.",
-    empty: "ستُضاف نماذج أعمال منقحة قريباً.",
-    view: "عرض نموذج العمل",
-    featured: "عمل مميز",
-    completed: "أُنجز",
-    docLanguage: "لغة المستند",
-    ctaTitle: "هل تحتاج إلى عمل قانوني بهذه العناية؟",
-    ctaText: "شارك متطلباتك معنا للحصول على تقييم واضح لنطاق العمل والوقت والتكلفة قبل البدء.",
-    cta: "ابدأ استشارتك",
-  } : {
-    eyebrow: "CounselO Legal · Selected Work",
-    title: "Our legal work and case studies",
-    intro: "From reviewing a contract to preparing a commercial dispute, arbitration or cross-border matter, explore studies explaining the issue, CounselO’s role and the analysis and documents behind the work. Our services cover advice, strategy, drafting and dispute support, with representation before courts and authorities handled by licensed local lawyers under the agreed engagement.",
-    trustTitle: "How client privacy is protected",
-    trustText: "We do not publish client names, personal data, or identifying matter details. These samples demonstrate our working method and drafting quality only.",
-    empty: "Redacted work samples will be added soon.",
-    view: "View Work Sample",
-    featured: "Featured work",
-    completed: "Completed",
-    docLanguage: "Document language",
-    ctaTitle: "Need legal work prepared with this level of care?",
-    ctaText: "Tell us what you need and receive a clear assessment of scope, timing, and cost before work begins.",
-    cta: "Start a Consultation",
-  };
+  const ui = PORTFOLIO_PAGE_COPY[ar ? "ar" : "en"];
 
   const schemas = [
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       "@id": `https://counselo-legal.com${workBasePath}#webpage`,
-      name: ar ? "نماذج أعمال كاونسلو للاستشارات القانونية" : "CounselO Legal Work Samples",
+      name: ui.collectionName,
       description: ui.intro,
       url: `https://counselo-legal.com${workBasePath}`,
       inLanguage: ar ? "ar" : "en",
       isPartOf: { "@id": COUNSELO_ENTITY_IDS.website },
       about: { "@id": COUNSELO_ENTITY_IDS.organization },
+      publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
       mainEntity: { "@id": `https://counselo-legal.com${workBasePath}#work-list` },
     },
     {
@@ -109,19 +82,19 @@ export default function OurWork() {
     <div className="counselo-editorial-page legal-portfolio-page min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
         heroArtwork="gold"
-        title={ar ? "أعمالنا | دراسات القضايا والمستندات القانونية | كاونسلو" : "Our Work | Case Studies & Legal Documents | CounselO Legal"}
-        description={ar ? "استعرض دراسات القضايا ومراجعات العقود والمستندات القانونية المنشورة، مع بيان المسألة والعمل المنفذ والمصدر والوثائق الداعمة." : "Explore published case studies, contract reviews and legal documents, with the matter, work performed, source attribution and supporting documents."}
+        title={ui.seoTitle}
+        description={ui.seoDescription}
         canonical={workBasePath}
         noRegionPrefix
         sharedLanguageAlternates={{ en: "/our-work", ar: "/ar/our-work" }}
         contentLanguage={lang}
-        keywords={ar ? "نماذج عقود قانونية, أعمال محاماة, صياغة عقود, خبرة قانونية, نماذج قانونية كاونسلو للاستشارات القانونية" : "legal work samples, redacted contracts, contract drafting experience, law firm portfolio, CounselO Legal documents"}
+        keywords={ui.seoKeywords}
         schema={schemas}
       />
 
       <section className="premium-page-hero text-white px-4 py-20">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 text-[#e0c078] text-xs font-semibold uppercase tracking-[0.18em] mb-5"><BriefcaseBusiness className="h-4 w-4" />{ui.eyebrow}</div>
+          <div className={`inline-flex items-center gap-2 text-[#e0c078] text-xs font-semibold mb-5 ${ar ? "" : "uppercase tracking-[0.18em]"}`}><BriefcaseBusiness className="h-4 w-4" />{ui.eyebrow}</div>
           <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight mb-6">{ui.title}</h1>
           <div className="premium-hero-rule mx-auto mb-7" />
           <p className="text-lg text-white/75 leading-relaxed max-w-3xl mx-auto">{ui.intro}</p>
@@ -136,12 +109,12 @@ export default function OurWork() {
       <PortfolioCapabilities isArabic={ar} samples={visibleSamples} />
 
       <section id="published-work-library" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-28" aria-labelledby="work-library-title">
-        <h2 id="work-library-title" className="text-3xl font-serif font-bold mb-6">{ar ? "مكتبة الدراسات والمستندات المنشورة" : "Published studies and documents"}</h2>
+        <h2 id="work-library-title" className="text-3xl font-serif font-bold mb-6">{ui.libraryHeading}</h2>
         {isError && <ContentRecovery isArabic={ar} retry={() => { void refetch(); }} retrying={isFetching} />}
         <div className="mb-5">
-          <label htmlFor="work-search" className="block font-semibold mb-2">{ar ? "ابحث في نماذج الأعمال" : "Search work samples"}</label>
+          <label htmlFor="work-search" className="block font-semibold mb-2">{ui.searchLabel}</label>
           <input id="work-search" type="search" value={search} onChange={event => setSearch(event.target.value)} className="reading-search" placeholder={ar ? "الموضوع أو الدولة أو نوع المستند" : "Topic, country or document type"} />
-          {!isLoading && (!isError || samples.length > 0) && <p role="status" className="mt-2 text-sm text-muted-foreground">{ar ? `${matchingSamples.length} نموذج عمل` : `${matchingSamples.length} work samples`}</p>}
+          {!isLoading && (!isError || samples.length > 0) && <p role="status" className="mt-2 text-sm text-muted-foreground">{`${matchingSamples.length} ${ui.countLabel}`}</p>}
           {search && !isError && !isLoading && matchingSamples.length === 0 && <p className="mt-4">{ar ? "لا توجد نتائج. جرّب كلمة أخرى." : "No matches. Try another keyword."}</p>}
         </div>
 
@@ -156,7 +129,7 @@ export default function OurWork() {
               const summary = localized(sample.summaryEn, sample.summaryAr, lang);
               const workType = localized(sample.workTypeEn, sample.workTypeAr, lang);
               const jurisdiction = localized(sample.jurisdictionEn, sample.jurisdictionAr, lang);
-              const isPartnerWork = WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law";
+              const isMemberOfficeWork = WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law";
               return (
                 <m.article key={sample.slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: Math.min(index * .06, .24) }} className="reading-result group border-b border-border flex flex-col">
                   <div className="py-5 flex flex-col flex-1">
@@ -166,7 +139,7 @@ export default function OurWork() {
                     </div>
                     <h2 className="text-xl font-serif font-bold leading-snug mb-3 group-hover:text-primary transition-colors">{title}</h2>
                     <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-3">{summary}</p>
-                    <p className="text-xs text-muted-foreground mb-4">{ar ? "إعداد: " : "Prepared by: "}{isPartnerWork ? (ar ? "البغدادي للمحاماة" : "Baghdadi Law") : (ar ? "كاونسلو للاستشارات القانونية" : "CounselO Legal")}</p>
+                    <p className="text-xs text-muted-foreground mb-4">{ui.preparedBy}{isMemberOfficeWork ? ui.memberOfficeAttribution : ui.teamAttribution}</p>
                     <div className="mt-auto space-y-2 text-xs text-muted-foreground border-t border-border pt-4">
                       <div className="flex items-center gap-2"><Scale className="h-3.5 w-3.5" />{ui.completed}: {formatWorkDate(sample.date, lang)}</div>
                       <div className="flex items-center gap-2"><Languages className="h-3.5 w-3.5" />{ui.docLanguage}: {documentLanguageLabel(sample.documentLanguage, lang)}</div>

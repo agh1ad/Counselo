@@ -25,6 +25,9 @@ export interface WorkSamplePublic {
   seoDescriptionEn: string;
   seoDescriptionAr: string;
   documentLanguage: "ar" | "en" | "bilingual";
+  documentEdition?: string;
+  documentEditionPublishedAt?: string;
+  documentTextUrl?: string;
   fileName: string;
   fileMimeType: string;
   fileSize: number;

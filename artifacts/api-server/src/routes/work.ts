@@ -17,6 +17,7 @@ import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { repairPublicWorkSample } from "../lib/public-work-repairs.js";
 import { createWorkAttachmentHandler } from "../lib/public-work-documents.js";
+import { publicWorkDocumentMetadata } from "../lib/work-document-revisions.js";
 
 import { publishedWork, publishedWorkBySlug, publishedWorkFileBySlug, publishedWorkSummaries } from "../lib/published-content.js";
 
@@ -47,7 +48,7 @@ function publicTestimonials(sample: { testimonials?: unknown[]; testimonialGover
 
 router.get("/work", async (_req, res) => {
   const samples = await publishedWorkSummaries();
-  res.json(samples.map(repairPublicWorkSample).map((sample) => ({
+  res.json(samples.map(sample => publicWorkDocumentMetadata(sample)).map(repairPublicWorkSample).map((sample) => ({
     ...sample,
     testimonials: publicTestimonials(sample),
     hasFile: sample.fileSize > 0,
@@ -63,7 +64,7 @@ router.get("/work/:slug", async (req, res) => {
     return;
   }
   res.json({
-    ...repairPublicWorkSample(sample),
+    ...repairPublicWorkSample(publicWorkDocumentMetadata(sample)),
     testimonials: publicTestimonials(sample),
     hasFile: sample.fileSize > 0,
   });

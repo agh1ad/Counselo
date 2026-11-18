@@ -172,7 +172,7 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "Discuss how this applies to your matter. We confirm scope and fees before paid work; local representation requires a separate engagement.",
+        "Discuss how this applies to your matter. Our team supports you from advice through representation, with scope and fees agreed before work begins.",
       whatsapp: "Chat on WhatsApp",
       consultation: "Start Consultation",
       disclaimer:
@@ -186,7 +186,7 @@ export default function BlogPost() {
       back: "العودة إلى المدونة",
       minRead: "د قراءة",
       consultHeading: "هل تحتاج إلى مشورة قانونية؟",
-      consultDesc: "ناقش تطبيق ذلك على مسألتك. نؤكد النطاق والأتعاب قبل العمل المدفوع؛ والتمثيل المحلي يحتاج إلى تكليف منفصل.",
+      consultDesc: "ناقش تطبيق ذلك على مسألتك. يدعمك فريقنا من الاستشارة إلى التمثيل، مع الاتفاق على النطاق والأتعاب قبل بدء العمل.",
       whatsapp: "تواصل عبر واتساب",
       consultation: "ابدأ الاستشارة",
       disclaimer:

@@ -3,7 +3,7 @@ type Localized<T> = { en: T; ar: T };
 export type ServiceIntakeContent = { summary: Localized<string>; documents: Localized<string[]> };
 export const SERVICE_INTAKE_CONTENT: Record<string, ServiceIntakeContent> = {
   "urgent-legal-assistance": {
-    summary: { en: "Request a legal memorandum, statement of claim or review of an existing contract or agreement. Share documents and your deadline; urgent fees differ from standard fees.", ar: "اطلب إعداد مذكرة قانونية أو لائحة دعوى أو تدقيق عقد أو اتفاقية قائمة. أرسل المستندات والموعد المطلوب؛ تختلف أتعاب الطوارئ عن الأتعاب العادية." },
+    summary: { en: "Request a legal memorandum, statement of claim or review of an existing contract or agreement. Share documents and your deadline; urgent document work is quoted for its scope and delivery. Standard online consultations use the published category fee.", ar: "اطلب إعداد مذكرة قانونية أو لائحة دعوى أو تدقيق عقد أو اتفاقية قائمة. أرسل المستندات والموعد المطلوب؛ نحدد أتعاب العمل المستندي العاجل بحسب نطاقه وتسليمه، وتُقدم الاستشارات الأونلاين المعتادة بالرسوم المنشورة لمجالها." },
     documents: {
       en: ["Notice or document showing the official deadline", "Relevant contract, draft or case papers", "Key evidence and previous correspondence", "Parties, jurisdiction and requested deliverable with date, time and time zone"],
       ar: ["الإخطار أو المستند المتضمن الموعد الرسمي", "العقد أو المسودة أو أوراق القضية ذات الصلة", "الأدلة الأساسية والمراسلات السابقة", "الأطراف والاختصاص والمخرج المطلوب مع التاريخ والساعة والمنطقة الزمنية"],

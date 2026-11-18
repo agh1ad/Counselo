@@ -4,7 +4,7 @@ import { CheckCircle2, MessageCircle, Mail, CreditCard, FileText, ArrowRight } f
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
+import { COUNSELO_ENTITY_IDS, CONSULTATION_SCOPE, CONSULTATION_PRICES_UPDATED_AT } from "@workspace/api-zod/browser";
 
 export default function TermsOfService() {
   const { isRTL } = useLanguage();
@@ -17,13 +17,13 @@ export default function TermsOfService() {
 
   const content = {
     en: {
-      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO Legal",
-      seoDesc: `CounselO Legal's consultation terms and process for online legal advice in ${countryEn}: submit your matter, receive a fee quote, approve the scope, and receive your legal consultation in Arabic or English.`,
-      eyebrow: "Legal Consultation Terms",
+      seoTitle: "Terms of Service | Legal Advice and Representation | CounselO Legal",
+      seoDesc: `CounselO’s legal service terms in ${countryEn}: one team for consultation through representation, with the work, fees and authorisation agreed before starting.`,
+      eyebrow: "Legal Service Terms",
       heading: "Terms of Service",
       subheading:
-        "Please read these terms carefully before requesting a legal consultation. Sending an enquiry does not commit you to a fee; the consultation scope and quoted cost require your agreement.",
-      processHeading: "How Our Consultation Process Works",
+        "CounselO’s team supports you from consultation through representation. Sending an enquiry does not commit you to a fee; we agree the work, fees and required authorisation with you before starting.",
+      processHeading: "Starting Your Matter with Our Team",
       steps: [
         {
           icon: FileText,
@@ -32,18 +32,18 @@ export default function TermsOfService() {
         },
         {
           icon: CreditCard,
-          title: "Step 2 — We Assess & Inform You of the Cost",
-          desc: "Our legal team will review your matter and inform you of the consultation fee. The fee is determined by the complexity and scope of the legal question. We will not proceed without your explicit agreement to the quoted cost.",
+          title: "Step 2 — Confirm Your Consultation Category",
+          desc: "We confirm the legal category and its published fixed online consultation fee, along with the responsible team members and delivery details. For additional work or representation, we agree the work and its fees with you when requested.",
         },
         {
           icon: MessageCircle,
-          title: "Step 3 — Payment Before the Answer",
-          desc: "Payment of the agreed consultation fee must be made in full before we issue your legal answer. Payment instructions will be provided upon your agreement to the fee. CounselO Legal will confirm receipt of payment before proceeding.",
+          title: "Step 3 — Confirm Payment and Start",
+          desc: "We provide payment instructions once you approve the work and fees. For consultations, the agreed consultation fee must be paid in full before we issue the legal answer. CounselO confirms receipt of payment before proceeding.",
         },
         {
           icon: CheckCircle2,
-          title: "Step 4 — You Receive the Legal Answer",
-          desc: "Once payment is confirmed, our legal team will prepare and deliver your comprehensive legal consultation. You will receive a structured legal analysis, our professional opinion, and practical recommendations — via WhatsApp or email, in your chosen language (Arabic or English).",
+          title: "Step 4 — Our Team Handles Your Matter",
+          desc: "Our team carries out the agreed advice, drafting, negotiation or representation and keeps you informed of progress and next steps. Written consultations are delivered by WhatsApp or email in Arabic or English; our locally licensed team lawyers handle court and authority work.",
         },
       ],
       termsHeading: "General Terms",
@@ -54,17 +54,15 @@ export default function TermsOfService() {
         },
         {
           title: "Scope of Consultation",
-          desc: isUae
-            ? "The consultation is limited to the agreed scope and the information you provide. UAE court representation, formal filings and regulated local work require a separate engagement with an appropriately licensed practitioner where applicable."
-            : "Our consultations constitute professional legal advice based on the information you provide. The accuracy and completeness of the information you submit directly affect the quality of the advice given.",
+          desc: CONSULTATION_SCOPE.en,
         },
         {
           title: "No Refunds After Delivery",
-          desc: "Once the agreed consultation has been delivered, the fee is non-refundable except where mandatory law requires otherwise. If the answer needs clarification, we will provide one clarification round at no additional cost.",
+          desc: "Once the consultation has been delivered, the fee is non-refundable except where mandatory law requires otherwise. Discussion and questions on the same consultation topic remain included in the consultation fee.",
         },
         {
-          title: "No Attorney-Client Relationship for Representation",
-          desc: "A consultation does not automatically create a mandate to represent you in court or before any authority. Court representation or ongoing legal representation requires a separate written agreement.",
+          title: "Representation and Authorisation",
+          desc: "Our locally licensed team lawyers handle representation before courts and authorities. We confirm the representation scope, fees and required authorisation in writing before acting; sending an enquiry alone does not authorise us to act.",
         },
         {
           title: "Changes to Terms",
@@ -72,17 +70,17 @@ export default function TermsOfService() {
         },
       ],
       ctaHeading: "Ready to Get Started?",
-      ctaDesc: "Send your legal question via WhatsApp or email. Our team will review your matter and inform you of the consultation fee — with no obligation until you agree.",
+      ctaDesc: "Choose your legal category and its published fixed consultation fee, then send your question and documents. Our team confirms the service and payment details before starting.",
       ctaBtn: "Contact Us Now",
     },
     ar: {
-      seoTitle: "شروط الخدمة | آلية الاستشارة القانونية الأونلاين | كاونسلو للاستشارات القانونية",
-      seoDesc: `شروط وآلية استشارات كاونسلو للاستشارات القانونية الأونلاين في ${countryAr}: أرسل مسألتك، واحصل على عرض الرسوم، واعتمد النطاق، ثم استلم استشارتك القانونية بالعربية أو الإنجليزية.`,
-      eyebrow: "شروط الاستشارة القانونية",
+      seoTitle: "شروط الخدمة | الاستشارة والتمثيل القانوني | كاونسلو للاستشارات القانونية",
+      seoDesc: `شروط خدمات كاونسلو القانونية في ${countryAr}: فريق واحد من الاستشارة إلى التمثيل، مع الاتفاق على العمل والأتعاب والتفويض قبل البدء.`,
+      eyebrow: "شروط الخدمات القانونية",
       heading: "شروط الخدمة",
       subheading:
-        "يُرجى قراءة هذه الشروط بعناية قبل طلب استشارة قانونية. لا يُلزمك إرسال استفسار بدفع رسوم؛ فنطاق الاستشارة والتكلفة المعروضة يتطلبان موافقتك.",
-      processHeading: "كيف تسير عملية الاستشارة",
+        "يدعمك فريق كاونسلو من الاستشارة إلى التمثيل القانوني. لا يُلزمك إرسال استفسار بدفع رسوم؛ نتفق معك على العمل والأتعاب والتفويض المطلوب قبل البدء.",
+      processHeading: "كيف تبدأ مسألتك مع فريقنا",
       steps: [
         {
           icon: FileText,
@@ -91,18 +89,18 @@ export default function TermsOfService() {
         },
         {
           icon: CreditCard,
-          title: "الخطوة الثانية — نقيّم الطلب ونخبرك بالتكلفة",
-          desc: "يراجع فريقنا القانوني قضيتك ويُعلمك برسوم الاستشارة. تُحدَّد الرسوم بحسب تعقيد المسألة القانونية ونطاقها. لن نمضي قُدُماً إلا بعد موافقتك الصريحة على التكلفة المقدَّمة.",
+          title: "الخطوة الثانية — نؤكد مجال الاستشارة",
+          desc: "نؤكد المجال القانوني ورسوم استشارته الأونلاين الثابتة والمنشورة، مع أعضاء الفريق المسؤولين وتفاصيل التسليم. ونتفق معك عند طلب أي عمل إضافي أو تمثيل على نطاقه وأتعابه.",
         },
         {
           icon: MessageCircle,
-          title: "الخطوة الثالثة — الدفع قبل تلقّي الإجابة",
-          desc: "يجب سداد رسوم الاستشارة المتفق عليها كاملةً قبل إصدار إجابتك القانونية. ستُزوَّد بتعليمات الدفع فور موافقتك على المبلغ. ستؤكد كاونسلو للاستشارات القانونية استلام الدفعة قبل المضي في تقديم الاستشارة.",
+          title: "الخطوة الثالثة — تأكيد الدفع وبدء العمل",
+          desc: "نزودك بتعليمات الدفع بعد موافقتك على العمل والأتعاب. في الاستشارات، يجب سداد الرسوم المتفق عليها كاملةً قبل إصدار الإجابة القانونية. ونؤكد استلام الدفعة قبل المضي في العمل.",
         },
         {
           icon: CheckCircle2,
-          title: "الخطوة الرابعة — تستلم إجابتك القانونية",
-          desc: "بمجرد تأكيد استلام الدفعة، يُعِدّ فريقنا القانوني استشارتك الشاملة ويُسلّمها إليك. ستتضمّن الإجابة تحليلاً قانونياً منظّماً ورأياً مهنياً وتوصيات عملية — عبر واتساب أو البريد الإلكتروني، بلغتك المختارة (العربية أو الإنجليزية).",
+          title: "الخطوة الرابعة — يتولى فريقنا مسألتك",
+          desc: "ينجز فريقنا المشورة أو الصياغة أو التفاوض أو التمثيل المتفق عليه، ويطلعك على تقدم العمل والخطوات التالية. تُسلّم الاستشارات المكتوبة عبر واتساب أو البريد الإلكتروني بالعربية أو الإنجليزية، ويتولى محامو فريقنا المرخصون محلياً العمل أمام المحاكم والجهات المختصة.",
         },
       ],
       termsHeading: "الشروط العامة",
@@ -113,17 +111,15 @@ export default function TermsOfService() {
         },
         {
           title: "نطاق الاستشارة",
-          desc: isUae
-            ? "تقتصر الاستشارة على النطاق المتفق عليه والمعلومات التي تقدمها. ويتطلب التمثيل أمام محاكم الإمارات أو القيد الرسمي أو الأعمال المحلية المنظمة ارتباطاً منفصلاً مع ممارس مرخص على النحو الواجب حيثما يلزم."
-            : "تمثّل استشاراتنا مشورة قانونية مهنية مبنيّة على المعلومات التي تزوّدنا بها. ويؤثّر مدى دقة واكتمال ما تُقدّمه تأثيراً مباشراً في جودة المشورة المُقدَّمة.",
+          desc: CONSULTATION_SCOPE.ar,
         },
         {
           title: "عدم استرداد المبلغ بعد التسليم",
-          desc: "بعد تسليم الاستشارة المتفق عليها، لا تُسترد الرسوم إلا إذا أوجب القانون الآمر خلاف ذلك. وإذا احتاجت الإجابة إلى إيضاح، نقدّم جولةً واحدة من التوضيح دون تكلفة إضافية.",
+          desc: "بعد تسليم الاستشارة، لا تُسترد الرسوم إلا إذا أوجب القانون الآمر خلاف ذلك. وتبقى المناقشة والأسئلة ضمن موضوع الاستشارة نفسه مشمولة برسومها.",
         },
         {
-          title: "الاستشارة لا تعني التمثيل القانوني",
-          desc: "لا تُنشئ الاستشارة تلقائياً تفويضاً بتمثيلك أمام المحاكم أو أي جهة رسمية. ويستلزم التمثيل القضائي أو الاستشاري المستمر إبرام اتفاق خطي منفصل.",
+          title: "التمثيل والتفويض",
+          desc: "يتولى محامو فريقنا المرخصون محلياً التمثيل أمام المحاكم والجهات المختصة. نؤكد كتابةً نطاق التمثيل والأتعاب والتفويض المطلوب قبل مباشرة العمل؛ ولا يُعد إرسال استفسار وحده تفويضاً لنا بالتصرف.",
         },
         {
           title: "تعديل الشروط",
@@ -131,7 +127,7 @@ export default function TermsOfService() {
         },
       ],
       ctaHeading: "مستعد للبدء؟",
-      ctaDesc: "أرسل سؤالك القانوني عبر واتساب أو البريد الإلكتروني. سيراجع فريقنا طلبك ويُعلمك بالرسوم — دون أي التزام حتى توافق.",
+      ctaDesc: "اختر المجال القانوني ورسوم استشارته الثابتة المنشورة، ثم أرسل سؤالك ومستنداتك. يؤكد فريقنا تفاصيل الخدمة والدفع قبل البدء.",
       ctaBtn: "تواصل معنا الآن",
     },
   }[isRTL ? "ar" : "en"];
@@ -158,7 +154,7 @@ export default function TermsOfService() {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "dateModified": "2026-09-07",
+            "dateModified": CONSULTATION_PRICES_UPDATED_AT,
             "@id": `${pageUrl}#webpage`,
             "name": isRTL ? "شروط الخدمة | كاونسلو للاستشارات القانونية" : "Terms of Service | CounselO Legal",
             "description": content.seoDesc,
@@ -260,6 +256,7 @@ export default function TermsOfService() {
         >
           <h2 className="text-2xl font-serif font-bold text-white mb-3">{content.ctaHeading}</h2>
           <p className="text-white/90 mb-8 leading-relaxed">{content.ctaDesc}</p>
+          <p className="mb-6"><Link href={`${regionPrefix}/services#complete-service-directory`} className="text-white underline underline-offset-4">{isRTL ? "اطّلع على الخدمات وأسعار الاستشارات" : "View services and consultation fees"}</Link></p>
           <Link href={`${regionPrefix}/contact`}>
             <span className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 hover:bg-white/90 transition-colors cursor-pointer">
               {content.ctaBtn}

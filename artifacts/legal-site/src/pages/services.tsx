@@ -28,7 +28,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
+import { COUNSELO_ENTITY_IDS, getConsultationPrice, CONSULTATION_SCOPE, CONSULTATION_PRICES_UPDATED_AT } from "@workspace/api-zod/browser";
+import { consultationPriceLabel } from "@/components/legal/consultation-price";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
@@ -65,6 +66,10 @@ export default function Services() {
     ? (isRTL ? "الإمارات العربية المتحدة" : "the United Arab Emirates")
     : region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
   const areaCount = s.items.length;
+  const directoryPrices = s.items.flatMap(service => {
+    const price = getConsultationPrice(region, service.id);
+    return price ? [price] : [];
+  });
   const serviceIndexById = new Map(s.items.map((item, index) => [item.id, index]));
   const itemsPerColumn = Math.ceil(areaCount / 3);
   const serviceColumns = Array.from({ length: 3 }, (_, column) =>
@@ -86,6 +91,7 @@ export default function Services() {
       "name": seoTitle,
       "inLanguage": isRTL ? "ar" : "en",
       "url": `${baseUrl}/services`,
+      "dateModified": CONSULTATION_PRICES_UPDATED_AT,
       "about": { "@id": `https://counselo-legal.com/#${region}-service-directory` },
     },
     {
@@ -116,6 +122,26 @@ export default function Services() {
         { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": `${baseUrl}/services` },
       ],
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "OfferCatalog",
+      "@id": `${baseUrl}/services#consultation-offers`,
+      "name": isRTL ? `أسعار الاستشارات القانونية أونلاين في ${country}` : `Online legal consultation prices in ${country}`,
+      "description": CONSULTATION_SCOPE[isRTL ? "ar" : "en"],
+      "itemListElement": directoryPrices.map(price => ({
+        "@type": "Offer",
+        "price": price.amount,
+        "priceCurrency": price.currency,
+        "url": `${baseUrl}/contact?consultation=${price.id}#consultation-request`,
+        "description": CONSULTATION_SCOPE[isRTL ? "ar" : "en"],
+        "itemOffered": {
+          "@type": "Service",
+          "name": isRTL ? `استشارة قانونية مكتوبة أونلاين: ${price.titleAr}` : `Written online legal consultation: ${price.titleEn}`,
+          "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
+          "areaServed": { "@type": "Country", "name": { sa: "Saudi Arabia", syr: "Syria", uae: "United Arab Emirates" }[region] },
+        },
+      })),
+    },
   ];
 
   return (
@@ -138,7 +164,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section id="complete-service-directory" aria-label={isRTL ? "دليل الخدمات الكامل" : "Complete service directory"} className="bg-white py-14 lg:py-20">
+      <section id="complete-service-directory" aria-label={isRTL ? "دليل الخدمات الكامل" : "Complete service directory"} className="scroll-mt-28 bg-white py-14 lg:py-20">
         <div className="premium-content-shell">
           <div className="services-editorial-directory grid lg:grid-cols-3">
             {serviceColumns.map((column, columnIndex) => (
@@ -146,6 +172,7 @@ export default function Services() {
                 {column.map((service) => {
                   const index = serviceIndexById.get(service.id) ?? 0;
                   const Icon = serviceIcons[service.id] ?? Gavel;
+                  const consultationPrice = getConsultationPrice(region, service.id);
                   return (
                     <m.article
                       key={service.id}
@@ -171,6 +198,8 @@ export default function Services() {
                           <span className="line-clamp-3 block text-sm leading-6 text-[#52675e]">
                             {serviceExperience(region, service.id, isRTL ? "ar" : "en").hero}
                           </span>
+                          {consultationPrice && <span className="mt-3 block text-sm font-semibold text-[#0d4a31]">{isRTL ? "الاستشارة أونلاين: " : "Online consultation: "}<bdi>{consultationPriceLabel(consultationPrice, isRTL)}</bdi></span>}
+                          {service.id === "urgent-legal-assistance" && <span className="mt-3 block text-sm font-semibold text-[#0d4a31]">{isRTL ? "تُحدَّد الأتعاب بحسب الحالة" : "Fees depend on the case"}</span>}
                         </div>
                         <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                       </Link>
@@ -187,7 +216,7 @@ export default function Services() {
           <h2 id="services-final-title" className="font-serif text-3xl md:text-4xl mb-5">{isRTL ? `ابدأ استشارتك القانونية لمسألة في ${country}` : `Start your consultation for a matter in ${country}`}</h2>
           <p className="max-w-3xl text-white/80 leading-8 mb-6">{common.contactText}</p>
           <Link href={`${regionPrefix}/contact`} data-cta="contact" data-conversion-position="services-final" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-12 items-center justify-center gap-3 bg-[#d4ae5f] px-6 py-3 font-semibold text-[#073d2b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{common.primary}<ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" /></Link>
-          <p className="mt-5 max-w-3xl text-sm leading-7 text-white/75">{common.contactNote}</p>
+          <p className="mt-5 max-w-3xl text-sm leading-7 text-white/75">{CONSULTATION_SCOPE[isRTL ? "ar" : "en"]}</p>
         </div>
       </section>
     </div>

@@ -5,7 +5,8 @@ import { logger } from "./logger.js";
 import { publicWorkFileSnapshotReadsReady } from "./public-snapshot-readiness.js";
 
 const MAX_BYTES = 32 * 1024 * 1024;
-const PREFIX = "counselo/public-work-files/v1/";
+// v2 includes the source language required to verify a reviewed PDF edition.
+const PREFIX = "counselo/public-work-files/v2/";
 
 export type PublicWorkFile = {
   slug: string;
@@ -13,6 +14,7 @@ export type PublicWorkFile = {
   fileMimeType: string;
   fileData: string;
   fileSize: number;
+  documentLanguage: string;
   published: true;
   confidentialityConfirmed: boolean;
   updatedAt: Date | string | null;
@@ -53,6 +55,8 @@ function decode(source: string): PublicWorkFile {
     entry.file.published !== true ||
     typeof entry.file.slug !== "string" ||
     typeof entry.file.fileData !== "string" ||
+    typeof entry.file.documentLanguage !== "string" ||
+    !entry.file.documentLanguage.trim() ||
     typeof entry.file.fileSize !== "number" ||
     entry.file.fileSize <= 0
   ) {

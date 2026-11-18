@@ -24,7 +24,9 @@ test("both languages answer the same core questions with complete content", () =
     assert.equal(c.countryDetails.length, 3);
     assert.equal(c.steps.length, 4);
     assert.equal(c.questions.length, 8);
-    assert.match(c.intro, /experienced legal professionals|فريق قانوني متمرس/);
+    assert.match(c.intro, /team|فريق/, "introduce the legal team in both languages");
+    assert.match(c.intro, /representation|التمثيل/, "include representation in the same service introduction");
+    assert.doesNotMatch(c.intro, /separate engagement|تكليف مستقل|تكليف منفصل/);
     assert.doesNotMatch(c.intro, /Omar|عمر البغدادي|1996/);
   }
 });

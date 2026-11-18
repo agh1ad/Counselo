@@ -35,3 +35,19 @@ test("public content distinguishes removed records from outages and permits a fa
     globalThis.fetch = originalFetch;
   }
 });
+
+test("work JSON normalization preserves verified document edition metadata", async () => {
+  const originalFetch = globalThis.fetch;
+  const sample = {
+    slug: "edition-client-parity", date: "2026-07-22", updatedAt: "2026-07-29T04:19:19.570Z",
+    published: true, fileMimeType: "application/pdf", fileSize: 43210, documentLanguage: "ar",
+    documentEdition: "2026-11-18", documentEditionPublishedAt: "2026-11-18T00:00:00.000Z",
+    documentTextUrl: "/documents/edition-client-parity.txt",
+  };
+  globalThis.fetch = async () => new Response(JSON.stringify(sample), { headers: { "content-type": "application/json" } });
+  try {
+    assert.deepEqual(await fetchPublicJson(`/api/work/${sample.slug}`), sample);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});

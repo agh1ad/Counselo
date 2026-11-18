@@ -10,7 +10,7 @@ const { publicWorkFileCache } = await import("./public-work-file-cache.js");
 
 test("the actual API app serves canonical and proxy transport document paths through the same publication checks", async t => {
   const bytes = Buffer.from("%PDF-1.7\nSynthetic API routing fixture\n%%EOF");
-  const metadata = { slug: "api-routed-file", published: true, fileMimeType: "application/pdf", fileSize: bytes.length, updatedAt: "2026-11-13T00:00:00.000Z" };
+  const metadata = { slug: "api-routed-file", published: true, fileMimeType: "application/pdf", fileSize: bytes.length, updatedAt: "2026-11-13T00:00:00.000Z", documentLanguage: "ar" };
   let visible = true;
   t.mock.method(publicationDataCache, "read", (async () => visible ? [metadata] : []) as never);
   t.mock.method(publicWorkFileCache, "read", (async () => ({ ...metadata, fileName: "File.pdf", confidentialityConfirmed: false, fileData: bytes.toString("base64") })) as never);

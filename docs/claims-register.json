@@ -43,14 +43,14 @@
     {
       "id": "representation-scope",
       "category": "licensing-and-scope",
-      "approvedWordingEn": "CounselO provides online consultation, document review, preliminary analysis, and written guidance. If court representation is requested or necessary, it can be arranged through an appropriately licensed partner professional or cooperating office in the relevant served jurisdiction under a separate agreed engagement.",
-      "approvedWordingAr": "تقدم كاونسلو الاستشارات الأونلاين ومراجعة المستندات والتحليل الأولي والإرشاد المكتوب. وإذا طُلب التمثيل أمام المحاكم أو أصبح ضرورياً، يمكن ترتيبه من خلال مهني شريك أو مكتب متعاون مرخص في الدولة المعنية بموجب تكليف مستقل متفق عليه.",
+      "approvedWordingEn": "CounselO’s team provides online consultation, document review, drafting and representation across Saudi Arabia, Syria and the UAE, with remote communication and follow-up throughout the matter. Local lawyers and offices, including Abdullah Al-Anzi Law Office, are part of the CounselO team. Lawyers licensed in the relevant jurisdiction undertake court and authority work within the agreed scope.",
+      "approvedWordingAr": "يقدم فريق كاونسلو الاستشارة أونلاين ومراجعة المستندات والصياغة والتمثيل في السعودية وسوريا والإمارات، مع التواصل والمتابعة عن بُعد طوال المسألة. المحامون والمكاتب المحلية، ومنها مكتب المحامي عبدالله العنزي، جزء من فريق كاونسلو. ويتولى المحامون المرخصون في الدولة المعنية العمل أمام المحاكم والجهات المختصة ضمن النطاق المتفق عليه.",
       "evidenceOwner": "Legal leadership",
-      "evidenceLocation": "Terms of service, regional service pages, cooperating-office records",
+      "evidenceLocation": "Owner clarification in the 2026-11-18 CounselO task; terms of service, regional team profiles and existing licence records",
       "jurisdictions": ["uae", "sa", "syr"],
-      "lastVerified": "2026-08-08",
-      "reviewBy": "2026-11-08",
-      "requiredDisclaimer": "Formal representation is not implied by an online consultation and is confirmed only in an agreed engagement."
+      "lastVerified": "2026-11-18",
+      "reviewBy": "2027-02-18",
+      "requiredDisclaimer": "Confirm the work, fees and required authorisation before acting. Team membership does not imply every individual is licensed in every jurisdiction or that the offices share one incorporated legal entity."
     },
     {
       "id": "experience-volume",
@@ -103,14 +103,14 @@
     {
       "id": "redacted-work",
       "category": "testimonial-and-result",
-      "approvedWordingEn": "Published work samples are redacted and illustrative; past work, stated outcomes, testimonials, and timelines do not guarantee the result of another matter.",
-      "approvedWordingAr": "نماذج الأعمال المنشورة منقحة وتوضيحية؛ ولا تضمن الأعمال السابقة أو النتائج أو الشهادات أو المدد نتيجة أي مسألة أخرى.",
-      "evidenceOwner": "Editorial and confidentiality reviewer",
-      "evidenceLocation": "Redacted work approval record and source case file",
+      "approvedWordingEn": "CounselO’s official portfolio presents our team’s professional work, legal strategy and results through published case studies and legal work files, with author credit and client confidentiality preserved.",
+      "approvedWordingAr": "يعرض سجل أعمال كاونسلو الرسمي العمل المهني لفريقنا والاستراتيجية القانونية والنتائج من خلال دراسات القضايا وملفات العمل المنشورة، مع بيان أصحاب العمل وحماية سرية العملاء.",
+      "evidenceOwner": "CounselO owner for team and publication identity; originating legal team for case facts",
+      "evidenceLocation": "Owner instructions on 2026-11-18 confirm team ownership and that the current PDFs are case studies. Existing publication records and WORK_CONTEXT retain case-specific result attribution. This confirms publication identity, not judicial-document authentication.",
       "jurisdictions": ["uae", "sa", "syr"],
-      "lastVerified": "2026-08-08",
-      "reviewBy": "2026-11-08",
-      "requiredDisclaimer": "Precise financial recovery, reversal, success, or timeline claims require a linked verified case record and approval before publication."
+      "lastVerified": "2026-11-18",
+      "reviewBy": "2026-11-18",
+      "requiredDisclaimer": "Describe each result precisely and retain its source attribution, including settlement terms, amounts awarded, notes’ face value and client-reported appeal status. Court-issued or independently verified labels require the corresponding evidence."
     }
   ]
 }

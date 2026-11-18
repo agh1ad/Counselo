@@ -20,7 +20,7 @@ test("every published issue names the matter and supplies an explicit service of
       const overview = `${copy.introduction} ${copy.experience}`;
       for (const sentence of offer[lang].split(/(?<=[.!?؟])\s+/u)) assert.ok(overview.includes(sentence), `${page.slug}/${lang}: service work or next-stage support lost`);
       assert.doesNotMatch(overview, /support for your matter|Experienced support for your family|دعماً مهنياً أونلاين لمسألتك/);
-      assert.match(copy.introduction, /CounselO[’']s.*team|فريق كاونسلو/);
+      assert.match(copy.introduction, /CounselO[’']s.*team|فريق كاونسلو|محامو كاونسلو.*فريق/);
       assert.doesNotMatch(copy.introduction, /Omar|عمر البغدادي|1996|30\+|20,000/);
     }
   }
@@ -33,7 +33,7 @@ test("service introductions name their registered practice rather than inheritin
       const copy = servicePageCopy(region, service.slug, lang, []);
       const name = lang === "en" ? service.titleEn : service.titleAr;
       assert.ok(copy.heading.toLowerCase().includes(name.toLowerCase()), `${region}/${service.slug}/${lang}`);
-      assert.match(copy.introduction, /CounselO[’']s.*team|فريق كاونسلو/);
+      assert.match(copy.introduction, /CounselO[’']s.*team|فريق كاونسلو|محامو كاونسلو.*فريق/);
       assert.doesNotMatch(copy.introduction, /Omar|عمر البغدادي|1996|30\+|20,000/);
       assert.doesNotMatch(copy.introduction, /support for your matter|لمسألتك في/);
     }

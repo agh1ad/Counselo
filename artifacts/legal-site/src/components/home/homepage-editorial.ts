@@ -11,8 +11,8 @@ export const homepageEditorial = {
     ask: "Let’s identify the right starting point",
     trust: [
       ["Arabic & English", "Guidance in your language"],
-      ["Fully online", "Start wherever you are"],
-      ["Agreed scope & fee", "Before paid work begins"],
+      ["One legal team", "From advice to representation"],
+      ["Published consultation fees", "By country and legal category"],
     ],
     practiceTitle: "When to seek legal consultation",
     practiceIntro:
@@ -28,11 +28,11 @@ export const homepageEditorial = {
       ],
       [
             "When payment is overdue",
-            "For example, invoices remain unpaid or a judgment needs follow-up. A consultation can assess the supporting contract, payment record and available recovery routes. Collection, filing or enforcement work is separately agreed."
+            "For example, invoices remain unpaid or a judgment needs follow-up. A consultation can assess the supporting contract, payment record and available recovery routes. Our team can then handle the agreed collection, filing and enforcement work."
       ],
       [
             "When several countries or parties are involved",
-            "For example, an investment, family matter or dispute involves more than one country. A matter roadmap can identify the documents, priorities and need for local professional coordination before a wider engagement."
+            "For example, an investment, family matter or dispute involves more than one country. Our team can build a plan covering the documents, priorities and legal steps needed in each country we serve."
       ]
 ],
     clientsTitle: "Advice built around your priorities.",
@@ -54,18 +54,18 @@ export const homepageEditorial = {
     crossText:
       "A Saudi company contracting with a UAE business. Property or family documents in Syria while you live abroad. A judgment or asset connected to another country. Each part of the matter needs its own jurisdictional assessment.",
     crossNote:
-      "We connect legal analysis with strong professional relationships across the countries involved, coordinating proceedings and representation through qualified partner lawyers and law firms under agreed engagements.",
+      "We identify the countries, legal frameworks and professional requirements involved. The CounselO team comprises locally licensed lawyers and law offices in Saudi Arabia, Syria and the UAE, working together on your advice, preparation and representation.",
     crossCta: "Discuss a cross-border matter",
     packageTitle: "Know what your consultation will cover.",
     packageText:
-      "The deliverable depends on your legal question and the agreed scope. Before work begins, we confirm what is included, the fee and the expected timing.",
+      "Receive detailed professional written advice online and discuss questions on the same topic with our team. Consultation fees are fixed and published by country and legal category for Saudi Arabia, Syria and the UAE.",
     deliverables: [
       "Review of relevant facts and documents",
       "Identification of the applicable legal framework",
       "Assessment of rights, obligations and risks",
       "Written analysis and practical next steps",
-      "Clarification questions within the agreed scope",
-      "Assessment of any need for local representation",
+      "Discussion and questions on the same consultation topic",
+      "Representation by the same team, with fees agreed on request",
     ],
     response:
       "Target response within 24 hours, subject to scope, urgency, complete intake information and availability.",
@@ -81,8 +81,8 @@ export const homepageEditorial = {
     ask: "لنحدد معاً نقطة البداية المناسبة",
     trust: [
       ["العربية والإنجليزية", "إرشاد باللغة المناسبة لك"],
-      ["عبر الإنترنت", "ابدأ أينما كنت"],
-      ["نطاق ورسوم متفق عليها", "قبل بدء العمل المدفوع"],
+      ["فريق قانوني واحد", "من الاستشارة إلى التمثيل"],
+      ["رسوم استشارة منشورة", "بحسب الدولة والمجال القانوني"],
     ],
     practiceTitle: "متى تطلب استشارة قانونية؟",
     practiceIntro:
@@ -98,11 +98,11 @@ export const homepageEditorial = {
       ],
       [
             "عند تأخر سداد مستحقات",
-            "مثلاً، تبقى فواتير دون سداد أو يحتاج حكم إلى متابعة. يمكن للاستشارة تقييم العقد وسجل المدفوعات ومسارات التحصيل المتاحة. ويُتفق بشكل منفصل على أعمال التحصيل أو تقديم الطلبات أو التنفيذ."
+            "مثلاً، تبقى فواتير دون سداد أو يحتاج حكم إلى متابعة. يمكن للاستشارة تقييم العقد وسجل المدفوعات ومسارات التحصيل المتاحة. ثم يتولى فريقنا أعمال التحصيل وتقديم الطلبات والتنفيذ المتفق عليها."
       ],
       [
             "عندما ترتبط المسألة بدول أو أطراف متعددة",
-            "مثلاً، يرتبط استثمار أو شأن أسري أو نزاع بأكثر من دولة. يمكن لخريطة المسار تحديد المستندات والأولويات والحاجة إلى التنسيق المهني المحلي قبل الاتفاق على تكليف أوسع."
+            "مثلاً، يرتبط استثمار أو شأن أسري أو نزاع بأكثر من دولة. يضع فريقنا خطة تشمل المستندات والأولويات والخطوات القانونية المطلوبة في كل دولة نخدمها."
       ]
 ],
     clientsTitle: "مشورة تنطلق من أولوياتك.",
@@ -124,18 +124,18 @@ export const homepageEditorial = {
     crossText:
       "شركة سعودية تتعاقد مع منشأة إماراتية. عقار أو مستندات أسرية في سوريا وأنت مقيم بالخارج. حكم أو أصل مالي يرتبط بدولة أخرى. يحتاج كل جزء من المسألة إلى تقييم اختصاصه القانوني.",
     crossNote:
-      "نجمع التحليل القانوني والعلاقات المهنية في الدول المعنية، وننسق الإجراءات المحلية والتمثيل مع المحامين ومكاتب المحاماة الشريكة المؤهلة ضمن تكليف متفق عليه.",
+      "نحدد الدول والأطر القانونية والمتطلبات المهنية ذات الصلة. ويتكوّن فريق كاونسلو من محامين ومكاتب مرخّصة محلياً في السعودية وسوريا والإمارات، يعملون معاً على استشارتك وإعداد ملفك وتمثيلك.",
     crossCta: "ناقش مسألة عابرة للحدود",
     packageTitle: "اعرف ما ستشمله استشارتك.",
     packageText:
-      "يتحدد المخرج بحسب سؤالك القانوني والنطاق المتفق عليه. نؤكد ما تشمله الخدمة والرسوم والوقت المتوقع قبل بدء العمل.",
+      "تتلقى استشارة مهنية مكتوبة ومفصلة أونلاين وتناقش أسئلتك ضمن الموضوع نفسه مع فريقنا. رسوم الاستشارات ثابتة ومنشورة بحسب الدولة والمجال القانوني في السعودية وسوريا والإمارات.",
     deliverables: [
       "مراجعة الوقائع والمستندات ذات الصلة",
       "تحديد الإطار القانوني المنطبق",
       "تقييم الحقوق والالتزامات والمخاطر",
       "تحليل مكتوب وخطوات عملية تالية",
-      "أسئلة توضيحية ضمن النطاق المتفق عليه",
-      "تقييم الحاجة إلى تمثيل محلي",
+      "مناقشة وأسئلة ضمن موضوع الاستشارة نفسه",
+      "تمثيل من الفريق نفسه بأتعاب تُتفق عند طلبه",
     ],
     response:
       "نستهدف الرد خلال 24 ساعة، بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة.",

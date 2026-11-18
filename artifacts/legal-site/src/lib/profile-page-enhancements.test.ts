@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, aboutContent, aboutRegions, syrianPartners } from "../components/about/about-content";
 
@@ -9,19 +9,27 @@ test("CounselO Legal about pages expose an organization ProfilePage", () => {
   assert.match(aboutSource, /"@type": \["ProfilePage", "WebPage"\]/);
   assert.match(aboutSource, /"mainEntity": \{ "@id": COUNSELO_ENTITY_IDS\.organization \}/);
   assert.match(aboutSource, /"dateModified": ABOUT_UPDATED/);
-  assert.equal(ABOUT_UPDATED, "2026-11-13");
+  assert.equal(ABOUT_UPDATED, "2026-11-18");
   assert.match(aboutSource, /COOPERATING_OFFICES\.saudi/);
   assert.doesNotMatch(aboutSource, /"mainEntity": \{ "@id": COUNSELO_ENTITY_IDS\.omar \}/);
 });
 
-test("About presents the platform and keeps the Saudi licence tied to its partner", () => {
+test("About presents one CounselO team and keeps the Saudi licence tied to its named lawyer", () => {
   assert.equal(SAUDI_PARTNER_LICENCE, "37440");
-  assert.match(aboutSource, /region === "sa" && <p className="about-partner__licence"/);
+  assert.match(aboutSource, /region === "sa" && <div className="about-partner__licence"/);
+  assert.match(aboutSource, /<a className="about-partner__licence-link" href=\{SAUDI_LAWYER_DIRECTORY\[language\]\}[^>]*><strong><bdi dir="ltr">\{SAUDI_PARTNER_LICENCE\}<\/bdi><\/strong><\/a>/);
+  assert.match(aboutSource, /region === "sa"\s*\? <img className="about-partner__logo" src="\/images\/abdullah-alenezi-law-office-logo\.jpg"/);
+  assert.ok(existsSync(new URL("../../public/images/abdullah-alenezi-law-office-logo.jpg", import.meta.url)));
   assert.match(aboutRegions.sa.en.partnerTitle, /Abdullah Al-Anzi/);
   assert.match(aboutRegions.sa.ar.partnerTitle, /عبدالله العنزي/);
-  assert.match(aboutRegions.sa.en.partnerText, /separately agreed engagement/);
+  assert.match(aboutRegions.sa.en.partnerText, /Abdullah Al-Anzi Law Office is part of the CounselO team/);
+  assert.match(aboutRegions.sa.ar.partnerText, /مكتب المحامي عبدالله العنزي جزء من فريق كاونسلو/);
+  assert.doesNotMatch(aboutSource, /c\.directoryNote|about-partner__verification/);
+  assert.doesNotMatch(aboutRegions.sa.en.partnerText, /separate(?:ly)? (?:agreed )?engagement/);
+  assert.doesNotMatch(aboutRegions.sa.ar.partnerText, /تكليف مستقل|اتفاق منفصل/);
   assert.doesNotMatch(aboutSource, /CounselOFeatures|a\.stats|a\.office|mapsUrl|BAGHDADI_LAW_PROFILE_URL/);
   for (const lang of ["en", "ar"] as const) {
+    assert.equal("directoryNote" in aboutContent[lang], false);
     assert.equal(aboutContent[lang].features.length, 4);
     assert.equal(aboutContent[lang].services.length, 4);
     assert.equal(aboutContent[lang].process.length, 3);

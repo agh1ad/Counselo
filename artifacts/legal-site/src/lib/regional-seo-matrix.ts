@@ -60,7 +60,7 @@ function serviceRows(region: Region): RegionalSeoMatrixRow[] {
           `محامي ${service.titleAr} أونلاين`,
           `محامي ${service.titleAr} قريب مني`,
         ],
-        contentBrief: service.kind === "priority-intake" ? "Explain only legal memoranda, statements of claim and existing contract or agreement review based on client documents; exclude new contracts and court representation; explain urgent fees differ from standard fees, the 3-hour delivery target after complete documents and payment, and Saturday through Thursday intake with no Friday cases." : `Build the ${service.titleEn} service landing page for ${profile.countryEn}, including local legal basis, scope, documents, FAQs, proof, related services, and consultation CTA.`,
+        contentBrief: service.kind === "priority-intake" ? "Explain legal memoranda, statements of claim and existing contract or agreement review based on client documents; new contracts and court representation require separately agreed work with the same team. Urgent document fees reflect the scope and deadline; standard online consultations use the published subject fee. Preserve the 3-hour document delivery target after acceptance, complete documents and payment, and Saturday through Thursday intake with no Friday cases." : `Build the ${service.titleEn} service landing page for ${profile.countryEn}, including local legal basis, scope, documents, FAQs, proof, related services, and consultation CTA.`,
         publishStatus: service.kind === "priority-intake" ? "planned" as const : "live" as const,
       },
       {

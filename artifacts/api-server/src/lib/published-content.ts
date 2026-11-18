@@ -1,11 +1,17 @@
 import { blogPostsTable, db, selectBlogPostSchema, selectWorkSampleSchema, workSamplesTable } from "@workspace/db";
-import { and, desc, eq, getTableColumns } from "drizzle-orm";
+import { and, desc, eq } from "drizzle-orm";
+import { z } from "zod";
 import { publicationDataCache } from "./publication-data-cache.js";
 import { publicWorkFileCache, PublicWorkFileUnavailableError, type PublicWorkFile } from "./public-work-file-cache.js";
+import { publicWorkColumns, workSourceFileSHA256 } from "./public-work-columns.js";
 
-const { fileData: _file, confidentialityConfirmed: _approval, ...workColumns } = getTableColumns(workSamplesTable);
 type Blog = typeof blogPostsTable.$inferSelect;
-type Work = Omit<typeof workSamplesTable.$inferSelect, "fileData" | "confidentialityConfirmed">;
+type Work = Omit<typeof workSamplesTable.$inferSelect, "fileData" | "confidentialityConfirmed"> & {
+  sourceFileSHA256: string | null;
+};
+// Null is valid for a record without a valid published PDF. A missing field
+// identifies a legacy snapshot that cannot verify a reviewed document edition.
+const sourceFingerprintSchema = z.string().regex(/^[a-f0-9]{64}$/).nullable();
 
 const workSummaryColumns = {
   id: workSamplesTable.id,
@@ -33,6 +39,7 @@ const workSummaryColumns = {
   featured: workSamplesTable.featured,
   published: workSamplesTable.published,
   updatedAt: workSamplesTable.updatedAt,
+  sourceFileSHA256: workSourceFileSHA256,
 };
 
 const workSummarySchema = selectWorkSampleSchema.pick({
@@ -61,7 +68,7 @@ const workSummarySchema = selectWorkSampleSchema.pick({
   featured: true,
   published: true,
   updatedAt: true,
-});
+}).extend({ sourceFileSHA256: sourceFingerprintSchema });
 
 const publicWorkFileColumns = {
   slug: workSamplesTable.slug,
@@ -72,6 +79,7 @@ const publicWorkFileColumns = {
   published: workSamplesTable.published,
   confidentialityConfirmed: workSamplesTable.confidentialityConfirmed,
   updatedAt: workSamplesTable.updatedAt,
+  documentLanguage: workSamplesTable.documentLanguage,
 };
 
 function dates(value: unknown): Record<string, unknown> {
@@ -89,7 +97,8 @@ export function decodePublishedBlogs(value: unknown): Blog[] {
   return value.map(record => selectBlogPostSchema.parse(dates(record)) as Blog);
 }
 
-const publicWorkSchema = selectWorkSampleSchema.omit({ fileData: true, confidentialityConfirmed: true });
+const publicWorkSchema = selectWorkSampleSchema.omit({ fileData: true, confidentialityConfirmed: true })
+  .extend({ sourceFileSHA256: sourceFingerprintSchema });
 export function decodePublishedWork(value: unknown): Work[] {
   if (!Array.isArray(value)) throw new Error("Invalid public work collection");
   return value.map(record => publicWorkSchema.parse(dates(record)) as Work);
@@ -127,7 +136,7 @@ export async function publishedBlogBySlug(slug: string): Promise<Blog | undefine
 }
 
 export function publishedWork(): Promise<Work[]> {
-  return publicationDataCache.read("work", () => db.select(workColumns).from(workSamplesTable)
+  return publicationDataCache.read("work", () => db.select(publicWorkColumns).from(workSamplesTable)
     .where(eq(workSamplesTable.published, true)).orderBy(desc(workSamplesTable.date)), decodePublishedWork);
 }
 
@@ -160,7 +169,7 @@ export async function publishedWorkFileBySlug(slug: string): Promise<PublicWorkF
     return file as PublicWorkFile;
   });
   if (!file || file.slug !== metadata.slug || file.fileSize !== metadata.fileSize ||
-      file.fileMimeType !== metadata.fileMimeType ||
+      file.fileMimeType !== metadata.fileMimeType || file.documentLanguage !== metadata.documentLanguage ||
       new Date(file.updatedAt ?? 0).getTime() !== new Date(metadata.updatedAt ?? 0).getTime()) {
     throw new PublicWorkFileUnavailableError();
   }
@@ -177,7 +186,7 @@ export async function primePublishedContentDataSnapshots(): Promise<void> {
     ),
     publicationDataCache.prime(
       "work",
-      () => db.select(workColumns).from(workSamplesTable)
+      () => db.select(publicWorkColumns).from(workSamplesTable)
         .where(eq(workSamplesTable.published, true)).orderBy(desc(workSamplesTable.date)),
       decodePublishedWork,
     ),

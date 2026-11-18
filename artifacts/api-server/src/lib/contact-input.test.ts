@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { getConsultationPrices } from "@workspace/api-zod";
 import {
   ContactInputError,
   MAX_CONTACT_TOTAL_BYTES,
@@ -81,6 +82,18 @@ test("rejects every cross-region service", () => {
     () => parseContactInput({ ...validInput, region: "syr", service: "corporate-commercial" }),
     ContactInputError,
   );
+});
+
+test("accepts each country's published consultation categories without unknown or foreign-region choices", () => {
+  for (const region of ["sa", "syr", "uae"] as const) for (const category of getConsultationPrices(region)) {
+    for (const language of ["en", "ar"]) {
+      assert.equal(parseContactInput({ ...validInput, region, service: category.id, language }).service, category.id);
+    }
+  }
+  for (const [region, service] of [["uae", "civil-procedure"], ["syr", "corporate-commercial"]]) {
+    assert.throws(() => parseContactInput({ ...validInput, region, service }), ContactInputError);
+  }
+  assert.throws(() => parseContactInput({ ...validInput, service: "unknown-consultation" }), ContactInputError);
 });
 
 test("accepts a real PDF attachment and records its decoded size", () => {

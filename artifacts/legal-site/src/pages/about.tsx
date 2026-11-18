@@ -21,8 +21,8 @@ export default function About() {
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
   const countryCode = region === "uae" ? "AE" : region === "syr" ? "SY" : "SA";
   const description = isRTL
-    ? `تعرّف على خدمات كاونسلو في ${local.country}: الاستشارة والصياغة والاستراتيجية القانونية ودعم القضايا من البسيطة إلى المعقدة، والتمثيل عبر شركاء مرخصين.`
-    : `Meet CounselO's legal team for ${local.country}: advice, drafting and case strategy from everyday questions to complex disputes, with licensed partner representation.`;
+    ? `تعرّف على فريق كاونسلو في ${local.country}: فريق واحد للاستشارة والصياغة والتفاوض والتمثيل القانوني، من الأسئلة اليومية إلى القضايا المعقدة.`
+    : `Meet CounselO’s team in ${local.country}: one legal team for advice, drafting, negotiation and representation, from everyday questions to complex disputes.`;
   const whatsapp = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL
     ? `مرحباً كاونسلو، أود مناقشة مسألة قانونية في ${local.country} وتحديد نطاق العمل والأتعاب.`
     : `Hello CounselO, I would like to discuss a legal matter in ${local.country} and confirm the scope and fee.`)}`;
@@ -145,18 +145,20 @@ export default function About() {
       </div>
     </section>
 
-    <section className="about-partner about-shell" aria-labelledby="about-partner-heading">
-      <div className="about-partner__identity"><ShieldCheck size={32} strokeWidth={1.5} aria-hidden="true" /><div>
+    <section id="team-office" className="about-partner about-shell" aria-labelledby="about-partner-heading">
+      <div className="about-partner__identity">{region === "sa"
+        ? <img className="about-partner__logo" src="/images/abdullah-alenezi-law-office-logo.jpg" width={569} height={762} alt={isRTL ? "شعار مكتب المحامي عبدالله العنزي" : "Abdullah Al-Anzi Law Office logo"} loading="lazy" decoding="async" />
+        : <ShieldCheck size={32} strokeWidth={1.5} aria-hidden="true" />}<div className="about-partner__name">
         {region === "sa" && <p className="about-kicker">{c.partnerLabel}</p>}
         <h2 id="about-partner-heading">{local.partnerTitle}</h2>
-      </div>{region === "sa" && <p className="about-partner__licence">{c.licenceLabel}<strong dir="ltr">{SAUDI_PARTNER_LICENCE}</strong></p>}</div>
+      </div>{region === "sa" && <div className="about-partner__licence">
+        <span>{c.licenceLabel}</span>
+        <a className="about-partner__licence-link" href={SAUDI_LAWYER_DIRECTORY[language]} target="_blank" rel="noopener noreferrer" aria-label={`${c.directoryLabel}: ${local.partnerTitle} — ${SAUDI_PARTNER_LICENCE}`} title={c.directoryLabel}><strong><bdi dir="ltr">{SAUDI_PARTNER_LICENCE}</bdi></strong></a>
+      </div>}</div>
       <p>{local.partnerText}</p>
-      {region === "sa" && <div className="about-partner__verification">
-        <a className="about-text-link" href={SAUDI_LAWYER_DIRECTORY[language]} target="_blank" rel="noopener noreferrer">{c.directoryLabel}<Arrow size={17} aria-hidden="true" /></a>
-        <p>{c.directoryNote}</p>
-      </div>}
       {region === "syr" && <ul className="about-partner__offices">
         {syrianPartners[language].map(partner => <li key={partner.name}>
+          {partner.logo && <img className="about-partner__office-logo" src={partner.logo} alt={partner.logoAlt} width={700} height={300} loading="lazy" decoding="async" />}
           <h3>{partner.name}</h3>
           <p>{partner.location}</p>
           {partner.licence && <p>{isRTL ? "رقم الترخيص: " : "Licence number: "}<strong><bdi dir="ltr">{partner.licence}</bdi></strong></p>}

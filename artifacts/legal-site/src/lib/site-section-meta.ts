@@ -21,26 +21,26 @@ export function siteSectionMeta(path: string) {
     ? { home: "الرئيسية", services: "الخدمات", contact: "تواصل معنا", about: "من نحن" }
     : { home: "Home", services: "Services", contact: "Contact Us", about: "About Us" };
   const titles: Record<Section, string> = ar ? {
-    home: `كاونسلو في ${country} | خدمات واستشارات قانونية`,
+    home: `استشارات أونلاين وتمثيل قانوني في ${country} | كاونسلو`,
     services: `الخدمات القانونية في ${country} | كاونسلو`,
-    contact: `تواصل معنا | كاونسلو في ${country}`,
+    contact: `تواصل معنا أونلاين | كاونسلو في ${country}`,
     about: `من نحن | كاونسلو في ${country}`,
   } : {
-    home: `CounselO Legal in ${country} | Advice & Representation`,
+    home: `Online Legal Advice in ${country} | CounselO Legal`,
     services: `Legal Services in ${country} | CounselO Legal`,
-    contact: `Contact Us | CounselO Legal in ${country}`,
+    contact: `Contact Us Online | CounselO Legal in ${country}`,
     about: `About Us | CounselO Legal in ${country}`,
   };
   const descriptions: Record<Section, string> = ar ? {
-    home: `خدمات قانونية في ${country} من الاستشارة والعقود إلى القضايا المعقدة. تحليل وصياغة ومتابعة، وتمثيل أمام المحاكم بواسطة المحامين المحليين المرخصين وفق نطاق التكليف.`,
-    services: `استكشف خدمات كاونسلو في ${country} للأفراد والأعمال: استشارات وعقود ونزاعات وتمثيل بواسطة المحامين المحليين المرخصين. تعرّف على المستندات ونطاق كل خدمة.`,
-    contact: `تواصل مع كاونسلو بشأن مسألتك القانونية في ${country}. شارك المتطلبات والمهل لتحديد المحامي المسؤول ونطاق العمل والأتعاب والمواعيد قبل بدء التكليف.`,
-    about: `تعرّف على كاونسلو وفريقها وخدماتها في ${country} للمسائل اليومية والقضايا المعقدة. استعرض الأعمال المنشورة وآلية إدارة التكليف والتمثيل المحلي.`,
+    home: `استشر فريق كاونسلو أونلاين في ${country} وراجع مستنداتك وتابع ملفك من منزلك. فريق واحد من الاستشارة والعقود إلى التمثيل القانوني بمحامينا المرخصين محلياً.`,
+    services: `خدمات كاونسلو في ${country}: استشارات ومراجعة عقود أونلاين، وتفاوض وتمثيل قانوني ضمن الفريق نفسه. تواصل وتابع ملفك عن بُعد بالعربية أو الإنجليزية.`,
+    contact: `تواصل أونلاين مع فريق كاونسلو في ${country} للاستشارة والعقود والتمثيل القانوني. شارك مسألتك ومستنداتك عن بُعد؛ نتفق على العمل والأتعاب قبل البدء.`,
+    about: `تعرّف على فريق كاونسلو المكوّن من محامين ومكاتب مرخّصة في ${country}. استشارات ومراجعة مستندات ومتابعة أونلاين وتمثيل قانوني مع الفريق نفسه.`,
   } : {
-    home: `Legal services in ${country}, from advice and contracts to complex disputes. Case preparation and court representation through licensed local lawyers.`,
-    services: `Explore legal services in ${country}: advice, contracts, disputes and representation through licensed local lawyers. See each service's scope and documents.`,
-    contact: `Contact CounselO about your legal matter in ${country}. Share your needs and deadlines to agree the responsible lawyer, scope, fees and timing before work begins.`,
-    about: `Meet CounselO and its team serving ${country}, from everyday legal matters to complex cases. Explore published work, engagement standards and local representation.`,
+    home: `Consult online in ${country}, share documents and follow your matter from home. One CounselO team handles advice through representation by our licensed lawyers.`,
+    services: `CounselO’s services in ${country}: online advice and contract review, negotiation and legal representation. Stay with one team and follow your matter remotely.`,
+    contact: `Contact CounselO online in ${country} for advice, contracts and representation. Share your documents remotely and stay with our team through the agreed work.`,
+    about: `Meet CounselO’s team of licensed lawyers and law offices in ${country}. Online advice, document review and representation with one team.`,
   };
   return { title: titles[section], description: descriptions[section], label: sectionLabels[section], section, region, language };
 }

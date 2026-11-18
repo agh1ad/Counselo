@@ -39,7 +39,7 @@ export function Navbar() {
     search: "ابحث عن خدمة قانونية", placeholder: "الأسرة، العقود، العمل…", clear: "مسح البحث",
     noResults: "لم نجد خدمة بهذا الاسم.", reset: "عرض جميع الخدمات", country: "اختر الدولة", countryHint: "خدمات قانونية بحسب اختصاصك.",
     library: "المكتبة القانونية", articles: "المقالات القانونية", work: "أعمالنا", about: "من نحن", contact: "تواصل معنا",
-    consult: "ابدأ استشارتك", urgent: "مساعدة قانونية عاجلة", online: "استشارات قانونية أونلاين", global: "رؤى عالمية",
+    consult: "ابدأ استشارتك", urgent: "مساعدة قانونية عاجلة", online: "استشارات أونلاين. فريق واحد.", global: "رؤى عالمية",
     language: "English — التبديل إلى الإنجليزية", found: "النتائج",
   } : {
     menu: "Menu", open: "Open navigation menu", close: "Close navigation menu", title: "Explore CounselO",
@@ -48,7 +48,7 @@ export function Navbar() {
     search: "Find a legal service", placeholder: "Family, contracts, employment…", clear: "Clear search",
     noResults: "No services match your search.", reset: "Show all services", country: "Choose your country", countryHint: "Legal services for your jurisdiction.",
     library: "Legal Library", articles: "Legal Articles", work: "Our Work", about: "About Us", contact: "Contact Us",
-    consult: "Start a consultation", urgent: "Urgent legal assistance", online: "Online legal consultations", global: "Global insights",
+    consult: "Start a consultation", urgent: "Urgent legal assistance", online: "Online advice. One legal team.", global: "Global insights",
     language: "عربي — Switch to Arabic", found: "Results",
   };
   const primaryLinks = [

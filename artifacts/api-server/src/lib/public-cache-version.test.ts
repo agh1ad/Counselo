@@ -35,6 +35,14 @@ test("deployment identity is stable across restarts and installation paths but c
     assert.notEqual(changedFrontend, changedApi, "frontend asset references must invalidate cached HTML");
     writeFileSync(path.join(first.dist, "ssr-template.html"), '<script src="/assets/index-second.js"></script><div id="root"></div>');
     assert.notEqual(readPublicCacheDeploymentVersion(first.options), changedFrontend, "the shell used by the renderer must participate");
+    const beforeDocuments = readPublicCacheDeploymentVersion(first.options);
+    const documentAssets = path.join(path.dirname(first.api), "assets/work-document-revisions");
+    mkdirSync(documentAssets, { recursive: true });
+    writeFileSync(path.join(documentAssets, "manifest.json"), JSON.stringify({ version: 1, documents: [{ pdfSHA256: "first" }] }));
+    const firstEdition = readPublicCacheDeploymentVersion(first.options);
+    assert.notEqual(firstEdition, beforeDocuments, "adding a PDF edition must invalidate cached documents");
+    writeFileSync(path.join(documentAssets, "manifest.json"), JSON.stringify({ version: 1, documents: [{ pdfSHA256: "second" }] }));
+    assert.notEqual(readPublicCacheDeploymentVersion(first.options), firstEdition, "asset-only PDF revisions must invalidate old cached bodies");
   } finally {
     rmSync(first.cwd, { recursive: true, force: true });
     rmSync(otherLocation.cwd, { recursive: true, force: true });

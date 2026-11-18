@@ -1,0 +1,2 @@
+# Preserve published PDF documents byte-for-byte.
+*.pdf binary

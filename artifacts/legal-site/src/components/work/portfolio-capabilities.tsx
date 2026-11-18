@@ -13,19 +13,19 @@ export function PortfolioCapabilities({ isArabic, samples }: { isArabic: boolean
   const base = isArabic ? "/ar/our-work" : "/our-work";
   const Arrow = isArabic ? ArrowLeft : ArrowRight;
   const copy = isArabic ? {
-    title: "قدراتنا القانونية في أعمال منشورة",
-    intro: "ملفات مختارة توضح دور فريقنا والمستندات التي درسها والعمل القانوني الذي قدمه.",
-    role: "دور كاونسلو",
+    title: "خبرتنا القانونية في التطبيق",
+    intro: "اطّلع على دور فريقنا في تحليل العقود والمطالبات التجارية والمنازعات العابرة للحدود، والاستراتيجية والعمل القانوني الذي أنجزناه.",
+    role: "دور فريق كاونسلو",
     documents: "المستندات التي درسناها",
-    case: "اقرأ دراسة الحالة",
-    document: "المستند المنشور · PDF بالعربية",
+    case: "اقرأ دراسة القضية",
+    document: "ملف العمل المنشور · PDF بالعربية",
   } : {
-    title: "Our capabilities, shown in published work",
-    intro: "Selected files show our team’s role, the documents examined and the legal work delivered.",
-    role: "CounselO’s role",
+    title: "Our legal experience in practice",
+    intro: "Explore our team’s analysis of contracts, commercial claims and cross-border disputes, the strategy we developed and the legal work we delivered.",
+    role: "Our team’s role",
     documents: "Documents examined",
     case: "Read the case study",
-    document: "Published document · Arabic PDF",
+    document: "Published work file · Arabic PDF",
   };
 
   const available = portfolioCapabilities.flatMap(item => {

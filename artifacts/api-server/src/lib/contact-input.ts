@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getConsultationProduct, isServiceValidForRegion, sanitizeAcquisitionContext } from "@workspace/api-zod";
+import { getConsultationProduct, getConsultationPrices, isServiceValidForRegion, sanitizeAcquisitionContext } from "@workspace/api-zod";
 
 export const MAX_CONTACT_FILES = 10;
 export const MAX_CONTACT_FILE_BYTES = 5 * 1024 * 1024;
@@ -138,7 +138,8 @@ export function parseContactInput(value: unknown): ContactInput {
   if (!/^[+\d][\d\s().-]{8,28}\d$/.test(result.data.phone) || phoneDigits < 10 || phoneDigits > 15) {
     throw new ContactInputError("Enter a valid phone number.");
   }
-  if (!isServiceValidForRegion(result.data.region, result.data.service)) {
+  const isPublishedConsultation = getConsultationPrices(result.data.region).some(category => category.id === result.data.service);
+  if (!isPublishedConsultation && !isServiceValidForRegion(result.data.region, result.data.service)) {
     throw new ContactInputError("That service is not available for this region.");
   }
   if (!getConsultationProduct(result.data.consultationProduct)) {

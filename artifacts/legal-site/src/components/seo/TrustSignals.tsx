@@ -10,35 +10,30 @@ type TrustSignalsProps = {
 export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustSignalsProps) {
   const regional = /^\/(?:sa|syr|uae)(?:\/|$)/.test(regionPrefix);
   const sharedHome = isArabic ? "/ar" : "/";
-  const representationText = !regional
-    ? isArabic ? "يُحدد الاختصاص ونطاق الاستشارة أولاً. ويُرتب أي تمثيل أو قيد أو حضور مطلوب بصورة مستقلة وفق القواعد المحلية." : "The jurisdiction and consultation scope are established first. Any required representation, filing or attendance is arranged separately under the local rules."
-    : isArabic
-    ? regionPrefix.startsWith("/uae")
-      ? "إذا تطلبت المسألة تمثيلاً أمام المحاكم أو إيداعاً أو حضوراً في الإمارات، يمكن ترتيب تكليف مستقل مع مهني شريك أو مكتب متعاون مرخص في الإمارات."
-      : regionPrefix.startsWith("/syr")
-        ? "إذا تطلبت المسألة السورية تمثيلاً أمام المحاكم أو إيداعاً أو حضوراً، يمكن ترتيب تكليف مستقل مع مهني شريك أو مكتب متعاون مرخص في سوريا."
-        : "عندما تتطلب المسألة حضوراً في السعودية، تنسق كاونسلو للاستشارات القانونية مع مكتب محاماة سعودي متعاون ومرخص وفق نطاق التكليف."
-    : regionPrefix.startsWith("/uae")
-      ? "If a UAE matter requires court representation, filing or attendance, CounselO Legal can arrange a separate engagement with an appropriately licensed UAE partner professional or cooperating office."
-      : regionPrefix.startsWith("/syr")
-        ? "If a Syrian matter requires court representation, filing or attendance, CounselO Legal can arrange a separate engagement through an appropriately licensed Syrian partner professional or cooperating office."
-        : "When a Saudi matter requires attendance, CounselO Legal coordinates with a licensed cooperating Saudi law office within the agreed engagement.";
+  const country = regionPrefix.startsWith("/uae")
+    ? isArabic ? "الإمارات" : "the UAE"
+    : regionPrefix.startsWith("/syr")
+      ? isArabic ? "سوريا" : "Syria"
+      : isArabic ? "السعودية" : "Saudi Arabia";
+  const representationText = isArabic
+    ? `ابدأ استشارتك أونلاين وتابع مستنداتك وملفك عن بُعد مع فريق كاونسلو نفسه حتى التمثيل القانوني. ويباشر أعضاء فريقنا المرخصون محلياً العمل أمام المحاكم والجهات المختصة${regional ? ` في ${country}` : " في السعودية وسوريا والإمارات"}.`
+    : `Consult online, review documents and follow your case remotely with the same CounselO team through legal representation. Our locally licensed team members act before courts and authorities${regional ? ` in ${country}` : " in Saudi Arabia, Syria and the UAE"}.`;
   const items = isArabic
     ? [
         { icon: Award, title: "فريق قانوني متمرس", text: "يجمع فريق كاونسلو الخبرة في تحليل العقود والمنازعات والمسائل الأسرية والعمالية والعقارية لإعداد مشورة عملية." },
         { icon: BriefcaseBusiness, title: "صياغة ومراجعة مهنية", text: "نربط الوقائع والمستندات بالسؤال القانوني، ونعدّ العقود والاتفاقيات والمذكرات اللازمة لخطوتك المقبلة." },
-        { icon: Scale, title: "نموذج تمثيل واضح", text: representationText },
-        { icon: Languages, title: "العربية والإنجليزية", text: "تتوفر الاستشارات ومراجعة المستندات باللغتين العربية والإنجليزية." },
+        { icon: Scale, title: "فريق واحد من الاستشارة إلى التمثيل", text: representationText },
+        { icon: Languages, title: "أونلاين بالعربية والإنجليزية", text: "تتوفر الاستشارات ومراجعة المستندات والمتابعة أونلاين بالعربية والإنجليزية، من منزلك أو مكان عملك." },
         { icon: LockKeyhole, title: "سرية مهنية", text: "تُعامل معلومات العملاء ومستنداتهم باعتبارها معلومات قانونية سرية، ويُطلب فقط ما يلزم لتقييم المسألة." },
-        { icon: ShieldCheck, title: "نطاق خدمة شفاف", text: "لا تنشئ الاستشارة وحدها تفويضاً بالتمثيل أمام المحاكم؛ ويتطلب التمثيل اتفاقاً منفصلاً يحدد نطاق العمل." },
+        { icon: ShieldCheck, title: "نطاق خدمة شفاف", text: "نتفق معك على العمل المطلوب والأتعاب والوقت قبل البدء، ونتولى إجراءات التفويض اللازمة للتمثيل ضمن متابعة فريقنا لملفك." },
       ]
     : [
         { icon: Award, title: "Experienced legal team", text: "CounselO’s team brings experience in contracts, disputes, family, employment and property matters to practical legal advice." },
         { icon: BriefcaseBusiness, title: "Professional drafting and review", text: "We connect the facts and documents to the legal question, preparing contracts, agreements and memoranda for your next step." },
-        { icon: Scale, title: "Clear representation model", text: representationText },
-        { icon: Languages, title: "Arabic and English", text: "Legal consultations and document review are available in both Arabic and English." },
+        { icon: Scale, title: "One team from advice to representation", text: representationText },
+        { icon: Languages, title: "Online in Arabic and English", text: "Consult online, review documents and follow your matter from home or work, in Arabic or English." },
         { icon: LockKeyhole, title: "Professional confidentiality", text: "Client information and legal documents are treated as confidential, and only information needed to assess the matter is requested." },
-        { icon: ShieldCheck, title: "Transparent service scope", text: "A consultation alone does not create a court-representation mandate; representation requires a separate agreement defining the work." },
+        { icon: ShieldCheck, title: "Transparent service scope", text: "We agree the work, fees and timing with you before starting and handle the authorization needed for representation as part of our team’s work on your matter." },
       ];
 
   return (
@@ -52,7 +47,7 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
             {isArabic ? "لماذا يختار العملاء كاونسلو للاستشارات القانونية؟" : "Why clients choose CounselO Legal"}
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            {isArabic ? "معلومات واضحة عن الخبرة وطريقة تقديم الخدمة والسرية ونطاق التمثيل قبل بدء الاستشارة." : "Clear information about experience, service delivery, confidentiality, and representation scope before a consultation begins."}
+            {isArabic ? "معلومات واضحة عن الخبرة وطريقة تقديم الخدمة والسرية ونطاق العمل من الاستشارة إلى التمثيل." : "Clear information about experience, service delivery, confidentiality, and the work from consultation through representation."}
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">

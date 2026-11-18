@@ -969,28 +969,28 @@ function buildDetailedContent({
         `A problem-specific review of ${profile.evidenceEn}`,
         "An issue map identifying the potentially applicable framework and the exact current provisions, authority and deadlines that must be verified",
         brief ? `A written answer to “${brief.question.en}” and prioritized next steps within the agreed scope` : `A written analysis and prioritized next-step plan, within the agreed scope, directed to this objective: ${profile.outcomeEn}`,
-        "A clear explanation of what the consultation covers and whether separate representation, filing or attendance is needed",
+        "An agreed plan for advice, representation, filing or attendance with CounselO’s locally licensed team lawyers",
       ],
       ar: [
         `عرض مركز للمسألة وتسلسل زمني يوضح كيف نشأت ${titleAr}`,
         `مراجعة مخصصة لـ${profile.evidenceAr}`,
         "خريطة للمسائل تحدد الإطار المحتمل انطباقه والنصوص النافذة والجهة والمواعيد الواجب التحقق منها بدقة",
         brief ? `إجابة مكتوبة عن «${brief.question.ar}» وخطوات تالية مرتبة ضمن النطاق المتفق عليه` : `تحليل مكتوب وخطة مرتبة للخطوة التالية ضمن النطاق المتفق عليه وموجهة إلى الهدف المطلوب: ${profile.outcomeAr}`,
-        "توضيح نطاق الاستشارة وما إذا كان يلزم تمثيل أو قيد أو حضور مستقل",
+        "خطة متفق عليها للاستشارة والتمثيل والقيد والحضور مع محامي فريق كاونسلو المرخصين محلياً",
       ],
     },
     process: {
       en: [
         { title: "1. Submit the matter", desc: `Send the facts, desired outcome, notice or deadline, and the key documents about ${titleEn.toLowerCase()} through the contact form, WhatsApp or email.` },
-        { title: "2. CounselO Legal studies and confirms", desc: `We study the information relevant to ${titleEn.toLowerCase()}, identify what is missing, and confirm the scope, fee, timing and written deliverable before work starts.` },
-        { title: "3. Pay and we begin", desc: "After you approve the scope and pay for the agreed consultation, CounselO Legal begins the focused legal review." },
-        { title: "4. Receive the legal response", desc: brief ? "You receive the agreed written answer, its factual and legal basis, unresolved questions and next steps through WhatsApp or email." : `You receive the agreed written analysis and next steps focused on whether and how to ${profile.outcomeEn}, through WhatsApp or email.` },
+        { title: "2. CounselO Legal studies and confirms", desc: `We review the information relevant to ${titleEn.toLowerCase()}, identify any missing documents and confirm the consultation topic. Your detailed professional written online consultation is provided at the published fixed category fee.` },
+        { title: "3. Pay and we begin", desc: "After the consultation topic is confirmed and you pay the published fixed fee, CounselO Legal begins the legal review." },
+        { title: "4. Receive the legal response", desc: `You receive detailed professional written advice and practical next steps through WhatsApp or email, focused on whether and how to ${profile.outcomeEn}. Discussion and answers to your questions on the same consultation topic are included. If you request representation, the same CounselO team handles it with fees agreed separately.` },
       ],
       ar: [
         { title: "1. ترسل المسألة", desc: `أرسل الوقائع والنتيجة المطلوبة وأي إخطار أو ميعاد والمستندات الأساسية المتعلقة بـ${titleAr} عبر نموذج التواصل أو واتساب أو البريد الإلكتروني.` },
-        { title: "2. تدرس كاونسلو للاستشارات القانونية وتؤكد النطاق", desc: `تدرس كاونسلو للاستشارات القانونية المعلومات المرتبطة بـ${titleAr} وتحدد الناقص وتؤكد نطاق العمل والرسوم والمدة والمخرج المكتوب قبل البدء.` },
-        { title: "3. تدفع ونبدأ العمل", desc: "بعد موافقتك على النطاق وسداد قيمة الاستشارة المتفق عليها، تبدأ كاونسلو للاستشارات القانونية المراجعة القانونية المركزة." },
-        { title: "4. تتلقى الرد القانوني", desc: brief ? "تتلقى الإجابة المكتوبة المتفق عليها وأساسها الواقعي والقانوني والمسائل غير المحسومة والخطوات التالية عبر واتساب أو البريد الإلكتروني." : `تتلقى التحليل المكتوب والخطوات التالية المتفق عليها، مع التركيز على ${profile.outcomeAr}، عبر واتساب أو البريد الإلكتروني.` },
+        { title: "2. تدرس كاونسلو للاستشارات القانونية وتؤكد النطاق", desc: `نراجع المعلومات المرتبطة بـ${titleAr}، ونحدد المستندات الناقصة ونؤكد موضوع الاستشارة. نقدم لك استشارة قانونية مهنية مكتوبة ومفصلة أونلاين بالرسوم الثابتة المنشورة للمجال القانوني.` },
+        { title: "3. تدفع ونبدأ العمل", desc: "بعد تأكيد موضوع الاستشارة وسداد الرسوم الثابتة المنشورة، تبدأ كاونسلو للاستشارات القانونية المراجعة القانونية." },
+        { title: "4. تتلقى الرد القانوني", desc: `تتلقى استشارة مهنية مكتوبة ومفصلة وخطوات عملية عبر واتساب أو البريد الإلكتروني، مع التركيز على ${profile.outcomeAr}. وتشمل الرسوم مناقشة الاستشارة والإجابة عن أسئلتك في موضوعها نفسه. وإذا طلبت التمثيل القانوني، يتولاه فريق كاونسلو نفسه بأتعاب نتفق عليها بصورة منفصلة.` },
       ],
     },
     experience: {
@@ -1009,7 +1009,7 @@ function buildDetailedContent({
         },
         {
           q: `Can CounselO Legal review ${titleEn.toLowerCase()} online?`,
-          a: `Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. Formal filing, attendance and reserved representation work are scoped separately where required in ${country.en}.`,
+          a: `Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. CounselO’s team continues with filing, attendance and representation through our lawyers licensed in ${country.en}, as agreed with you.`,
         },
         {
           q: `How does CounselO Legal help with ${titleEn.toLowerCase()}?`,
@@ -1031,7 +1031,7 @@ function buildDetailedContent({
         },
         {
           q: `هل يمكن أن تراجع كاونسلو للاستشارات القانونية مسألة ${titleAr} أونلاين؟`,
-          a: `نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني أو نموذج التواصل بالعربية أو الإنجليزية. ويُحدد القيد الرسمي أو الحضور أو التمثيل المنظم بصورة منفصلة حيث يلزم في ${country.ar}.`,
+          a: `نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني أو نموذج التواصل بالعربية أو الإنجليزية. ويتابع فريق كاونسلو القيد والحضور والتمثيل من خلال محامينا المرخصين في ${country.ar} وفق العمل المتفق عليه معك.`,
         },
         {
           q: `كيف تساعد كاونسلو للاستشارات القانونية في ${titleAr}؟`,

@@ -20,12 +20,12 @@ const lastSentence = (text: string) => text.split(/(?<=[.!?؟])\s+/u).at(-1)!;
 function closing(region: Region, lang: Lang, topic: string, support: string): Pick<ExperienceCopy, "invitation" | "contact" | "contactTitle" | "contactText"> {
   const country = experienceCountry(region, lang);
   return lang === "ar" ? {
-    invitation: `ناقش ${topic} مع فريق كاونسلو بالعربية أو الإنجليزية. نحدد معك العمل المطلوب، ونرتب أي تمثيل محلي من خلال شركاء ومحامين مرخصين في ${country} وفق تكليف متفق عليه.`,
+    invitation: `ناقش ${topic} أونلاين مع فريق كاونسلو بالعربية أو الإنجليزية. يتولى فريقنا مسألتك من الاستشارة إلى التمثيل، ويباشر محامونا المرخصون في ${country} العمل أمام المحاكم والجهات المختصة.`,
     contact: "اطلب الدعم القانوني",
     contactTitle: `تحدث معنا بشأن ${topic}`,
     contactText: `${lastSentence(support)} أرسل طلبك واذكر أي جلسة أو موعد قريب.`,
   } : {
-    invitation: `Discuss ${topic} with CounselO in Arabic or English. We agree the legal work with you and arrange any local representation through licensed partners and lawyers in ${country} under an agreed engagement.`,
+    invitation: `Discuss ${topic} online with CounselO in Arabic or English. Our team handles your matter from consultation through representation, with our lawyers licensed in ${country} acting before courts and authorities.`,
     contact: "Request legal support",
     contactTitle: `Speak to us about ${topic}`,
     contactText: `${lastSentence(support)} Send your request and include any approaching hearing or deadline.`,
@@ -42,7 +42,7 @@ export function servicePageCopy(region: Region, service: string, lang: Lang, cov
   return {
     ...closing(region, lang, topic, p.approach),
     hero: p.hero,
-    heading: lang === "ar" ? `${topic}: مشورة وصياغة ودعم قانوني` : `${topic}: advice, drafting and legal support`,
+    heading: lang === "ar" ? `${topic}: مشورة وصياغة وتمثيل قانوني` : `${topic}: advice, drafting and representation`,
     introduction: `${teamIntroduction(region, lang, topic)} ${p.hero}`,
     experience: p.approach,
     coverageTitle: lang === "ar" ? `ما نقدمه في ${country}` : `What we cover in ${country}`,
@@ -85,7 +85,7 @@ export function problemPageCopy(page: LegalProblemPage, lang: Lang): ExperienceC
   const answer = directAnswer?.answer[lang] ?? brief?.answer[lang] ?? page.heroSummary[lang];
   return {
     ...closing(page.region, lang, topic, support),
-    hero: lang === "ar" ? `دعم قانوني مهني أونلاين بشأن ${topic} في ${country}. ${support.split(/(?<=[.!?؟])\s+/u)[0]}` : `Professional online legal support for ${topic} in ${country}. ${support.split(/(?<=[.!?؟])\s+/u)[0]}`,
+    hero: lang === "ar" ? `دعم قانوني أونلاين من فريق كاونسلو بشأن ${topic} في ${country}. ${support.split(/(?<=[.!?؟])\s+/u)[0]}` : `Online legal support from CounselO’s team for ${topic} in ${country}. ${support.split(/(?<=[.!?؟])\s+/u)[0]}`,
     heading: lang === "ar" ? `دعم قانوني متخصص بشأن ${topic}` : `Legal support for ${topic}`,
     introduction: `${teamIntroduction(page.region, lang, topic)} ${work}`,
     experience: `${focus} ${nextSteps.join(" ")}`,

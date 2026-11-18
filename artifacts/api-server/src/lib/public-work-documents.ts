@@ -4,6 +4,7 @@ import {
   publicWorkDocumentPath, publicWorkDocumentTextPath, type WorkDocumentMetadata,
 } from "@workspace/api-zod";
 import { PUBLIC_WORK_DOCUMENT_TEXTS, type PublicWorkDocumentText } from "./public-work-document-texts.js";
+import { resolveWorkDocumentRevision, type WorkDocumentRevisionResolver } from "./work-document-revisions.js";
 
 export type DocumentRecord = WorkDocumentMetadata & {
   fileData: string;
@@ -11,7 +12,9 @@ export type DocumentRecord = WorkDocumentMetadata & {
 
 function publishedPdfData(sample: DocumentRecord): Buffer | undefined {
   if (!publicWorkDocumentPath(sample) || !sample.fileData) return undefined;
-  const data = Buffer.from(sample.fileData, "base64");
+  const base64 = sample.fileData.replace(/\s/g, "");
+  if (!/^[A-Za-z0-9+/]+={0,2}$/.test(base64) || base64.replace(/=+$/, "").length % 4 === 1) return undefined;
+  const data = Buffer.from(base64, "base64");
   return data.length === sample.fileSize && data.subarray(0, 5).toString("ascii") === "%PDF-" ? data : undefined;
 }
 
@@ -19,6 +22,7 @@ function publishedPdfData(sample: DocumentRecord): Buffer | undefined {
 export function createPublicDocumentsRouter(
   load: (slug: string) => Promise<DocumentRecord | undefined>,
   textAlternatives: readonly PublicWorkDocumentText[] = PUBLIC_WORK_DOCUMENT_TEXTS,
+  resolveRevision: WorkDocumentRevisionResolver = resolveWorkDocumentRevision,
 ) {
   const router = Router();
   router.use((_req, res, next) => {
@@ -38,12 +42,14 @@ export function createPublicDocumentsRouter(
     }
     const data = publishedPdfData(sample);
     if (!data) { res.sendStatus(404); return; }
-    const textSource = isText ? textAlternatives.find(entry => entry.slug === sample.slug) : undefined;
-    if (isText && (!textSource || publicWorkDocumentTextPath(sample, textAlternatives) !== `/documents/${filename}` ||
-        !textSource.text.trim() || createHash("sha256").update(data).digest("hex") !== textSource.sourceSHA256)) {
+    const sourceSHA256 = createHash("sha256").update(data).digest("hex");
+    const revision = resolveRevision(sample, sourceSHA256);
+    const textSource = isText && !revision ? textAlternatives.find(entry => entry.slug === sample.slug) : undefined;
+    if (isText && !revision && (!textSource || publicWorkDocumentTextPath(sample, textAlternatives) !== `/documents/${filename}` ||
+        !textSource.text.trim() || sourceSHA256 !== textSource.sourceSHA256)) {
       res.sendStatus(404); return;
     }
-    const responseData = textSource ? Buffer.from(textSource.text, "utf8") : data;
+    const responseData = revision ? (isText ? revision.text : revision.pdf) : textSource ? Buffer.from(textSource.text, "utf8") : data;
     res.removeHeader("X-Robots-Tag");
     res.removeHeader("X-Frame-Options");
     res.setHeader("X-Content-Type-Options", "nosniff");
@@ -51,7 +57,9 @@ export function createPublicDocumentsRouter(
     res.setHeader("Cross-Origin-Resource-Policy", "same-origin");
     res.setHeader("Content-Type", isText ? "text/plain; charset=utf-8" : "application/pdf");
     res.setHeader("Content-Length", String(responseData.length));
-    if (textSource) res.setHeader("Content-Language", textSource.language);
+    const documentLanguage = revision?.metadata.documentLanguage ?? textSource?.language ?? sample.documentLanguage;
+    if (documentLanguage) res.setHeader("Content-Language", documentLanguage === "bilingual" ? "ar, en" : documentLanguage);
+    if (revision) res.setHeader("Last-Modified", new Date(revision.metadata.editionPublishedAt).toUTCString());
     const disposition = req.query.download === "1" ? "attachment" : "inline";
     res.setHeader("Content-Disposition", `${disposition}; filename="${filename}"`);
     res.setHeader("Link", `<https://counselo-legal.com${pdfPath}>; rel="canonical"`);

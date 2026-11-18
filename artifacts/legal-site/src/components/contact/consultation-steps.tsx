@@ -47,7 +47,7 @@ const steps = [
   },
 ];
 
-export function ConsultationSteps({ isArabic }: { isArabic: boolean }) {
+export function ConsultationSteps({ isArabic, isConsultation = true }: { isArabic: boolean; isConsultation?: boolean }) {
   return (
     <section className="contact-process" id="consultation-process" aria-labelledby="consultation-process-heading" dir={isArabic ? "rtl" : "ltr"}>
       <div className="contact-process__shell">
@@ -66,7 +66,11 @@ export function ConsultationSteps({ isArabic }: { isArabic: boolean }) {
                 {index < steps.length - 1 && <ArrowRight className="contact-process__arrow" size={16} strokeWidth={1.5} aria-hidden="true" />}
                 <div className="contact-process__copy">
                   <h3>{copy.title}</h3>
-                  <p>{copy.description}</p>
+                  <p>{isConsultation && index === 2
+                    ? (isArabic ? "نؤكد مجال الاستشارة ورسومه المنشورة وتفاصيل التسليم قبل السداد." : "Confirm your consultation category, published fee and delivery details before payment.")
+                    : isConsultation && index === 3
+                      ? (isArabic ? "تسلّم استشارة مهنية مكتوبة ومفصلة وناقش أسئلتك ضمن الموضوع نفسه." : "Receive detailed professional written advice and discuss questions on the same topic.")
+                      : copy.description}</p>
                 </div>
               </li>
             );

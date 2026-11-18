@@ -18,7 +18,9 @@ import { LatestContentCarousels } from "@/components/content/latest-content-caro
 import { getRegionalLegalSources } from "@/lib/regional-legal-sources";
 import { sourceBackedSearchGuidance } from "@/lib/source-backed-search-guidance";
 import { getLegalProblemPages } from "@/lib/legal-problem-pages";
-import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
+import { COUNSELO_ENTITY_IDS, getConsultationPrice, CONSULTATION_PRICES_UPDATED_AT } from "@workspace/api-zod/browser";
+import { ConsultationPriceCard, consultationPriceLabel } from "@/components/legal/consultation-price";
+import { consultationSchema } from "@/lib/consultation-schema";
 
 function truncateMeta(value: string, maxLength = 158): string {
   if (value.length <= maxLength) return value;
@@ -101,8 +103,12 @@ export default function ServiceDetail() {
     ...getRegionalLegalSources(region, id),
     ...sourceBackedSearchGuidance(region, id).flatMap(item => item.sources),
   ].map(source => [source.href, source])).values()];
-  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو للاستشارات القانونية، أحتاج إلى مراجعة بخصوص خدمة ${data.title} في ${countryName}.` : `Hello CounselO Legal, I need a review concerning ${data.title} in ${countryName}.`)}`;
-  const serviceContactHref = `${regionPrefix}/contact?service=${id}#consultation-request`;
+  const consultationPrice = getConsultationPrice(region, id);
+  const whatsappMessage = consultationPrice
+    ? (isRTL ? `مرحباً كاونسلو، أود طلب استشارة قانونية مكتوبة أونلاين بشأن ${consultationPrice.titleAr} في ${countryName} بسعر ${consultationPriceLabel(consultationPrice, true)}، مع المناقشة والأسئلة ضمن موضوع الاستشارة.` : `Hello CounselO, I would like a written online legal consultation about ${consultationPrice.titleEn} in ${countryName} at ${consultationPriceLabel(consultationPrice, false)}, including discussion and questions on the consultation topic.`)
+    : (isRTL ? `مرحباً كاونسلو للاستشارات القانونية، أحتاج إلى مراجعة بخصوص خدمة ${data.title} في ${countryName}.` : `Hello CounselO Legal, I need a review concerning ${data.title} in ${countryName}.`);
+  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(whatsappMessage)}`;
+  const serviceContactHref = `${regionPrefix}/contact?service=${id}${consultationPrice ? `&consultation=${consultationPrice.id}` : ""}#consultation-request`;
 
   const schemas: object[] = [
     {
@@ -138,7 +144,7 @@ export default function ServiceDetail() {
       "name": seoTitle,
       "description": seoDesc,
       "inLanguage": inLanguage,
-      "dateModified": SERVICE_EXPERIENCE_UPDATED_AT,
+      "dateModified": consultationPrice ? CONSULTATION_PRICES_UPDATED_AT : SERVICE_EXPERIENCE_UPDATED_AT,
       "citation": [...new Set([...legalSources.map(source => source.href), ...(region === "sa" && id === "family-law" ? SAUDI_FAMILY_COVERAGE_SOURCES : [])])],
       "publisher": {
         "@id": COUNSELO_ENTITY_IDS.organization,
@@ -147,6 +153,7 @@ export default function ServiceDetail() {
       },
     },
   ];
+  if (consultationPrice) schemas.push(consultationSchema(consultationPrice, isRTL, canonicalUrlFull, serviceContactHref, data.title));
 
   return (
     <div className={`counselo-editorial-page service-brief-page service-reading-page w-full bg-background min-h-screen${region === "sa" ? " saudi-reading-page" : ""} legal-experience-page`}>
@@ -175,15 +182,16 @@ export default function ServiceDetail() {
             </h1>
             <div className="mb-6 h-px w-20 bg-[#d5ae5d]" />
             <p className="mb-7 max-w-3xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{pageCopy.hero}</p>
+            {consultationPrice && <ConsultationPriceCard price={consultationPrice} isArabic={isRTL} />}
             <div className="flex flex-wrap gap-4">
               <Link href={serviceContactHref} data-cta="contact" data-conversion-position="service-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 bg-[#d5ae5d] px-5 py-3 font-bold text-[#0d3e2a] transition-colors hover:bg-[#e0bd73]">
-                <MessageSquareText size={18} /> {isRTL ? "أرسل المسألة للمراجعة" : "Send your matter for review"}
+                <MessageSquareText size={18} /> {consultationPrice ? (isRTL ? "اطلب استشارتك أونلاين" : "Request your online consultation") : (isRTL ? "أرسل المسألة للمراجعة" : "Send your matter for review")}
               </Link>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-conversion-position="service-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 border border-white/45 px-5 py-3 font-semibold text-white transition-colors hover:bg-white/10">
                 <Phone size={18} /> WhatsApp
               </a>
             </div>
-            <p className="mt-4 max-w-3xl text-xs leading-5 text-white/58">{isRTL ? "اذكر الدولة وأي ميعاد قريب والنتيجة المطلوبة. نؤكد النطاق والرسوم قبل بدء العمل المدفوع." : "State the jurisdiction, any urgent date and the outcome you need. Scope and fee are confirmed before paid work begins."}</p>
+            <p className="mt-4 max-w-3xl text-xs leading-5 text-white/58">{consultationPrice ? (isRTL ? "أرسل تفاصيل مسألتك والمستندات ذات الصلة وأي موعد قريب لبدء استشارتك بالسعر المعلن." : "Send your matter details, relevant documents and any approaching deadline to start your consultation at the published fee.") : (isRTL ? "اذكر الدولة وأي ميعاد قريب والنتيجة المطلوبة. نؤكد النطاق والرسوم قبل بدء العمل المدفوع." : "State the jurisdiction, any urgent date and the outcome you need. Scope and fee are confirmed before paid work begins.")}</p>
           </m.div>
           </div>
       </section>
@@ -201,12 +209,13 @@ export default function ServiceDetail() {
               className="service-consultation-panel sticky top-36 overflow-hidden bg-[#0d4a31] p-7 text-white shadow-[0_24px_65px_rgba(13,74,49,0.18)] lg:p-8">
               <h3 className="mb-4 font-serif text-3xl font-semibold leading-tight text-white">{sd.sidebar.heading}</h3>
               <div className="mb-6 h-px w-14 bg-[#d5ae5d]" />
+              {consultationPrice && <p className="text-xl font-bold"><bdi>{consultationPriceLabel(consultationPrice, isRTL)}</bdi><span className="mt-1 block text-sm font-medium">{isRTL ? "للاستشارة المكتوبة أونلاين" : "For the written online consultation"}</span></p>}
               <p className="mb-7 leading-relaxed text-white/68">
                 {sd.sidebar.descPrefix}{data.title.toLowerCase()}{sd.sidebar.descSuffix}
               </p>
               <ul className="mb-7 space-y-3 border-y border-white/12 py-5 text-sm text-white/82">
                 <li className="flex items-center gap-3"><MessageSquareText className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "مخرج مكتوب عبر واتساب أو البريد الإلكتروني" : "Written deliverable via WhatsApp or email"}</li>
-                <li className="flex items-center gap-3"><ShieldCheck className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "النطاق والرسوم يؤكدان قبل العمل المدفوع" : "Scope and fee confirmed before paid work"}</li>
+                <li className="flex items-center gap-3"><ShieldCheck className="h-4 w-4 text-[#d5ae5d]" />{consultationPrice ? (isRTL ? "المناقشة والأسئلة ضمن موضوع الاستشارة مشمولة" : "Discussion and questions on the consultation topic included") : (isRTL ? "النطاق والرسوم يؤكدان قبل العمل المدفوع" : "Scope and fee confirmed before paid work")}</li>
               </ul>
               <Button asChild className="w-full rounded-none bg-[#d5ae5d] py-6 text-base font-bold text-[#0d3e2a] hover:bg-[#e0bd73]">
                 <Link

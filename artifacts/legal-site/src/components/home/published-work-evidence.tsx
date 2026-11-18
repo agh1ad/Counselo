@@ -31,7 +31,7 @@ export function PublishedWorkEvidence({ isArabic }: { isArabic: boolean }) {
       <div>
         <p className="published-work-evidence__eyebrow">{isArabic ? "من ملفات أعمالنا المنشورة" : "From our published work"}</p>
         <h2 id="published-work-evidence-title">{isArabic ? "خبرة تظهر في العمل الذي نقدمه." : "Legal experience you can examine."}</h2>
-        <p>{isArabic ? "اطّلع على دراسات قضايا ومراجعات عقود تُبيّن كيف نحلل الملفات ونبني الاستراتيجية ونعدّ العمل القانوني. لكل دراسة سياقها والمستند المنشور الذي يشرحها." : "Explore case studies and contract reviews showing how we analyse files, develop strategy and prepare legal work. Each study sets out its context and includes the published supporting document."}</p>
+        <p>{isArabic ? "اطّلع على سجل أعمال كاونسلو ودراسات القضايا ومراجعات العقود. تعرّف على دور فريقنا والقرارات الاستراتيجية والعمل القانوني الذي أنجزناه في كل مسألة." : "Explore CounselO’s legal portfolio, case studies and contract reviews. Discover our team’s role, strategic decisions and the legal work delivered in each matter."}</p>
       </div>
       <Link href={base} className="published-work-evidence__all">{isArabic ? "استعرض أعمالنا" : "Explore Our Work"}<Arrow size={18} aria-hidden="true" /></Link>
     </div>

@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import type { Plugin } from "vite";
 import { publicWorkDocumentPath, publicWorkDocumentTextPath } from "../../../lib/api-zod/src/public-work-documents";
 import { PUBLIC_WORK_DOCUMENT_TEXTS } from "../../api-server/src/lib/public-work-document-texts";
+import { resolveWorkDocumentRevision } from "../../api-server/src/lib/work-document-revisions";
 
 const PUBLISHED_ORIGIN = "https://counselo-legal.com";
 
@@ -33,17 +34,32 @@ export function publicDocumentsPreviewPlugin(): Plugin {
         const bytes = Buffer.from(await file.arrayBuffer());
         if (bytes.length !== sample.fileSize || bytes.subarray(0, 5).toString("ascii") !== "%PDF-") { res.sendStatus(404); return; }
         const isText = filename.endsWith(".txt");
-        const source = isText ? PUBLIC_WORK_DOCUMENT_TEXTS.find(entry => entry.slug === slug) : undefined;
-        if (isText && (!source || !source.text.trim() || publicWorkDocumentTextPath(sample) !== `/documents/${filename}` ||
-            createHash("sha256").update(bytes).digest("hex") !== source.sourceSHA256)) { res.sendStatus(404); return; }
-        const body = source ? Buffer.from(source.text, "utf8") : bytes;
+        const sourceSHA256 = createHash("sha256").update(bytes).digest("hex");
+        const revision = resolveWorkDocumentRevision(sample, sourceSHA256);
+        const source = isText && !revision ? PUBLIC_WORK_DOCUMENT_TEXTS.find(entry => entry.slug === slug) : undefined;
+        let body = revision ? (isText ? revision.text : revision.pdf) : bytes;
+        if (isText && !revision) {
+          // Once this edition is deployed, the live API describes its revised bytes.
+          if (sample.documentEdition && publicWorkDocumentTextPath(sample) === `/documents/${filename}`) {
+            const text = await fetch(`${PUBLISHED_ORIGIN}/documents/${filename}`, { signal: AbortSignal.timeout(30_000) });
+            if (!text.ok || !text.headers.get("content-type")?.startsWith("text/plain")) { res.sendStatus(404); return; }
+            body = Buffer.from(await text.arrayBuffer());
+            if (!body.toString("utf8").trim()) { res.sendStatus(404); return; }
+          } else {
+            if (!source || !source.text.trim() || publicWorkDocumentTextPath(sample) !== `/documents/${filename}` ||
+                sourceSHA256 !== source.sourceSHA256) { res.sendStatus(404); return; }
+            body = Buffer.from(source.text, "utf8");
+          }
+        }
         res.set("Content-Type", isText ? "text/plain; charset=utf-8" : "application/pdf");
         res.set("Content-Length", String(body.length));
         res.set("Content-Disposition", `${req.query.download === "1" ? "attachment" : "inline"}; filename="${filename}"`);
         res.set("Content-Security-Policy", "frame-ancestors 'self'");
         res.set("X-Content-Type-Options", "nosniff");
         res.set("Link", `<${PUBLISHED_ORIGIN}${pdfPath}>; rel="canonical"`);
-        if (source) res.set("Content-Language", source.language);
+        const language = revision?.metadata.documentLanguage ?? source?.language ?? sample.documentLanguage;
+        if (language) res.set("Content-Language", language === "bilingual" ? "ar, en" : language);
+        if (revision) res.set("Last-Modified", new Date(revision.metadata.editionPublishedAt).toUTCString());
         res.send(body);
       });
       preview.use((_req, res) => { res.sendStatus(404); });

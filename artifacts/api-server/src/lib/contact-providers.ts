@@ -1,5 +1,5 @@
 import type { ContactInput } from "./contact-input.js";
-import { getConsultationProduct, getCrmRoute, getRegionLabel, getServiceDefinition } from "@workspace/api-zod";
+import { getConsultationProduct, getConsultationPrice, getCrmRoute, getRegionLabel, getServiceDefinition } from "@workspace/api-zod";
 
 const RESEND_API_BASE = "https://api.resend.com";
 const REQUEST_TIMEOUT_MS = 12_000;
@@ -58,6 +58,7 @@ async function readErrorBody(response: Response): Promise<string> {
 
 function emailText(input: ContactInput, reference: string): string {
   const service = getServiceDefinition(input.service, input.region);
+  const consultation = getConsultationPrice(input.region, input.service);
   const product = getConsultationProduct(input.consultationProduct);
   const attachmentSummary = input.attachments.length
     ? input.attachments
@@ -70,7 +71,8 @@ function emailText(input: ContactInput, reference: string): string {
     `Reference: ${reference}`,
     `Region: ${getRegionLabel(input.region)}`,
     `Language: ${input.language === "ar" ? "Arabic" : "English"}`,
-    `Practice area: ${service?.titleEn ?? input.service}`,
+    `Practice area: ${consultation?.titleEn ?? service?.titleEn ?? input.service}`,
+    ...(consultation ? [`Published consultation fee: ${consultation.currency} ${consultation.amount}`] : []),
     `Consultation route: ${product?.titleEn ?? input.consultationProduct}`,
     `CRM route: ${getCrmRoute(input.region, service?.leadCategory ?? "general")}`,
     `Name: ${input.name}`,

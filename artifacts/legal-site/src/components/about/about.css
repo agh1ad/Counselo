@@ -62,14 +62,14 @@
 .about-founder__facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; border-block: 1px solid #c7d6cc; padding-block: 1.2rem; margin-block: 1.5rem 1rem; }
 .about-founder__facts dt { font-size: .8rem; color: var(--about-muted); margin-bottom: .4rem; }
 .about-founder__facts dd { font-size: .9rem; font-weight: 650; line-height: 1.65; }
-.about-partner { padding-block: 2.5rem; }
+.about-partner { padding-block: 2.5rem; scroll-margin-top: 7rem; }
 .about-partner__identity { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
 .about-partner__identity > svg { flex-shrink: 0; color: #967233; }
+.about-partner__logo { flex: 0 0 auto; width: 6.5rem; height: auto; object-fit: contain; background: #fff; }
+.about-partner__name { min-width: 0; }
 .about-partner .about-kicker { margin-bottom: .2rem; font-size: .85rem; color: var(--about-muted); }
 .about-partner h2 { font-size: 1.4rem; line-height: 1.5; }
 .about-partner > p { max-width: 94ch; color: var(--about-muted); }
-.about-partner__verification { margin-top: 1rem; padding-top: .75rem; border-top: 1px solid var(--about-line); }
-.about-partner__verification p { max-width: 90ch; color: var(--about-muted); font-size: .875rem; }
 .about-faq { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2.4fr); gap: 2rem 3.75rem; padding-block: 2.5rem; border-top: 1px solid var(--about-line); }
 .about-faq__answers { display: grid; gap: 1.5rem; }
 .about-faq__answers article + article { padding-top: 1.5rem; border-top: 1px solid var(--about-line); }
@@ -78,10 +78,15 @@
 .about-faq__answers .about-text-link { margin-top: .5rem; }
 .about-partner__offices { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; list-style: none; padding: 0; margin-top: 1.5rem; }
 .about-partner__offices li { padding: 1.5rem; border: 1px solid var(--about-line); border-inline-start: 3px solid #b68a3a; background: #f6f8f4; border-radius: 4px; }
+.about-partner__office-logo { display: block; width: min(100%, 20rem); height: auto; object-fit: contain; margin-bottom: .75rem; }
 .about-partner__offices h3 { font-size: 1.1rem; line-height: 1.5; margin-bottom: .4rem; }
 .about-partner__offices p { font-size: .9rem; color: var(--about-muted); }
 .about-partner__licence { margin-inline-start: auto; padding: .6rem 1.2rem; border-inline-start: 1px solid var(--about-line); font-size: .8rem; color: var(--about-muted); }
+.about-partner__licence > span { display: block; }
 .about-partner__licence strong { display: block; color: var(--about-green); font-size: 1.35rem; letter-spacing: .05em; }
+.about-partner__licence-link { display: inline-block; color: var(--about-green); text-decoration: underline; text-decoration-color: #b68a3a; text-underline-offset: .25em; }
+.about-partner__licence-link:hover { text-decoration-color: currentColor; }
+.about-partner__licence-link:focus-visible { outline: 2px solid var(--about-green); outline-offset: 5px; }
 .about-closing { padding-bottom: 3rem; }
 .about-closing__panel { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); align-items: center; gap: 2.5rem; padding: 2.5rem; background: var(--about-green); color: #fff; border-radius: 8px; }
 .about-closing h2 { margin-bottom: 1rem; max-width: 24ch; }
@@ -120,6 +125,8 @@
   .about-founder__portrait img { width: 150px; }
   .about-founder__portrait p { max-width: 19ch; }
   .about-partner__identity { flex-wrap: wrap; }
+  .about-partner__logo { width: 5rem; }
+  .about-partner__name { flex: 1; }
   .about-partner__offices { grid-template-columns: 1fr; }
   .about-partner__licence { display: flex; align-items: center; gap: .75rem; width: 100%; margin-inline-start: 0; padding: .5rem 0 0; border-inline-start: 0; }
 }

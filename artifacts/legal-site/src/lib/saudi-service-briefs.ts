@@ -7,7 +7,7 @@ export type Brief = {
   choices: { path: string; label: string }[];
 };
 
-export const SAUDI_SERVICE_BRIEFS_UPDATED_AT = "2026-10-20";
+export const SAUDI_SERVICE_BRIEFS_UPDATED_AT = "2026-11-18";
 
 // Service-selection and illustrative document-review copy, not case results,
 // legal rules, a pricing commitment or an expansion of the engagement scope.
@@ -19,7 +19,7 @@ const briefs: Record<string, { ar: Brief; en: Brief }> = {
       overview: [
         "أرسل المسودة والملاحق وهدفك وموعد التوقيع، مع نوع العقد وحجمه ولغته.",
         "نحدد البنود المؤثرة والمخاطر والأسئلة أو التعديلات المقترحة في ملاحظات مكتوبة.",
-        "نؤكد المخرج والرسوم والمسؤول وموعد التسليم. الصياغة البديلة والتفاوض والمتابعة تُحدد في التكليف.",
+        "نؤكد معك نطاق العمل والأتعاب وموعد التسليم، ويتولى فريقنا الصياغة والتفاوض والمتابعة المتفق عليها.",
       ],
       choices: [
         { path: "contracts/contract-drafting-and-review", label: "لدي مسودة أريد مراجعتها أو عقد أريد صياغته" },
@@ -31,7 +31,7 @@ const briefs: Record<string, { ar: Brief; en: Brief }> = {
       overview: [
         "Send the draft, schedules, objective and signing date, with the contract type, length and language.",
         "Receive written observations on material clauses, risks, questions and proposed changes.",
-        "We confirm output, fee, professional and delivery time. Alternative drafting, negotiation and follow-up are separately scoped.",
+        "We agree scope, fees and delivery time with you, and our team handles the agreed drafting, negotiation and follow-up.",
       ],
       choices: [
         { path: "contracts/contract-drafting-and-review", label: "I need a draft reviewed or a new contract prepared" },
@@ -45,7 +45,7 @@ const briefs: Record<string, { ar: Brief; en: Brief }> = {
       overview: [
         "اذكر صفتك ومكان العمل وهل العلاقة مستمرة أم انتهت. أرسل العقد وكشوف الأجر والإشعارات.",
         "نراجع المطلوب والمبالغ المسددة والمتنازع عليها وأي تسوية أو مخالصة.",
-        "نتفق على المخرج والرسوم والموعد. إعداد الطلبات والتمثيل يحتاجان إلى اتفاق مستقل.",
+        "نتفق على نطاق العمل والأتعاب والتوقيت، ويتولى فريق كاونسلو المشورة وإعداد الطلبات والتمثيل الذي تحتاجه ضمن هذا النطاق.",
       ],
       choices: [
         { path: "employment-law/delayed-or-unpaid-salary", label: "العلاقة مستمرة ولدي راتب متأخر أو غير مدفوع" },
@@ -57,7 +57,7 @@ const briefs: Record<string, { ar: Brief; en: Brief }> = {
       overview: [
         "State your role, work location and whether employment has ended. Send the contract, pay records and notices.",
         "We review your request, paid and disputed amounts, and any settlement or release.",
-        "We agree output, fee and timing first. Filing preparation and representation require separate agreement.",
+        "We agree scope, fees and timing first. The CounselO team handles the advice, filing preparation and representation you need within that scope.",
       ],
       choices: [
         { path: "employment-law/delayed-or-unpaid-salary", label: "I am still employed and salary is overdue or unpaid" },
@@ -71,7 +71,7 @@ const briefs: Record<string, { ar: Brief; en: Brief }> = {
       overview: [
         "أرسل العقد والفواتير وإثبات التسليم والاعتراضات، مع المبلغ والعملة.",
         "نقيّم مستندات المطالبة وما ينقصها قبل اختيار الخطوة التالية.",
-        "إذا صدر حكم أو سند، راجع خدمة التنفيذ. الصياغة والتفاوض والتمثيل تُحدد في التكليف.",
+        "إذا صدر حكم أو سند، يتابع فريقنا مرحلة التنفيذ معك. نتولى الصياغة والتفاوض والتمثيل ضمن نطاق العمل المتفق عليه.",
       ],
       choices: [
         { path: "business-law/unpaid-business-invoices", label: "لدي فواتير تجارية متنازع عليها أو غير مسددة" },
@@ -83,7 +83,7 @@ const briefs: Record<string, { ar: Brief; en: Brief }> = {
       overview: [
         "Send the contract, invoices, delivery evidence and objections, with the amount and currency.",
         "We assess the claim documents and gaps before identifying next steps.",
-        "For an existing judgment or instrument, use enforcement review. Drafting, negotiation and representation are separately scoped.",
+        "For an existing judgment or instrument, our team supports the enforcement stage. We handle drafting, negotiation and representation within the agreed scope.",
       ],
       choices: [
         { path: "business-law/unpaid-business-invoices", label: "I have disputed or unpaid business invoices" },
@@ -97,7 +97,7 @@ const briefs: Record<string, { ar: Brief; en: Brief }> = {
       overview: [
         "أرسل السند كاملاً وآخر إشعار أو قرار، مع المرحلة والمواعيد والمبالغ المسددة.",
         "نراجع الطلب والاعتراض والمستندات الناقصة؛ وجود سند لا يحسم استيفاء شروط التنفيذ.",
-        "الإيداع والمتابعة يحتاجان إلى تكليف مستقل. نؤكد الرسوم والمسؤول عن العمل دون ضمان التحصيل.",
+        "يتولى فريقنا الإيداع والمتابعة والتمثيل ضمن نطاق العمل والأتعاب المتفق عليها، دون ضمان نتيجة التحصيل.",
       ],
       choices: [
         { path: "enforcement/unpaid-invoices-and-payment-claims", label: "أحتاج إلى تقييم مستند المطالبة ومرحلتها" },
@@ -109,7 +109,7 @@ const briefs: Record<string, { ar: Brief; en: Brief }> = {
       overview: [
         "Send the complete instrument and latest notice or decision, with the stage, dates and payments.",
         "We review the application, objections and missing records; possession alone does not establish enforceability.",
-        "Filing and follow-up require separate engagement. We confirm fees and responsibility without guaranteeing recovery.",
+        "Our team handles filing, follow-up and representation within the agreed scope and fees, without guaranteeing recovery.",
       ],
       choices: [
         { path: "enforcement/unpaid-invoices-and-payment-claims", label: "I need the claim document and current stage assessed" },

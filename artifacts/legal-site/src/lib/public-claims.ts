@@ -42,6 +42,6 @@ export const COUNSELO_LEGAL_PRACTICE_CLAIM = getCounseloLegalPracticeClaim();
 
 /** Owner-confirmed regional client trust, 2026-11-03; no rating or client count. */
 export const COUNSELO_CLIENT_TRUST = {
-  en: "Clients across the region trust CounselO for online legal support.",
-  ar: "يثق عملاء في أنحاء المنطقة بكاونسلو للحصول على الدعم القانوني أونلاين.",
+  en: "Clients across the region trust CounselO’s team for legal support.",
+  ar: "يثق عملاء في أنحاء المنطقة بفريق كاونسلو للحصول على الدعم القانوني.",
 } as const;

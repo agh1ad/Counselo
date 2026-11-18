@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { portfolioCapabilities } from "@workspace/api-zod";
+import { portfolioCapabilities, PORTFOLIO_PAGE_COPY, WORK_PUBLICATION_COPY, COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
 
 process.env.DATABASE_URL ??= "postgresql://test:test@127.0.0.1:5432/counselo_renderer_test";
 const { buildDynamicWorkHtml, buildDynamicWorkIndex } = await import("../og-pages.js");
@@ -74,7 +74,8 @@ test("production work HTML includes all published narrative sections before Java
     const body = html.split("<body>")[1];
     const ar = lang === "ar";
     for (const text of ar ? ["التزام محل نزاع", "مراجعة المستندات", "تقييم مكتوب", "سوريا"] : ["A &lt;disputed&gt; obligation", "Review of the documents", "A written assessment", "Syria"]) assert.ok(body.includes(text), text);
-    assert.ok(body.includes(ar ? "لا تمثل النتائج السابقة ضماناً" : "do not guarantee"));
+    for (const text of [WORK_PUBLICATION_COPY[lang].matter, WORK_PUBLICATION_COPY[lang].approach, WORK_PUBLICATION_COPY[lang].outcome, WORK_PUBLICATION_COPY[lang].publisherName, WORK_PUBLICATION_COPY[lang].teamName, WORK_PUBLICATION_COPY[lang].privacyText, WORK_PUBLICATION_COPY[lang].ctaText]) assert.ok(body.includes(text), text);
+    assert.doesNotMatch(body, /experience only|Details may be modified|لأغراض توضيح الخبرة المهنية فقط|عُدّلت بعض التفاصيل/);
     assert.ok(!body.includes("/api/work/render-test/file"));
     assert.ok(!html.includes('"encoding":'));
   }
@@ -87,9 +88,7 @@ test("production portfolio HTML exposes actual library facts and sourced capabil
     const ar = language === "ar";
     const html = buildDynamicWorkIndex(inventory, language, shell);
     const body = html.split("<body>")[1];
-    assert.ok(body.includes(ar ? "التمثيل أمام المحاكم" : "representation before courts"));
-    assert.ok(body.includes(ar ? "المحامين المحليين المرخصين" : "licensed local lawyers"));
-    assert.ok(body.includes(ar ? "دراسات وملفات منشورة مع بيان أصحابها" : "Published studies and documents with author credits"));
+    for (const text of [PORTFOLIO_PAGE_COPY[language].intro, PORTFOLIO_PAGE_COPY[language].workCountDetail, PORTFOLIO_PAGE_COPY[language].ctaText, PORTFOLIO_PAGE_COPY[language].teamAttribution]) assert.ok(body.includes(text), text);
     assert.ok(body.includes(`>${(60).toLocaleString(language)}</a></dd>`));
     assert.ok(body.includes(`<dd>${(3).toLocaleString(language)}</dd>`));
     assert.ok(body.includes(`<dd>${(2).toLocaleString(language)}</dd>`));
@@ -131,7 +130,7 @@ test("portfolio capability and document links follow current publication, langua
 test("production work document markup exists only when a public file exists", () => {
   const html = buildDynamicWorkHtml({ ...sample, fileSize: 123 }, "ar");
   assert.ok(html.includes('"encoding":'));
-  assert.ok(html.split("<body>")[1].includes("عرض المستند المنقح"));
+  assert.ok(html.split("<body>")[1].includes(WORK_PUBLICATION_COPY.ar.open));
 });
 
 test("unprerendered work retains localized evidence, service and collection relationships", () => {
@@ -148,6 +147,9 @@ test("unprerendered work retains localized evidence, service and collection rela
     assert.equal(work.contentLocation, ar ? "سوريا" : "Syria");
     assert.deepEqual(work.genre, ["Legal case study", ar ? "مراجعة" : "Review"]);
     assert.equal(work.encoding.contentUrl, "https://counselo-legal.com/documents/render-test.pdf");
+    assert.equal(work.encoding.name, work.name);
+    assert.equal(work.encoding.creator["@id"], work.creator["@id"]);
+    assert.equal(work.encoding.publisher["@id"], COUNSELO_ENTITY_IDS.organization);
     assert.ok(html.includes(`href="/syr${ar ? "/ar" : ""}/services/contracts"`));
     assert.ok(html.includes(`href="/syr${ar ? "/ar" : ""}/contact"`));
     assert.doesNotMatch(JSON.stringify(work), /"(?:reviewedBy|aggregateRating|reviewCount|citation)"/);
@@ -155,7 +157,7 @@ test("unprerendered work retains localized evidence, service and collection rela
 });
 
 test("work discovery connects its collection, list and work entities without mixing authorship", () => {
-  const partner = { ...sample, slug: "ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat" };
+  const partner = { ...sample, fileSize: 123, slug: "ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat" };
   for (const language of ["en", "ar"] as const) {
     const ar = language === "ar";
     const untranslated = { ...sample, slug: "unavailable-language", ...(ar ? { titleAr: "" } : { titleEn: "" }) };
@@ -170,9 +172,15 @@ test("work discovery connects its collection, list and work entities without mix
     assert.equal(list.numberOfItems, 2);
     assert.equal(list.itemListElement.length, 2);
     for (const item of list.itemListElement) assert.equal(item.item["@id"], `${item.url}#work-sample`);
-    assert.ok(html.includes(ar ? "الجهة صاحبة الدراسة: البغدادي للمحاماة" : "Study by: Baghdadi Law"));
+    assert.ok(html.includes(PORTFOLIO_PAGE_COPY[language].memberOfficeAttribution));
     const work = schemas(buildDynamicWorkHtml(partner, language, shell)).find(node => node["@type"] === "CreativeWork");
     assert.equal(work.creator["@id"], "https://www.baghdadilaw.co/#legalservice");
     assert.equal(work.publisher["@id"], "https://counselo-legal.com/#organization");
+    assert.equal(work.encoding.creator["@id"], work.creator["@id"]);
+    assert.equal(work.encoding.publisher["@id"], work.publisher["@id"]);
+    const detailBody = buildDynamicWorkHtml(partner, language, shell).split("<body>")[1];
+    assert.ok(detailBody.includes(WORK_PUBLICATION_COPY[language].preparedBy));
+    assert.ok(detailBody.includes(WORK_PUBLICATION_COPY[language].memberOffice));
+    assert.ok(detailBody.includes(ar ? "البغدادي للمحاماة" : "Baghdadi Law"));
   }
 });

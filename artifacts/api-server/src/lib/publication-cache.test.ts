@@ -330,7 +330,7 @@ test("corrupt snapshots, pending writes and fenced rollback retain database read
   const f = fixture(t), writer = f.coordinator();
   await writer.mutate(async () => {});
   const epoch = await f.store.epochGeneration();
-  f.objects.set(`counselo/public-data-cache/v2/${epoch}/work.json`, "malformed");
+  f.objects.set(`counselo/public-data-cache/v3/${epoch}/work.json`, "malformed");
   let reads = 0;
   const load = async () => { reads++; return [{ published: true }]; };
   const decode = (value: unknown) => value as Awaited<ReturnType<typeof load>>;
@@ -534,6 +534,7 @@ test("publication-backed canonical PDFs retain headers, avoid database reads and
     slug: "published-pdf", published: true, confidentialityConfirmed: false,
     updatedAt: "2026-11-13T00:00:00.000Z", fileName: "Published.pdf",
     fileMimeType: "application/pdf", fileSize: bytes.length, fileData: bytes.toString("base64"),
+    documentLanguage: "ar",
   };
   const files = new PublicWorkFileCache(() => new Client(), reader, true);
   await files.prime([file]);

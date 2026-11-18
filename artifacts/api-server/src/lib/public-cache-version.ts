@@ -32,6 +32,14 @@ export function readPublicCacheDeploymentVersion(options: {
       hash.update(`${label}:${bytes.length}:`);
       hash.update(bytes);
     }
+    // PDF/text editions can change without changing the API bundle. Their
+    // verified manifest hashes must also invalidate cached document responses.
+    const documentManifest = path.resolve(path.dirname(apiBundle), "assets/work-document-revisions/manifest.json");
+    if (existsSync(documentManifest)) {
+      const bytes = readFileSync(documentManifest);
+      hash.update(`work-document-manifest:${bytes.length}:`);
+      hash.update(bytes);
+    }
     return hash.digest("hex");
   } catch {
     return null;
@@ -39,7 +47,7 @@ export function readPublicCacheDeploymentVersion(options: {
 }
 
 // Evaluated once at process startup. API code and frontend asset references both
-// participate, and neither deployment timestamps nor filesystem paths do.
+// participate alongside the PDF edition manifest; filesystem paths do not.
 export const PUBLIC_CACHE_DEPLOYMENT_VERSION = readPublicCacheDeploymentVersion({
   moduleUrl: import.meta.url,
   cwd: process.cwd(),
