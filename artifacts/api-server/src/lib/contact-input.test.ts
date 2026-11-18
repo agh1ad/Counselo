@@ -5,6 +5,7 @@ import {
   ContactInputError,
   MAX_CONTACT_TOTAL_BYTES,
   parseContactInput,
+  isConsultationRequest,
 } from "./contact-input.js";
 
 const validInput = {
@@ -23,6 +24,38 @@ test("accepts a valid consultation request", () => {
   assert.equal(parsed.email, "ahmed@example.com");
   assert.equal(parsed.consultationProduct, "comprehensive-consultation");
   assert.deepEqual(parsed.attachments, []);
+});
+
+test("legacy requests retain their serialized payload for retry fingerprints", () => {
+  const parsed = parseContactInput(validInput);
+  assert.equal(JSON.stringify(parsed), JSON.stringify({
+    name: validInput.name, email: validInput.email, phone: validInput.phone,
+    service: validInput.service, consultationProduct: "comprehensive-consultation",
+    message: validInput.message, region: validInput.region, language: validInput.language,
+    website: "", attachments: [],
+  }));
+  assert.equal(isConsultationRequest(parsed), true);
+});
+
+test("explicit general requests retain their legal field without commissioning a consultation", () => {
+  for (const region of ["sa", "syr", "uae"] as const) {
+    for (const service of [...getConsultationPrices(region).map(category => category.id), "urgent-legal-assistance"]) {
+      const parsed = parseContactInput({ ...validInput, region, service, requestIntent: "general" });
+      assert.equal(parsed.service, service);
+      assert.equal(parsed.requestIntent, "general");
+      assert.equal(parsed.consultationProduct, undefined);
+      assert.equal(isConsultationRequest(parsed), false);
+      assert.doesNotMatch(JSON.stringify(parsed), /consultationProduct/);
+    }
+  }
+  assert.equal(parseContactInput({ ...validInput, requestIntent: "general", consultationProduct: "document-review" }).consultationProduct, undefined);
+});
+
+test("explicit consultation requests preserve product selection and reject unknown intents", () => {
+  const parsed = parseContactInput({ ...validInput, requestIntent: "consultation", consultationProduct: "comprehensive-consultation" });
+  assert.equal(parsed.consultationProduct, "comprehensive-consultation");
+  assert.equal(isConsultationRequest(parsed), true);
+  assert.throws(() => parseContactInput({ ...validInput, requestIntent: "unrecognized" }), ContactInputError);
 });
 
 test("accepts and normalizes Arabic and Eastern Arabic phone digits", () => {

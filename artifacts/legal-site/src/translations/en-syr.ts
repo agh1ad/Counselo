@@ -38,14 +38,14 @@ export const enSyr: typeof en = {
       badge: "Online Access to Your Legal Team — Syria",
       h1a: "Expert Legal Support Online",
       h1b: "One Team, from Consultation to Representation.",
-      desc: "CounselO delivers legal advice, contracts, negotiation and representation in Syria. Consult our team online, share documents and follow your matter remotely. Our licensed lawyers represent you before courts and authorities as part of the same CounselO team.",
+      desc: "CounselO delivers legal advice, contracts, negotiation and representation in Syria. The same CounselO team handles your online communication, legal work and representation, including required court and authority attendance through its appropriately licensed members.",
       subDesc: "Start your online consultation through WhatsApp or email. We review your matter and agree the scope with you, and you continue with the same CounselO team from advice to representation.",
     },
     platform: {
       ...en.home.platform,
       subheading: "Online consultation, document review and remote follow-up for your matter in Syria, with one team also handling the contracts, negotiation and representation you need.",
       advantages: [
-        { icon: "wifi", title: "Start Online — Anywhere in Syria", desc: "Consult from Damascus, Aleppo, Homs, Lattakia or anywhere in Syria — no office visit, no commute, no waiting room." },
+        { icon: "wifi", title: "Start Online — Anywhere in Syria", desc: "Discuss your matter and share documents online from Syria or abroad; the same team handles local legal work where required." },
         { icon: "clock", title: "Continuity from the Start", desc: "The CounselO team follows your matter from the first review through the advice, procedures and representation you need." },
         { icon: "lock", title: "Professional Legal Confidentiality", desc: "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
         { icon: "globe", title: "Arabic & English", desc: "Our team works in Arabic and English. Legal advice in the language you think and work in — no barriers." },
@@ -53,7 +53,7 @@ export const enSyr: typeof en = {
     },
     about: {
       ...en.home.about,
-      p1: "CounselO’s team brings experience in contracts, disputes, family, employment and property matters to your legal needs in Syria. We advise, review documents and draft online. Our licensed lawyers handle proceedings and representation, and our team keeps you informed remotely throughout.",
+      p1: "CounselO’s team brings experience in contracts, disputes, family, employment and property matters to your legal needs in Syria. The same team handles advice, document review, drafting and representation, with online communication and required local work through its appropriately licensed members.",
       founderTeamLine: "Leading CounselO’s legal team across Saudi Arabia, Syria and the UAE",
     },
     consultMethods: {
@@ -89,7 +89,7 @@ export const enSyr: typeof en = {
       items: [
         { quote: "Consultation begins with the relevant facts, jurisdiction, authority and documents.", author: "Scope", title: "Jurisdiction-first review" },
         { quote: "Published work samples are redacted and illustrative; they do not promise a result for a new matter.", author: "Evidence", title: "Confidentiality protected" },
-        { quote: "Our licensed lawyers handle filing, attendance and representation as part of the CounselO team and the agreed scope.", author: "Engagement", title: "One team throughout your matter" },
+        { quote: "The same CounselO team handles your online communication, filing, attendance and representation through its appropriately licensed members within the agreed scope.", author: "Engagement", title: "One team throughout your matter" },
       ],
     },
     cta: {
@@ -385,20 +385,20 @@ export const enSyr: typeof en = {
       { stat: "40+", label: "Lawyers Mentored" },
     ],
     seoTitle: "CounselO Team in Syria | Legal Advice & Representation",
-    seoDesc: "Meet CounselO’s team in Syria: online consultation, document review and remote follow-up, with representation by our licensed lawyers within the same team.",
+    seoDesc: "Meet CounselO’s team in Syria: one team for online consultation, document review, representation and remote follow-up.",
     seoKeywords: "CounselO legal team, lawyers in Syria, legal advice, legal representation, Omar Al-Baghdadi, Arabic English legal services",
     hero: {
       ...en.aboutPage.hero,
       badge: "Online Consultation · Remote Follow-up · Representation",
       heading: "Your Legal Team, Accessible Online",
-      subheading: "Connect with CounselO’s team online about your matter in Syria. We handle consultation, document review, drafting and negotiation, and our licensed lawyers handle proceedings and representation, while you stay in touch and follow progress remotely.",
+      subheading: "Connect with CounselO’s team online about your matter in Syria. The same CounselO team handles your online communication, legal work and representation, including required court and authority attendance through its appropriately licensed members.",
     },
     mission: {
       eyebrow: "Our Mission",
       heading: "Complete Legal Support with One Team",
       p1: "We bring consultation, drafting, negotiation and representation together in one destination for individuals, families, businesses and investors in Syria. Our team identifies the right approach for your matter and works with you from the start.",
       p2: "Start your online consultation in Arabic or English from anywhere. Share documents through the agreed channel and follow your matter remotely with our team, from the first review through proceedings and representation.",
-      p3: "We agree the scope, fees and next steps with you before work begins. The appropriately authorised lawyers within our team handle the procedures and representation your matter requires.",
+      p3: "We agree the scope, fees and next steps with you before work begins. The same CounselO team handles your online communication, procedures and representation through its appropriately authorised members.",
       vision2030Badge: "Legal services for Syrian matters",
       vision2030Desc: "Online access to your legal team, with continuity across advice, procedures and representation.",
     },

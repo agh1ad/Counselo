@@ -33,6 +33,12 @@ test("both languages answer the same core questions with complete content", () =
   assert.match(homepageContent.ar.intro, /فريق متمرس واحد.*محامين ومكاتب مرخصة محلياً/);
 });
 
+test("global home uses the full-service heading from its owning copy in both languages", () => {
+  assert.match(source, /h1: homepageContent\[lang\]\.h1/);
+  assert.match(homepageContent.en.h1, /CounselO.*Legal Services/);
+  assert.match(homepageContent.ar.h1, /كاونسلو.*خدمات قانونية متكاملة/);
+});
+
 test("homepage narrative follows DOM order without CSS section reordering", () => {
   const ids = ["about", "services", "contact"];
   let previous = -1;

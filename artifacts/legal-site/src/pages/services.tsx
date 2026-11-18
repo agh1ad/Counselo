@@ -112,7 +112,7 @@ export default function Services() {
         "url": `${baseUrl}/services/${item.id}`,
       })),
     },
-    { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? "خدمات كاونسلو القانونية" : "CounselO Legal legal consultation services", seoDesc, s.items) },
+    { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? "خدمات كاونسلو القانونية" : "CounselO Legal services", seoDesc, s.items) },
     { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
     {
       "@context": "https://schema.org",
@@ -213,7 +213,7 @@ export default function Services() {
       </section>
       <section id="services-final-cta" className="bg-[#073d2b] py-14 lg:py-20 text-white" aria-labelledby="services-final-title">
         <div className="premium-content-shell">
-          <h2 id="services-final-title" className="font-serif text-3xl md:text-4xl mb-5">{isRTL ? `ابدأ استشارتك القانونية لمسألة في ${country}` : `Start your consultation for a matter in ${country}`}</h2>
+          <h2 id="services-final-title" className="font-serif text-3xl md:text-4xl mb-5">{isRTL ? `تحدث مع فريقنا بشأن مسألتك في ${country}` : `Speak to our team about your matter in ${country}`}</h2>
           <p className="max-w-3xl text-white/80 leading-8 mb-6">{common.contactText}</p>
           <Link href={`${regionPrefix}/contact`} data-cta="contact" data-conversion-position="services-final" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-12 items-center justify-center gap-3 bg-[#d4ae5f] px-6 py-3 font-semibold text-[#073d2b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">{common.primary}<ArrowRight className="h-4 w-4 rtl:rotate-180" aria-hidden="true" /></Link>
           <p className="mt-5 max-w-3xl text-sm leading-7 text-white/75">{CONSULTATION_SCOPE[isRTL ? "ar" : "en"]}</p>

@@ -1,260 +1,39 @@
 import { ConsultationSteps } from "@/components/contact/consultation-steps";
-import { createContactFormSchema, type ContactFormValues } from "@/components/contact/contact-form-schema";
 import { urgentPath } from "@/lib/urgent-legal-assistance";
-import * as m from "framer-motion/m";
 import { Link, useSearch } from "wouter";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState, useRef, useCallback, useMemo, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
-import { Toaster } from "@/components/ui/toaster";
-import { Clock, Mail, Phone, CreditCard, Paperclip, X, FileText, ImageIcon, CheckCircle, Loader2, AlertCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Clock, Mail, Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
-import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_SCOPE, getConsultationPrice } from "@workspace/api-zod/browser";
-import { consultationPriceLabel } from "@/components/legal/consultation-price";
+import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_SCOPE } from "@workspace/api-zod/browser";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { trackEvent } from "@/lib/analytics";
-import { getAcquisitionContext } from "@/lib/acquisition";
-import { getContactServiceOptions, getContactServicePrefill } from "@/lib/contact-service-selection";
-
-const MAX_FILES = 10;
-const MAX_FILE_SIZE_MB = 5;
-const MAX_TOTAL_SIZE_MB = 7;
-const ACCEPTED = ["image/jpeg", "image/png", "image/gif", "image/webp", "application/pdf"];
-
-function FileIcon({ type }: { type: string }) {
-  if (type === "application/pdf") return <FileText className="h-4 w-4 text-primary shrink-0" />;
-  return <ImageIcon className="h-4 w-4 text-primary shrink-0" />;
-}
-
-type ContactApiResponse = {
-  reference?: string;
-  leadId?: string;
-  notificationStatus?: "accepted" | "pending" | "sent";
-  error?: string;
-};
-
-function fileToBase64(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const result = String(reader.result ?? "");
-      const separator = result.indexOf(",");
-      if (separator === -1) reject(new Error("Unable to read attachment."));
-      else resolve(result.slice(separator + 1));
-    };
-    reader.onerror = () => reject(new Error("Unable to read attachment."));
-    reader.readAsDataURL(file);
-  });
-}
+import { getDirectContactDetails } from "@/lib/contact-direct-links";
 
 export default function Contact() {
-  const { toast } = useToast();
   const { t, isRTL } = useLanguage();
   const { region } = useRegion();
   const search = useSearch();
   const regionPrefix = `/${region}${isRTL ? "/ar" : ""}`;
   const c = t.contact;
-  const f = c.form;
-  const serviceOptions = useMemo(
-    () => getContactServiceOptions(region, isRTL),
-    [region, isRTL],
-  );
   const isUae = region === "uae";
   const isSyr = region === "syr";
   const countryName = isUae ? "United Arab Emirates" : isSyr ? "Syria" : "Saudi Arabia";
   const pageUrl = `https://counselo-legal.com${regionPrefix}/contact`;
-  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو للاستشارات القانونية، أحتاج إلى استشارة بخصوص مسألة قانونية في ${countryName === "United Arab Emirates" ? "الإمارات" : countryName === "Syria" ? "سوريا" : "السعودية"}.` : `Hello CounselO Legal, I need a consultation about a legal matter in ${countryName}.`)}`;
-  const [files, setFiles] = useState<File[]>([]);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const honeypotRef = useRef<HTMLInputElement>(null);
-  const submissionLock = useRef(false);
-  const dismissSubmissionToast = useRef<(() => void) | undefined>(undefined);
-  const dismissAttachmentToast = useRef<(() => void) | undefined>(undefined);
-  const idempotencyKey = useRef<string | undefined>(undefined);
-  const successRef = useRef<HTMLElement>(null);
-
-  const [formReady, setFormReady] = useState(false);
-  useEffect(() => { setFormReady(true); }, []);
+  // Prerendered contact pages have no query. Apply link context after hydration
+  // so their initial HTML remains identical, then retain it in direct drafts.
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => { setHydrated(true); }, []);
+  const details = getDirectContactDetails(region, hydrated ? search : "", isRTL);
+  const isConsultation = Boolean(details.consultationPrice);
   useEffect(() => {
-    if (!formReady || window.location.hash !== "#consultation-request") return;
-    // The page is lazy-loaded; the browser's initial fragment jump can precede
-    // the form, and the shared router also resets scroll on route changes.
+    if (!hydrated || window.location.hash !== "#consultation-request") return;
     const frame = window.requestAnimationFrame(() => {
-      const request = document.getElementById("consultation-request");
-      request?.scrollIntoView({ block: "start" });
-      request?.focus({ preventScroll: true });
+      const contact = document.getElementById("consultation-request");
+      contact?.scrollIntoView({ block: "start" });
+      contact?.focus({ preventScroll: true });
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [formReady]);
-
-  const [wasSent, setWasSent] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submissionError, setSubmissionError] = useState("");
-  const [reference, setReference] = useState("");
-  const [prefillService, setPrefillService] = useState("");
-  const contactFormSchema = useMemo(() => createContactFormSchema(isRTL, serviceOptions.map(option => option.value)), [isRTL, serviceOptions]);
-  useEffect(() => {
-    if (wasSent) successRef.current?.focus();
-  }, [wasSent]);
-
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { name: "", email: "", phone: "", service: "", message: "" },
-  });
-
-  useEffect(() => {
-    const requestedService = getContactServicePrefill(region, search);
-    if (requestedService) {
-      setPrefillService(requestedService);
-      form.setValue("service", requestedService);
-    } else {
-      setPrefillService("");
-      const selectedService = form.getValues("service");
-      if (selectedService && !serviceOptions.some(option => option.value === selectedService)) {
-        form.setValue("service", "", { shouldValidate: form.formState.isSubmitted });
-      }
-    }
-  }, [form, serviceOptions, region, search]);
-
-  const selectedService = form.watch("service");
-  const urgentSelected = selectedService === "urgent-legal-assistance";
-  const consultationPrice = getConsultationPrice(region, selectedService);
-  const consultationContext = consultationPrice
-    ? (isRTL
-      ? `مجال الاستشارة: ${consultationPrice.titleAr}\nرسوم الاستشارة المنشورة: ${consultationPriceLabel(consultationPrice, true)}\n\n`
-      : `Consultation category: ${consultationPrice.titleEn}\nPublished consultation fee: ${consultationPriceLabel(consultationPrice, false)}\n\n`)
-    : "";
-
-  const handleFiles = useCallback((incoming: FileList | null) => {
-    if (!incoming) return;
-    const combined = [...files];
-    const skipped: string[] = [];
-    let totalSize = combined.reduce((sum, file) => sum + file.size, 0);
-    Array.from(incoming).forEach((file) => {
-      if (!ACCEPTED.includes(file.type)) { skipped.push(file.name); return; }
-      if (file.size <= 0 || file.size > MAX_FILE_SIZE_MB * 1024 * 1024) { skipped.push(file.name); return; }
-      if (combined.length >= MAX_FILES) { skipped.push(file.name); return; }
-      if (totalSize + file.size > MAX_TOTAL_SIZE_MB * 1024 * 1024) { skipped.push(file.name); return; }
-      combined.push(file);
-      totalSize += file.size;
-    });
-    setFiles(combined);
-    if (skipped.length > 0) {
-      dismissAttachmentToast.current = toast({
-        title: isRTL ? "بعض الملفات لم تُضَف" : "Some files were skipped",
-        description: isRTL
-          ? `${skipped.join(", ")} — اختر ملفات PDF أو صوراً غير فارغة، بحد أقصى 10 ملفات و5 ميغابايت للملف و7 ميغابايت إجمالاً.`
-          : `${skipped.join(", ")} — choose nonempty PDFs or supported images: up to 10 files, 5 MB per file and 7 MB total.`,
-        variant: "destructive",
-      }).dismiss;
-    }
-  }, [files, isRTL, toast]);
-
-  const removeFile = (idx: number) => {
-    setFiles((prev) => prev.filter((_, i) => i !== idx));
-  };
-
-  async function onSubmit(values: ContactFormValues) {
-    if (values.message.length + consultationContext.length > 5_000) {
-      form.setError("message", { message: isRTL ? "يرجى اختصار الوصف لإرفاق مجال الاستشارة ورسومها مع طلبك." : "Please shorten your description to include the consultation category and fee with your request." });
-      return;
-    }
-    if (submissionLock.current) return;
-    submissionLock.current = true;
-    dismissSubmissionToast.current?.();
-    dismissAttachmentToast.current?.();
-    setIsSubmitting(true);
-    setSubmissionError("");
-    const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 45_000);
-    try {
-      idempotencyKey.current ??= window.crypto.randomUUID();
-      const attachments = await Promise.all(files.map(async (file) => ({
-        name: file.name,
-        type: file.type,
-        data: await fileToBase64(file).catch(() => {
-          throw new Error(isRTL ? "تعذر قراءة أحد المرفقات. أعد اختيار الملف وحاول مرة أخرى." : "An attachment could not be read. Select the file again and retry.");
-        }),
-      })));
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        signal: controller.signal,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...values,
-          message: `${consultationContext}${values.message}`,
-          idempotencyKey: idempotencyKey.current,
-          region,
-          language: isRTL ? "ar" : "en",
-          acquisition: getAcquisitionContext(),
-          website: honeypotRef.current?.value ?? "",
-          attachments,
-        }),
-      });
-      const result = await response.json().catch(() => ({})) as ContactApiResponse;
-      if (!response.ok || !result.reference) {
-        const localizedError = response.status === 429
-          ? (isRTL
-            ? "تم إرسال عدة طلبات مؤخراً. يرجى المحاولة مرة أخرى لاحقاً."
-            : "Too many requests were submitted recently. Please try again later.")
-          : response.status === 503
-            ? (isRTL
-              ? "خدمة إرسال الطلبات غير متاحة مؤقتاً. يرجى التواصل معنا عبر البريد الإلكتروني."
-              : "Consultation submissions are temporarily unavailable. Please contact us by email.")
-            : (isRTL
-              ? "تعذر إرسال طلبك. يرجى التحقق من البيانات والمحاولة مرة أخرى."
-              : result.error || "We could not submit your request. Please check the form and try again.");
-        throw new Error(localizedError);
-      }
-
-      setReference(result.reference);
-      setWasSent(true);
-      idempotencyKey.current = undefined;
-      trackEvent("generate_lead", window.location.pathname, {
-        form_name: "consultation",
-        lead_id: result.leadId,
-        service: values.service,
-        consultation_product: "comprehensive-consultation",
-        region,
-        attachment_count: attachments.length,
-      });
-      form.reset();
-      setPrefillService("");
-      setFiles([]);
-      window.history.replaceState({}, "", window.location.pathname);
-    } catch (error) {
-      trackEvent("form_submit_error", window.location.pathname, {
-        form_name: "consultation",
-        region,
-      });
-      const message = controller.signal.aborted
-        ? (isRTL
-          ? "استغرق تأكيد الاستلام وقتاً أطول من المتوقع. احتفظنا ببياناتك؛ أعد المحاولة لاسترجاع تأكيد الطلب، أو تواصل معنا مباشرة."
-          : "Confirmation is taking longer than expected. Your entries are still here; retry to recover your receipt, or contact us directly.")
-        : error instanceof TypeError
-          ? (isRTL ? "تعذر الاتصال بالخدمة. تحقق من اتصال الإنترنت وأعد المحاولة؛ بياناتك ما زالت في النموذج." : "We could not reach the service. Check your connection and retry; your entries are still in the form.")
-          : error instanceof Error ? error.message : (isRTL
-            ? "تعذر إرسال طلبك. يرجى المحاولة مرة أخرى."
-            : "We could not submit your request. Please try again.");
-      setSubmissionError(message);
-      dismissSubmissionToast.current = toast({
-        title: isRTL ? "تعذر تأكيد استلام الطلب" : "Receipt could not be confirmed",
-        description: message,
-        variant: "destructive",
-      }).dismiss;
-    } finally {
-      window.clearTimeout(timeout);
-      submissionLock.current = false;
-      setIsSubmitting(false);
-    }
-  }
+  }, [hydrated, search]);
 
   return (
     <div className="counselo-editorial-page legal-intake-page w-full bg-background min-h-screen">
@@ -321,7 +100,7 @@ export default function Contact() {
             "url": "https://counselo-legal.com",
             "founder": OMAR_AL_BAGHDADI,
             "areaServed": { "@type": "Country", "name": countryName },
-            "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal consultation", "availableLanguage": ["Arabic", "English"] },
+            "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal services", "availableLanguage": ["Arabic", "English"] },
           },
           {
             "@context": "https://schema.org",
@@ -334,274 +113,88 @@ export default function Contact() {
         ]}
       />
 
-      {/* Hero */}
       <section className="premium-page-hero py-24 lg:py-28 border-b border-[#d4af60]/20">
-        <div className="premium-content-shell relative z-10 text-center">
-          <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">{c.hero.heading}</h1>
-            <div className="premium-hero-rule mx-auto mb-8" />
-            <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{isRTL ? "استشر فريق كاونسلو المكوّن من محامين ومكاتب مرخّصة أونلاين. نتولى المشورة والصياغة والتفاوض والتمثيل، ونبقى معك كفريق واحد طوال مسألتك. أرسل مستنداتك ووضح هدفك وأي موعد قريب." : "Consult online with the CounselO team, comprising licensed lawyers and law offices. We advise, draft, negotiate and represent you as one team throughout your matter. Send your documents, tell us your objective and include any approaching deadline."}</p>
-            {<div className="mt-7 flex flex-wrap justify-center gap-4">
-              <a href={wasSent ? "#consultation-receipt" : "#consultation-request"} className="inline-flex min-h-11 items-center bg-[#d4af60] px-5 py-3 font-semibold text-[#003d22] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{wasSent ? (isRTL ? "عرض تأكيد الطلب" : "View your confirmation") : (isRTL ? "انتقل إلى نموذج الطلب" : "Go to the request form")}</a>
-              <a href={whatsappUrl} data-cta="whatsapp" data-conversion-position="sa-contact-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-11 items-center border border-white/50 px-5 py-3 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{isRTL ? "ابدأ عبر واتساب" : "Start on WhatsApp"}</a>
-            </div>}
-          </m.div>
+        <div className="premium-content-shell text-center">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">{c.hero.heading}</h1>
+          <div className="premium-hero-rule mx-auto mb-8" />
+          <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{c.hero.subheading}</p>
+          <a href="#consultation-request" className="mt-7 inline-flex min-h-11 items-center gap-3 bg-[#d4af60] px-5 py-3 font-semibold text-[#003d22] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+            {isRTL ? "تواصل مباشرة مع فريقنا" : "Contact our team directly"}<ArrowRight size={18} className="rtl:rotate-180" aria-hidden="true" />
+          </a>
         </div>
       </section>
 
-      {!wasSent && <ConsultationSteps isArabic={isRTL} isConsultation={!urgentSelected} />}
+      <section id="consultation-request" tabIndex={-1} aria-labelledby="consultation-request-heading" className="scroll-mt-28 bg-background py-14 lg:py-20" data-selected-service={details.selectedService || undefined}>
+        <div className="premium-content-shell grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="min-w-0 lg:col-span-8">
+            <h2 id="consultation-request-heading" className="mb-4 text-3xl font-serif font-bold text-foreground">{isRTL ? "ابدأ الحديث مع فريق كاونسلو" : "Speak directly with CounselO"}</h2>
+            <p className="mb-6 max-w-3xl text-muted-foreground leading-8">{isRTL
+              ? "تواصل عبر واتساب أو البريد الإلكتروني أو الهاتف. شارك تفاصيل مسألتك والمستندات ذات الصلة مع فريقنا مباشرة."
+              : "Contact us by WhatsApp, email or phone. Share your matter and relevant documents directly with our team."}</p>
 
-      {/* Success screen */}
-      {wasSent && (
-        <section id="consultation-receipt" ref={successRef} tabIndex={-1} role="status" aria-labelledby="consultation-success-heading" className="py-24 bg-background scroll-mt-28">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-            <m.div
-              initial={false}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="border border-border bg-card p-12 flex flex-col items-center gap-6"
-            >
-              <div className="w-20 h-20 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
-                <CheckCircle className="h-10 w-10 text-primary" />
-              </div>
-              <div className="space-y-3">
-                <h2 id="consultation-success-heading" className="text-3xl font-serif font-bold text-foreground">
-                  {isRTL ? "شكراً لتواصلك معنا!" : "Thank You!"}
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {isRTL
-                    ? "تم استلام طلبك بنجاح. تستهدف كاونسلو للاستشارات القانونية تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة واكتمال المعلومات وتوفر الخدمة."
-                    : "Your consultation request has been received. CounselO Legal targets a professional response within 24 hours, depending on the matter, the details provided and service availability."}
-                </p>
-                {reference && (
-                  <p className="text-sm font-semibold text-primary break-words">
-                    {isRTL ? "رقم الطلب:" : "Consultation reference:"} <bdi dir="ltr" className="mt-2 block break-all">{reference}</bdi>
-                  </p>
-                )}
-              </div>
-            </m.div>
-          </div>
-        </section>
-      )}
-
-      {!wasSent && <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            {/* Info */}
-            <div className="order-2 lg:order-1 lg:col-span-4 space-y-8">
-              <m.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-8">{c.firmDetails.heading}</h3>
-                <div className="space-y-8">
-                  {[
-                    { Icon: Phone, label: c.firmDetails.phoneTitle, value: c.firmDetails.phone, ltr: true },
-                    { Icon: Mail, label: c.firmDetails.emailTitle, value: c.firmDetails.email, ltr: true },
-                    { Icon: Clock, label: c.firmDetails.hoursTitle, value: c.firmDetails.hours, ltr: false },
-                  ].map(({ Icon, label, value, ltr }, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
-                        <Icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="text-foreground font-medium mb-1">{label}</h4>
-                        {Icon === Phone || Icon === Mail
-                          ? <a href={Icon === Phone ? "tel:+966594850247" : "mailto:info@counselo-legal.com"} className="text-muted-foreground leading-relaxed underline underline-offset-4 break-all" dir="ltr">{value}</a>
-                          : <p className="text-muted-foreground leading-relaxed whitespace-pre-line" dir={ltr ? "ltr" : undefined}>{value}</p>}
-                      </div>
-                    </div>
-                  ))}
+            <div aria-live="polite">
+              {details.selectedField && <div className="mb-5 border-s-2 border-[#b4924a] ps-4">
+                <p className="text-sm text-muted-foreground">{isRTL ? "المجال القانوني" : "Legal field"}</p>
+                <p className="font-semibold text-foreground">{details.selectedField}</p>
+                {details.topicTitle && <p className="mt-1 text-foreground/80">{details.topicTitle}</p>}
+              </div>}
+              {details.consultationPrice && <div className="mb-6 border border-primary/20 bg-primary/5 p-5" data-consultation-category={details.consultationPrice.id} data-consultation-price={details.consultationPrice.amount} data-consultation-currency={details.consultationPrice.currency}>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="font-semibold text-foreground">{isRTL ? "استشارة قانونية مكتوبة أونلاين" : "Written online legal consultation"}</p>
+                  <p className="text-xl font-bold text-primary"><bdi>{details.priceLabel}</bdi></p>
                 </div>
-              </m.div>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{CONSULTATION_SCOPE[isRTL ? "ar" : "en"]}</p>
+              </div>}
+              {details.urgentSelected && <div className="mb-6 border-s-2 border-[#b4924a] bg-primary/5 p-5">
+                <p className="text-sm leading-7 text-muted-foreground">{isRTL
+                  ? "لإعداد مذكرة أو لائحة دعوى أو تدقيق عقد بصورة عاجلة، نؤكد التوافر ونتفق على الأتعاب بحسب العمل والموعد المطلوب قبل السداد."
+                  : "For urgent memoranda, claim drafting or contract review, we confirm availability and agree fees for the work and deadline before payment."}</p>
+                <Link href={urgentPath(isRTL, region)} className="mt-2 inline-block font-semibold text-primary underline underline-offset-4">{isRTL ? "تفاصيل المساعدة القانونية العاجلة" : "Urgent legal assistance details"}</Link>
+              </div>}
             </div>
 
-            {/* Form */}
-            <div id="consultation-request" tabIndex={-1} aria-labelledby="consultation-request-heading" className="scroll-mt-28 order-1 lg:order-2 lg:col-span-8">
-              <m.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-card border border-border p-5 sm:p-8">
-                <h3 id="consultation-request-heading" className="text-2xl font-serif font-bold text-foreground mb-6">{f.heading}</h3>
-                <div className="mb-8 border-s-2 border-[#b4924a] bg-[#eef4f0] p-4 text-sm leading-7 text-muted-foreground">
-                  {isRTL
-                    ? "اكتب الوقائع بترتيب زمني، وحدد ما تريد معرفته أو إنجازه، وأرفق المستندات ذات الصلة فقط. لا ترسل النسخة الوحيدة من أي أصل ولا تدرج بيانات لا تلزم لتقييم المسألة."
-                    : "Describe the facts in date order, explain what you need to know or achieve, and attach only relevant documents. Do not send the only copy of an original or include information that is not needed to assess the matter."}
-                </div>
-                <Form {...form}>
-                  {urgentSelected && <aside className="mb-6 border-s-4 border-primary bg-secondary p-5" aria-live="polite">
-                    <p>{isRTL ? "هل لديك مهلة قريبة؟ تواصل عبر واتساب أو البريد في صفحة المساعدة العاجلة لتأكيد التوافر والموعد قبل الدفع. الوقت المستهدف لتسليم الرد ٣ ساعات بعد قبول الطلب واكتمال المستندات والسداد معاً. نستقبل الحالات من السبت إلى الخميس فقط، ولا نستقبلها يوم الجمعة؛ إرسال النموذج لا يؤكد قبول المهمة." : "Facing a short deadline? Use WhatsApp or email on the urgent assistance page to confirm availability and delivery before payment. The response delivery target is 3 hours after acceptance, complete documents and payment. Urgent cases are accepted Saturday through Thursday only, never Friday; submitting this form does not confirm engagement."}</p>
-                    <Link href={urgentPath(isRTL, region)} className="mt-3 inline-block font-semibold underline">{isRTL ? "تواصل لطلب مساعدة قانونية عاجلة" : "Contact the team for urgent legal assistance"}</Link>
-                  </aside>}
-                  <form id="consultation-form" name="consultation" noValidate onSubmit={form.handleSubmit(onSubmit, () => trackEvent("form_submit_error", window.location.pathname, { form_name: "consultation" }))} aria-busy={!formReady || isSubmitting}>
-                    <fieldset disabled={!formReady || isSubmitting} className="m-0 min-w-0 space-y-6 border-0 p-0">
-                    <div className="sr-only" aria-hidden="true">
-                      <label htmlFor="contact-website">Website</label>
-                      <input
-                        ref={honeypotRef}
-                        id="contact-website"
-                        name="website"
-                        type="text"
-                        tabIndex={-1}
-                        autoComplete="off"
-                      />
-                    </div>
-                    <p className="text-sm text-muted-foreground">{isRTL ? "الاسم والبريد الإلكتروني والهاتف والمجال القانوني ووصف المسألة حقول مطلوبة. المرفقات اختيارية." : "Name, email, phone, legal service and matter description are required. Attachments are optional."}</p>
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <FormField control={form.control} name="name" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground font-medium">{f.nameLabel}</FormLabel>
-                          <FormControl><Input autoComplete="name" required aria-required="true" maxLength={120} placeholder={f.namePlaceholder} {...field} className="border-border focus:border-primary" /></FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )} />
-                      <FormField control={form.control} name="email" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground font-medium">{f.emailLabel}</FormLabel>
-                          <FormControl><Input type="email" autoComplete="email" inputMode="email" dir="ltr" required aria-required="true" maxLength={254} placeholder={f.emailPlaceholder} {...field} className="border-border focus:border-primary" /></FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )} />
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <FormField control={form.control} name="phone" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground font-medium">{f.phoneLabel}</FormLabel>
-                          <FormControl><Input type="tel" autoComplete="tel" inputMode="tel" required aria-required="true" maxLength={30} placeholder={f.phonePlaceholder} {...field} className="border-border focus:border-primary" dir="ltr" /></FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )} />
-                      <FormField control={form.control} name="service" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground font-medium">{f.serviceLabel}</FormLabel>
-                          <Select name="service" required
-                            key={field.value || prefillService || "empty"}
-                            onValueChange={(value) => {
-                              setPrefillService("");
-                              field.onChange(value);
-                            }}
-                            value={field.value || prefillService}
-                          >
-                            <FormControl>
-                              <SelectTrigger aria-required="true" className="border-border data-[placeholder]:text-foreground"><SelectValue placeholder={f.servicePlaceholder} /></SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              {serviceOptions.map((opt) => (
-                                <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )} />
-                    </div>
-                      <div className="space-y-3 border border-primary/25 bg-primary/5 p-4" aria-live="polite">
-                        <p className="font-semibold text-foreground">
-                          {consultationPrice
-                            ? <>{isRTL ? consultationPrice.titleAr : consultationPrice.titleEn}{" — "}<bdi>{consultationPriceLabel(consultationPrice, isRTL)}</bdi></>
-                            : urgentSelected
-                              ? (isRTL ? "رسوم الاستشارة وأتعاب العمل العاجل" : "Consultation and urgent document fees")
-                              : (isRTL ? "رسوم ثابتة للاستشارات الأونلاين بحسب المجال" : "Fixed online consultation fees by legal category")}
-                        </p>
-                        {urgentSelected && <p className="text-sm leading-7 text-muted-foreground">{isRTL ? "تُطبق الرسوم المنشورة عند طلب استشارة قانونية. أما إعداد المذكرات ولوائح الدعاوى أو تدقيق المستندات بصورة عاجلة، فله أتعاب نتفق عليها بحسب العمل والموعد المطلوب قبل السداد." : "Published category fees apply when you request a legal consultation. Urgent memoranda, claim drafting or document review have fees agreed for the work and deadline before payment."}</p>}
-                        <p className="text-sm leading-7 text-muted-foreground">{CONSULTATION_SCOPE[isRTL ? "ar" : "en"]}</p>
-                        <Link href={`${regionPrefix}/services#complete-service-directory`} className="inline-block text-sm font-semibold text-primary underline underline-offset-4">{isRTL ? "اطّلع على الخدمات وأسعار الاستشارات" : "View services and consultation fees"}</Link>
-                      </div>
-                    <FormField control={form.control} name="message" render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground font-medium">{f.messageLabel}</FormLabel>
-                        <FormControl>
-                          <Textarea required aria-required="true" maxLength={5000 - consultationContext.length} placeholder={f.messagePlaceholder} className="min-h-[140px] border-border focus:border-primary resize-y" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )} />
-
-                    {/* File upload */}
-                    <div className="space-y-3">
-                      <p className="text-sm font-medium text-foreground">{f.uploadLabel}</p>
-                      <input
-                        ref={fileInputRef}
-                        type="file"
-                        className="hidden"
-                        multiple
-                        accept="image/jpeg,image/png,image/gif,image/webp,application/pdf"
-                        onChange={(event) => {
-                          handleFiles(event.currentTarget.files);
-                          event.currentTarget.value = "";
-                        }}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => fileInputRef.current?.click()}
-                        disabled={files.length >= MAX_FILES}
-                        className="w-full flex flex-col items-center justify-center gap-2 border-2 border-dashed border-border hover:border-primary/60 bg-muted/30 hover:bg-primary/5 transition-colors py-6 px-4 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        <Paperclip className="h-6 w-6 text-muted-foreground" />
-                        <span className="text-sm font-medium text-foreground">{f.uploadBtn}</span>
-                        <span className="text-xs text-muted-foreground text-center">{f.uploadHint}</span>
-                      </button>
-                      {files.length > 0 && (
-                        <ul className="space-y-2">
-                          {files.map((file, idx) => (
-                            <li key={idx} className="flex items-center gap-3 border border-border bg-muted/20 px-3 py-2">
-                              <FileIcon type={file.type} />
-                              <span className="flex-1 text-sm text-foreground truncate" dir="ltr">{file.name}</span>
-                              <span className="text-xs text-muted-foreground shrink-0">
-                                {(file.size / 1024 / 1024).toFixed(1)} MB
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() => removeFile(idx)}
-                                className="min-h-11 min-w-11 flex items-center justify-center text-muted-foreground hover:text-destructive transition-colors shrink-0"
-                                aria-label={`${f.uploadRemove}: ${file.name}`}
-                              >
-                                <X className="h-4 w-4" />
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-
-                    {/* Paid service notice */}
-                    <p className="text-sm leading-7 text-muted-foreground">
-                      {isRTL ? "قبل إرسال معلوماتك، اقرأ " : "Before sharing your information, read our "}
-                      <Link href={`${regionPrefix}/privacy-policy`} className="text-primary underline underline-offset-4">{isRTL ? "سياسة الخصوصية" : "privacy policy"}</Link>
-                      {isRTL ? " و" : " and "}
-                      <Link href={`${regionPrefix}/terms-of-service`} className="text-primary underline underline-offset-4">{isRTL ? "شروط الخدمة" : "terms of service"}</Link>.
-                    </p>
-                    <div className="flex items-start gap-3 bg-primary/8 border border-primary/25 p-4">
-                      <CreditCard className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <p className="text-sm text-foreground/80 leading-relaxed">{urgentSelected ? f.paymentNotice : f.fixedPaymentNotice}</p>
-                    </div>
-                    {submissionError && (
-                      <div role="alert" className="flex items-start gap-3 border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
-                        <AlertCircle className="h-5 w-5 shrink-0" />
-                        <p>{submissionError}</p>
-                      </div>
-                    )}
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full h-auto min-h-12 whitespace-normal py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90"
-                    >
-                      {isSubmitting && <Loader2 className="me-2 h-5 w-5 animate-spin" aria-hidden="true" />}
-                      {isSubmitting
-                        ? (isRTL ? "جارٍ إرسال الطلب..." : "Submitting…")
-                        : f.submitBtn}
-                    </Button>
-                    <p className="text-xs text-muted-foreground text-center">{f.disclaimer}</p>
-                    </fieldset>
-                  </form>
-                  <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm">
-                    <a href="mailto:info@counselo-legal.com" data-conversion-position="contact-form" className="inline-flex min-h-11 items-center text-primary underline underline-offset-4">{isRTL ? "تواصل بالبريد الإلكتروني" : "Contact by email"}</a>
-                    <a href={whatsappUrl} data-conversion-position="contact-form" className="inline-flex min-h-11 items-center text-primary underline underline-offset-4">{isRTL ? "تواصل عبر واتساب" : "Contact on WhatsApp"}</a>
-                  </div>
-                </Form>
-              </m.div>
+            <div className="flex flex-wrap gap-3">
+              <a href={details.whatsappUrl} target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-conversion-position="contact-direct" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-12 items-center justify-center gap-3 bg-primary px-5 py-3 font-semibold text-white hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                <MessageCircle size={20} aria-hidden="true" />{isRTL ? "تواصل عبر واتساب" : "Chat on WhatsApp"}
+              </a>
+              <a href={details.emailUrl} data-cta="email" data-conversion-position="contact-direct" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-12 items-center justify-center gap-3 border border-primary px-5 py-3 font-semibold text-primary hover:bg-primary/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                <Mail size={20} aria-hidden="true" />{isRTL ? "راسلنا بالبريد الإلكتروني" : "Email our team"}
+              </a>
+              <a href={details.phoneUrl} data-cta="phone" data-conversion-position="contact-direct" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-12 items-center justify-center gap-3 px-5 py-3 font-semibold text-primary underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                <Phone size={19} aria-hidden="true" />{isRTL ? "اتصل بنا" : "Call us"}
+              </a>
+            </div>
+            {!isConsultation && <p className="mt-5 max-w-3xl text-sm leading-7 text-muted-foreground">{isRTL
+              ? "للاستشارات الأونلاين رسوم ثابتة منشورة. ويتولى فريق كاونسلو نفسه الصياغة والتمثيل وسائر الأعمال القانونية بأتعاب نتفق عليها قبل البدء."
+              : "Online consultations have published fixed fees. The same CounselO team handles drafting, representation and other legal work at fees agreed before work begins."}</p>}
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              <Link href={`${regionPrefix}/services#complete-service-directory`} className="inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4">{isRTL ? "الخدمات وأسعار الاستشارات" : "Services and consultation fees"}</Link>
+              <Link href={`${regionPrefix}/privacy-policy`} className="inline-flex min-h-11 items-center text-muted-foreground underline underline-offset-4">{isRTL ? "سياسة الخصوصية" : "Privacy policy"}</Link>
             </div>
           </div>
+
+          <aside className="min-w-0 border-t border-border pt-8 lg:col-span-4 lg:border-s lg:border-t-0 lg:ps-8 lg:pt-0" aria-labelledby="contact-details-heading">
+            <h2 id="contact-details-heading" className="mb-6 text-2xl font-serif font-bold text-foreground">{c.firmDetails.heading}</h2>
+            <dl className="space-y-6">
+              {[
+                { Icon: Phone, label: c.firmDetails.phoneTitle, value: c.firmDetails.phone, href: details.phoneUrl },
+                { Icon: Mail, label: c.firmDetails.emailTitle, value: c.firmDetails.email, href: details.emailUrl },
+                { Icon: Clock, label: c.firmDetails.hoursTitle, value: c.firmDetails.hours, href: undefined },
+              ].map(({ Icon, label, value, href }) => <div key={label} className="flex items-start gap-3">
+                <Icon className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                <div className="min-w-0">
+                  <dt className="font-medium text-foreground">{label}</dt>
+                  <dd className="mt-1 text-muted-foreground leading-7">{href
+                    ? <a href={href} className="break-all underline underline-offset-4" dir="ltr">{value}</a>
+                    : <span className="whitespace-pre-line">{value}</span>}</dd>
+                </div>
+              </div>)}
+            </dl>
+          </aside>
         </div>
-      </section>}
+      </section>
 
-      <Toaster />
+      <ConsultationSteps isArabic={isRTL} isConsultation={isConsultation} />
     </div>
   );
 }

@@ -54,12 +54,12 @@ export const enUae = {
   aboutPage: {
     ...uaeBase.aboutPage,
     seoTitle: "CounselO Team in the UAE | Legal Advice & Representation",
-    seoDesc: "Meet CounselO’s team in the UAE: online consultation, document review and remote follow-up, with representation by our licensed lawyers within the same team.",
+    seoDesc: "Meet CounselO’s team in the UAE: one team for online consultation, document review, representation and remote follow-up.",
     seoKeywords: "CounselO legal team, lawyers in the UAE, legal advice, legal representation, Omar Al-Baghdadi, Arabic English legal services",
     hero: {
       eyebrow: "About CounselO Legal UAE",
       heading: "Your Legal Team, Accessible Online",
-      subheading: "Connect with CounselO’s team online about your matter in the UAE. We handle consultation, document review, drafting and negotiation, and our licensed lawyers handle proceedings and representation, while you stay in touch and follow progress remotely.",
+      subheading: "Connect with CounselO’s team online about your matter in the UAE. The same CounselO team handles your online communication, legal work and representation, including required court and authority attendance through its appropriately licensed members.",
       badge: "Online Consultation · Remote Follow-up · Representation",
     },
     stats: [
@@ -73,7 +73,7 @@ export const enUae = {
       heading: "Complete Legal Support with One Team",
       p1: "We bring consultation, drafting, negotiation and representation together in one destination for individuals, families, businesses and investors in the UAE. Our team identifies the right approach for your matter and works with you from the start.",
       p2: "Start your online consultation in Arabic or English from anywhere. Share documents through the agreed channel and follow your matter remotely with our team, from the first review through proceedings and representation.",
-      p3: "We agree the scope, fees and next steps with you before work begins. The appropriately authorised lawyers within our team handle the procedures and representation your matter requires.",
+      p3: "We agree the scope, fees and next steps with you before work begins. The same CounselO team handles your online communication, procedures and representation through its appropriately authorised members.",
       vision2030Badge: "Built for the UAE's Digital Environment",
       vision2030Desc: "Online access to your legal team, with continuity across advice, procedures and representation.",
     },
@@ -143,7 +143,7 @@ export const enUae = {
       badge: "Online Access to Your Legal Team — the UAE",
       h1a: "Expert Legal Support Online",
       h1b: "One Team, from Consultation to Representation.",
-      desc: "CounselO delivers legal advice, contracts, negotiation and representation in the UAE. Consult our team online, share documents and follow your matter remotely. Our licensed lawyers represent you before courts and authorities as part of the same CounselO team.",
+      desc: "CounselO delivers legal advice, contracts, negotiation and representation in the UAE. The same CounselO team handles your online communication, legal work and representation, including required court and authority attendance through its appropriately licensed members.",
       descBold: "One team supporting your matter from the start.",
       subDesc: "Start your online consultation through WhatsApp or email. We review your matter and agree the scope with you, and you continue with the same CounselO team from advice to representation.",
       chips: ["✓ Experienced legal team","✓ Arabic & English","✓ Advice & representation","✓ One team throughout"],
@@ -152,7 +152,7 @@ export const enUae = {
       ...en.home.platform,
       subheading: "Online consultation, document review and remote follow-up for your matter in the UAE, with one team also handling the contracts, negotiation and representation you need.",
       advantages: [
-        { icon: "wifi", title: "Start Online — Across the UAE", desc: "Consult from Dubai, Abu Dhabi, Sharjah or any other Emirate without an office visit." },
+        { icon: "wifi", title: "Start Online — Across the UAE", desc: "Discuss your matter and share documents online from any emirate; the same team handles local legal work where required." },
         { icon: "clock", title: "Clear Scope Before Work Begins", desc: "We confirm the matter, governing framework, deliverable and fee before starting legal work." },
         { icon: "lock", title: "Secure & Confidential", desc: "Documents and legal matters are handled through confidential professional channels." },
         { icon: "globe", title: "Arabic & English", desc: "Bilingual guidance for local clients, expatriates, founders and international investors." },
@@ -160,7 +160,7 @@ export const enUae = {
     },
     about: {
       ...en.home.about,
-      p1: "CounselO’s team brings experience in contracts, disputes, family, employment and property matters to your legal needs in the UAE. We advise, review documents and draft online. Our licensed lawyers handle proceedings and representation, and our team keeps you informed remotely throughout.",
+      p1: "CounselO’s team brings experience in contracts, disputes, family, employment and property matters to your legal needs in the UAE. The same team handles advice, document review, drafting and representation, with online communication and required local work through its appropriately licensed members.",
       p2: "Our team handles corporate, commercial, employment, property, family and dispute matters in the UAE, with professional review and a plan connecting advice to procedures and representation.",
       p3: "Whether you are an individual, business or investor, CounselO brings its lawyers and offices together as one team to handle your matter and keep you informed in Arabic or English.",
       founderTeamLine: "Leading CounselO’s legal team across Saudi Arabia, Syria and the UAE",
@@ -212,7 +212,7 @@ export const enUae = {
       items: [
         { quote: "Consultation begins with the relevant Emirate, authority, framework and documents.", author: "Scope", title: "Jurisdiction-first review" },
         { quote: "Published work samples are redacted and illustrative; they do not promise a result for a new matter.", author: "Evidence", title: "Confidentiality protected" },
-        { quote: "Our licensed lawyers handle filing, attendance and representation as part of the CounselO team and the agreed scope.", author: "Engagement", title: "One team throughout your matter" },
+        { quote: "The same CounselO team handles your online communication, filing, attendance and representation through its appropriately licensed members within the agreed scope.", author: "Engagement", title: "One team throughout your matter" },
       ],
     },
     cta: {
@@ -247,7 +247,7 @@ export const enUae = {
       ...en.contact.form,
       phonePlaceholder: "+971 or your international number",
       serviceOptions: UAE_SERVICES.map((service) => ({ value: service.slug, label: service.title.en })),
-      disclaimer: "Submissions are handled under applicable confidentiality and data-protection obligations. We aim to respond within a target 24-hour response window, subject to scope, urgency, completeness and availability.",
+      disclaimer: "Your messages and documents are handled under applicable confidentiality and data-protection obligations. We aim to respond within a target 24-hour response window, subject to scope, urgency, completeness and availability.",
     },
   },
   services: {

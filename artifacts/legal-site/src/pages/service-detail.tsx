@@ -109,6 +109,10 @@ export default function ServiceDetail() {
     : (isRTL ? `مرحباً كاونسلو للاستشارات القانونية، أحتاج إلى مراجعة بخصوص خدمة ${data.title} في ${countryName}.` : `Hello CounselO Legal, I need a review concerning ${data.title} in ${countryName}.`);
   const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(whatsappMessage)}`;
   const serviceContactHref = `${regionPrefix}/contact?service=${id}${consultationPrice ? `&consultation=${consultationPrice.id}` : ""}#consultation-request`;
+  const legalSupportHref = `${regionPrefix}/contact?service=${id}#consultation-request`;
+  const legalSupportWhatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL
+    ? `مرحباً كاونسلو، أحتاج إلى دعم قانوني بشأن ${consultationPrice?.titleAr ?? data.title} في ${countryName}. أود مناقشة مسألتي وما أحتاج إليه من مشورة أو صياغة أو تمثيل مع فريقكم.`
+    : `Hello CounselO, I need legal support with ${consultationPrice?.titleEn ?? data.title} in ${countryName}. I would like to discuss my matter and the advice, drafting or representation I need with your team.`)}`;
 
   const schemas: object[] = [
     {
@@ -199,8 +203,8 @@ export default function ServiceDetail() {
       <div className="premium-content-shell saudi-service-body py-12 lg:py-16">
         <div className="saudi-service-layout grid gap-12 lg:grid-cols-12 xl:gap-16">
           <div className="saudi-service-main lg:col-span-8 xl:col-span-9">
-            <ServiceExperience copy={pageCopy} isArabic={isRTL} region={region} service={id} contactHref={serviceContactHref} problems={problemPages} />
-            <ServiceContact copy={pageCopy} isArabic={isRTL} region={region} contactHref={serviceContactHref} whatsappHref={whatsappUrl} />
+            <ServiceExperience copy={pageCopy} isArabic={isRTL} region={region} service={id} contactHref={legalSupportHref} problems={problemPages} />
+            <ServiceContact copy={pageCopy} isArabic={isRTL} region={region} contactHref={legalSupportHref} whatsappHref={legalSupportWhatsappUrl} />
           </div>
 
           {/* Sidebar */}

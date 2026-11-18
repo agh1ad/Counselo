@@ -8,12 +8,30 @@ import test from "node:test";
 import express from "express";
 import { buildWorkDocumentSitemapEntries, publicWorkDocumentTextPath, type PublicWorkDocumentRevision } from "@workspace/api-zod";
 import { createPublicDocumentsRouter, createWorkAttachmentHandler } from "./public-work-documents.js";
-import { createWorkDocumentRevisionResolver, publicWorkDocumentMetadata } from "./work-document-revisions.js";
+import { createWorkDocumentRevisionResolver, publicWorkDocumentMetadata, resolveWorkDocumentRevision } from "./work-document-revisions.js";
+import { PUBLIC_WORK_DOCUMENT_TEXTS } from "./public-work-document-texts.js";
 
 const hash = (data: Buffer) => createHash("sha256").update(data).digest("hex");
 const original = Buffer.from("%PDF-1.4\nOriginal synthetic test file\n%%EOF");
 const revised = Buffer.from("%PDF-1.7\nRevised synthetic test file, same legal matter\n%%EOF");
 const transcript = Buffer.from("ملف عمل منشور — النص المطابق للنسخة المحدثة.\n", "utf8");
+
+test("historical text URLs retain their verified current editions without rewriting source transcriptions", () => {
+  for (const source of PUBLIC_WORK_DOCUMENT_TEXTS) {
+    const metadata = {
+      slug: source.slug, published: true, fileMimeType: "application/pdf",
+      fileSize: source.fileSize, updatedAt: source.sourceUpdatedAt,
+      documentLanguage: source.language, sourceFileSHA256: source.sourceSHA256,
+    };
+    const revision = resolveWorkDocumentRevision(metadata);
+    assert.ok(revision, `${source.slug}: current edition must preserve the existing text URL`);
+    const publicMetadata = publicWorkDocumentMetadata(metadata);
+    assert.equal(publicWorkDocumentTextPath(publicMetadata), `/documents/${source.slug}.txt`);
+    assert.equal(publicMetadata.fileSize, revision.pdf.length);
+    assert.doesNotMatch(revision.text.toString("utf8"), /100\s*%\s*Online|fully[ -]online|Online Legal Platform/i);
+    assert.equal("sourceFileSHA256" in publicMetadata, false);
+  }
+});
 const sample = {
   slug: "reviewed-work", published: true, updatedAt: "2026-07-29T04:19:19.570Z", date: "2026-07-22",
   fileMimeType: "application/pdf", fileName: "Work.pdf", fileSize: original.length,

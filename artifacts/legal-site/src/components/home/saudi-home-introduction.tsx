@@ -7,7 +7,7 @@ export const saudiHomeCopy = {
   en: {
     title: "CounselO Saudi Arabia",
     heroLead: "Protect your rights. Strengthen your contracts. Move your business forward.",
-    heroText: "Start online with one CounselO team for Saudi legal services, from everyday advice to complex disputes. Consult in Arabic or English, share documents and follow your matter remotely, while our team handles contracts, negotiation, court representation and follow-up.",
+    heroText: "Start online with one CounselO team for Saudi legal services, from everyday advice to complex disputes. The same team handles your online communication in Arabic or English, documents, contracts, negotiation, court representation and follow-up.",
     heading: "Legal experience.\nA practical understanding of Saudi Arabia.",
     introduction: "CounselO Saudi Arabia puts an experienced legal team within reach online, wherever you are in the Kingdom or abroad. We handle everyday questions and substantial matters across family, employment, property, contracts, companies and commercial disputes, bringing advice, drafting and representation together within our team.",
     experience: "Our legal team works on straightforward matters and complex disputes involving multiple parties, substantial documents or more than one country. We examine the evidence, develop the legal strategy and prepare opinions, agreements, settlement proposals, claims and defence memoranda, with follow-up through the agreed stages of the matter.",
@@ -17,7 +17,7 @@ export const saudiHomeCopy = {
   ar: {
     title: "كاونسلو السعودية",
     heroLead: "احمِ حقوقك. اضبط عقودك. وامضِ بأعمالك بثقة.",
-    heroText: "ابدأ أونلاين مع فريق كاونسلو للخدمات القانونية السعودية، من المشورة اليومية إلى النزاعات المعقدة. استشرنا بالعربية أو الإنجليزية، وأرسل مستنداتك وتابع مسألتك عن بُعد، بينما يتولى فريقنا العقود والتفاوض والتمثيل أمام المحاكم والمتابعة.",
+    heroText: "ابدأ أونلاين مع فريق كاونسلو للخدمات القانونية السعودية، من المشورة اليومية إلى النزاعات المعقدة. يتولى الفريق نفسه التواصل معك أونلاين بالعربية أو الإنجليزية، والمستندات والعقود والتفاوض والتمثيل أمام المحاكم والمتابعة.",
     heading: "خبرة قانونية راسخة.\nومعرفة عملية بالسعودية.",
     introduction: "تضع كاونسلو السعودية فريقاً قانونياً متمرساً في متناولك أونلاين، سواء كنت داخل المملكة أو خارجها. نتولى الأسئلة اليومية والمسائل الواسعة في الأسرة والعمل والعقارات والعقود والشركات والمنازعات التجارية، ونجمع المشورة والصياغة والتمثيل ضمن فريقنا.",
     experience: "يعمل فريقنا القانوني على المسائل المباشرة والنزاعات المعقدة التي تتعدد أطرافها أو تتسع مستنداتها أو ترتبط بأكثر من دولة. نفحص الأدلة، ونضع الاستراتيجية القانونية، ونعدّ الآراء والاتفاقيات ومقترحات التسوية والمطالبات ومذكرات الدفاع، مع المتابعة خلال مراحل العمل المتفق عليها.",

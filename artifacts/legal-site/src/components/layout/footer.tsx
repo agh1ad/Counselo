@@ -65,7 +65,7 @@ export function Footer() {
   const libraryPath = isArabic ? "/ar/legal-library" : "/legal-library";
   const blogIndexPath = isArabic ? "/blog/ar" : "/blog";
   const regionPickerPath = isArabic ? "/ar" : "/";
-  const brandName = isArabic ? "كاونسلو للاستشارات القانونية" : "CounselO Legal";
+  const brandName = isArabic ? "كاونسلو" : "CounselO Legal";
 
   return (
     <footer className={`uae-reference-footer regional-reference-footer region-reference-footer--${region}`}>
@@ -80,8 +80,8 @@ export function Footer() {
 
           <p className="mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
             {isArabic
-              ? "وجهة واحدة أونلاين لخدماتك القانونية. يضم فريق كاونسلو محامين ومكاتب مرخّصة محلياً، ويتولى الاستشارة والعقود والتمثيل والمتابعة. تواصل مع الفريق عن بُعد طوال مسألتك."
-              : "One online destination for your legal needs. CounselO’s team comprises locally licensed lawyers and law offices, handling advice, contracts, representation and follow-up. Stay connected with the team remotely."}
+              ? "وجهة واحدة أونلاين لخدماتك القانونية. يضم فريق كاونسلو محامين ومكاتب مرخّصة محلياً، ويتولى الاستشارة والعقود والتمثيل والمتابعة. ويتولى الفريق نفسه التواصل معك أونلاين والحضور المحلي المطلوب بأعضائه المرخّصين في الدولة المعنية."
+              : "One online destination for your legal needs. CounselO’s team comprises locally licensed lawyers and law offices, handling advice, contracts, representation and follow-up. The same team handles your online communication and required local attendance through its appropriately licensed members."}
           </p>
         </div>
         <nav className="regional-reference-footer__practice" aria-label={isArabic ? "مجالات الممارسة" : "Practice areas"}>
@@ -136,7 +136,7 @@ export function Footer() {
         </nav>
       </section>
       <div className="uae-reference-footer__bottom">
-        <span>&copy; {new Date().getFullYear()} {brandName}. {f.copyright}</span>
+        <span>&copy; {new Date().getFullYear()} {isArabic ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}. {f.copyright}</span>
         <div><Link href={regionPickerPath}>{isArabic ? "اختيار الدولة" : "Region Picker"}</Link>{!isSharedPath && <><i /> <Link href={p("/privacy-policy")}>{f.privacy}</Link><i /> <Link href={p("/terms-of-service")}>{f.terms}</Link></>}</div>
       </div>
     </footer>

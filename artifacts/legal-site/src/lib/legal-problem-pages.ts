@@ -981,13 +981,13 @@ function buildDetailedContent({
     },
     process: {
       en: [
-        { title: "1. Submit the matter", desc: `Send the facts, desired outcome, notice or deadline, and the key documents about ${titleEn.toLowerCase()} through the contact form, WhatsApp or email.` },
+        { title: "1. Submit the matter", desc: `Send the facts, desired outcome, notice or deadline, and the key documents about ${titleEn.toLowerCase()} through WhatsApp or email.` },
         { title: "2. CounselO Legal studies and confirms", desc: `We review the information relevant to ${titleEn.toLowerCase()}, identify any missing documents and confirm the consultation topic. Your detailed professional written online consultation is provided at the published fixed category fee.` },
         { title: "3. Pay and we begin", desc: "After the consultation topic is confirmed and you pay the published fixed fee, CounselO Legal begins the legal review." },
         { title: "4. Receive the legal response", desc: `You receive detailed professional written advice and practical next steps through WhatsApp or email, focused on whether and how to ${profile.outcomeEn}. Discussion and answers to your questions on the same consultation topic are included. If you request representation, the same CounselO team handles it with fees agreed separately.` },
       ],
       ar: [
-        { title: "1. ترسل المسألة", desc: `أرسل الوقائع والنتيجة المطلوبة وأي إخطار أو ميعاد والمستندات الأساسية المتعلقة بـ${titleAr} عبر نموذج التواصل أو واتساب أو البريد الإلكتروني.` },
+        { title: "1. ترسل المسألة", desc: `أرسل الوقائع والنتيجة المطلوبة وأي إخطار أو ميعاد والمستندات الأساسية المتعلقة بـ${titleAr} عبر واتساب أو البريد الإلكتروني.` },
         { title: "2. تدرس كاونسلو للاستشارات القانونية وتؤكد النطاق", desc: `نراجع المعلومات المرتبطة بـ${titleAr}، ونحدد المستندات الناقصة ونؤكد موضوع الاستشارة. نقدم لك استشارة قانونية مهنية مكتوبة ومفصلة أونلاين بالرسوم الثابتة المنشورة للمجال القانوني.` },
         { title: "3. تدفع ونبدأ العمل", desc: "بعد تأكيد موضوع الاستشارة وسداد الرسوم الثابتة المنشورة، تبدأ كاونسلو للاستشارات القانونية المراجعة القانونية." },
         { title: "4. تتلقى الرد القانوني", desc: `تتلقى استشارة مهنية مكتوبة ومفصلة وخطوات عملية عبر واتساب أو البريد الإلكتروني، مع التركيز على ${profile.outcomeAr}. وتشمل الرسوم مناقشة الاستشارة والإجابة عن أسئلتك في موضوعها نفسه. وإذا طلبت التمثيل القانوني، يتولاه فريق كاونسلو نفسه بأتعاب نتفق عليها بصورة منفصلة.` },
@@ -1009,7 +1009,7 @@ function buildDetailedContent({
         },
         {
           q: `Can CounselO Legal review ${titleEn.toLowerCase()} online?`,
-          a: `Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. CounselO’s team continues with filing, attendance and representation through our lawyers licensed in ${country.en}, as agreed with you.`,
+          a: `Yes. The initial assessment and document review can begin through WhatsApp or email in Arabic or English. The same CounselO team handles filing, attendance and representation through its members licensed in ${country.en}, as agreed with you.`,
         },
         {
           q: `How does CounselO Legal help with ${titleEn.toLowerCase()}?`,
@@ -1031,7 +1031,7 @@ function buildDetailedContent({
         },
         {
           q: `هل يمكن أن تراجع كاونسلو للاستشارات القانونية مسألة ${titleAr} أونلاين؟`,
-          a: `نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني أو نموذج التواصل بالعربية أو الإنجليزية. ويتابع فريق كاونسلو القيد والحضور والتمثيل من خلال محامينا المرخصين في ${country.ar} وفق العمل المتفق عليه معك.`,
+          a: `نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني بالعربية أو الإنجليزية. ويتولى فريق كاونسلو نفسه القيد والحضور والتمثيل بأعضائه المرخصين في ${country.ar} وفق العمل المتفق عليه معك.`,
         },
         {
           q: `كيف تساعد كاونسلو للاستشارات القانونية في ${titleAr}؟`,

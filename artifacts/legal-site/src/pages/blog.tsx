@@ -80,10 +80,10 @@ export default function Blog() {
       subheading: "Articles on Saudi, Syrian and UAE law. Search by topic; each article identifies its jurisdiction and authorship.",
       readMore: "Read Article",
       minRead: "min read",
-      ctaHeading: "Have a Legal Question?",
+      ctaHeading: "Discuss Your Legal Matter with Our Team",
       ctaDesc:
-        "Our team answers online — via WhatsApp or email. No office visit required.",
-      ctaBtn: "Book a Consultation",
+        "Contact CounselO online for advice, drafting, negotiation or representation. The same team handles your matter throughout, including any required court attendance.",
+      ctaBtn: "Contact Our Legal Team",
       empty: "New articles are coming soon. Check back shortly.",
     },
     ar: {
@@ -92,10 +92,10 @@ export default function Blog() {
       subheading: "مقالات في قوانين السعودية وسوريا والإمارات. ابحث بالموضوع؛ يوضح كل مقال اختصاصه ومؤلفه.",
       readMore: "اقرأ المقال",
       minRead: "د قراءة",
-      ctaHeading: "هل لديك سؤال قانوني؟",
+      ctaHeading: "ناقش مسألتك القانونية مع فريقنا",
       ctaDesc:
-        "فريقنا يجيب أونلاين — عبر واتساب أو البريد الإلكتروني. دون الحاجة لزيارة مكتب.",
-      ctaBtn: "احجز استشارة",
+        "تواصل مع كاونسلو أونلاين للمشورة أو الصياغة أو التفاوض أو التمثيل. يتولى الفريق نفسه مسألتك في جميع مراحلها، بما يشمل أي حضور مطلوب أمام المحاكم.",
+      ctaBtn: "تواصل مع فريقنا القانوني",
       empty: "مقالات جديدة قادمة قريباً. تابعنا.",
     },
   }[lang];

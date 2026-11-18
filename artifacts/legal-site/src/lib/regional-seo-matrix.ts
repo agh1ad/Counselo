@@ -75,7 +75,7 @@ function serviceRows(region: Region): RegionalSeoMatrixRow[] {
         keywordAr: `استشارة ${service.titleAr} ${modifier.ar}`,
         keywordVariantsEn: [`${service.titleEn} consultation cost ${modifier.en}`, `urgent ${service.titleEn} lawyer ${modifier.en}`],
         keywordVariantsAr: [`تكلفة استشارة ${service.titleAr} ${modifier.ar}`, `محامي ${service.titleAr} عاجل ${modifier.ar}`],
-        contentBrief: "Track consultation CTA, contact form submission, WhatsApp click, phone click, service prefill, and source route.",
+        contentBrief: "Track consultation CTA, WhatsApp click, email click, phone click, selected service context, and source route.",
         publishStatus: "funnel" as const,
       },
     ];

@@ -20,7 +20,7 @@ const strengthIcons = [MonitorSmartphone, Clock3, MessagesSquare, Globe2];
 
 export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolean }) {
   const lang = isArabic ? "ar" : "en";
-  const c = { ...homepageContent[lang], ...homepagePresentation[lang] };
+  const c = { ...homepageContent[lang], ...homepagePresentation[lang], h1: homepageContent[lang].h1 };
   const suffix = isArabic ? "/ar" : "";
   const url = `https://counselo-legal.com${isArabic ? "/ar" : "/"}`;
   const countryLabels = isArabic ? ["السعودية", "سوريا", "الإمارات"] : ["Saudi Arabia", "Syria", "UAE"];

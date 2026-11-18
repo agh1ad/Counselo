@@ -30,7 +30,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SAUDI ARABIA — COUNTRY PAGES ────────────────────────────────────────
 
   "/sa": {
-    title: "Online Legal Advice in Saudi Arabia | CounselO",
+    title: "Online Legal Advice & Representation in Saudi Arabia | CounselO",
     description:
       "CounselO’s legal team in Saudi Arabia handles online consultation, contracts, disputes and representation. One team and remote follow-up, in Arabic and English.",
   },
@@ -43,7 +43,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SYRIA — COUNTRY PAGES ───────────────────────────────────────────────
 
   "/syr": {
-    title: "Online Legal Advice in Syria | CounselO",
+    title: "Online Legal Advice & Representation in Syria | CounselO",
     description:
       "CounselO’s legal team in Syria handles online consultation, contracts, disputes and representation. One team and remote follow-up, in Arabic and English.",
   },

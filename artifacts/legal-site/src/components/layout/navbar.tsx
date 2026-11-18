@@ -39,7 +39,7 @@ export function Navbar() {
     search: "ابحث عن خدمة قانونية", placeholder: "الأسرة، العقود، العمل…", clear: "مسح البحث",
     noResults: "لم نجد خدمة بهذا الاسم.", reset: "عرض جميع الخدمات", country: "اختر الدولة", countryHint: "خدمات قانونية بحسب اختصاصك.",
     library: "المكتبة القانونية", articles: "المقالات القانونية", work: "أعمالنا", about: "من نحن", contact: "تواصل معنا",
-    consult: "ابدأ استشارتك", urgent: "مساعدة قانونية عاجلة", online: "استشارات أونلاين. فريق واحد.", global: "رؤى عالمية",
+    consult: "ناقش مسألتك", urgent: "مساعدة قانونية عاجلة", online: "خدمات قانونية متكاملة أونلاين", global: "رؤى عالمية",
     language: "English — التبديل إلى الإنجليزية", found: "النتائج",
   } : {
     menu: "Menu", open: "Open navigation menu", close: "Close navigation menu", title: "Explore CounselO",
@@ -48,7 +48,7 @@ export function Navbar() {
     search: "Find a legal service", placeholder: "Family, contracts, employment…", clear: "Clear search",
     noResults: "No services match your search.", reset: "Show all services", country: "Choose your country", countryHint: "Legal services for your jurisdiction.",
     library: "Legal Library", articles: "Legal Articles", work: "Our Work", about: "About Us", contact: "Contact Us",
-    consult: "Start a consultation", urgent: "Urgent legal assistance", online: "Online advice. One legal team.", global: "Global insights",
+    consult: "Discuss your matter", urgent: "Urgent legal assistance", online: "Complete legal services online", global: "Global insights",
     language: "عربي — Switch to Arabic", found: "Results",
   };
   const primaryLinks = [
@@ -80,7 +80,7 @@ export function Navbar() {
       <div className="counselo-header__inner">
         <Link href={home} className="counselo-brand">
           <img src={brandMark} width="38" height="38" alt="" />
-          <span><strong>{ar ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}</strong><small>{label.online}</small></span>
+          <span><strong>{ar ? "كاونسلو" : "CounselO Legal"}</strong><small>{label.online}</small></span>
         </Link>
         <Link href={ar ? "/ar" : "/"} className="counselo-header__region" aria-label={`${label.country}: ${isSharedPath ? label.global : country[lang]}`}><Globe2 aria-hidden="true" />{isSharedPath ? label.global : country[lang]}</Link>
         <nav className="counselo-header__links" aria-label={label.primary}>

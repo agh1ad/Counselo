@@ -20,12 +20,12 @@ const lastSentence = (text: string) => text.split(/(?<=[.!?؟])\s+/u).at(-1)!;
 function closing(region: Region, lang: Lang, topic: string, support: string): Pick<ExperienceCopy, "invitation" | "contact" | "contactTitle" | "contactText"> {
   const country = experienceCountry(region, lang);
   return lang === "ar" ? {
-    invitation: `ناقش ${topic} أونلاين مع فريق كاونسلو بالعربية أو الإنجليزية. يتولى فريقنا مسألتك من الاستشارة إلى التمثيل، ويباشر محامونا المرخصون في ${country} العمل أمام المحاكم والجهات المختصة.`,
+    invitation: `ناقش ${topic} أونلاين مع فريق كاونسلو بالعربية أو الإنجليزية. يتولى فريق كاونسلو نفسه التواصل معك أونلاين والعمل القانوني والتمثيل، بما يشمل الحضور المطلوب أمام المحاكم بأعضائه المرخصين في ${country}.`,
     contact: "اطلب الدعم القانوني",
     contactTitle: `تحدث معنا بشأن ${topic}`,
     contactText: `${lastSentence(support)} أرسل طلبك واذكر أي جلسة أو موعد قريب.`,
   } : {
-    invitation: `Discuss ${topic} online with CounselO in Arabic or English. Our team handles your matter from consultation through representation, with our lawyers licensed in ${country} acting before courts and authorities.`,
+    invitation: `Discuss ${topic} online with CounselO in Arabic or English. The same CounselO team handles your online communication, legal work and representation, including required court attendance through its members licensed in ${country}.`,
     contact: "Request legal support",
     contactTitle: `Speak to us about ${topic}`,
     contactText: `${lastSentence(support)} Send your request and include any approaching hearing or deadline.`,

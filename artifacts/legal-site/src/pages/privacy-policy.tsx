@@ -37,27 +37,27 @@ export default function PrivacyPolicy() {
   const content = {
     en: {
       seoTitle: "Privacy Policy | How CounselO Legal Protects Your Data | CounselO Legal",
-      seoDesc: `CounselO Legal's Privacy Policy for ${countryEn} — how we collect, use and protect personal data and confidential legal information for online consultations.`,
+      seoDesc: `CounselO Legal's Privacy Policy for ${countryEn}: how we handle personal data and confidential information throughout your legal engagement, from online advice to representation.`,
       canonical: "/privacy-policy",
       eyebrow: "Data Protection & Privacy",
       heading: "Privacy Policy",
       subheading:
         "CounselO Legal is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and how information moves through our website and communication providers.",
-      lastUpdated: "Last updated: 7 September 2026",
+      lastUpdated: "Last updated: 18 November 2026",
       sections: [
         {
           icon: Shield,
           title: "1. Who We Are",
-          content: `CounselO Legal provides legal services for matters in ${countryEn}, from consultation and document review to representation by our locally licensed team lawyers. Clients communicate with our team in Arabic or English through the website, WhatsApp and email.`,
+          content: `CounselO Legal provides legal services for matters in ${countryEn}, with one team for online consultation, document review and representation. Clients communicate with the same team in Arabic or English through WhatsApp and email.`,
         },
         {
           icon: Database,
           title: "2. Information We Collect",
           content:
-            "We collect only the information necessary to deliver your legal consultation:",
+            "We collect only the information necessary to assess your request and deliver the agreed legal services:",
           list: [
             "Contact details you provide — name, phone number (WhatsApp), and email address",
-            "Legal matter details — the facts, documents, contracts, and background information you share when requesting a consultation",
+            "Legal matter details — the facts, documents, contracts, and background information you share when requesting advice, drafting, negotiation or representation",
             "Communication records — messages and correspondence exchanged between you and our legal team via WhatsApp or email",
             "Payment information — payment confirmation details (we do not store card numbers or banking credentials)",
             "Technical data — basic browser and device information collected automatically when you visit our website (IP address, browser type, pages visited)",
@@ -69,9 +69,9 @@ export default function PrivacyPolicy() {
           content:
             "We use the information you provide solely for the following purposes:",
           list: [
-            "To review your legal matter and deliver your consultation",
-            "To communicate with you about your consultation and any follow-up queries",
-            "To process and verify consultation fee payments",
+            "To review your legal matter and carry out the agreed advice, drafting, negotiation or representation",
+            "To communicate with you about your legal matter, its progress and follow-up questions",
+            "To process and verify payments for the agreed legal services",
             `To maintain records required by applicable ${adjectiveEn} laws and professional obligations`,
             "To improve the quality and efficiency of our legal service",
             `To comply with applicable ${adjectiveEn} laws and regulatory obligations`,
@@ -83,8 +83,8 @@ export default function PrivacyPolicy() {
           content: `All information you share with CounselO Legal is handled under applicable professional confidentiality and data-protection obligations for matters in ${countryEn}. This means:`,
           list: [
             "We do not share your legal matter details, documents, or personal information without your consent, except where disclosure is required or permitted by applicable law",
-            "Website requests and attachments are sent through our email provider, Resend, to the configured consultation recipients; you also receive a confirmation email",
-            "Confidentiality continues after the consultation to the extent required by applicable professional, contractual and legal obligations",
+            "Send current enquiries and documents directly to our team through WhatsApp or email. Earlier website submissions used Resend to notify our designated legal intake team and send an acknowledgement",
+            "Confidentiality continues after the legal engagement to the extent required by applicable professional, contractual and legal obligations",
             "We do not sell, rent, or trade your personal information to any person, company, or data broker",
           ],
         },
@@ -92,11 +92,11 @@ export default function PrivacyPolicy() {
           icon: MessageCircle,
           title: "5. WhatsApp & Email Communications",
           content:
-            "Our consultations are conducted via WhatsApp and email. By contacting us through these channels, you acknowledge:",
+            "You can discuss your matter, share documents and follow progress with our team via WhatsApp and email. By contacting us through these channels, you acknowledge:",
           list: [
             "WhatsApp messages are transmitted via Meta's encrypted infrastructure — please review WhatsApp's own privacy policy for information on their data practices",
             "Email communications may be subject to standard internet transmission risks — we recommend using secure email where possible for highly sensitive matters",
-            "Consultation content received by CounselO Legal is handled confidentially under applicable professional, privacy and data-protection obligations, regardless of transmission method, subject to legally required or permitted disclosures",
+            "Legal matter information received by CounselO Legal is handled confidentially under applicable professional, privacy and data-protection obligations, regardless of transmission method, subject to legally required or permitted disclosures",
             "We do not proactively contact you by WhatsApp or email for marketing purposes without your consent",
           ],
         },
@@ -117,7 +117,7 @@ export default function PrivacyPolicy() {
           title: "7. Legal Basis for Processing",
           content: `We process personal data under ${privacyFrameworkEn}, relying on an appropriate legal basis for each processing activity:`,
           list: [
-            "Contract performance: to provide the legal consultation services you have requested",
+            "Contract performance: to provide the agreed legal services you have requested",
             "Legitimate interests: to maintain professional records and improve our service",
             `Legal obligation: to comply with applicable ${adjectiveEn} regulatory and professional requirements`,
             "Consent: where we ask for your explicit permission for any additional processing",
@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
           list: [
             "With your explicit consent: only where you have specifically authorised us to share your information",
             "Legal obligation: where disclosure is required by a court order or applicable law",
-            "Service providers: website hosting and database services, Resend for form emails and attachments, Google Tag Manager for configured analytics, and the communication service you choose",
+            "Service providers: website hosting and database services, Resend for notifications and attachments from earlier website submissions, Google Tag Manager for configured analytics, and the communication service you choose",
             isUae
               ? "Cross-border transfers are made only where permitted by the applicable UAE, DIFC, ADGM or sector-specific regime and with required safeguards"
               : `We do not transfer your personal data outside ${countryEn} without appropriate safeguards`,
@@ -141,14 +141,14 @@ export default function PrivacyPolicy() {
           icon: Database,
           title: "9. Data Retention",
           content:
-            "We retain your personal information and consultation records for as long as necessary to:",
+            "We retain your personal information and legal matter records for as long as necessary to:",
           list: [
-            "Fulfil the purpose for which it was collected (delivering your consultation)",
+            "Fulfil the purpose for which it was collected (delivering the agreed legal services)",
             isUae
               ? "Meet applicable UAE legal, regulatory and professional record-keeping obligations for the relevant matter"
               : `Meet our legal and professional record-keeping obligations under ${adjectiveEn} law`,
-            "Defend any legal claims that may arise from the consultation",
-            "The website clears its encrypted submission payload after both notification emails are accepted by the email provider. Submission metadata and email copies are separate records; this does not mean every copy has been deleted",
+            "Defend any legal claims that may arise from the legal engagement",
+            "For earlier website submissions, the encrypted request payload is cleared after both notification emails are accepted by the email provider. Submission metadata and email copies remain separate records; this does not mean every copy has been deleted",
           ],
         },
         {
@@ -170,7 +170,7 @@ export default function PrivacyPolicy() {
           content:
             "We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, or disclosure:",
           list: [
-            "The website encrypts the stored form payload while email delivery is pending; email processing and mailbox copies are separate from that storage",
+            "Stored payloads from earlier website submissions remain encrypted while email delivery is pending; email processing and mailbox copies are separate from that storage",
             "Electronic communications are handled through encrypted channels where available",
             "Our website uses HTTPS encryption for all data transmitted between your browser and our server",
             "Send only information needed for the initial review, and contact us before sending especially sensitive material",
@@ -195,27 +195,27 @@ export default function PrivacyPolicy() {
     },
     ar: {
       seoTitle: "سياسة الخصوصية | كيف تحمي كاونسلو للاستشارات القانونية بياناتك | كاونسلو للاستشارات القانونية",
-      seoDesc: `سياسة خصوصية كاونسلو للاستشارات القانونية في ${countryAr} — كيفية جمع البيانات الشخصية والمعلومات القانونية السرية واستخدامها وحمايتها عند تقديم الاستشارات أونلاين.`,
+      seoDesc: `سياسة خصوصية كاونسلو للاستشارات القانونية في ${countryAr}: كيفية التعامل مع البيانات الشخصية والمعلومات السرية طوال العمل القانوني، من الاستشارة أونلاين إلى التمثيل.`,
       canonical: "/privacy-policy",
       eyebrow: "حماية البيانات والخصوصية",
       heading: "سياسة الخصوصية",
       subheading:
         "تلتزم منصة كاونسلو للاستشارات القانونية بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها وكيف تنتقل المعلومات عبر موقعنا ومزودي خدمات التواصل.",
-      lastUpdated: "آخر تحديث: 7 سبتمبر 2026",
+      lastUpdated: "آخر تحديث: 18 نوفمبر 2026",
       sections: [
         {
           icon: Shield,
           title: "١. من نحن",
           content:
-            "يقدم فريق كاونسلو الخدمات القانونية من الاستشارة ومراجعة المستندات إلى التمثيل على يد محامينا المرخصين في الدولة المعنية. يتواصل العملاء مع فريقنا بالعربية أو الإنجليزية عبر الموقع وواتساب والبريد الإلكتروني.",
+            "يقدم فريق كاونسلو نفسه الاستشارة أونلاين ومراجعة المستندات والتمثيل القانوني. ويتواصل العملاء مع الفريق نفسه بالعربية أو الإنجليزية عبر واتساب والبريد الإلكتروني.",
         },
         {
           icon: Database,
           title: "٢. المعلومات التي نجمعها",
-          content: "نجمع فقط المعلومات الضرورية لتقديم استشارتك القانونية:",
+          content: "نجمع فقط المعلومات الضرورية لتقييم طلبك وتقديم الخدمات القانونية المتفق عليها:",
           list: [
             "بيانات التواصل التي تزوّدنا بها — الاسم ورقم الهاتف (واتساب) والبريد الإلكتروني",
-            "تفاصيل القضية القانونية — الوقائع والمستندات والعقود والمعلومات الخلفية التي تشاركها عند طلب الاستشارة",
+            "تفاصيل المسألة القانونية — الوقائع والمستندات والعقود والمعلومات الخلفية التي تشاركها عند طلب المشورة أو الصياغة أو التفاوض أو التمثيل",
             "سجلات التواصل — الرسائل والمراسلات المتبادلة بينك وبين فريقنا القانوني عبر واتساب أو البريد الإلكتروني",
             "معلومات الدفع — تأكيدات الدفع فحسب (لا نحتفظ بأرقام البطاقات أو بيانات الحسابات البنكية)",
             "البيانات التقنية — معلومات أساسية عن المتصفح والجهاز تُجمَع تلقائياً عند زيارة موقعنا (عنوان IP ونوع المتصفح والصفحات المُزارة)",
@@ -226,9 +226,9 @@ export default function PrivacyPolicy() {
           title: "٣. كيف نستخدم معلوماتك",
           content: "نستخدم المعلومات التي تزوّدنا بها حصراً للأغراض التالية:",
           list: [
-            "مراجعة قضيتك القانونية وتقديم استشارتك",
-            "التواصل معك بشأن استشارتك وأي استفسارات متابعة",
-            "معالجة مدفوعات رسوم الاستشارة والتحقق منها",
+            "مراجعة مسألتك القانونية وتنفيذ المشورة أو الصياغة أو التفاوض أو التمثيل المتفق عليه",
+            "التواصل معك بشأن مسألتك القانونية وتقدم العمل وأسئلة المتابعة",
+            "معالجة مدفوعات الخدمات القانونية المتفق عليها والتحقق منها",
             `الاحتفاظ بالسجلات التي تستلزمها القوانين والالتزامات المهنية ${adjectiveAr} المنطبقة`,
             "تحسين جودة خدمتنا القانونية وكفاءتها",
             `الامتثال للقوانين ${adjectiveAr} المعمول بها والالتزامات التنظيمية`,
@@ -240,8 +240,8 @@ export default function PrivacyPolicy() {
           content: `تُعامل جميع المعلومات التي تشاركها مع كاونسلو للاستشارات القانونية وفق التزامات السرية المهنية وحماية البيانات المنطبقة على المسائل في ${countryAr}. ويعني ذلك:`,
           list: [
             "لا نُفصح عن تفاصيل مسألتك القانونية أو مستنداتك أو معلوماتك الشخصية دون موافقتك، إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق",
-            "تُرسل طلبات الموقع ومرفقاتها عبر مزود البريد Resend إلى مستلمي طلبات الاستشارة المعينين، ويُرسل إليك أيضاً بريد لتأكيد الاستلام",
-            "تستمر السرية بعد انتهاء الاستشارة بالقدر الذي تفرضه الالتزامات المهنية والتعاقدية والقانونية المنطبقة",
+            "تُرسل الطلبات والمستندات الحالية مباشرة إلى فريقنا عبر واتساب أو البريد الإلكتروني. أما طلبات الموقع السابقة، فاستُخدم Resend لإشعار فريق استقبال الطلبات وإرسال تأكيد الاستلام",
+            "تستمر السرية بعد انتهاء العمل القانوني بالقدر الذي تفرضه الالتزامات المهنية والتعاقدية والقانونية المنطبقة",
             "لا نبيع معلوماتك الشخصية أو نؤجّرها أو نتاجر بها مع أي شخص أو شركة أو وسيط بيانات",
           ],
         },
@@ -249,11 +249,11 @@ export default function PrivacyPolicy() {
           icon: MessageCircle,
           title: "٥. التواصل عبر واتساب والبريد الإلكتروني",
           content:
-            "تُنفَّذ استشاراتنا عبر واتساب والبريد الإلكتروني. بتواصلك معنا عبر هذه القنوات، فإنك تُقرّ بما يلي:",
+            "يمكنك مناقشة مسألتك ومشاركة المستندات ومتابعة العمل مع فريقنا عبر واتساب والبريد الإلكتروني. بتواصلك معنا عبر هذه القنوات، فإنك تُقرّ بما يلي:",
           list: [
             "تُنقَل رسائل واتساب عبر البنية التحتية المشفرة لـ Meta — يُرجى الاطّلاع على سياسة خصوصية واتساب للتعرف على ممارساتهم في معالجة البيانات",
             "قد تخضع مراسلات البريد الإلكتروني لمخاطر النقل الإلكتروني المعتادة عبر الإنترنت — ننصح باستخدام بريد إلكتروني آمن للمسائل بالغة الحساسية",
-            "تُعامل محتويات الاستشارة التي يتلقّاها كاونسلو للاستشارات القانونية بسرية وفق الالتزامات المهنية وواجبات الخصوصية وحماية البيانات المنطبقة، بصرف النظر عن أسلوب الإرسال، مع مراعاة الإفصاحات التي يوجبها القانون أو يسمح بها",
+            "تُعامل معلومات المسألة القانونية التي يتلقّاها كاونسلو للاستشارات القانونية بسرية وفق الالتزامات المهنية وواجبات الخصوصية وحماية البيانات المنطبقة، بصرف النظر عن أسلوب الإرسال، مع مراعاة الإفصاحات التي يوجبها القانون أو يسمح بها",
             "لا نتواصل معك عبر واتساب أو البريد الإلكتروني لأغراض تسويقية دون موافقتك المسبقة",
           ],
         },
@@ -274,7 +274,7 @@ export default function PrivacyPolicy() {
           title: "٧. الأساس القانوني للمعالجة",
           content: `نعالج البيانات الشخصية وفق ${privacyFrameworkAr}، وبالاستناد إلى أساس قانوني مناسب لكل نشاط معالجة:`,
           list: [
-            "تنفيذ العقد: لتقديم خدمات الاستشارة القانونية التي طلبتها",
+            "تنفيذ العقد: لتقديم الخدمات القانونية المتفق عليها التي طلبتها",
             "المصالح المشروعة: للاحتفاظ بالسجلات المهنية وتحسين خدمتنا",
             `الالتزام القانوني: للامتثال للمتطلبات التنظيمية والمهنية ${adjectiveAr} المنطبقة`,
             "الموافقة: حيثما نطلب إذنك الصريح لأي معالجة إضافية",
@@ -288,7 +288,7 @@ export default function PrivacyPolicy() {
           list: [
             "بموافقتك الصريحة: فقط حين تأذن لنا تحديداً بمشاركة معلوماتك",
             "الالتزام القانوني: حين يُستلزم الإفصاح بموجب أمر قضائي أو نظام معمول به",
-            "مزودو الخدمة: خدمات استضافة الموقع وقاعدة البيانات، وResend لبريد النموذج ومرفقاته، وGoogle Tag Manager للتحليلات المهيأة، وخدمة التواصل التي تختارها",
+            "مزودو الخدمة: خدمات استضافة الموقع وقاعدة البيانات، وResend لإشعارات طلبات الموقع السابقة ومرفقاتها، وGoogle Tag Manager للتحليلات المهيأة، وخدمة التواصل التي تختارها",
             isUae
               ? "لا يتم نقل البيانات عبر الحدود إلا حيث يسمح النظام الإماراتي أو نظام مركز دبي المالي أو أبوظبي العالمي أو النظام القطاعي المنطبق، ومع توفير الضمانات المطلوبة"
               : `لا ننقل بياناتك الشخصية خارج ${countryAr} دون ضمانات مناسبة`,
@@ -298,14 +298,14 @@ export default function PrivacyPolicy() {
           icon: Database,
           title: "٩. مدة الاحتفاظ بالبيانات",
           content:
-            "نحتفظ بمعلوماتك الشخصية وسجلات الاستشارة المدة اللازمة لـ:",
+            "نحتفظ بمعلوماتك الشخصية وسجلات المسألة القانونية المدة اللازمة لـ:",
           list: [
-            "تحقيق الغرض الذي جُمعت من أجله (تقديم استشارتك)",
+            "تحقيق الغرض الذي جُمعت من أجله (تقديم الخدمات القانونية المتفق عليها)",
             isUae
               ? "الوفاء بمتطلبات الاحتفاظ بالسجلات القانونية والتنظيمية والمهنية المنطبقة على المسألة في الإمارات"
               : `الوفاء بالتزامات الاحتفاظ القانوني والمهني بالسجلات وفق القواعد ${adjectiveAr} المنطبقة`,
-            "الدفاع عن أي مطالبات قانونية قد تنشأ عن الاستشارة",
-            "يمسح الموقع محتوى الطلب المشفر بعد قبول مزود البريد رسالتي الإشعار. وتبقى بيانات متابعة الطلب ونسخ البريد سجلات منفصلة؛ ولا يعني ذلك حذف كل نسخة",
+            "الدفاع عن أي مطالبات قانونية قد تنشأ عن العمل القانوني",
+            "بالنسبة إلى طلبات الموقع السابقة، يُمسح محتوى الطلب المشفر بعد قبول مزود البريد رسالتي الإشعار. وتبقى بيانات متابعة الطلب ونسخ البريد سجلات منفصلة؛ ولا يعني ذلك حذف كل نسخة",
           ],
         },
         {
@@ -327,7 +327,7 @@ export default function PrivacyPolicy() {
           content:
             "نطبّق تدابير تقنية وتنظيمية مناسبة لحماية بياناتك الشخصية من الوصول غير المصرّح به أو الفقدان أو الإفصاح:",
           list: [
-            "يشفر الموقع محتوى النموذج المخزن أثناء انتظار إرسال البريد؛ وتختلف معالجة البريد ونسخ صناديق البريد عن هذا التخزين",
+            "تبقى محتويات طلبات الموقع السابقة المخزنة مشفرة أثناء انتظار إرسال البريد؛ وتختلف معالجة البريد ونسخ صناديق البريد عن هذا التخزين",
             "تُعالَج الاتصالات الإلكترونية عبر قنوات مشفرة حيثما تتوفر",
             "يستخدم موقعنا تشفير HTTPS لجميع البيانات المنقولة بين متصفحك وخادمنا",
             "أرسل المعلومات اللازمة للمراجعة الأولية فقط، وتواصل معنا قبل إرسال مواد شديدة الحساسية",

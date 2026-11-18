@@ -1,9 +1,11 @@
 /** Public display names; URL, account and entity identifiers stay stable. */
 export const COUNSELO_BRAND = {
   en: "CounselO Legal",
-  ar: "كاونسلو للاستشارات القانونية",
-  taglineEn: "Online Advice. One Legal Team.",
-  taglineAr: "استشارات أونلاين. فريق واحد.",
+  ar: "كاونسلو",
+  designationEn: "CounselO Legal",
+  designationAr: "كاونسلو للاستشارات القانونية",
+  taglineEn: "Legal services. Online access. One team.",
+  taglineAr: "خدمات قانونية. تواصل أونلاين. فريق واحد.",
 } as const;
 
 /** Refresh editorial prose without rewriting links, email addresses or handles. */

@@ -49,6 +49,11 @@ fields are omitted from public JSON/bootstrap records.
 
 ## Preparing and verifying an edition
 
+For a new publication, start from the editable Arabic or English
+[work publication template](public-work-publication-template.md). Its letterhead
+and print footer carry the approved online-consultation-to-representation
+wording. Uploaded PDFs are not automatically rebranded by the application.
+
 1. Review the current source bytes and metadata; retain the originals.
 2. Revise the PDF itself, then check all changes visually and confirm that
    surrounding text, amounts, tables, images and page counts remain intact.
