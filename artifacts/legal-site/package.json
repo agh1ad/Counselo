@@ -97,6 +97,8 @@
     "zod": "catalog:"
   },
   "dependencies": {
+    "@google-cloud/storage": "7.22.0",
+    "@replit/object-storage": "^1.0.0",
     "@tiptap/extension-color": "^3.33.1",
     "@tiptap/extension-highlight": "^3.33.1",
     "@tiptap/extension-image": "^3.33.1",

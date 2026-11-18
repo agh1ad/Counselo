@@ -32,6 +32,7 @@ import {
 } from "@workspace/api-zod";
 import { repairPublicBlogPost } from "../../../api-server/src/lib/public-blog-repairs.js";
 import { repairPublicWorkSample } from "../../../api-server/src/lib/public-work-repairs.js";
+import { loadPublishedBuildInventory } from "./published-build-inventory.js";
 
 // ---------------------------------------------------------------------------
 // Fetch published blog post slugs from the running API at build time.
@@ -43,11 +44,7 @@ async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
     const blogApiUrl =
       process.env["BLOG_API_URL"]?.trim() ||
       "https://counselo-legal.com/api/blog/posts";
-    const res = await fetch(blogApiUrl, {
-      signal: AbortSignal.timeout(30_000),
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = (await res.json()) as unknown;
+    const data: unknown = await loadPublishedBuildInventory("blogs", [blogApiUrl]);
     if (!Array.isArray(data)) throw new Error("Blog discovery response is not an array");
     const candidates = data.filter(
       (post): post is InitialBlogPost => Boolean(post && typeof post === "object"),
@@ -80,11 +77,7 @@ async function fetchWorkSamples(): Promise<WorkSamplePublic[]> {
     const workApiUrl =
       process.env["WORK_API_URL"]?.trim() ||
       "https://counselo-legal.com/api/work";
-    const res = await fetch(workApiUrl, {
-      signal: AbortSignal.timeout(30_000),
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = (await res.json()) as unknown;
+    const data: unknown = await loadPublishedBuildInventory("work", [workApiUrl]);
     if (!Array.isArray(data)) throw new Error("Work discovery response is not an array");
     return data.filter(
       (sample): sample is WorkSamplePublic =>

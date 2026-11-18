@@ -8,3 +8,9 @@ Public legal-update snapshots may contain only published fields and correction t
 **Why:** Legal updates can be withdrawn or corrected, while their source evidence and editorial drafts are confidential. A broad cache saves more PostgreSQL reads only when publication fencing and field-level exclusion remain coupled.
 
 **How to apply:** When adding another public snapshot or cache candidate, reuse the publication data cache and fence, project only public columns, preserve anonymous/authenticated separation, keep failures and private/admin reads uncached, and verify that every mutation affecting the cached public asset rotates the epoch.
+
+Publishing fixes must not introduce additional production database compute, including database prewarming on process startup or database fallback for public cache misses.
+
+**Why:** The owner explicitly said, “I dont want using production data compute which will increase the costs,” and asked that this constraint guide the publishing fixes.
+
+**How to apply:** Prefer read-only, active-epoch Object Storage compatibility for public snapshot format upgrades. Verify that database loaders are never invoked. Distinguish ordinary storage/server usage from database compute; do not promise zero hosting cost. Keep existing publication-time refreshes unchanged.

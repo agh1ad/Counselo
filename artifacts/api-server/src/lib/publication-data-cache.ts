@@ -2,6 +2,7 @@ import { Client } from "@replit/object-storage";
 import { publicationCacheEnabled, publicationCoordinator, type PublicationCoordinator } from "./publication-cache.js";
 import { logger } from "./logger.js";
 import { publicDataSnapshotReadsReady } from "./public-snapshot-readiness.js";
+import { LegacyWorkSnapshotReader } from "@workspace/api-zod/legacy-public-work-snapshot";
 
 const MAX_BYTES = 8 * 1024 * 1024;
 type DataStorage = Pick<Client, "downloadAsText" | "uploadFromText">;
@@ -34,6 +35,12 @@ export class PublicSnapshotUnavailableError extends Error {
 export class PublicationDataCache {
   private memory = new Map<string, string>();
   private loading = new Map<string, Promise<string>>();
+  private readonly legacyWork = new LegacyWorkSnapshotReader(async key => {
+    const result = await boundedRead(this.storage().downloadAsText(key));
+    if (result.ok) return result.value;
+    if (result.error.statusCode === 404) return undefined;
+    throw result.error;
+  });
 
   constructor(
     private readonly storage: () => DataStorage = () => new Client({ bucketId: process.env.PUBLIC_RESPONSE_CACHE_BUCKET_ID?.trim() }),
@@ -81,6 +88,21 @@ export class PublicationDataCache {
             decodeEntry(result.value);
             this.remember(key, result.value);
             return result.value;
+          }
+          if (!result.ok && result.error.statusCode === 404
+            && (collection === "work" || collection === "work-summaries")) {
+            const compatible = await this.legacyWork.read(collection, state.epoch);
+            if (compatible !== undefined) {
+              decodeEntry(compatible);
+              if (Buffer.byteLength(compatible) > MAX_BYTES) throw new Error("Compatible work inventory exceeds size limit");
+              // Verification can outlast the coordinator's short TTL. Recheck
+              // the fence directly before exposing any legacy-derived data.
+              this.coordinator.clear();
+              const after = await this.coordinator.state();
+              if (!after.cacheable || after.epoch !== state.epoch) throw new Error("Publication changed during compatibility read");
+              this.remember(key, compatible);
+              return compatible;
+            }
           }
         } catch (err) {
           logger.warn({ err, collection }, "Public collection snapshot unavailable");

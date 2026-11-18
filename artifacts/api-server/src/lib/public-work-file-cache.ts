@@ -3,6 +3,7 @@ import { Client } from "@replit/object-storage";
 import { publicationCacheEnabled, publicationCoordinator } from "./publication-cache.js";
 import { logger } from "./logger.js";
 import { publicWorkFileSnapshotReadsReady } from "./public-snapshot-readiness.js";
+import { decodeLegacyWorkFile, legacyWorkFileKey } from "@workspace/api-zod/legacy-public-work-snapshot";
 
 const MAX_BYTES = 32 * 1024 * 1024;
 // v2 includes the source language required to verify a reviewed PDF edition.
@@ -84,7 +85,7 @@ export class PublicWorkFileCache {
   async read(
     slug: string,
     load: () => Promise<PublicWorkFile | undefined>,
-    options: { allowDatabaseFallback?: boolean } = {},
+    options: { allowDatabaseFallback?: boolean; legacyMetadata?: Record<string, unknown> } = {},
   ): Promise<PublicWorkFile | undefined> {
     const allowDatabaseFallback =
       options.allowDatabaseFallback ?? process.env.NODE_ENV !== "production";
@@ -115,6 +116,19 @@ export class PublicWorkFileCache {
         if (file.slug !== slug) throw new Error("Public file snapshot slug mismatch");
         this.memory.set(objectKey, result.value);
         return file;
+      }
+      if (!result.ok && result.error.statusCode === 404 && options.legacyMetadata) {
+        const legacy = await boundedRead(this.storage().downloadAsText(legacyWorkFileKey(state.epoch, slug)));
+        if (!legacy.ok) throw legacy.error;
+        const file = decodeLegacyWorkFile(legacy.value, options.legacyMetadata);
+        const source = JSON.stringify({ version: 1, createdAt: Date.now(), file });
+        const decoded = decode(source);
+        if (decoded.slug !== slug) throw new Error("Legacy file snapshot slug mismatch");
+        this.coordinator.clear();
+        const after = await this.coordinator.state();
+        if (!after.cacheable || after.epoch !== state.epoch) throw new Error("Publication changed during attachment read");
+        this.memory.set(objectKey, source);
+        return decoded;
       }
     } catch (error) {
       logger.warn({ err: error, slug }, "Public work file snapshot unavailable");

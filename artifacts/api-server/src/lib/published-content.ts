@@ -167,7 +167,7 @@ export async function publishedWorkFileBySlug(slug: string): Promise<PublicWorkF
       .limit(1);
     if (!file?.fileData || file.fileSize <= 0) return undefined;
     return file as PublicWorkFile;
-  });
+  }, { legacyMetadata: metadata });
   if (!file || file.slug !== metadata.slug || file.fileSize !== metadata.fileSize ||
       file.fileMimeType !== metadata.fileMimeType || file.documentLanguage !== metadata.documentLanguage ||
       new Date(file.updatedAt ?? 0).getTime() !== new Date(metadata.updatedAt ?? 0).getTime()) {

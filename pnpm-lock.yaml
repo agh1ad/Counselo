@@ -253,6 +253,12 @@ importers:
 
   artifacts/legal-site:
     dependencies:
+      '@google-cloud/storage':
+        specifier: 7.22.0
+        version: 7.22.0
+      '@replit/object-storage':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@tiptap/extension-color':
         specifier: ^3.33.1
         version: 3.33.1(@tiptap/extension-text-style@3.33.1(@tiptap/core@3.33.1(@tiptap/pm@3.33.1)))
@@ -701,6 +707,10 @@ importers:
       zod:
         specifier: 'catalog:'
         version: 4.6.7
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 25.9.4
 
   lib/db:
     dependencies:

@@ -20,6 +20,7 @@ import { getLegalProblemPages, getLegalProblemLanguageAlternates, legalProblemPa
 import { matterGuidanceUpdatedAt } from "../lib/matter-source-guidance.js";
 import { getMatterAnswer } from "../lib/matter-answer.js";
 import { serviceGuidanceUpdatedAt } from "../lib/source-backed-search-guidance.js";
+import { loadPublishedBuildInventory } from "./published-build-inventory.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, "../..");
@@ -66,23 +67,6 @@ const BlogPostSchema = z.object({
 const { BASE_URL, CORE_PAGES, BLOG_BASE_PATH, LEGAL_LIBRARY_BASE_PATH, WORK_BASE_PATH } =
   await import("../data/sitemap-sources.js");
 
-async function fetchRequiredDiscovery(urls: string[], label: string): Promise<Response> {
-  const failures: string[] = [];
-  for (const url of urls) {
-    for (let attempt = 1; attempt <= 2; attempt++) {
-      try {
-        const response = await fetch(url, { signal: AbortSignal.timeout(15_000) });
-        if (response.ok) return response;
-        failures.push(`${url} attempt ${attempt}: HTTP ${response.status}`);
-      } catch (error) {
-        failures.push(`${url} attempt ${attempt}: ${(error as Error).message}`);
-      }
-    }
-  }
-  throw new Error(
-    `${label} discovery is unavailable; refusing to emit incomplete sitemap/feed files (${failures.join("; ")})`,
-  );
-}
 
 
 // Maps old SA-worded Syria blog slugs to new Syria-specific canonical slugs.
@@ -310,17 +294,16 @@ try {
     bilingual: z.boolean().optional(),
   });
   const configuredBlogApiUrl = process.env["BLOG_API_URL"]?.trim();
-  const res = await fetchRequiredDiscovery(
+  const raw = await loadPublishedBuildInventory(
+    "blogs",
     configuredBlogApiUrl
       ? [configuredBlogApiUrl]
       : [
           "https://counselo-legal.com/api/blog/posts/discovery",
           "https://counselo-legal.com/api/blog/posts",
         ],
-    "Blog",
   );
   {
-    const raw = (await res.json()) as unknown[];
     const posts = raw
       .map((p) => BlogPostRowSchema.safeParse(p))
       .filter((r) => r.success)
@@ -356,9 +339,8 @@ try {
 try {
   const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional(), titleEn: z.string().optional(), titleAr: z.string().optional(), published: z.boolean(), fileSize: z.number().default(0), fileMimeType: z.string().default("") }).passthrough();
   const workApiUrl = process.env["WORK_API_URL"]?.trim() || "https://counselo-legal.com/api/work";
-  const res = await fetchRequiredDiscovery([workApiUrl], "Work sample");
-  if (res.ok) {
-    const raw = (await res.json()) as unknown[];
+  const raw = await loadPublishedBuildInventory("work", [workApiUrl]);
+  {
     const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => repairPublicWorkSample(item.data)).filter(sample => sample.published);
     for (const sample of samples) {
       const enUrl = `${BASE_URL}${WORK_BASE_PATH}/${sample.slug}`;
