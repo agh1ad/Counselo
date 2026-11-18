@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
   const content = {
     en: {
       seoTitle: "Privacy Policy | How CounselO Legal Protects Your Data | CounselO Legal",
-      seoDesc: `CounselO Legal's Privacy Policy for ${countryEn}: how we handle personal data and confidential information throughout your legal engagement, from online advice to representation.`,
+      seoDesc: `How CounselO Legal handles personal data and confidential information for legal services in ${countryEn}, from online advice and contracts to representation.`,
       canonical: "/privacy-policy",
       eyebrow: "Data Protection & Privacy",
       heading: "Privacy Policy",
@@ -195,12 +195,12 @@ export default function PrivacyPolicy() {
     },
     ar: {
       seoTitle: "سياسة الخصوصية | كيف تحمي كاونسلو للاستشارات القانونية بياناتك | كاونسلو للاستشارات القانونية",
-      seoDesc: `سياسة خصوصية كاونسلو للاستشارات القانونية في ${countryAr}: كيفية التعامل مع البيانات الشخصية والمعلومات السرية طوال العمل القانوني، من الاستشارة أونلاين إلى التمثيل.`,
+      seoDesc: `كيف تتعامل كاونسلو مع البيانات الشخصية والمعلومات السرية للخدمات القانونية في ${countryAr}، من الاستشارة أونلاين والعقود إلى التمثيل القانوني.`,
       canonical: "/privacy-policy",
       eyebrow: "حماية البيانات والخصوصية",
       heading: "سياسة الخصوصية",
       subheading:
-        "تلتزم منصة كاونسلو للاستشارات القانونية بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها وكيف تنتقل المعلومات عبر موقعنا ومزودي خدمات التواصل.",
+        "تلتزم كاونسلو للاستشارات القانونية بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها وكيف تنتقل المعلومات عبر موقعنا ومزودي خدمات التواصل.",
       lastUpdated: "آخر تحديث: 18 نوفمبر 2026",
       sections: [
         {
