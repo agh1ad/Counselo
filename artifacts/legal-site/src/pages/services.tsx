@@ -1,4 +1,4 @@
-import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION } from "@workspace/api-zod/browser";
+import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { serviceExperience } from "@/lib/service-experience-content";
 import { searchIntentMeta } from "@/lib/search-intent-copy";
 import { serviceDirectoryContent } from "@/components/home/service-directory-content";
@@ -114,6 +114,7 @@ export default function Services() {
     },
     { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? "خدمات كاونسلو القانونية" : "CounselO Legal services", seoDesc, s.items) },
     { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
+    { "@context": "https://schema.org", ...OMAR_AL_BAGHDADI },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
