@@ -123,12 +123,25 @@ function urlEntry(
   const loc = path === "" ? `${BASE_URL}/` : `${BASE_URL}${path}`;
   lastmod = latestPageUpdate(path, lastmod);
   return `  <url>
-    <loc>${loc}</loc>
+    <loc>${loc}</loc>${corePageImages(path)}
 ${alternates ? [...alternates, { hrefLang: "x-default", href: `${BASE_URL}/` }].map(({ hrefLang, href }) => `    <xhtml:link rel="alternate" hreflang="${hrefLang}" href="${href}"/>`).join("\n") : sharedHreflang(path)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
 ${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
   </url>`;
+}
+
+// Only list images published on these core pages. Other page families keep
+// their own imagery; a founder portrait must not become every page's image.
+function corePageImages(path: string): string {
+  const images: string[] = [];
+  if (/^(?:\/?|\/ar|\/(?:sa|syr|uae)(?:\/ar)?(?:\/about)?)$/.test(path)) {
+    images.push(`${BASE_URL}/logo.png`);
+  }
+  if (/^\/(?:sa|syr|uae)(?:\/ar)?\/about$/.test(path)) {
+    images.push(`${BASE_URL}/omar-baghdadi.jpg`);
+  }
+  return images.map(url => `\n    <image:image><image:loc>${url}</image:loc></image:image>`).join("");
 }
 
 function urlEntrySyrOnly(
@@ -394,7 +407,7 @@ function sitemapBucket(url: string): "core" | "uae-services" | "sa-services" | "
 function renderUrlset(urlEntries: string[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"${urlEntries.some(entry => entry.includes("<image:image>")) ? '\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"' : ""}>
 
 ${urlEntries.join("\n")}
 

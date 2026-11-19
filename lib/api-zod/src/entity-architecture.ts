@@ -13,6 +13,7 @@ export const OMAR_PORTRAIT = {
   url: `${OMAR_OFFICIAL_PROFILE_URL}/images/omar-al-baghdadi.jpg`,
   contentUrl: `${OMAR_OFFICIAL_PROFILE_URL}/images/omar-al-baghdadi.jpg`,
   caption: "Lawyer and legal counsel Omar Al-Baghdadi",
+  encodingFormat: "image/jpeg",
   width: 800,
   height: 1200,
   about: { "@id": OMAR_CANONICAL_ENTITY_ID },
@@ -43,6 +44,18 @@ const representationServices = [
   { region: "uae", country: "United Arab Emirates" },
 ] as const;
 
+export const COUNSELO_LOGO = {
+  "@type": "ImageObject",
+  "@id": `${ENTITY_BASE_URL}/#logo`,
+  url: `${ENTITY_BASE_URL}/logo.png`,
+  contentUrl: `${ENTITY_BASE_URL}/logo.png`,
+  caption: "CounselO Legal logo — كاونسلو للاستشارات القانونية",
+  encodingFormat: "image/png",
+  width: 512,
+  height: 512,
+  about: { "@id": COUNSELO_ENTITY_IDS.organization },
+} as const;
+
 export const COUNSELO_ORGANIZATION = {
   "@type": "Organization",
   "@id": COUNSELO_ENTITY_IDS.organization,
@@ -50,7 +63,8 @@ export const COUNSELO_ORGANIZATION = {
   alternateName: ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"],
   description: COUNSELO_PLATFORM_POSITIONING.descriptionEn,
   url: ENTITY_BASE_URL,
-  logo: { "@type": "ImageObject", url: `${ENTITY_BASE_URL}/logo.png`, width: 512, height: 512 },
+  logo: COUNSELO_LOGO,
+  image: COUNSELO_LOGO,
   founder: { "@id": COUNSELO_ENTITY_IDS.omar },
   member: [
     { "@id": COUNSELO_ENTITY_IDS.saudiOffice },
@@ -118,6 +132,7 @@ export const COUNSELO_WEBSITE = {
   alternateName: ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"],
   url: ENTITY_BASE_URL,
   publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
+  image: COUNSELO_LOGO,
   inLanguage: ["en", "ar"],
 } as const;
 

@@ -1,8 +1,12 @@
 # CounselO Legal — optional machine-readable documentation
 
-Last updated: 2026-11-18
+Last updated: 2026-11-19
 
 CounselO Legal provides comprehensive legal support for individuals, families, businesses and investors across Saudi Arabia, Syria and the UAE, in Arabic and English. Consult online, review documents and follow your matter remotely from home or work. One CounselO team handles the full legal journey: online consultation, contracts, dispute strategy, litigation, arbitration, representation and continuing support. The CounselO team comprises locally licensed lawyers and law offices that handle representation in the relevant jurisdiction. Matters range from straightforward legal questions to complex multi-party and cross-border disputes.
+
+## Official brand image
+
+- [CounselO Legal logo](https://counselo-legal.com/logo.png): PNG, 512 × 512 pixels; the logo of CounselO Legal (كاونسلو للاستشارات القانونية), identified by `https://counselo-legal.com/#logo`.
 
 ## Founder and professional identity
 
