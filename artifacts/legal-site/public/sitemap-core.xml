@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
 <url>
     <loc>https://counselo-legal.com/urgent-legal-assistance</loc>
@@ -34,6 +35,7 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar"/>
@@ -43,6 +45,7 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/ar</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar"/>
@@ -52,6 +55,7 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/sa</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa"/>
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr"/>
@@ -85,6 +89,8 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/sa/about</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
+    <image:image><image:loc>https://counselo-legal.com/omar-baghdadi.jpg</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa/about"/>
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/about"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/about"/>
@@ -118,6 +124,7 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/syr</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa"/>
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr"/>
@@ -151,6 +158,8 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/syr/about</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
+    <image:image><image:loc>https://counselo-legal.com/omar-baghdadi.jpg</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa/about"/>
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/about"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/about"/>
@@ -184,6 +193,7 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/uae</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae"/>
     <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
@@ -211,6 +221,8 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/uae/about</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
+    <image:image><image:loc>https://counselo-legal.com/omar-baghdadi.jpg</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/about"/>
     <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/about"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
@@ -238,6 +250,7 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/sa/ar</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa"/>
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr"/>
@@ -271,6 +284,8 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/sa/ar/about</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
+    <image:image><image:loc>https://counselo-legal.com/omar-baghdadi.jpg</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa/about"/>
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/about"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/about"/>
@@ -304,6 +319,7 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/syr/ar</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa"/>
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr"/>
@@ -337,6 +353,8 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/syr/ar/about</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
+    <image:image><image:loc>https://counselo-legal.com/omar-baghdadi.jpg</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa/about"/>
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/about"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/about"/>
@@ -370,6 +388,7 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/uae/ar</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae"/>
     <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
@@ -397,6 +416,8 @@
   </url>
 <url>
     <loc>https://counselo-legal.com/uae/ar/about</loc>
+    <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
+    <image:image><image:loc>https://counselo-legal.com/omar-baghdadi.jpg</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/about"/>
     <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/about"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
