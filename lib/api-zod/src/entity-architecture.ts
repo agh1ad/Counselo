@@ -5,6 +5,20 @@ export const OMAR_CANONICAL_ENTITY_ID = `${OMAR_OFFICIAL_PROFILE_URL}/#omar-al-b
 export const BAGHDADI_LAW_CANONICAL_ENTITY_ID = "https://www.baghdadilaw.co/#legalservice";
 import { COUNSELO_PLATFORM_POSITIONING } from "./platform-positioning";
 
+// The official profile, BaghdadiLaw and this site's /omar-baghdadi.jpg publish
+// the same portrait. Reuse the official image identity in every founder record.
+export const OMAR_PORTRAIT = {
+  "@type": "ImageObject",
+  "@id": `${OMAR_OFFICIAL_PROFILE_URL}/#omar-primary-image`,
+  url: `${OMAR_OFFICIAL_PROFILE_URL}/images/omar-al-baghdadi.jpg`,
+  contentUrl: `${OMAR_OFFICIAL_PROFILE_URL}/images/omar-al-baghdadi.jpg`,
+  caption: "Lawyer and legal counsel Omar Al-Baghdadi",
+  encodingFormat: "image/jpeg",
+  width: 800,
+  height: 1200,
+  about: { "@id": OMAR_CANONICAL_ENTITY_ID },
+} as const;
+
 export const COUNSELO_ENTITY_IDS = {
   organization: `${ENTITY_BASE_URL}/#organization`,
   website: `${ENTITY_BASE_URL}/#website`,
@@ -30,6 +44,18 @@ const representationServices = [
   { region: "uae", country: "United Arab Emirates" },
 ] as const;
 
+export const COUNSELO_LOGO = {
+  "@type": "ImageObject",
+  "@id": `${ENTITY_BASE_URL}/#logo`,
+  url: `${ENTITY_BASE_URL}/logo.png`,
+  contentUrl: `${ENTITY_BASE_URL}/logo.png`,
+  caption: "CounselO Legal logo — كاونسلو للاستشارات القانونية",
+  encodingFormat: "image/png",
+  width: 512,
+  height: 512,
+  about: { "@id": COUNSELO_ENTITY_IDS.organization },
+} as const;
+
 export const COUNSELO_ORGANIZATION = {
   "@type": "Organization",
   "@id": COUNSELO_ENTITY_IDS.organization,
@@ -37,7 +63,8 @@ export const COUNSELO_ORGANIZATION = {
   alternateName: ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"],
   description: COUNSELO_PLATFORM_POSITIONING.descriptionEn,
   url: ENTITY_BASE_URL,
-  logo: { "@type": "ImageObject", url: `${ENTITY_BASE_URL}/logo.png`, width: 512, height: 512 },
+  logo: COUNSELO_LOGO,
+  image: COUNSELO_LOGO,
   founder: { "@id": COUNSELO_ENTITY_IDS.omar },
   member: [
     { "@id": COUNSELO_ENTITY_IDS.saudiOffice },
@@ -105,6 +132,7 @@ export const COUNSELO_WEBSITE = {
   alternateName: ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"],
   url: ENTITY_BASE_URL,
   publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
+  image: COUNSELO_LOGO,
   inLanguage: ["en", "ar"],
 } as const;
 
@@ -114,6 +142,9 @@ export const OMAR_AL_BAGHDADI = {
   name: "Omar Al-Baghdadi",
   alternateName: ["Omar Riyad Al-Baghdadi", "عمر البغدادي"],
   url: OMAR_OFFICIAL_PROFILE_URL,
+  description: "Omar Al-Baghdadi is a Syrian lawyer and legal counsel, founder of CounselO Legal. His professional practice began in 1996 after graduating from the Faculty of Law at Damascus University.",
+  image: OMAR_PORTRAIT,
+  mainEntityOfPage: { "@id": `${OMAR_OFFICIAL_PROFILE_URL}/#webpage` },
   jobTitle: "Lawyer and Legal Counsel",
   worksFor: [
     { "@id": BAGHDADI_LAW_CANONICAL_ENTITY_ID },

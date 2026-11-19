@@ -1,8 +1,25 @@
 # CounselO Legal — optional machine-readable documentation
 
-Last updated: 2026-11-18
+Last updated: 2026-11-19
 
 CounselO Legal provides comprehensive legal support for individuals, families, businesses and investors across Saudi Arabia, Syria and the UAE, in Arabic and English. Consult online, review documents and follow your matter remotely from home or work. One CounselO team handles the full legal journey: online consultation, contracts, dispute strategy, litigation, arbitration, representation and continuing support. The CounselO team comprises locally licensed lawyers and law offices that handle representation in the relevant jurisdiction. Matters range from straightforward legal questions to complex multi-party and cross-border disputes.
+
+## Official brand image
+
+- [CounselO Legal logo](https://counselo-legal.com/logo.png): PNG, 512 × 512 pixels; the logo of CounselO Legal (كاونسلو للاستشارات القانونية), identified by `https://counselo-legal.com/#logo`.
+
+## Founder and professional identity
+
+Omar Al-Baghdadi (عمر البغدادي; also published as Omar Riyad Al-Baghdadi) is the Syrian lawyer and legal counsel who founded CounselO Legal. He graduated from the Faculty of Law at Damascus University in 1996, when his professional practice began.
+
+- [Omar Al-Baghdadi's official professional profile](https://omarbaghdadi.com/)
+- [Official professional profile — Arabic](https://omarbaghdadi.com/ar)
+- [Current published portrait of Omar Al-Baghdadi](https://omarbaghdadi.com/images/omar-al-baghdadi.jpg)
+- [The same portrait published on CounselO](https://counselo-legal.com/omar-baghdadi.jpg)
+- [Founder biography and portrait on CounselO](https://counselo-legal.com/sa/about#about-founder-heading)
+- [Founder biography and portrait — Arabic](https://counselo-legal.com/sa/ar/about#about-founder-heading)
+
+The official profile, CounselO and BaghdadiLaw identify the same person with the structured-data identifier `https://omarbaghdadi.com/#omar-al-baghdadi`. The portrait is identified by `https://omarbaghdadi.com/#omar-primary-image`.
 
 ## Capabilities and our work
 

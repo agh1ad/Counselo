@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, MonitorSmartphone, UsersRound, Scale, Globe2, Ch
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, COOPERATING_OFFICES, COUNSELO_ENTITY_IDS, OMAR_OFFICIAL_PROFILE_URL } from "@workspace/api-zod/browser";
+import { COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, OMAR_PORTRAIT, COOPERATING_OFFICES, COUNSELO_ENTITY_IDS, OMAR_OFFICIAL_PROFILE_URL } from "@workspace/api-zod/browser";
 import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, SAUDI_LAWYER_DIRECTORY, aboutContent, aboutRegions, syrianPartners } from "@/components/about/about-content";
 import { EngagementStandards } from "@/components/legal/engagement-standards";
 import { PlatformFacts } from "@/components/legal/platform-facts";
@@ -28,9 +28,7 @@ export default function About() {
     : `Hello CounselO, I would like to discuss a legal matter in ${local.country} and confirm the scope and fee.`)}`;
   const schema = [
     { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
-    { "@context": "https://schema.org", ...OMAR_AL_BAGHDADI,
-      image: { "@type": "ImageObject", url: "https://counselo-legal.com/images/optimized/omar-founder-bio.png" },
-    },
+    { "@context": "https://schema.org", ...OMAR_AL_BAGHDADI },
     {
       "@context": "https://schema.org",
       "@type": ["ProfilePage", "WebPage"],
@@ -40,6 +38,7 @@ export default function About() {
       "description": description,
       "dateModified": ABOUT_UPDATED,
       "mainEntity": { "@id": COUNSELO_ENTITY_IDS.organization },
+      "primaryImageOfPage": OMAR_PORTRAIT,
       "inLanguage": `${language}-${countryCode}`,
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -65,7 +64,9 @@ export default function About() {
   ];
 
   return <div className="about-platform-page" dir={isRTL ? "rtl" : "ltr"}>
-    <SEOHead title={`${c.label} | ${local.country}`} description={description} canonical="/about" schema={schema} />
+    <SEOHead title={`${c.label} | ${local.country}`} description={description} canonical="/about" schema={schema}
+      ogImageUrl={OMAR_PORTRAIT.contentUrl}
+      ogImageAlt={`${c.founderName} — ${c.founderRole}`} />
 
     <section className="about-hero" aria-labelledby="about-title">
       <div className="about-shell about-hero__grid">
@@ -133,7 +134,7 @@ export default function About() {
 
     <section className="about-founder" aria-labelledby="about-founder-heading">
       <div className="about-shell about-founder__grid">
-        <div className="about-founder__portrait"><img src="/images/optimized/omar-founder-bio.png" alt={isRTL ? "المحامي عمر البغدادي، مؤسس كاونسلو" : "Lawyer Omar Al-Baghdadi, founder of CounselO"} width="280" height="350" loading="lazy" decoding="async" /><p>{c.founderLabel}</p></div>
+        <div className="about-founder__portrait"><img src="/omar-baghdadi.jpg" alt={isRTL ? "المحامي والمستشار القانوني عمر البغدادي، مؤسس كاونسلو" : "Lawyer and legal counsel Omar Al-Baghdadi, founder of CounselO Legal"} width={OMAR_PORTRAIT.width} height={OMAR_PORTRAIT.height} loading="lazy" decoding="async" /><p>{c.founderLabel}</p></div>
         <div>
           <h2 id="about-founder-heading">{c.founderName}</h2>
           <p className="about-founder__role">{c.founderRole}</p>

@@ -1,4 +1,4 @@
-import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE } from "@workspace/api-zod/browser";
+import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { PracticeDirectory } from "@/components/home/practice-directory";
 import { PlatformFacts } from "@/components/legal/platform-facts";
 import { saudiContactHref } from "@/components/home/saudi-consultation-start";
@@ -77,6 +77,7 @@ export default function Home() {
         canonical="/"
         schema={[
           { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
+          { "@context": "https://schema.org", ...OMAR_AL_BAGHDADI },
           { "@context": "https://schema.org", ...COUNSELO_WEBSITE },
           { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? `كاونسلو للاستشارات القانونية — ${country}` : `CounselO Legal — ${country}`, description, t.services.items) },
         ]}
