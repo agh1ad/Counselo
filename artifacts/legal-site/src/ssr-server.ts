@@ -46,8 +46,8 @@ import {
   LEGACY_BLOG_REDIRECTS,
   LEGACY_SEARCH_REDIRECTS,
   assignArticleProvenance,
+  articleProvenanceSchema,
   BLOG_SOCIAL_IMAGE,
-  BLOG_REVIEWER_ATTRIBUTION,
   buildBlogSocialMetaTags,
   COUNSELO_ENTITY_IDS,
   getServiceDefinition,
@@ -255,8 +255,9 @@ export function buildBlogHtmlFromTemplate(template: string, slug: string, post: 
       post.excerptAr ||
       stripHtml(post.bodyEn || post.bodyAr || ""),
   );
-  const provenance = assignArticleProvenance(post);
-  const reviewerAttribution = isArabicPost ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
+  const language = isArabicPost ? "ar" : "en";
+  const provenance = assignArticleProvenance(post, language);
+  const provenanceSchema = articleProvenanceSchema(provenance, canonical, language);
 
   const articleSchema = safeJson({
     "@context": "https://schema.org",
@@ -266,35 +267,12 @@ export function buildBlogHtmlFromTemplate(template: string, slug: string, post: 
     inLanguage: isArabicPost ? "ar" : "en",
     datePublished: post.date,
     dateModified: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date),
-    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-    author: {
-      "@type": "Organization",
-      "@id": "https://counselo-legal.com/#organization",
-      name: "CounselO Legal",
-      url: "https://counselo-legal.com",
-    },
-    publisher: {
-      "@type": "Organization",
-      "@id": "https://counselo-legal.com/#organization",
-      name: "CounselO Legal",
-      url: "https://counselo-legal.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://counselo-legal.com/logo.png",
-      },
-    },
+    ...provenanceSchema,
     image: {
       "@type": "ImageObject",
       url: BLOG_SOCIAL_IMAGE.url,
       width: BLOG_SOCIAL_IMAGE.width,
       height: BLOG_SOCIAL_IMAGE.height,
-    },
-    reviewedBy: {
-      "@type": "Person",
-      "@id": COUNSELO_ENTITY_IDS.omar,
-      name: isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
-      jobTitle: isArabicPost ? "محامٍ ومستشار قانوني" : "Lawyer and Legal Counsel",
-      url: `https://counselo-legal.com${provenance.legalReviewerUrl}`,
     },
   });
 
@@ -325,8 +303,8 @@ export function buildBlogHtmlFromTemplate(template: string, slug: string, post: 
       title: primaryTitle,
       description: primaryDesc,
       canonical,
-      language: isArabicPost ? "ar" : "en",
-      reviewerName: reviewerAttribution,
+      language,
+      authorUrl: provenanceSchema.author.url,
     }),
     `<link data-rh="true" rel="canonical" href="${escapeHtml(canonical)}">`,
     `<script data-rh="true" type="application/ld+json">${articleSchema}</script>`,

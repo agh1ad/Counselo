@@ -2,6 +2,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, startTransition } from "react";
 import type { ReactNode } from "react";
 import { useLocation } from "wouter";
+import { COUNSELO_ABOUT_PATHS } from "@workspace/api-zod/browser";
 
 export type Region = "sa" | "syr" | "uae";
 export type Lang = "en" | "ar";
@@ -80,9 +81,10 @@ export function RegionProvider({ children }: { children: ReactNode }) {
     location === "/ar/our-work" ||
     location.startsWith("/ar/our-work/");
   const isLibraryPath = location === "/legal-library" || location === "/ar/legal-library";
+  const isGlobalAboutPath = location === COUNSELO_ABOUT_PATHS.en || location === COUNSELO_ABOUT_PATHS.ar;
   const isUrgentPath = location === "/urgent-legal-assistance" || location === "/ar/urgent-legal-assistance";
   const isLegalUpdatesHub = /^\/(?:ar\/)?legal-updates(?:\/|$)/.test(location);
-  const isSharedPath = isBlogPath || isLibraryPath || isWorkPath || isUrgentPath || isLegalUpdatesHub;
+  const isSharedPath = isBlogPath || isLibraryPath || isWorkPath || isGlobalAboutPath || isUrgentPath || isLegalUpdatesHub;
 
   const region = isSharedPath ? sharedRegion : detectRegion(location);
   const lang: Lang = isBlogPath

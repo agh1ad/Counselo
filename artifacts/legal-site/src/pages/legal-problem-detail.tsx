@@ -95,7 +95,7 @@ export default function LegalProblemDetail() {
           "headline": isRTL ? page.titleAr : page.titleEn,
           "description": description,
           "url": `https://counselo-legal.com${regionPrefix}${canonical}`,
-          "dateModified": consultationPrice ? CONSULTATION_PRICES_UPDATED_AT : SERVICE_EXPERIENCE_UPDATED_AT,
+          "dateModified": pageCopy.updatedAt ?? (consultationPrice ? CONSULTATION_PRICES_UPDATED_AT : SERVICE_EXPERIENCE_UPDATED_AT),
           "citation": sources.map(source => source.href),
           "author": { "@id": COUNSELO_ENTITY_IDS.omar },
           "publisher": { "@id": "https://counselo-legal.com/#organization" },

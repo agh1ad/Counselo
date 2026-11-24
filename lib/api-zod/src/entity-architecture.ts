@@ -4,6 +4,7 @@ export const BAGHDADI_LAW_PROFILE_URL = "https://www.baghdadilaw.co/who-we-are";
 export const OMAR_CANONICAL_ENTITY_ID = `${OMAR_OFFICIAL_PROFILE_URL}/#omar-al-baghdadi`;
 export const BAGHDADI_LAW_CANONICAL_ENTITY_ID = "https://www.baghdadilaw.co/#legalservice";
 import { COUNSELO_PLATFORM_POSITIONING } from "./platform-positioning";
+import { COUNSELO_BRAND } from "./brand";
 
 // The official profile, BaghdadiLaw and this site's /omar-baghdadi.jpg publish
 // the same portrait. Reuse the official image identity in every founder record.
@@ -59,8 +60,8 @@ export const COUNSELO_LOGO = {
 export const COUNSELO_ORGANIZATION = {
   "@type": "Organization",
   "@id": COUNSELO_ENTITY_IDS.organization,
-  name: "CounselO Legal",
-  alternateName: ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"],
+  name: COUNSELO_BRAND.en,
+  alternateName: [COUNSELO_BRAND.designationAr, "CounselO", COUNSELO_BRAND.ar],
   description: COUNSELO_PLATFORM_POSITIONING.descriptionEn,
   url: ENTITY_BASE_URL,
   logo: COUNSELO_LOGO,
@@ -75,6 +76,7 @@ export const COUNSELO_ORGANIZATION = {
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+966594850247",
+    email: "info@counselo-legal.com",
     contactType: "legal consultation and representation enquiries",
     areaServed: ["SA", "SY", "AE"],
     availableLanguage: [...COUNSELO_PLATFORM_POSITIONING.languages],
@@ -128,8 +130,8 @@ export const COUNSELO_ORGANIZATION = {
 export const COUNSELO_WEBSITE = {
   "@type": "WebSite",
   "@id": COUNSELO_ENTITY_IDS.website,
-  name: "CounselO Legal",
-  alternateName: ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"],
+  name: COUNSELO_BRAND.en,
+  alternateName: [COUNSELO_BRAND.designationAr, "CounselO", COUNSELO_BRAND.ar],
   url: ENTITY_BASE_URL,
   publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
   image: COUNSELO_LOGO,
@@ -161,12 +163,16 @@ export const OMAR_AL_BAGHDADI = {
   affiliation: { "@id": BAGHDADI_LAW_CANONICAL_ENTITY_ID },
 } as const;
 
+export const SAUDI_OFFICE_DIRECTORY_URL = "https://eservice.sba.gov.sa/directory/855";
+
 export const COOPERATING_OFFICES = {
   saudi: {
     "@type": "LegalService",
     "@id": COUNSELO_ENTITY_IDS.saudiOffice,
     name: "Lawyer Abdullah Al-Anzi",
     alternateName: "المحامي عبدالله العنزي",
+    legalName: "مكتب عبدالله مغثي قاعد العنزي للمحاماة",
+    sameAs: [SAUDI_OFFICE_DIRECTORY_URL],
     description: "Abdullah Al-Anzi’s law office is part of the CounselO legal team in Saudi Arabia, providing legal advice and representation within its local professional authority.",
     memberOf: { "@id": COUNSELO_ENTITY_IDS.organization },
     areaServed: { "@type": "Country", name: "Saudi Arabia" },

@@ -12,6 +12,13 @@
       "indexable": true
     },
     {
+      "id": "brand-about",
+      "paths": ["/about", "/ar/about"],
+      "canonical": "self",
+      "hreflang": "reciprocal-en-ar",
+      "indexable": true
+    },
+    {
       "id": "regional-home",
       "paths": ["/{region}", "/{region}/ar"],
       "regions": ["sa", "syr", "uae"],

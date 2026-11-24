@@ -108,7 +108,7 @@ function urlEntry(
   lastmod = latestPageUpdate(path, lastmod);
   return `  <url>
     <loc>${loc}</loc>${corePageImages(path)}
-${alternates ? [...alternates, { hrefLang: "x-default", href: `${BASE_URL}/` }].map(({ hrefLang, href }) => `    <xhtml:link rel="alternate" hreflang="${hrefLang}" href="${href}"/>`).join("\n") : sharedHreflang(path)}
+${alternates ? alternates.map(({ hrefLang, href }) => `    <xhtml:link rel="alternate" hreflang="${hrefLang}" href="${href}"/>`).join("\n") : sharedHreflang(path)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
 ${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}

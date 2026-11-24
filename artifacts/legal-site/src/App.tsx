@@ -1,5 +1,5 @@
 import RemovedPage from "@/pages/removed";
-import { isRetiredPublicPath } from "@workspace/api-zod/browser";
+import { COUNSELO_ABOUT_PATHS, isRetiredPublicPath } from "@workspace/api-zod/browser";
 import "@/components/legal/public-readability.css";
 import { legalUpdatesData, type LegalUpdatesData } from "@workspace/api-zod/browser";
 import {
@@ -32,6 +32,7 @@ import {
   Blog,
   BlogPost,
   Contact,
+  GlobalAbout,
   Home,
   LegalLibrary,
   LegalProblemDetail,
@@ -307,6 +308,8 @@ function Router() {
         {/* Region picker — English (x-default) and Arabic */}
         <Route path="/" component={RegionPicker} />
         <Route path="/ar" component={ArRegionPicker} />
+        <Route path={COUNSELO_ABOUT_PATHS.en} component={GlobalAbout} />
+        <Route path={COUNSELO_ABOUT_PATHS.ar} component={GlobalAbout} />
         <Route path="/urgent-legal-assistance" component={UrgentLegalAssistance} />
         <Route path="/ar/urgent-legal-assistance" component={UrgentLegalAssistance} />
 
@@ -332,7 +335,6 @@ function Router() {
         <Route path="/our-work" component={OurWork} />
         <Route path="/ar/legal-library" component={LegalLibrary} />
         <Route path="/legal-library" component={LegalLibrary} />
-        <Route path="/about" component={About} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/terms-of-service" component={TermsOfService} />

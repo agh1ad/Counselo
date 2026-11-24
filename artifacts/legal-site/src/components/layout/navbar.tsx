@@ -2,7 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ArrowRight, Globe2, Search, ChevronDown, House, BookOpen, BriefcaseBusiness, Users, Mail, Scale, FileText, Clock3, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { getServicesForRegion } from "@workspace/api-zod/browser";
+import { COUNSELO_ABOUT_PATHS, getServicesForRegion } from "@workspace/api-zod/browser";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { readingSearchKey } from "@/lib/article-reading";
@@ -26,6 +26,8 @@ export function Navbar() {
   const ar = lang === "ar";
   const country = countries.find(item => item.id === region)!;
   const home = isSharedPath ? (ar ? "/ar" : "/") : regionPrefix;
+  const about = isSharedPath ? COUNSELO_ABOUT_PATHS[lang] : `${regionPrefix}/about`;
+  const alternateAbout = location === COUNSELO_ABOUT_PATHS[lang] ? COUNSELO_ABOUT_PATHS[ar ? "en" : "ar"] : undefined;
   const library = ar ? "/ar/legal-library" : "/legal-library";
   const blog = ar ? "/blog/ar" : "/blog";
   const work = ar ? "/ar/our-work" : "/our-work";
@@ -56,8 +58,8 @@ export function Navbar() {
     ...(!isSharedPath ? [
       { href: serviceIndex, title: ar ? "الخدمات" : "Services", Icon: Scale },
       { href: contact, title: label.contact, Icon: Mail },
-      { href: `${regionPrefix}/about`, title: label.about, Icon: Users },
     ] : []),
+    { href: about, title: label.about, Icon: Users },
     { href: work, title: label.work, Icon: BriefcaseBusiness },
     { href: library, title: label.library, Icon: BookOpen },
     { href: blog, title: label.articles, Icon: FileText },
@@ -86,16 +88,21 @@ export function Navbar() {
         <nav className="counselo-header__links" aria-label={label.primary}>
           <Link href={home} aria-current={location === home ? "page" : undefined}>{t.nav.home}</Link>
           {isSharedPath ? <>
+            <Link href={about} aria-current={location === about ? "page" : undefined}>{label.about}</Link>
             <Link href={work} data-active={active(work)}>{label.work}</Link>
             <Link href={library} data-active={active(library)}>{label.library}</Link>
           </> : <>
             <Link href={serviceIndex} data-active={active(serviceIndex)}>{ar ? "الخدمات" : "Services"}</Link>
             <Link href={contact} data-active={active(contact)} className="counselo-header__consult">{label.contact}</Link>
-            <Link href={`${regionPrefix}/about`} data-active={active(`${regionPrefix}/about`)}>{label.about}</Link>
+            <Link href={about} data-active={active(about)}>{label.about}</Link>
           </>}
         </nav>
         <div className="counselo-header__controls">
-          <button type="button" onClick={changeLanguage} className="counselo-language" aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "EN" : "ع"}</span></button>
+          {alternateAbout ? (
+            <Link href={alternateAbout} hrefLang={ar ? "en" : "ar"} className="counselo-language grid place-items-center" aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "EN" : "ع"}</span></Link>
+          ) : (
+            <button type="button" onClick={changeLanguage} className="counselo-language" aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "EN" : "ع"}</span></button>
+          )}
           <Dialog.Trigger asChild><button type="button" className="counselo-menu-trigger" aria-label={label.open}><Menu aria-hidden="true" /><span>{label.menu}</span></button></Dialog.Trigger>
         </div>
       </div>
@@ -138,7 +145,11 @@ export function Navbar() {
         </div>
           <div className="counselo-menu__footer">
             <nav className="counselo-menu__countries" aria-label={label.country}><span><Globe2 aria-hidden="true" />{label.country}</span><div>{countries.map(item => <Link key={item.id} href={regionHome(item.id)} onClick={close} aria-current={!isSharedPath && region === item.id ? "location" : undefined}>{item[lang]}{!isSharedPath && region === item.id && <Check aria-hidden="true" />}</Link>)}</div></nav>
-            <button type="button" className="counselo-menu__language" onClick={changeLanguage} aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "English" : "العربية"}</span><ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></button>
+            {alternateAbout ? (
+              <Link href={alternateAbout} hrefLang={ar ? "en" : "ar"} className="counselo-menu__language" onClick={close} aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "English" : "العربية"}</span><ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></Link>
+            ) : (
+              <button type="button" className="counselo-menu__language" onClick={changeLanguage} aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "English" : "العربية"}</span><ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></button>
+            )}
           </div>
       </Dialog.Content>
     </Dialog.Portal>

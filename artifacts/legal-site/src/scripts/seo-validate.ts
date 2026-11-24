@@ -207,7 +207,7 @@ function validatePage(filepath: string): PageResult {
     const prefix = route.match(/^\/(?:sa|syr|uae)(?:\/ar)?/)?.[0];
     const expectedLinks = prefix
       ? [prefix, `${prefix}/services`, `${prefix}/contact`, `${prefix}/about`]
-      : [isAr ? "/ar" : "/", `${isAr ? "/ar" : ""}/our-work`, `${isAr ? "/ar" : ""}/legal-library`];
+      : [isAr ? "/ar" : "/", `${isAr ? "/ar" : ""}/about`, `${isAr ? "/ar" : ""}/our-work`, `${isAr ? "/ar" : ""}/legal-library`];
     const header = html.match(/<header\b[^>]*>([\s\S]*?)<\/header>/i)?.[1] ?? "";
     const navigation = header.match(/<nav\b[^>]*>([\s\S]*?)<\/nav>/i)?.[1] ?? "";
     const actualLinks = [...navigation.matchAll(/<a\b[^>]*\bhref="([^"]*)"/gi)].map(match => decode(match[1]));
@@ -306,6 +306,11 @@ function validatePage(filepath: string): PageResult {
   const hlCount = Object.keys(hl).length;
   if (route === "/" || route === "/ar") {
     if (hl.en !== `${BASE}/` || hl.ar !== `${BASE}/ar`) issues.push({ severity: "error", rule: "global-home-language-pair", detail: "Global homepages must link to the reciprocal English and Arabic global URLs" });
+  }
+  if (route === "/about" || route === "/ar/about") {
+    if (hl.en !== `${BASE}/about` || hl.ar !== `${BASE}/ar/about` || hl["x-default"] !== `${BASE}/about`) {
+      issues.push({ severity: "error", rule: "global-about-language-pair", detail: "The global About pages must identify their reciprocal translations and use the English About page as the fallback" });
+    }
   }
   if (hlCount === 0)
     issues.push({
@@ -544,8 +549,10 @@ function validatePage(filepath: string): PageResult {
         rule: "blog-post-no-article-schema",
         detail: "Blog post missing Article schema",
       });
-    const article = sc.find((schema: any) => schema["@type"] === "Article") as { author?: { name?: string }; datePublished?: string } | undefined;
-    if (!article?.author?.name || !visibleText(html).includes(article.author.name) || !article.datePublished || !/id="article-provenance-heading"/.test(html))
+    const article = sc.find((schema: any) => schema["@type"] === "Article") as { author?: { name?: string; alternateName?: string }; datePublished?: string } | undefined;
+    const bodyText = visibleText(html);
+    const visibleCredit = [article?.author?.name, article?.author?.alternateName].some((name) => name && bodyText.includes(name));
+    if (!article?.author?.name || !visibleCredit || !article.datePublished || !/id="article-provenance-heading"/.test(html))
       issues.push({
         severity: "error",
         rule: "blog-trust-signals-missing",

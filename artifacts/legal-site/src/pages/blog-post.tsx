@@ -16,11 +16,13 @@ import {
   articleModifiedAt,
   ARTICLE_CONTEXT,
   assignArticleProvenance,
+  articleProvenanceSchema,
   BLOG_REVIEWER_ATTRIBUTION,
   blogPath,
   hasQualityBilingualBlogContent,
   localizeArticleProvenanceUrl,
-  COUNSELO_ENTITY_IDS,
+  confirmedArticleReviewDate,
+  OMAR_OFFICIAL_PROFILE_URL,
   getServiceDefinition,
   getServicesForRegion,
   safeSeoTitle,
@@ -246,18 +248,10 @@ export default function BlogPost() {
   const articleRegion = articleContextRegion(post);
   const articleRegionPrefix = `${articleRegion ? `/${articleRegion}` : ""}${useAr ? "/ar" : ""}`;
   const articleContactPath = articleRegion ? `${articleRegionPrefix}/contact` : `${useAr ? "/ar" : "/"}#contact`;
-  const fallbackProvenance = assignArticleProvenance(post);
   const contentType = post.contentType ?? "professional-commentary";
+  const fallbackProvenance = assignArticleProvenance({ ...post, contentType }, effectiveLanguage);
   const provenance = {
-    ...assignArticleProvenance({ ...post, contentType }),
-    primaryAuthorName: fallbackProvenance.primaryAuthorName,
-    primaryAuthorNameAr: fallbackProvenance.primaryAuthorNameAr,
-    primaryAuthorUrl: fallbackProvenance.primaryAuthorEntityId ? fallbackProvenance.primaryAuthorUrl : post.primaryAuthorUrl || fallbackProvenance.primaryAuthorUrl,
-    // Every public article carries the same verified legal reviewer attribution,
-    // including legacy records that may contain an older reviewer label.
-    legalReviewerName: fallbackProvenance.legalReviewerName,
-    legalReviewerNameAr: fallbackProvenance.legalReviewerNameAr,
-    legalReviewerUrl: fallbackProvenance.legalReviewerUrl,
+    ...fallbackProvenance,
     applicableLaw: contentType === "legal-guidance" ? (post.applicableLaw || fallbackProvenance.applicableLaw) : "",
     applicableLawAr: contentType === "legal-guidance" ? (post.applicableLawAr || fallbackProvenance.applicableLawAr) : "",
     keyLegalUpdateNote: contentType === "legal-guidance" ? (post.keyLegalUpdateNote || fallbackProvenance.keyLegalUpdateNote) : fallbackProvenance.keyLegalUpdateNote,
@@ -267,12 +261,11 @@ export default function BlogPost() {
     correctionUrl: post.correctionUrl || fallbackProvenance.correctionUrl,
     sources: contentType === "legal-guidance" ? (post.sources?.length ? post.sources : fallbackProvenance.sources) : [],
     jurisdiction: contentType === "legal-guidance" ? (post.jurisdiction || fallbackProvenance.jurisdiction) : undefined,
-    lastSubstantiveReviewAt: post.lastSubstantiveReviewAt || fallbackProvenance.lastSubstantiveReviewAt,
   };
-  provenance.primaryAuthorUrl = localizeArticleProvenanceUrl(provenance.primaryAuthorUrl, articleRegion, effectiveLanguage, "profile");
-  provenance.legalReviewerUrl = localizeArticleProvenanceUrl(provenance.legalReviewerUrl, articleRegion, effectiveLanguage, "profile");
   provenance.correctionUrl = localizeArticleProvenanceUrl(provenance.correctionUrl, articleRegion, effectiveLanguage, "correction");
+  const reviewDate = confirmedArticleReviewDate(post, curatedContext?.editorialUpdatedAt);
   const reviewerAttribution = useAr ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
+  const contentUpdatedAt = editorialUpdatedAt ?? post.updatedAt ?? post.date;
   const validRegionServices = new Set(articleRegion ? getServicesForRegion(articleRegion).map((service) => service.slug) : []);
   const categoryService = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? BLOG_CATEGORY_TO_SERVICE[post.categoryAr];
   const articleServiceSlug = (curatedContext ? [curatedContext.serviceSlug] : post.relatedServiceSlugs ?? []).find((slug) => validRegionServices.has(slug))
@@ -296,43 +289,19 @@ export default function BlogPost() {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${canonicalArticleUrl}#article`,
-    "mainEntityOfPage": { "@type": "WebPage", "@id": `${canonicalArticleUrl}#webpage` },
+    ...articleProvenanceSchema(provenance, canonicalArticleUrl, effectiveLanguage, reviewDate),
     "headline": seoTitle,
     "description": seoDesc,
     "inLanguage": useAr ? "ar" : "en",
     "datePublished": post.date,
-    "dateModified": editorialUpdatedAt ?? provenance.lastSubstantiveReviewAt,
+    "dateModified": contentUpdatedAt,
     "image": {
       "@type": "ImageObject",
       "url": "https://counselo-legal.com/og-image.png",
       "width": 1200,
       "height": 630,
     },
-    "author": {
-      "@type": "Organization",
-      "@id": provenance.primaryAuthorEntityId ?? COUNSELO_ENTITY_IDS.organization,
-      "name": useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName,
-      "url": new URL(provenance.primaryAuthorUrl, "https://counselo-legal.com").href,
-    },
-    "publisher": {
-      "@type": "Organization",
-      "@id": COUNSELO_ENTITY_IDS.organization,
-      "name": "CounselO Legal",
-      "url": "https://counselo-legal.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://counselo-legal.com/logo.png",
-        "width": 512,
-        "height": 512,
-      },
-    },
     "isPartOf": { "@id": `https://counselo-legal.com${useAr ? "/blog/ar" : "/blog"}#collection` },
-    ...(!editorialUpdatedAt ? { "reviewedBy": {
-      "@type": "Person",
-      "@id": COUNSELO_ENTITY_IDS.omar,
-      "name": useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
-      "url": `https://counselo-legal.com${provenance.legalReviewerUrl}`,
-    } } : {}),
     ...(contentType === "legal-guidance" && articleRegion ? {
       "citation": provenance.sources.map((source) => source.href),
       "about": {
@@ -372,9 +341,10 @@ export default function BlogPost() {
         articlePublishedTime={post.date}
         articleModifiedTime={editorialUpdatedAt ?? post.updatedAt ?? post.date}
         articleAuthor={useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}
+        articleAuthorUrl={articleSchema.author.url}
         articleSection={category}
-        reviewedBy={editorialUpdatedAt ? undefined : reviewerAttribution}
-        ogImageAlt={editorialUpdatedAt ? title : useAr
+        reviewedBy={reviewDate ? reviewerAttribution : undefined}
+        ogImageAlt={!reviewDate ? title : useAr
           ? `مقال قانوني من كاونسلو للاستشارات القانونية، راجعه ${reviewerAttribution}`
           : `CounselO Legal article reviewed by ${reviewerAttribution}`}
         extraSchemas={[articleSchema, breadcrumbSchema]}
@@ -404,11 +374,11 @@ export default function BlogPost() {
             <div className="premium-hero-rule mb-6" />
 
             <a
-              href={provenance.legalReviewerUrl}
+              href={OMAR_OFFICIAL_PROFILE_URL}
               className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
             >
               <BadgeCheck className="h-4 w-4 text-[#e0c078]" aria-hidden="true" />
-              {editorialUpdatedAt ? useAr ? "القيادة القانونية:" : "Legal leadership:" : useAr ? "راجعه" : "Reviewed by"} {reviewerAttribution}
+              {reviewDate ? useAr ? "راجعه" : "Reviewed by" : useAr ? "بقيادة قانونية من" : "Under the legal leadership of"} {reviewerAttribution}
             </a>
           </m.div>
         </div>
@@ -433,10 +403,11 @@ export default function BlogPost() {
               </h2>
               <dl className="grid gap-3 text-sm sm:grid-cols-2">
                 <div><dt className="font-semibold text-foreground">{useAr ? "كتب بواسطة" : "Written by"}</dt><dd><a className="text-primary hover:underline" href={provenance.primaryAuthorUrl}>{useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}</a></dd></div>
-                <div><dt className="font-semibold text-foreground">{editorialUpdatedAt ? useAr ? "القيادة القانونية" : "Legal leadership" : useAr ? "تمت المراجعة بواسطة" : "Reviewed by"}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{reviewerAttribution}</a></dd></div>
+                <div><dt className="font-semibold text-foreground">{reviewDate ? useAr ? "تمت المراجعة بواسطة" : "Reviewed by" : useAr ? "القيادة القانونية" : "Legal leadership"}</dt><dd><a className="text-primary hover:underline" href={OMAR_OFFICIAL_PROFILE_URL}>{reviewerAttribution}</a></dd></div>
                 {contentType === "legal-guidance" && provenance.jurisdiction && <div><dt className="font-semibold text-foreground">{useAr ? "الاختصاص" : "Jurisdiction"}</dt><dd>{articleJurisdictionLabel(provenance.jurisdiction, useAr)}</dd></div>}
                 <div><dt className="font-semibold text-foreground">{useAr ? "تاريخ النشر" : "Publication date"}</dt><dd>{formatDate(post.date, useAr ? "ar" : "en")}</dd></div>
-                <div><dt className="font-semibold text-foreground">{editorialUpdatedAt ? useAr ? "تحديث المحتوى" : "Content updated" : useAr ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}</dt><dd>{formatDate(editorialUpdatedAt ?? provenance.lastSubstantiveReviewAt, useAr ? "ar" : "en")}</dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? "تحديث المحتوى" : "Content updated"}</dt><dd>{formatDate(contentUpdatedAt, effectiveLanguage)}</dd></div>
+                {reviewDate && <div><dt className="font-semibold text-foreground">{useAr ? "آخر مراجعة قانونية" : "Last legal review"}</dt><dd>{formatDate(reviewDate, effectiveLanguage)}</dd></div>}
                 {contentType === "legal-guidance" && <div><dt className="font-semibold text-foreground">{useAr ? "القانون المنطبق" : "Applicable law"}</dt><dd>{useAr ? provenance.applicableLawAr : provenance.applicableLaw}</dd></div>}
               </dl>
               <div className="mt-4 space-y-3 text-sm">

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Mail, MessageCircle, Phone, Globe2, MonitorSmartphone, Clock3, MessagesSquare } from "lucide-react";
-import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
+import { COUNSELO_ABOUT_PATHS, COUNSELO_BRAND, COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { PracticeDirectory } from "./practice-directory";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { homepageContent } from "./homepage-content";
@@ -23,9 +23,12 @@ export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolea
   const c = { ...homepageContent[lang], ...homepagePresentation[lang], h1: homepageContent[lang].h1 };
   const suffix = isArabic ? "/ar" : "";
   const url = `https://counselo-legal.com${isArabic ? "/ar" : "/"}`;
+  const aboutPath = COUNSELO_ABOUT_PATHS[lang];
+  const aboutLabel = isArabic ? "عن كاونسلو للاستشارات القانونية" : "About CounselO Legal";
   const countryLabels = isArabic ? ["السعودية", "سوريا", "الإمارات"] : ["Saudi Arabia", "Syria", "UAE"];
   const resources = [
     [isArabic ? "/ar" : "/", isArabic ? "الرئيسية" : "Home"],
+    [aboutPath, aboutLabel],
     [isArabic ? "/ar/our-work" : "/our-work", isArabic ? "أعمالنا" : "Our Work"],
     [isArabic ? "/ar/legal-library" : "/legal-library", isArabic ? "المكتبة القانونية" : "Legal Library"],
     [isArabic ? "/blog/ar" : "/blog", isArabic ? "المقالات القانونية" : "Legal Articles"],
@@ -78,7 +81,7 @@ export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolea
         <meta property="og:title" content={c.title} />
         <meta property="og:description" content={c.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="CounselO Legal كاونسلو للاستشارات القانونية" />
+        <meta property="og:site_name" content={isArabic ? COUNSELO_BRAND.designationAr : COUNSELO_BRAND.en} />
         <meta property="og:url" content={url} />
         <meta property="og:locale" content={isArabic ? "ar_SA" : "en_US"} />
         <meta
@@ -109,6 +112,7 @@ export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolea
         </Link>
         <nav aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"}>
           <Link href={isArabic ? "/ar" : "/"}>{isArabic ? "الرئيسية" : "Home"}</Link>
+          <Link href={aboutPath}>{isArabic ? "من نحن" : "About Us"}</Link>
           <Link href={`${suffix}/our-work`}>{isArabic ? "أعمالنا" : "Our Work"}</Link>
           <Link href={`${suffix}/legal-library`}>{isArabic ? "المكتبة القانونية" : "Legal Library"}</Link>
         </nav>
@@ -151,7 +155,7 @@ export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolea
             <p className="home-intro-note">{c.aboutNote}</p>
             <div className="home-actions">
               <a className="home-button" href="#contact">{c.aboutPrimary}{arrow}</a>
-              <Link className="home-text-link" href={`${suffix}/our-work`}>{c.aboutSecondary}{arrow}</Link>
+              <Link className="home-text-link" href={aboutPath}>{aboutLabel}{arrow}</Link>
             </div>
           </div>
         </section>
@@ -160,7 +164,12 @@ export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolea
         <LatestContentCarousels isArabic={isArabic} variant="home" />
         <section id="contact" className="home-contact" aria-labelledby="contact-title">
           <div className="home-container home-contact-grid">
-            <div className="home-contact-copy"><h2 id="contact-title">{c.contact}</h2><p>{c.contactText}</p><p className="home-contact-note">{c.contactNote}</p></div>
+            <div className="home-contact-copy">
+              <h2 id="contact-title">{c.contact}</h2>
+              <p>{c.contactText}</p>
+              <p className="home-contact-note">{c.contactNote}</p>
+              <a className="home-text-link underline" href="#services">{c.pricingLink}{arrow}</a>
+            </div>
             <div className="home-contact-panel">
               <a className="home-whatsapp" href="https://wa.me/966594850247"><MessageCircle size={26} aria-hidden="true" /><span><strong>{c.whatsapp}</strong><small>{isArabic ? "ابدأ الحديث مع فريقنا القانوني" : "Start a conversation with our legal team"}</small></span>{arrow}</a>
               <div className="home-direct-contacts">

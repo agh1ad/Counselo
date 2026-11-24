@@ -5,10 +5,14 @@ import { latestPageUpdate } from "./site-content-dates";
 test("revised bilingual page families share a stable sitemap revision date", () => {
   for (const region of ["sa", "syr", "uae"]) for (const lang of ["", "/ar"]) {
     for (const page of ["", "/about", "/contact", "/services", "/services/employment-law", "/services/employment-law/unpaid-wages"]) {
-      assert.equal(latestPageUpdate(`/${region}${lang}${page}`, "2026-09-07"), "2026-11-18");
+      const expected = page === "" || page === "/about" ? "2026-11-24" : "2026-11-18";
+      assert.equal(latestPageUpdate(`/${region}${lang}${page}`, "2026-09-07"), expected);
     }
   }
-  for (const route of ["/", "/ar", "/our-work", "/ar/our-work"]) assert.equal(latestPageUpdate(route), "2026-11-18");
+  for (const route of ["", "/", "/ar", "/about", "/ar/about", "/sa/services/contracts/contract-drafting-and-review", "/sa/ar/services/contracts/contract-drafting-and-review"]) {
+    assert.equal(latestPageUpdate(route), "2026-11-24");
+  }
+  for (const route of ["/our-work", "/ar/our-work"]) assert.equal(latestPageUpdate(route), "2026-11-18");
   for (const route of ["/blog", "/blog/ar"]) assert.equal(latestPageUpdate(route), "2026-11-13");
   for (const prefix of ["", "/ar", "/sa/services", "/sa/ar/services", "/syr/services", "/syr/ar/services", "/uae/services", "/uae/ar/services"]) {
     assert.equal(latestPageUpdate(`${prefix}/urgent-legal-assistance`), "2026-11-18");

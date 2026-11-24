@@ -2,6 +2,7 @@ import { getServicesForRegion, type Region } from "./region-services";
 import { ARTICLE_CONTEXT, articleModifiedAt } from "./article-context";
 import { workModifiedAt } from "./work-context";
 import { REGIONAL_SEO_REGISTRY } from "./regional-seo";
+import { COUNSELO_ABOUT_PATHS } from "./brand";
 import { publicWorkDocumentPath, type WorkDocumentMetadata } from "./public-work-documents";
 
 export const PUBLIC_BASE_URL = "https://counselo-legal.com";
@@ -56,6 +57,7 @@ export function getPublicRouteInventory(): string[] {
   return [
     "/",
     "/ar",
+    ...Object.values(COUNSELO_ABOUT_PATHS),
     ...englishRoutes,
     ...englishRoutes.map(toArabicRoute),
     "/blog",
@@ -235,6 +237,13 @@ export function buildHreflangLinks(path: string): string[] {
       ["x-default", "/"],
       ["en", "/"],
       ["ar", "/ar"],
+    ].map(([language, target]) => `${language}|${canonicalPublicUrl(target)}`);
+  }
+  if (path === COUNSELO_ABOUT_PATHS.en || path === COUNSELO_ABOUT_PATHS.ar) {
+    return [
+      ["en", COUNSELO_ABOUT_PATHS.en],
+      ["ar", COUNSELO_ABOUT_PATHS.ar],
+      ["x-default", COUNSELO_ABOUT_PATHS.en],
     ].map(([language, target]) => `${language}|${canonicalPublicUrl(target)}`);
   }
   const regionMatch = path.match(new RegExp(`^/(${REGION_PREFIX_PATTERN})(/ar)?(?=/|$)`));

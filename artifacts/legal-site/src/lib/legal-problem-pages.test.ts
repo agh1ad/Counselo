@@ -121,9 +121,11 @@ test("problem hreflang alternates only reference real reciprocal routes", () => 
   for (const region of ["sa", "syr", "uae"] as const) {
     for (const page of getLegalProblemPages(region)) {
       const alternates = getLegalProblemLanguageAlternates(page);
-      assert.equal(new Set(alternates.map((alternate) => alternate.hrefLang)).size, alternates.length);
+      assert.equal(alternates.length, 3);
+      assert.equal(new Set(alternates.map((alternate) => alternate.hrefLang)).size, 3);
       assert.ok(alternates.some((alternate) => alternate.hrefLang === (region === "uae" ? "en-AE" : region === "sa" ? "en-SA" : "en-SY")));
       assert.ok(alternates.some((alternate) => alternate.hrefLang === (region === "uae" ? "ar-AE" : region === "sa" ? "ar-SA" : "ar-SY")));
+      assert.equal(alternates.find(({ hrefLang }) => hrefLang === "x-default")?.href, alternates.find(({ hrefLang }) => hrefLang.startsWith("en-"))?.href);
       for (const alternate of alternates) {
         assert.ok(paths.has(alternate.href), `${page.region}/${page.slug} emits missing hreflang ${alternate.href}`);
       }

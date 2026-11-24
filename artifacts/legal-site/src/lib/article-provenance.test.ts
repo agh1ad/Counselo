@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { articleJurisdictionLabel, assignArticleProvenance, localizeArticleProvenanceUrl } from "@workspace/api-zod";
+import { articleJurisdictionLabel, articleLegalReviewFields, articleProvenanceSchema, assignArticleProvenance, confirmedArticleReviewDate, localizeArticleProvenanceUrl } from "@workspace/api-zod";
 
 test("supplied blank-signature commentary retains supervision and quotation credit without inventing an author", () => {
   const credited = assignArticleProvenance({
@@ -25,12 +25,27 @@ test("articles default to safe professional commentary", () => {
   assert.equal(provenance.contentType, "professional-commentary");
   assert.equal(provenance.jurisdiction, undefined);
   assert.equal(provenance.primaryAuthorName, "CounselO Legal Team");
-  assert.equal(provenance.primaryAuthorNameAr, "فريق كاونسلو للاستشارات القانونية القانوني");
+  assert.equal(provenance.primaryAuthorNameAr, "فريق كاونسلو للاستشارات القانونية");
+  const { author, publisher } = articleProvenanceSchema(provenance, "https://counselo-legal.com/blog/ar/example", "ar");
+  assert.equal(author["@id"], publisher["@id"]);
+  assert.equal(author.name, publisher.name);
+  assert.equal(author.alternateName, provenance.primaryAuthorNameAr);
   assert.equal(provenance.legalReviewerName, "Omar Al-Baghdadi");
   assert.equal(provenance.legalReviewerNameAr, "عمر البغدادي");
-  assert.equal(provenance.lastSubstantiveReviewAt, "2025-01-10");
+  assert.equal(provenance.primaryAuthorUrl, "/about");
+  assert.equal(assignArticleProvenance({ titleAr: "اختصاص قضائي" }, "ar").primaryAuthorUrl, "/ar/about");
+  assert.equal(provenance.lastSubstantiveReviewAt, "");
+  assert.equal(provenance.legalReviewerUrl, "");
   assert.equal(provenance.sources.length, 0);
   assert.ok(provenance.correctionUrl.includes("article-correction"));
+});
+
+test("only a valid named review of the current version counts as a legal review", () => {
+  const review = articleLegalReviewFields("2026-08-08");
+  assert.equal(confirmedArticleReviewDate(review), "2026-08-08");
+  assert.equal(confirmedArticleReviewDate(review, "2026-08-09"), undefined);
+  assert.equal(confirmedArticleReviewDate({ ...review, legalReviewerUrl: "/sa/about" }), undefined);
+  assert.equal(confirmedArticleReviewDate(articleLegalReviewFields("2026-02-30")), undefined);
 });
 
 test("legal guidance requires an explicit content type", () => {

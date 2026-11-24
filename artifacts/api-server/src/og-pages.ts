@@ -36,6 +36,8 @@ import {
   workModifiedAt,
   getServiceDefinition,
   assignArticleProvenance,
+  articleProvenanceSchema,
+  confirmedArticleReviewDate,
   blogLanguageAlternates,
   blogPath,
   hasQualityBilingualBlogContent,
@@ -45,6 +47,7 @@ import {
   PUBLIC_CACHE_POLICY,
   routeToFlatFilename,
   COUNSELO_ENTITY_IDS,
+  COUNSELO_BRAND,
   COUNSELO_PLATFORM_POSITIONING,
   COUNSELO_SERVICE_COUNTRY_COUNT,
   COUNSELO_SERVICE_LANGUAGE_COUNT,
@@ -52,6 +55,7 @@ import {
   portfolioCapabilities,
   BLOG_SOCIAL_IMAGE,
   BLOG_REVIEWER_ATTRIBUTION,
+  OMAR_OFFICIAL_PROFILE_URL,
   buildBlogSocialMetaTags,
   safeSeoTitle,
 } from "@workspace/api-zod";
@@ -127,7 +131,7 @@ function buildOgHtml(
     <meta property="og:image:alt" content="${esc(title)}" />
     <meta property="og:url" content="${esc(url)}" />
     <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="${SITE_NAME}" />
+    <meta property="og:site_name" content="${lang === "ar" ? COUNSELO_BRAND.designationAr : COUNSELO_BRAND.en}" />
     <meta property="og:locale" content="${locale}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(title)}" />
@@ -201,14 +205,16 @@ export function buildDynamicBlogHtml(
   const languageAlternates = blogLanguageAlternates(post.slug)
     .map(([language, target]) => `<link rel="alternate" hreflang="${language}" href="${target}">`)
     .join("");
-  const provenance = assignArticleProvenance(post);
+  const provenance = assignArticleProvenance(post, requestedLanguage);
   const reviewerAttribution = isArabicPost ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
   const contentType = post.contentType ?? "professional-commentary";
   const articleRegion = articleContextRegion(post);
   const correctionDate = ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt;
   const editorialUpdatedAt = correctionDate ? articleModifiedAt(correctionDate, post.updatedAt, post.date) : undefined;
-  const authorUrl = localizeArticleProvenanceUrl(provenance.primaryAuthorEntityId ? provenance.primaryAuthorUrl : post.primaryAuthorUrl || provenance.primaryAuthorUrl, articleRegion, requestedLanguage, "profile");
-  const reviewerUrl = localizeArticleProvenanceUrl(post.legalReviewerUrl || provenance.legalReviewerUrl, articleRegion, requestedLanguage, "profile");
+  const contentUpdatedAt = editorialUpdatedAt ?? articleModifiedAt(post.updatedAt, post.date) ?? post.date;
+  const reviewDate = confirmedArticleReviewDate(post, correctionDate);
+  const provenanceSchema = articleProvenanceSchema(provenance, canonical, requestedLanguage, reviewDate);
+  const authorByline = isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName;
   const correctionUrl = localizeArticleProvenanceUrl(post.correctionUrl || provenance.correctionUrl, articleRegion, requestedLanguage, "correction");
   // Tests pass a minimal shell so the future-post contract is validated
   // without depending on whichever posts happened to exist at build time.
@@ -220,45 +226,25 @@ export function buildDynamicBlogHtml(
   const articleSchema = safeJson({
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `${canonical}#article`,
     headline: title,
     description,
     inLanguage: isArabicPost ? "ar" : "en",
     datePublished: post.date,
-    dateModified: editorialUpdatedAt ?? provenance.lastSubstantiveReviewAt,
-    mainEntityOfPage: canonical,
+    dateModified: contentUpdatedAt,
+    ...provenanceSchema,
     isPartOf: { "@id": `${BASE_URL}${isArabicPost ? "/blog/ar" : "/blog"}#collection` },
-    author: {
-      "@type": "Organization",
-      "@id": provenance.primaryAuthorEntityId ?? COUNSELO_ENTITY_IDS.organization,
-      name: isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName,
-      alternateName: isArabicPost ? provenance.primaryAuthorName : provenance.primaryAuthorNameAr,
-      url: new URL(authorUrl, BASE_URL).href,
-    },
-    publisher: {
-      "@type": "Organization",
-      "@id": COUNSELO_ENTITY_IDS.organization,
-      name: "CounselO Legal",
-      url: BASE_URL,
-      logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },
-    },
     image: {
       "@type": "ImageObject",
       url: BLOG_SOCIAL_IMAGE.url,
       width: BLOG_SOCIAL_IMAGE.width,
       height: BLOG_SOCIAL_IMAGE.height,
     },
-    ...(!editorialUpdatedAt ? { reviewedBy: {
-      "@type": "Person",
-      "@id": COUNSELO_ENTITY_IDS.omar,
-      name: isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
-      jobTitle: isArabicPost ? "محامٍ ومستشار قانوني" : "Lawyer and Legal Counsel",
-      url: `${BASE_URL}${reviewerUrl}`,
-    } } : {}),
     ...(contentType === "legal-guidance" && articleRegion ? {
       citation: provenance.sources.map((source) => source.href),
       about: {
-        "@type": "LegalService",
-        areaServed: articleRegion === "uae" ? "United Arab Emirates" : articleRegion === "syr" ? "Syria" : "Saudi Arabia",
+        "@type": "Thing",
+        name: isArabicPost ? `القانون في ${articleJurisdictionLabel(articleRegion, true)}` : `Law in ${articleRegion === "uae" ? "the UAE" : articleJurisdictionLabel(articleRegion)}`,
       },
     } : {}),
   });
@@ -279,15 +265,17 @@ export function buildDynamicBlogHtml(
       description: description.slice(0, 170),
       canonical,
       language: isArabicPost ? "ar" : "en",
-      reviewerName: editorialUpdatedAt ? undefined : reviewerAttribution,
+      authorUrl: provenanceSchema.author.url,
+      reviewerName: reviewDate ? reviewerAttribution : undefined,
     })}
     <script type="application/ld+json">${articleSchema}</script><script type="application/ld+json">${articleBreadcrumbs}</script>
     <script>window.__SSR_POST__=${safeJson(post)};</script>`;
-  const reviewerLabel = editorialUpdatedAt ? isArabicPost ? "القيادة القانونية" : "Legal leadership" : isArabicPost ? "تمت المراجعة بواسطة" : "Reviewed by";
+  const reviewerLabel = reviewDate ? isArabicPost ? "تمت المراجعة بواسطة" : "Reviewed by" : isArabicPost ? "القيادة القانونية" : "Legal leadership";
+  const reviewedDateHtml = reviewDate ? `<p>${isArabicPost ? "آخر مراجعة قانونية" : "Last legal review"}: ${esc(reviewDate)}</p>` : "";
   const legalFields = contentType === "legal-guidance" && provenance.jurisdiction
     ? `<p>${isArabicPost ? "الاختصاص" : "Jurisdiction"}: ${esc(articleJurisdictionLabel(provenance.jurisdiction, isArabicPost))}</p><p>${isArabicPost ? "القانون المنطبق" : "Applicable law"}: ${esc(isArabicPost ? provenance.applicableLawAr : provenance.applicableLaw)}</p><p>${isArabicPost ? "المصادر والاقتباسات" : "Sources and citations"}: ${provenance.sources.map((source) => `<a href="${esc(source.href)}">${esc(isArabicPost ? source.titleAr : source.titleEn)}</a>`).join(" · ")}</p>`
     : "";
-  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p><section aria-labelledby="article-provenance-heading"><h2 id="article-provenance-heading">${contentType === "legal-guidance" ? (isArabicPost ? "بيانات المراجعة والمصادر" : "Review and source information") : (isArabicPost ? "بيانات المقال التحريري" : "Editorial information")}</h2><p>${isArabicPost ? "كتب بواسطة" : "Written by"}: <a href="${esc(authorUrl)}">${esc(isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName)}</a></p><p>${reviewerLabel}: <a href="${esc(reviewerUrl)}">${esc(reviewerAttribution)}</a></p>${legalFields}<p>${isArabicPost ? "تاريخ النشر" : "Publication date"}: ${esc(post.date)}</p><p>${editorialUpdatedAt ? isArabicPost ? "تحديث المحتوى" : "Content updated" : isArabicPost ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}: ${esc(editorialUpdatedAt ?? provenance.lastSubstantiveReviewAt)}</p><p>${esc(isArabicPost ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote)}</p><p>${esc(isArabicPost ? provenance.contentMethodologyAr : provenance.contentMethodology)}</p><p>${isArabicPost ? "هذا المقال لأغراض توعوية ولا يشكل مشورة قانونية." : "This article is informational only and is not legal advice."} <a href="${esc(correctionUrl)}">${isArabicPost ? "الإبلاغ عن تصحيح" : "Report a correction"}</a></p></section></article>`;
+  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p><section aria-labelledby="article-provenance-heading"><h2 id="article-provenance-heading">${contentType === "legal-guidance" ? (isArabicPost ? "بيانات المراجعة والمصادر" : "Review and source information") : (isArabicPost ? "بيانات المقال التحريري" : "Editorial information")}</h2><p>${isArabicPost ? "كتب بواسطة" : "Written by"}: <a href="${esc(provenance.primaryAuthorUrl)}">${esc(authorByline)}</a></p><p>${reviewerLabel}: <a href="${OMAR_OFFICIAL_PROFILE_URL}">${esc(reviewerAttribution)}</a></p>${legalFields}<p>${isArabicPost ? "تاريخ النشر" : "Publication date"}: ${esc(post.date)}</p><p>${isArabicPost ? "تحديث المحتوى" : "Content updated"}: ${esc(contentUpdatedAt.slice(0, 10))}</p>${reviewedDateHtml}<p>${esc(isArabicPost ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote)}</p><p>${esc(isArabicPost ? provenance.contentMethodologyAr : provenance.contentMethodology)}</p><p>${isArabicPost ? "هذا المقال لأغراض توعوية ولا يشكل مشورة قانونية." : "This article is informational only and is not legal advice."} <a href="${esc(correctionUrl)}">${isArabicPost ? "الإبلاغ عن تصحيح" : "Report a correction"}</a></p></section></article>`;
   const relatedArticles = (ARTICLE_CONTEXT[post.slug]?.relatedBlogSlugs ?? []).flatMap(slug => {
     const label = ARTICLE_LINK_LABELS[slug];
     return label ? [`<li><a href="${esc(blogPath(slug, requestedLanguage))}">${esc(label[requestedLanguage])}</a></li>`] : [];
@@ -421,6 +409,7 @@ function workSocialMeta(title: string, description: string, canonical: string, l
     `<meta property="og:title" content="${esc(title)}">`,
     `<meta property="og:description" content="${esc(description)}">`,
     `<meta property="og:url" content="${esc(canonical)}">`,
+    `<meta property="og:site_name" content="${language === "ar" ? COUNSELO_BRAND.designationAr : COUNSELO_BRAND.en}">`,
     `<meta property="og:locale" content="${language === "ar" ? "ar_SA" : "en_US"}">`,
     `<meta property="og:image" content="${DEFAULT_OG_IMAGE}">`,
     `<meta property="og:image:alt" content="${esc(title)}">`,

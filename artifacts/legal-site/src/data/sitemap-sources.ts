@@ -1,3 +1,5 @@
+import { COUNSELO_ABOUT_PATHS } from "@workspace/api-zod";
+
 export const BASE_URL = "https://counselo-legal.com";
 export const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -13,6 +15,7 @@ const CORE_PAGES_EN: CorePage[] = [
   { path: "/ar/urgent-legal-assistance", changefreq: "monthly", priority: "0.9", isRoot: true },
   { path: "", changefreq: "weekly", priority: "1.0", isRoot: true },
   { path: "/ar", changefreq: "weekly", priority: "1.0", isRoot: true },
+  ...Object.values(COUNSELO_ABOUT_PATHS).map((path) => ({ path, changefreq: "monthly", priority: "0.8", isRoot: true })),
   { path: "/sa", changefreq: "weekly", priority: "0.95" },
   { path: "/sa/services", changefreq: "monthly", priority: "0.9" },
   { path: "/sa/contact", changefreq: "monthly", priority: "0.9" },
