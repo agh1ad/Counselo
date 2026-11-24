@@ -9,9 +9,10 @@ test("revised bilingual page families share a stable sitemap revision date", () 
       assert.equal(latestPageUpdate(`/${region}${lang}${page}`, "2026-09-07"), expected);
     }
   }
-  for (const route of ["", "/", "/ar", "/about", "/ar/about", "/sa/services/contracts/contract-drafting-and-review", "/sa/ar/services/contracts/contract-drafting-and-review"]) {
+  for (const route of ["", "/", "/ar", "/sa/services/contracts/contract-drafting-and-review", "/sa/ar/services/contracts/contract-drafting-and-review"]) {
     assert.equal(latestPageUpdate(route), "2026-11-24");
   }
+  for (const route of ["/about", "/ar/about"]) assert.equal(latestPageUpdate(route), "2026-11-25");
   for (const route of ["/our-work", "/ar/our-work"]) assert.equal(latestPageUpdate(route), "2026-11-18");
   for (const route of ["/blog", "/blog/ar"]) assert.equal(latestPageUpdate(route), "2026-11-13");
   for (const prefix of ["", "/ar", "/sa/services", "/sa/ar/services", "/syr/services", "/syr/ar/services", "/uae/services", "/uae/ar/services"]) {

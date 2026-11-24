@@ -5,7 +5,8 @@ const CREDIBILITY_REFRESH_DATE = "2026-11-12";
 
 export function latestPageUpdate(path: string, previous?: string): string | undefined {
   const pathname = path.startsWith("http") ? new URL(path).pathname : path || "/";
-  const entityContentUpdated = /^(?:\/|\/ar|\/(?:ar\/)?about|\/(?:sa|syr|uae)(?:\/ar)?(?:\/about)?|\/sa(?:\/ar)?\/services\/contracts\/contract-drafting-and-review)$/.test(pathname);
+  if (pathname === "/about" || pathname === "/ar/about") return [previous ?? "", "2026-11-25"].sort().at(-1);
+  const entityContentUpdated = /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?(?:\/about)?|\/sa(?:\/ar)?\/services\/contracts\/contract-drafting-and-review)$/.test(pathname);
   if (entityContentUpdated) return [previous ?? "", "2026-11-24"].sort().at(-1);
   // Team positioning and portfolio presentation revised these owned pages, not CMS publications.
   if (/^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?(?:\/(?:about|contact|terms-of-service|privacy-policy|services)(?:\/.*)?)?|\/(?:ar\/)?(?:urgent-legal-assistance|our-work))$/.test(pathname)) {

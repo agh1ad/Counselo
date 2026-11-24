@@ -1,0 +1,18 @@
+.global-about-page section[id] { scroll-margin-top: 6.5rem; }
+.global-about-nav { display: flex; flex-wrap: wrap; column-gap: 1.75rem; padding-block: .35rem; }
+.global-about-nav .about-text-link { text-decoration-color: #977331; }
+.global-about-page :is(.global-about-service-list, .global-about-process, .global-about-work-list, .global-about-policy-list) h3 { font-size: 1.05rem; line-height: 1.5; letter-spacing: 0; margin-bottom: .4rem; }
+.global-about-process { margin-top: 1.5rem; }
+.global-about-policy-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.global-about-policy-list li { padding-inline-start: .9rem; border-inline-start: 2px solid #bc9a57; }
+.global-about-policy-list .about-text-link { display: flex; width: fit-content; }
+.global-about-publications { border-top: 1px solid var(--about-line); }
+.global-about-publications .platform-facts { margin-block-start: 2rem; }
+.global-about-work-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) {
+  .global-about-nav { column-gap: 1.1rem; }
+  .global-about-work-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .global-about-policy-list { grid-template-columns: 1fr; }
+}
