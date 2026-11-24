@@ -18,6 +18,7 @@ test("core CounselO Legal entities have stable IDs and canonical names", () => {
   assert.match(COUNSELO_ORGANIZATION.description, /integrated legal services through one team/i);
   assert.deepEqual(COUNSELO_ORGANIZATION.areaServed.map((country) => country.name), COUNSELO_PLATFORM_POSITIONING.jurisdictions);
   assert.deepEqual(COUNSELO_ORGANIZATION.contactPoint.availableLanguage, ["Arabic", "English"]);
+  assert.equal(COUNSELO_ORGANIZATION.contactPoint.email, "info@counselo-legal.com");
   assert.equal(COUNSELO_ORGANIZATION.founder["@id"], COUNSELO_ENTITY_IDS.omar);
   assert.equal(OMAR_AL_BAGHDADI["@id"], "https://omarbaghdadi.com/#omar-al-baghdadi");
   assert.equal(OMAR_AL_BAGHDADI.name, "Omar Al-Baghdadi");

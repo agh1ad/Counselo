@@ -4,6 +4,8 @@ import type { BlogPost } from "@workspace/db";
 import {
   BLOG_REVIEWER_ATTRIBUTION,
   BLOG_SOCIAL_IMAGE,
+  OMAR_OFFICIAL_PROFILE_URL,
+  articleLegalReviewFields,
   blogPath,
 } from "@workspace/api-zod";
 
@@ -40,7 +42,7 @@ const futurePost = {
   contentType: "professional-commentary",
   aiLinksAssignedAt: null,
   primaryAuthorName: "CounselO Legal Team",
-  primaryAuthorNameAr: "فريق كاونسلو للاستشارات القانونية القانوني",
+  primaryAuthorNameAr: "فريق كاونسلو للاستشارات القانونية",
   primaryAuthorUrl: "/sa/about",
   legalReviewerName: "stale value that must not control attribution",
   legalReviewerNameAr: "قيمة قديمة يجب ألا تتحكم في اسم المراجع",
@@ -83,6 +85,8 @@ test("dynamic article index and detail reflect the global Articles hierarchy in 
     assert.deepEqual(collectionGraph.find(item => item["@type"] === "BreadcrumbList").itemListElement.map((item: { item: string }) => item.item), [home, index]);
     const articleGraph = schemas(buildDynamicBlogHtml(futurePost, language, shell));
     const article = articleGraph.find(item => item["@type"] === "Article");
+    assert.equal(article.author["@id"], article.publisher["@id"]);
+    assert.equal(article.author.name, article.publisher.name);
     assert.equal(article.isPartOf["@id"], collection["@id"]);
     assert.deepEqual(articleGraph.find(item => item["@type"] === "BreadcrumbList").itemListElement.map((item: { item: string }) => item.item), [home, index, `https://counselo-legal.com${blogPath(FUTURE_SLUG, language)}`]);
   }
@@ -104,7 +108,7 @@ test("a later CMS edit is not backdated by a historical correction", () => {
 });
 
 for (const language of ["en", "ar"] as const) {
-  test(`future ${language} posts receive reviewer and social preview metadata dynamically`, () => {
+  test(`future ${language} posts receive a byline and social preview without inferring review`, () => {
     const html = buildDynamicBlogHtml(futurePost, language, shell);
     const canonical = `https://counselo-legal.com${blogPath(FUTURE_SLUG, language)}`;
     const reviewer = BLOG_REVIEWER_ATTRIBUTION[language];
@@ -115,12 +119,26 @@ for (const language of ["en", "ar"] as const) {
     assert.match(html, /<meta property="og:image:width" content="1200">/);
     assert.match(html, /<meta property="og:image:height" content="630">/);
     assert.match(html, /<meta name="twitter:card" content="summary_large_image">/);
-    assert.ok(html.includes(`<meta name="reviewed-by" content="${reviewer}">`));
+    assert.doesNotMatch(html, /name="reviewed-by"|"reviewedBy"/);
+    const aboutPath = language === "ar" ? "/ar/about" : "/about";
+    assert.ok(html.includes(`<meta property="article:author" content="https://counselo-legal.com${aboutPath}">`));
+    assert.ok(html.includes(`href="${OMAR_OFFICIAL_PROFILE_URL}">${reviewer}</a>`));
     assert.ok(html.includes(`>${reviewer}</a>`));
     const visibleBody = html.split("<body>")[1].replace(/<script\b[\s\S]*?<\/script>/gi, "");
     assert.ok(visibleBody.includes(language === "ar" ? futurePost.bodyAr : futurePost.bodyEn));
   });
 }
+
+test("a named legal review links the professional profile and dates the reviewed WebPage", () => {
+  const html = buildDynamicBlogHtml({ ...futurePost, date: "2026-08-21", updatedAt: new Date("2026-08-21"), ...articleLegalReviewFields("2026-08-22") }, "en", shell);
+  const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+  const article = schemas.find(node => node["@type"] === "Article");
+  assert.equal(article.reviewedBy, undefined);
+  assert.equal(article.mainEntityOfPage.reviewedBy.url, OMAR_OFFICIAL_PROFILE_URL);
+  assert.equal(article.mainEntityOfPage.lastReviewed, "2026-08-22");
+  assert.match(html, /Reviewed by: <a href="https:\/\/omarbaghdadi\.com"/);
+  assert.match(html, /Last legal review: 2026-08-22/);
+});
 
 test("route-like legacy SEO titles fall back to the descriptive article title", () => {
   const html = buildDynamicBlogHtml({ ...futurePost, seoTitleEn: `/blog/${FUTURE_SLUG}` }, "en", shell);

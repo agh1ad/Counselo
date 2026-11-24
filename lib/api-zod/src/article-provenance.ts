@@ -1,4 +1,12 @@
-import { BAGHDADI_LAW_PROFILE_URL, BAGHDADI_LAW_CANONICAL_ENTITY_ID } from "./entity-architecture";
+import {
+  BAGHDADI_LAW_PROFILE_URL,
+  BAGHDADI_LAW_CANONICAL_ENTITY_ID,
+  COUNSELO_ENTITY_IDS,
+  COUNSELO_LOGO,
+  ENTITY_BASE_URL,
+  OMAR_OFFICIAL_PROFILE_URL,
+} from "./entity-architecture";
+import { COUNSELO_ABOUT_PATHS, COUNSELO_BRAND } from "./brand";
 import { getRegionLabel, type Region } from "./region-services";
 
 export type ArticleSource = {
@@ -8,6 +16,28 @@ export type ArticleSource = {
 };
 
 export type ArticleContentType = "legal-guidance" | "professional-commentary";
+
+export function articleLegalReviewFields(date: string) {
+  return {
+    legalReviewerName: REVIEWER,
+    legalReviewerNameAr: REVIEWER_AR,
+    legalReviewerUrl: date ? OMAR_OFFICIAL_PROFILE_URL : "",
+    lastSubstantiveReviewAt: date,
+  };
+}
+
+export function confirmedArticleReviewDate(
+  post: Partial<Pick<ArticleProvenance, "legalReviewerName" | "legalReviewerNameAr" | "legalReviewerUrl" | "lastSubstantiveReviewAt">>,
+  editorialCorrectionDate?: string,
+): string | undefined {
+  const date = post.lastSubstantiveReviewAt?.trim();
+  if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)
+    || (editorialCorrectionDate && date < editorialCorrectionDate.slice(0, 10))
+    || post.legalReviewerUrl?.trim().replace(/\/$/, "") !== OMAR_OFFICIAL_PROFILE_URL
+    || (post.legalReviewerName !== REVIEWER && post.legalReviewerNameAr !== REVIEWER_AR)) return undefined;
+  const parsedDate = new Date(`${date}T00:00:00.000Z`);
+  return Number.isFinite(parsedDate.getTime()) && parsedDate.toISOString().slice(0, 10) === date ? date : undefined;
+}
 
 export type ArticleProvenance = {
   contentType: ArticleContentType;
@@ -33,7 +63,7 @@ export type ArticleProvenance = {
 const REVIEWER = "Omar Al-Baghdadi";
 const REVIEWER_AR = "عمر البغدادي";
 const AUTHOR = "CounselO Legal Team";
-const AUTHOR_AR = "فريق كاونسلو للاستشارات القانونية القانوني";
+const AUTHOR_AR = "فريق كاونسلو للاستشارات القانونية";
 
 const SOURCES: Record<Region, ArticleSource[]> = {
   sa: [
@@ -174,7 +204,7 @@ export function assignArticleProvenance(input: {
   relatedServiceSlugs?: string[];
   date?: string;
   updatedAt?: string | Date | null;
-}): ArticleProvenance {
+}, language: "en" | "ar" = "en"): ArticleProvenance {
   const attributedBlankSignatureCommentary = /(?:التوقيع على بياض|sign(?:ing|ature).*blank)/i.test([input.titleEn, input.titleAr].filter(Boolean).join(" "))
     && [input.bodyEn, input.bodyAr].some(body => body && /(?:باشراف المحامون بغدادي|بإشراف المحامون بغدادي|under the supervision of.*baghdadi)/i.test(body) && /baghdadilaw\.co/i.test(body));
   // Preserve the supplied original credit only for this identified article.
@@ -191,18 +221,13 @@ export function assignArticleProvenance(input: {
   const text = [input.titleEn, input.titleAr, input.excerptEn, input.excerptAr, input.categoryEn, input.categoryAr, input.bodyEn, input.bodyAr].filter(Boolean).join(" ");
   const jurisdiction = inferRegion(text);
   const [applicableLaw, applicableLawAr] = regionLaw(jurisdiction, input.categoryEn || input.categoryAr || "legal guidance");
-  const reviewDate = input.updatedAt
-    ? new Date(input.updatedAt).toISOString().slice(0, 10)
-    : input.date || new Date().toISOString().slice(0, 10);
   return {
     contentType,
     primaryAuthorName: attributedLatentDefectArticle ? "Al-Baghdadi Law Firm" : AUTHOR,
     primaryAuthorNameAr: attributedLatentDefectArticle ? "البغدادي للمحاماة" : AUTHOR_AR,
-    primaryAuthorUrl: attributedLatentDefectArticle ? BAGHDADI_LAW_PROFILE_URL : `/${jurisdiction}/about`,
+    primaryAuthorUrl: attributedLatentDefectArticle ? BAGHDADI_LAW_PROFILE_URL : COUNSELO_ABOUT_PATHS[language],
     ...(attributedLatentDefectArticle ? { primaryAuthorEntityId: BAGHDADI_LAW_CANONICAL_ENTITY_ID } : {}),
-    legalReviewerName: REVIEWER,
-    legalReviewerNameAr: REVIEWER_AR,
-    legalReviewerUrl: `/${jurisdiction}/about`,
+    ...articleLegalReviewFields(""),
     jurisdiction: contentType === "legal-guidance" ? jurisdiction : undefined,
     applicableLaw: contentType === "legal-guidance" ? applicableLaw : "",
     applicableLawAr: contentType === "legal-guidance" ? applicableLawAr : "",
@@ -211,8 +236,47 @@ export function assignArticleProvenance(input: {
     keyLegalUpdateNoteAr: contentType === "legal-guidance" ? "تحقق من المصادر الأولية المذكورة بشأن أي تعديلات أو قرارات تنفيذية أو إرشادات رسمية لاحقة قبل اتخاذ أي إجراء." : "هذا تعليق تحريري من كاونسلو للاستشارات القانونية. يُقرأ أي تحليل خاص باختصاص قضائي ضمن النطاق المبين في المقال.",
     contentMethodology: attributedLatentDefectArticle ? "The supplied article credits Al-Baghdadi Law Firm as original author and attributes its earlier publication to baghdadilaw.co. CounselO Legal publishes an editorially adapted version; this does not replace the original credit or independently verify the earlier publication." : attributedBlankSignatureCommentary ? "The supplied historical commentary retains its Al-Sanhuri quotation and bibliographic attribution, together with a supervision credit to Baghdadi lawyers and the reference baghdadilaw.co. CounselO Legal provides the present editorial adaptation. That supplied credit does not establish authorship of the quotation or a current legal review." : contentType === "legal-guidance" ? "Primary-law review plus CounselO Legal practice commentary." : "Editorial explanation and professional commentary. Check the stated jurisdiction and any cited authority before applying an observation to a case.",
     contentMethodologyAr: attributedLatentDefectArticle ? "ينسب المقال المقدم التأليف الأصلي إلى البغدادي للمحاماة والنشر السابق إلى baghdadilaw.co. تنشر كاونسلو للاستشارات القانونية نسخة محررة؛ ولا يستبدل ذلك نسبة التأليف الأصلية أو يثبت النشر السابق بصورة مستقلة." : attributedBlankSignatureCommentary ? "يحتفظ التعليق التاريخي المقدم باقتباس السنهوري ونسبته الببليوغرافية، وبنسبة الإشراف إلى «المحامون بغدادي» والإشارة إلى baghdadilaw.co. تقدم كاونسلو للاستشارات القانونية الصياغة التحريرية الحالية. لا تثبت نسبة الإشراف الواردة تأليف الاقتباس أو إجراء مراجعة قانونية راهنة." : contentType === "legal-guidance" ? "مراجعة المصادر القانونية الأولية مع تعليق عملي من كاونسلو للاستشارات القانونية." : "شرح تحريري وتعليق مهني. تحقّق من الاختصاص المذكور وأي مرجع مستشهد به قبل تطبيق ملاحظة على قضية محددة.",
-    lastSubstantiveReviewAt: reviewDate,
     correctionUrl: `/${jurisdiction}/contact?subject=article-correction`,
+  };
+}
+
+export function articleProvenanceSchema(
+  provenance: ArticleProvenance,
+  canonical: string,
+  language: "en" | "ar",
+  reviewDate?: string,
+) {
+  const isArabic = language === "ar";
+  const byline = isArabic ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName;
+  return {
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      ...(reviewDate ? {
+        lastReviewed: reviewDate,
+        reviewedBy: {
+          "@type": "Person",
+          "@id": COUNSELO_ENTITY_IDS.omar,
+          name: isArabic ? REVIEWER_AR : REVIEWER,
+          url: OMAR_OFFICIAL_PROFILE_URL,
+        },
+      } : {}),
+    },
+    author: {
+      "@type": "Organization",
+      "@id": provenance.primaryAuthorEntityId ?? COUNSELO_ENTITY_IDS.organization,
+      name: provenance.primaryAuthorEntityId ? byline : COUNSELO_BRAND.en,
+      ...(!provenance.primaryAuthorEntityId && byline !== COUNSELO_BRAND.en ? { alternateName: byline } : {}),
+      url: new URL(provenance.primaryAuthorUrl, ENTITY_BASE_URL).href,
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": COUNSELO_ENTITY_IDS.organization,
+      name: COUNSELO_BRAND.en,
+      url: ENTITY_BASE_URL,
+      logo: COUNSELO_LOGO,
+    },
   };
 }
 

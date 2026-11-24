@@ -18,11 +18,13 @@ test("service directories use scoped descriptions instead of legacy promotional 
 
 test("global entry pages keep qualified positioning and accessible heading spacing", () => {
   const copy = readComponent("home/homepage-content.ts");
+  const presentation = readComponent("home/homepage-presentation.ts");
   const template = readComponent("home/global-homepage.tsx");
   const home = readPage("home.tsx");
   assert.doesNotMatch(copy, /fast, professional and trusted|مستشار قانوني معتمد/i);
-  assert.match(copy, /Choose the relevant country and legal category to view the fixed consultation fee/);
-  assert.match(copy, /اختر الدولة والمجال القانوني للاطلاع على الرسوم الثابتة للاستشارة/);
+  assert.match(presentation, /fixed consultation fees by country and practice area/);
+  assert.match(presentation, /رسوم الاستشارات الثابتة حسب الدولة والمجال القانوني/);
+  assert.match(template, /href="#services">\{c\.pricingLink\}/);
   assert.match(copy, /aim to respond professionally within 24 hours after receiving the information needed/);
   assert.match(copy, /نسعى للرد المهني خلال 24 ساعة من استلام المعلومات اللازمة/);
   assert.match(template, /<h1 id="home-title">\s*\{c\.h1\}\s*<\/h1>/);

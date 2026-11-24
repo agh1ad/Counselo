@@ -1,19 +1,55 @@
 import type { Region } from "@workspace/api-zod/browser";
-import { COOPERATING_OFFICES } from "@workspace/api-zod/browser";
+import { COOPERATING_OFFICES, SAUDI_OFFICE_DIRECTORY_URL } from "@workspace/api-zod/browser";
 import { COUNSELO_CLIENT_TRUST } from "@/lib/public-claims";
 
 // Owner-confirmed team relationship, 2026-11-18: the local lawyers and offices
 // are part of the CounselO team. Licence 37440 identifies Abdullah Al-Anzi;
 // it is not a licence held by every team member or by the CounselO brand.
 export const SAUDI_PARTNER_LICENCE = "37440";
-export const ABOUT_UPDATED = "2026-11-18";
+export const ABOUT_UPDATED = "2026-11-24";
 
-// Official service descriptions checked on 2026-11-12. These are routes for
-// independent enquiries, not evidence that a particular licence was checked.
+// Official public lookup routes for readers checking current professional status.
 export const SAUDI_LAWYER_DIRECTORY = {
-  en: "https://www.moj.gov.sa/English/eServices/pages/10abd1a2-a4c2-4951-a464-ac926eb24417.aspx",
-  ar: "https://www.moj.gov.sa/ar/eServices/Pages/10abd1a2-a4c2-4951-a464-ac926eb24417.aspx",
+  en: "https://eservice.sba.gov.sa/en/lawyers",
+  ar: "https://eservice.sba.gov.sa/lawyers",
 } as const;
+const SYRIAN_LAWYER_DIRECTORY = "https://syrianbar.org.sy/lawyer-directory/";
+
+export const regionalCredentialLookup: Record<Region, Record<"en" | "ar", {
+  text: string;
+  directory: { url: string; label: string };
+}>> = {
+  sa: {
+    en: {
+      text: "Search the Saudi Bar Association directory by the number above to check the lawyer’s current licence status.",
+      directory: { url: SAUDI_OFFICE_DIRECTORY_URL, label: "Abdullah Al-Anzi Law Office in the Saudi Bar Association directory (Arabic)" },
+    },
+    ar: {
+      text: "ابحث برقم الترخيص أعلاه في دليل الهيئة السعودية للمحامين للتحقّق من حالة ترخيص المحامي الحالية.",
+      directory: { url: SAUDI_OFFICE_DIRECTORY_URL, label: "سجل مكتب المحامي عبدالله العنزي لدى الهيئة السعودية للمحامين" },
+    },
+  },
+  syr: {
+    en: {
+      text: "Search by the individual lawyer’s name in Arabic to check their registration and bar branch.",
+      directory: { url: SYRIAN_LAWYER_DIRECTORY, label: "Syrian Bar Association lawyers directory (Arabic)" },
+    },
+    ar: {
+      text: "ابحث باسم المحامي للتحقّق من صفته النقابية والفرع الذي ينتسب إليه.",
+      directory: { url: SYRIAN_LAWYER_DIRECTORY, label: "دليل نقابة المحامين السوريين" },
+    },
+  },
+  uae: {
+    en: {
+      text: "Before work begins, we identify the professional responsible for your matter and the applicable licensing authority. You can check registrations in Dubai with the Dubai Legal Affairs Department.",
+      directory: { url: "https://legal.dubai.gov.ae/en/Services/Pages/Legal-Directory.aspx?ServiceID=19", label: "Dubai directory of advocates and legal consultants" },
+    },
+    ar: {
+      text: "قبل بدء العمل نحدد لك اسم المهني المسؤول عن مسألتك والجهة المختصة بترخيصه. ويمكنك التحقّق من قيد المحامين والمستشارين القانونيين المسجلين في دبي لدى دائرة الشؤون القانونية لحكومة دبي.",
+      directory: { url: "https://legal.dubai.gov.ae/ar/Services/Pages/Legal-Directory.aspx?ServiceID=19", label: "دليل المحامين والمستشارين القانونيين في دبي" },
+    },
+  },
+};
 
 // Existing business record: en-syr.ts/ar-syr.ts at HEAD and the published
 // https://counselo-legal.com/syr/ar partner card (checked 2026-11-03).
@@ -89,8 +125,8 @@ export const aboutContent = {
     ],
     profileLink: "View his professional profile",
     partnerLabel: "Part of our CounselO team in Saudi Arabia",
-    licenceLabel: "Saudi lawyer licence",
-    directoryLabel: "Verify licence in the official lawyers directory",
+    licenceLabel: "Saudi lawyer licence number",
+    directoryLabel: "Search the Saudi Bar Association lawyers directory",
     faqTitle: "Your questions about our legal services",
     faqs: [
       { question: "What legal services does CounselO provide?", answer: "CounselO provides consultation, legal analysis, contract and document drafting, negotiation, litigation, arbitration and continuing legal support in Saudi Arabia, Syria and the UAE. Our team includes the locally licensed lawyers and offices that handle court and authority representation, so you work with CounselO from your first consultation through the agreed stages of your matter.", link: null },
@@ -157,8 +193,8 @@ export const aboutContent = {
     ],
     profileLink: "اطّلع على ملفه المهني",
     partnerLabel: "من فريق كاونسلو في السعودية",
-    licenceLabel: "ترخيص المحاماة السعودي",
-    directoryLabel: "التحقّق من الترخيص في الدليل الرسمي للمحامين",
+    licenceLabel: "رقم ترخيص المحاماة السعودي",
+    directoryLabel: "البحث في دليل المحامين لدى الهيئة السعودية للمحامين",
     faqTitle: "أسئلتك عن خدماتنا القانونية",
     faqs: [
       { question: "ما الخدمات القانونية التي تقدمها كاونسلو؟", answer: "تقدم كاونسلو الاستشارات والتحليل القانوني وصياغة العقود والمستندات والتفاوض والتقاضي والتحكيم والدعم القانوني المستمر في السعودية وسوريا والإمارات. ويضم فريقنا المحامين والمكاتب المرخصة محلياً التي تتولى التمثيل أمام المحاكم والجهات المختصة، لتبقى مع كاونسلو من استشارتك الأولى إلى مراحل العمل المتفق عليها.", link: null },

@@ -43,6 +43,8 @@ test("the shared route inventory contains every region and language", () => {
     "/uae/ar/services/corporate-commercial",
     "/blog",
     "/blog/ar",
+    "/about",
+    "/ar/about",
     "/legal-library",
     "/ar/legal-library",
     "/our-work",
@@ -58,6 +60,12 @@ test("shared canonical, hreflang, cache, and prerender policies are deterministi
   assert.deepEqual(buildHreflangLinks("/"), buildHreflangLinks("/ar"));
   assert.ok(buildHreflangLinks("/").includes("ar|https://counselo-legal.com/ar"));
   assert.ok(buildHreflangLinks("/").includes("en|https://counselo-legal.com/"));
+  assert.deepEqual(buildHreflangLinks("/about"), [
+    "en|https://counselo-legal.com/about",
+    "ar|https://counselo-legal.com/ar/about",
+    "x-default|https://counselo-legal.com/about",
+  ]);
+  assert.deepEqual(buildHreflangLinks("/about"), buildHreflangLinks("/ar/about"));
   assert.ok(buildHreflangLinks("/uae/services/corporate-commercial").some((link) => link.startsWith("en-AE|")));
   assert.ok(buildHreflangLinks("/sa/services/real-estate").some((link) => link.startsWith("ar-SA|")));
   assert.equal(PUBLIC_CACHE_POLICY.redirect, "public, max-age=86400");
@@ -79,6 +87,7 @@ test("regional service alternatives are reciprocal when UAE shares a route slug"
 test("the checked-in canonical URL matrix covers the generated public inventory", () => {
   const requiredPageTypes = [
     "region-picker",
+    "brand-about",
     "regional-home",
     "regional-static",
     "services-index",

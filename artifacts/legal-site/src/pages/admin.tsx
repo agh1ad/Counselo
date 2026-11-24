@@ -16,7 +16,7 @@ import {
   getAnalytics, clearAnalytics, getGTMContainerId, type AnalyticsStore,
 } from "@/lib/analytics";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
-import { blogPath } from "@workspace/api-zod/browser";
+import { ARTICLE_CONTEXT, blogPath, confirmedArticleReviewDate } from "@workspace/api-zod/browser";
 
 const API = "/api";
 type Tab = "updates" | "blog" | "work" | "analytics" | "seo" | "tools" | "enquiries" | "translations";
@@ -41,6 +41,11 @@ interface BlogPost {
   published: boolean;
   contentType: "legal-guidance" | "professional-commentary";
   createdAt: string;
+  updatedAt: string;
+  legalReviewerName?: string;
+  legalReviewerNameAr?: string;
+  legalReviewerUrl?: string;
+  lastSubstantiveReviewAt?: string;
 }
 
 type BlogPostSummary = Pick<
@@ -48,7 +53,8 @@ type BlogPostSummary = Pick<
   "id" | "slug" | "date" | "categoryEn" | "categoryAr" | "titleEn" | "titleAr" | "published" | "contentType" | "createdAt"
 >;
 
-type FormData = Omit<BlogPost, "id" | "createdAt">;
+type FormData = Omit<BlogPost, "id" | "createdAt" | "updatedAt" | "legalReviewerName" | "legalReviewerNameAr" | "legalReviewerUrl" | "lastSubstantiveReviewAt">;
+type SavedArticleReview = Partial<Pick<BlogPost, "updatedAt" | "legalReviewerName" | "legalReviewerNameAr" | "legalReviewerUrl" | "lastSubstantiveReviewAt">>;
 
 const emptyForm = (): FormData => ({
   slug: "",
@@ -141,11 +147,12 @@ function Toast({ msg, type, onClose }: { msg: string; type: "success" | "error";
   );
 }
 
-function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualFields, markManual, lang }: {
+function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualFields, markManual, lang, legalReview }: {
   form: FormData; set: (k: keyof FormData, v: unknown) => void;
   slugManual: boolean; setSlugManual: (v: boolean) => void; open: boolean;
   manualFields: Set<string>; markManual: (f: string) => void;
   lang: "en" | "ar";
+  legalReview: React.ReactNode;
 }) {
   const [seoOpen, setSeoOpen] = useState(false);
   const inputCls = "w-full border border-gray-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-green-600 bg-white";
@@ -201,8 +208,9 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualField
             <option value="professional-commentary">Professional commentary — no specific law or sources</option>
             <option value="legal-guidance">Legal guidance — verified jurisdiction and sources required</option>
           </select>
-          <p className="text-[10px] text-gray-400 mt-1">Commentary articles keep Omar’s editorial review profile but do not display a jurisdiction, applicable law, or primary-source list.</p>
+          <p className="text-[10px] text-gray-400 mt-1">Legal guidance displays the applicable jurisdiction, law and primary sources.</p>
         </div>
+        {legalReview}
         <div className="border border-gray-100 rounded-lg overflow-hidden">
           <button type="button" onClick={() => setSeoOpen((o) => !o)} className="w-full flex items-center justify-between px-3 py-2.5 bg-gray-50 text-[10px] font-bold text-gray-600 uppercase tracking-wide">
             SEO <ChevronDown size={12} className={`transition-transform ${seoOpen ? "rotate-180" : ""}`} />
@@ -246,7 +254,7 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualField
 }
 
 function PostEditor({ initial, token, onSave, onBack }: {
-  initial: FormData & { id?: number }; token: string; onSave: () => void; onBack: () => void;
+  initial: FormData & SavedArticleReview & { id?: number }; token: string; onSave: () => void; onBack: () => void;
 }) {
   const [form, setForm] = useState<FormData>({ ...initial });
   const [lang, setLang] = useState<"en" | "ar">(
@@ -256,6 +264,34 @@ function PostEditor({ initial, token, onSave, onBack }: {
   const [settingsOpen, setSettingsOpen] = useState(true);
   const [slugManual, setSlugManual] = useState(!!initial.id);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
+  const [savedReviewDate, setSavedReviewDate] = useState(() => confirmedArticleReviewDate(initial, ARTICLE_CONTEXT[initial.slug]?.editorialUpdatedAt) ?? "");
+  const [reviewDate, setReviewDate] = useState(savedReviewDate);
+  const contentEdited = form.titleEn !== initial.titleEn || form.titleAr !== initial.titleAr
+    || form.bodyEn !== initial.bodyEn || form.bodyAr !== initial.bodyAr
+    || form.contentType !== initial.contentType || form.slug !== initial.slug;
+
+  const saveLegalReview = async (date: string) => {
+    if (!initial.id || !initial.published || contentEdited) return;
+    setSaving(true);
+    try {
+      const response = await fetch(`${API}/admin/blog/posts/${initial.id}/legal-review`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ legalReviewedAt: date, expectedUpdatedAt: initial.updatedAt }),
+      });
+      if (!response.ok) {
+        const { error } = await response.json() as { error?: string };
+        throw new Error(error ?? "Could not save the legal review.");
+      }
+      setSavedReviewDate(date);
+      setReviewDate(date);
+      setToast({ msg: date ? "Legal review recorded." : "Legal review removed.", type: "success" });
+    } catch (error) {
+      setToast({ msg: error instanceof Error ? error.message : "Could not save the legal review.", type: "error" });
+    } finally {
+      setSaving(false);
+    }
+  };
   // Track which SEO / excerpt fields the admin has typed in manually.
   // For existing posts, start with all fields locked (don't overwrite saved data).
   // For new posts, all fields start as AUTO (populated from title/body).
@@ -419,7 +455,25 @@ function PostEditor({ initial, token, onSave, onBack }: {
             </div>
           </div>
         </div>
-        <SettingsPanel form={form} set={set} slugManual={slugManual} setSlugManual={setSlugManual} open={settingsOpen} manualFields={manualFields} markManual={markManual} lang={lang} />
+        <SettingsPanel form={form} set={set} slugManual={slugManual} setSlugManual={setSlugManual} open={settingsOpen} manualFields={manualFields} markManual={markManual} lang={lang} legalReview={
+          <fieldset className="space-y-2 border-t border-gray-100 pt-3 text-xs" disabled={saving || contentEdited || !initial.published}>
+            <legend className="font-semibold text-gray-900">Legal review</legend>
+            <p className="text-gray-600">{savedReviewDate ? `Omar Al-Baghdadi reviewed the published article on ${savedReviewDate}.` : "No legal review is recorded for the published article."}</p>
+            {initial.published && !contentEdited ? <>
+              <p className="text-gray-600">Record the date Omar Al-Baghdadi reviewed both published versions.</p>
+              <p className="flex gap-3 text-green-800">
+                <a href={blogPath(initial.slug, "en")} target="_blank" rel="noopener noreferrer">English version</a>
+                <a href={blogPath(initial.slug, "ar")} target="_blank" rel="noopener noreferrer">Arabic version</a>
+              </p>
+              <label className="block text-gray-700" htmlFor="blog-legal-review-date">Review date</label>
+              <input id="blog-legal-review-date" type="date" value={reviewDate} max={new Date().toISOString().slice(0, 10)} onChange={(event) => setReviewDate(event.target.value)} className="w-full rounded-lg border border-gray-200 px-3 py-2" />
+              <div className="flex flex-wrap gap-2">
+                <button type="button" disabled={!reviewDate || reviewDate === savedReviewDate} onClick={() => void saveLegalReview(reviewDate)} className="rounded-lg bg-green-700 px-3 py-2 text-white disabled:opacity-50">Record review</button>
+                {savedReviewDate && <button type="button" onClick={() => void saveLegalReview("")} className="rounded-lg border border-gray-200 px-3 py-2">Remove review</button>}
+              </div>
+            </> : <p className="text-gray-600">{contentEdited ? "Save your changes and review the published versions first." : "Publish both language versions first."}</p>}
+          </fieldset>
+        } />
       </div>
     </div>
   );
@@ -773,7 +827,7 @@ export default function AdminCMS() {
   const [loading, setLoading] = useState(false);
   const [loadingEdit, setLoadingEdit] = useState<number | null>(null);
   const [postsHasMore, setPostsHasMore] = useState(false);
-  const [editing, setEditing] = useState<(FormData & { id?: number }) | null>(null);
+  const [editing, setEditing] = useState<(FormData & SavedArticleReview & { id?: number }) | null>(null);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
   const [tab, setTab] = useState<Tab>("blog");
 

@@ -300,6 +300,18 @@ export function parseBlogPostInput(
   };
 }
 
+export function parseBlogLegalReviewDate(input: unknown): string | undefined {
+  const date = requireRecord(input).legalReviewedAt;
+  if (date === undefined) return undefined;
+  if (date === "") return "";
+  if (typeof date === "string" && DATE_PATTERN.test(date)) {
+    const parsedDate = new Date(`${date}T00:00:00.000Z`);
+    if (!Number.isNaN(parsedDate.getTime()) && parsedDate.toISOString().slice(0, 10) === date
+      && date <= new Date().toISOString().slice(0, 10)) return date;
+  }
+  throw new BlogInputError("legalReviewedAt must be an actual review date in YYYY-MM-DD format or an empty string");
+}
+
 export function sanitizeBlogPost(post: BlogPost): BlogPost {
   const contentType: "legal-guidance" | "professional-commentary" =
     post.contentType === "legal-guidance" ? "legal-guidance" : "professional-commentary";

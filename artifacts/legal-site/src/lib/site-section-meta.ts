@@ -1,3 +1,5 @@
+import { COUNSELO_BRAND } from "@workspace/api-zod/browser";
+
 type Region = "sa" | "syr" | "uae";
 type Language = "en" | "ar";
 type Section = "home" | "services" | "contact" | "about";
@@ -26,7 +28,7 @@ export function siteSectionMeta(path: string) {
     contact: `تواصل معنا أونلاين | كاونسلو في ${country}`,
     about: `من نحن | كاونسلو في ${country}`,
   } : {
-    home: `Online Legal Advice & Representation in ${country} | CounselO`,
+    home: `Online Legal Advice & Representation in ${country} | ${COUNSELO_BRAND.en}`,
     services: `Legal Services in ${country} | CounselO Legal`,
     contact: `Contact Us Online | CounselO Legal in ${country}`,
     about: `About Us | CounselO Legal in ${country}`,

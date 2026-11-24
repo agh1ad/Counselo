@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, OMAR_PORTRAIT, COOPERATING_OFFICES, COUNSELO_ENTITY_IDS, OMAR_OFFICIAL_PROFILE_URL } from "@workspace/api-zod/browser";
-import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, SAUDI_LAWYER_DIRECTORY, aboutContent, aboutRegions, syrianPartners } from "@/components/about/about-content";
+import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, SAUDI_LAWYER_DIRECTORY, aboutContent, aboutRegions, regionalCredentialLookup, syrianPartners } from "@/components/about/about-content";
 import { EngagementStandards } from "@/components/legal/engagement-standards";
 import { PlatformFacts } from "@/components/legal/platform-facts";
 import "@/components/about/about.css";
@@ -17,6 +17,7 @@ export default function About() {
   const language = isRTL ? "ar" : "en";
   const c = aboutContent[language];
   const local = aboutRegions[region][language];
+  const credentialLookup = regionalCredentialLookup[region][language];
   const regionPath = `/${region}${isRTL ? "/ar" : ""}`;
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
   const countryCode = region === "uae" ? "AE" : region === "syr" ? "SY" : "SA";
@@ -97,7 +98,10 @@ export default function About() {
     <section className="about-story about-shell" aria-labelledby="about-platform-heading">
       <header className="about-story__intro">
         <h2 id="about-platform-heading">{c.platformTitle}</h2>
-        <div><p className="about-lead">{c.introduction}</p><p>{c.purpose}</p><p>{local.focus}</p></div>
+        <div>
+          <p className="about-lead">{c.introduction}</p><p>{c.purpose}</p><p>{local.focus}</p>
+          <Link href={isRTL ? "/ar/about" : "/about"} className="about-text-link">{c.label}<Arrow size={17} aria-hidden="true" /></Link>
+        </div>
       </header>
       <div className="about-story__row">
         <h3>{c.teamTitle}</h3>
@@ -165,6 +169,8 @@ export default function About() {
           {partner.licence && <p>{isRTL ? "رقم الترخيص: " : "Licence number: "}<strong><bdi dir="ltr">{partner.licence}</bdi></strong></p>}
         </li>)}
       </ul>}
+      <p className="about-partner__credentials">{credentialLookup.text}</p>
+      <a className="about-text-link" href={credentialLookup.directory.url} target="_blank" rel="noopener noreferrer">{credentialLookup.directory.label}<Arrow size={17} aria-hidden="true" /></a>
     </section>
 
     <section id="faq" className="about-faq about-shell" aria-labelledby="about-faq-heading">

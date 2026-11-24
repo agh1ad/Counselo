@@ -8,6 +8,8 @@ export const COUNSELO_BRAND = {
   taglineAr: "خدمات قانونية. تواصل أونلاين. فريق واحد.",
 } as const;
 
+export const COUNSELO_ABOUT_PATHS = { en: "/about", ar: "/ar/about" } as const;
+
 /** Refresh editorial prose without rewriting links, email addresses or handles. */
 export function currentBrandText(value: string, language?: "en" | "ar"): string {
   return value.split(/((?:https?:\/\/|mailto:)[^\s<>"']+|[\w.+-]+@[\w.-]+|@[\w]+)/g)

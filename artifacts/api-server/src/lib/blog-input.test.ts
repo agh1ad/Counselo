@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   BlogInputError,
+  parseBlogLegalReviewDate,
   parseBlogPostInput,
   parsePositiveId,
   sanitizeRichText,
@@ -33,6 +34,14 @@ const publishableBilingualPost = {
   seoDescriptionEn: "Understand common commercial contract disputes, the evidence to preserve, and the practical legal steps to assess before taking action.",
   seoDescriptionAr: "تعرّف على منازعات العقود التجارية الشائعة والأدلة الواجب حفظها والخطوات القانونية العملية التي ينبغي تقييمها قبل اتخاذ الإجراء.",
 };
+
+test("legal review dates must be deliberate, valid calendar dates", () => {
+  assert.equal(parseBlogLegalReviewDate({}), undefined);
+  assert.equal(parseBlogLegalReviewDate({ legalReviewedAt: "" }), "");
+  assert.equal(parseBlogLegalReviewDate({ legalReviewedAt: "2024-02-29" }), "2024-02-29");
+  assert.throws(() => parseBlogLegalReviewDate({ legalReviewedAt: "2025-02-29" }), BlogInputError);
+  assert.throws(() => parseBlogLegalReviewDate({ legalReviewedAt: "2099-01-01" }), BlogInputError);
+});
 
 test("sanitizes executable HTML while preserving editor formatting", () => {
   const sanitized = sanitizeRichText(
@@ -164,7 +173,7 @@ test("commentary posts do not expose legal provenance fields", () => {
     published: true,
     contentType: "professional-commentary",
     primaryAuthorName: "CounselO Legal team",
-    primaryAuthorNameAr: "فريق كاونسلو للاستشارات القانونية القانوني",
+    primaryAuthorNameAr: "فريق كاونسلو للاستشارات القانونية",
     primaryAuthorUrl: "/about",
     legalReviewerName: "Lawyer and Legal Consultant Omar Al-Baghdadi",
     legalReviewerNameAr: "المحامي والمستشار القانوني عمر البغدادي",

@@ -3,7 +3,7 @@ import type { Region, Lang } from "../contexts/RegionContext.js";
 import { ADDITIONAL_SEARCH_ISSUES, SERVICE_SEARCH_CONTENT } from "./service-search-content.js";
 import { UAE_SERVICES } from "../data/uae-legal-services.js";
 import { buildUaeServicePageContent } from "../data/uae-service-page-content.js";
-import { getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
+import { canonicalPublicUrl, getRegionalSeoRegion, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
 import { getMatterEditorial } from "./matter-editorial.js";
 import { matterTopic, SPECIALIST_PROFILES } from "./matter-topic-routing.js";
 import { getMatterIntentBrief } from "./matter-intent-briefs/index.js";
@@ -1293,26 +1293,16 @@ export function getRelatedLegalProblemPages(page: LegalProblemPage, limit = 6): 
   return selected.slice(0, limit).sort((left, right) => relatedProblemScore(page, right) - relatedProblemScore(page, left));
 }
 
-export type LegalProblemLanguageAlternate = {
-  hrefLang: "en-AE" | "ar-AE" | "en-SA" | "ar-SA" | "en-SY" | "ar-SY";
-  href: string;
-};
-
-/** Return only real reciprocal jurisdiction/language variants for hreflang. */
-export function getLegalProblemLanguageAlternates(page: LegalProblemPage): LegalProblemLanguageAlternate[] {
-  const candidateRegions: Region[] = page.region === "uae" ? ["uae"] : ["sa", "syr"];
-  return candidateRegions.flatMap((candidateRegion) => {
-    if (!getLegalProblemPage(candidateRegion, page.parentServiceSlug, page.slug)) return [];
-    const languageCodes = candidateRegion === "uae"
-      ? ({ en: "en-AE", ar: "ar-AE" } as const)
-      : candidateRegion === "sa"
-        ? ({ en: "en-SA", ar: "ar-SA" } as const)
-        : ({ en: "en-SY", ar: "ar-SY" } as const);
-    return (["en", "ar"] as const).map((language) => ({
-      hrefLang: languageCodes[language],
-      href: `https://counselo-legal.com${legalProblemPath(candidateRegion, language, page.parentServiceSlug, page.slug)}`,
-    }));
-  });
+/** Each matter guide covers one legal system, even if another country shares its slug. */
+export function getLegalProblemLanguageAlternates({ region, parentServiceSlug, slug }: LegalProblemPage) {
+  const { hreflang } = getRegionalSeoRegion(region);
+  const english = canonicalPublicUrl(legalProblemPath(region, "en", parentServiceSlug, slug));
+  const arabic = canonicalPublicUrl(legalProblemPath(region, "ar", parentServiceSlug, slug));
+  return [
+    { hrefLang: hreflang.en, href: english },
+    { hrefLang: hreflang.ar, href: arabic },
+    { hrefLang: "x-default", href: english },
+  ];
 }
 
 export function legalProblemPath(region: Region, lang: Lang, parentServiceSlug: string, slug: string): string {

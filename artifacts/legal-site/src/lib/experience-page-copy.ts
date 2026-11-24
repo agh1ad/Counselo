@@ -71,7 +71,13 @@ export function reviewFocus(answer: string, lang: Lang): string {
   return active.replace(/([\s،؛])و(حدّد|حدد|قارن|اذكر|تحقق|تحقّق|راجع|افصل|ميّز|بيّن|وضّح|طابق|سجّل|احفظ|وثّق|قارنه)(?=\s)/gu, (_, before: string, verb: string) => `${before}و${({ "حدّد": "نحدد", "حدد": "نحدد", "قارن": "نقارن", "اذكر": "نراجع", "تحقق": "نتحقق", "تحقّق": "نتحقق", "راجع": "نراجع", "افصل": "نفصل", "ميّز": "نميز", "بيّن": "نوضح", "وضّح": "نوضح", "طابق": "نطابق", "سجّل": "نسجّل", "احفظ": "نفحص", "وثّق": "نفحص", "قارنه": "نقارنه" } as Record<string, string>)[verb]}`).replace(/ثم (افصل|قارن)(?=\s)/gu, (_, verb: string) => `ثم ${verb === "افصل" ? "نفصل" : "نقارن"}`);
 }
 
-export function problemPageCopy(page: LegalProblemPage, lang: Lang): ExperienceCopy & { hero: string } {
+const saudiContractReview = {
+  updatedAt: "2026-11-24",
+  en: "For commercial contract review in Saudi Arabia, send the latest draft, all schedules and any Arabic and English versions. Tell us which party you represent, which terms are already agreed and when you expect to sign. We can then prioritise issues such as payment tied to acceptance, liability caps and exit rights. If you need revised wording, agree whether you want a marked-up draft, a clean draft or both when confirming the scope.",
+  ar: "لمراجعة عقد تجاري في السعودية، أرسل أحدث مسودة وجميع الملاحق وأي نسخ بالعربية والإنجليزية. اذكر الطرف الذي تمثله والبنود المتفق عليها والموعد المتوقع للتوقيع. بذلك نحدد أولويات المراجعة، مثل ربط الدفعات بقبول الأعمال وحدود المسؤولية وحقوق إنهاء العقد. وإذا احتجت إلى تعديل الصياغة، حدّد عند الاتفاق على النطاق ما إذا كنت تريد نسخة تظهر فيها التعديلات أو نسخة نهائية أو كلتيهما.",
+};
+
+export function problemPageCopy(page: LegalProblemPage, lang: Lang): ExperienceCopy & { hero: string; updatedAt?: string } {
   const sourceTitle = page.intentBriefTitle ?? page.titleEn;
   const brief = getMatterIntentBrief(sourceTitle);
   const support = getMatterSupport(sourceTitle)[lang];
@@ -83,6 +89,7 @@ export function problemPageCopy(page: LegalProblemPage, lang: Lang): ExperienceC
   const directAnswer = getMatterAnswer(page.region, page.parentServiceSlug, page.slug);
   const question = directAnswer?.question[lang] ?? brief?.question[lang] ?? page.keyQuestions[lang][0];
   const answer = directAnswer?.answer[lang] ?? brief?.answer[lang] ?? page.heroSummary[lang];
+  const contractReview = page.region === "sa" && page.parentServiceSlug === "contracts" && page.slug === "contract-drafting-and-review" ? saudiContractReview : undefined;
   return {
     ...closing(page.region, lang, topic, support),
     hero: lang === "ar" ? `دعم قانوني أونلاين من فريق كاونسلو بشأن ${topic} في ${country}. ${support.split(/(?<=[.!?؟])\s+/u)[0]}` : `Online legal support from CounselO’s team for ${topic} in ${country}. ${support.split(/(?<=[.!?؟])\s+/u)[0]}`,
@@ -90,6 +97,8 @@ export function problemPageCopy(page: LegalProblemPage, lang: Lang): ExperienceC
     introduction: `${teamIntroduction(page.region, lang, topic)} ${work}`,
     experience: `${focus} ${nextSteps.join(" ")}`,
     coverageTitle: lang === "ar" ? `خدماتنا بشأن ${topic}` : `How we help with ${topic}`,
+    coverageIntro: contractReview?.[lang],
+    updatedAt: contractReview?.updatedAt,
     coverage: lang === "ar" ? [
       { title: "فحص الأدلة والمستندات", text: `تشمل المراجعة ${evidence}. نحدد ما يؤيد موقفك وما يحتاج إلى توضيح أو استكمال.` },
       { title: question, text: answer },

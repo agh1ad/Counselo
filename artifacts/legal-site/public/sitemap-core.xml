@@ -41,7 +41,7 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/ar</loc>
@@ -51,7 +51,25 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
+  </url>
+<url>
+    <loc>https://counselo-legal.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-11-24</lastmod>
+  </url>
+<url>
+    <loc>https://counselo-legal.com/ar/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/sa</loc>
@@ -63,7 +81,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/sa/services</loc>
@@ -98,7 +116,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/sa/terms-of-service</loc>
@@ -132,7 +150,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/syr/services</loc>
@@ -167,7 +185,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/syr/terms-of-service</loc>
@@ -199,7 +217,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/uae/services</loc>
@@ -228,7 +246,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/uae/terms-of-service</loc>
@@ -258,7 +276,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/sa/ar/services</loc>
@@ -293,7 +311,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/sa/ar/terms-of-service</loc>
@@ -327,7 +345,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/syr/ar/services</loc>
@@ -362,7 +380,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/syr/ar/terms-of-service</loc>
@@ -394,7 +412,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/uae/ar/services</loc>
@@ -423,7 +441,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
 <url>
     <loc>https://counselo-legal.com/uae/ar/terms-of-service</loc>

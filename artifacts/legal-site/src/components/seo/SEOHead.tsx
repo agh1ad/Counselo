@@ -14,7 +14,7 @@ import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
-import { BLOG_SOCIAL_IMAGE } from "@workspace/api-zod/browser";
+import { BLOG_SOCIAL_IMAGE, COUNSELO_BRAND, currentBrandText } from "@workspace/api-zod/browser";
 import { searchIntentMeta } from "@/lib/search-intent-copy";
 import { limitSeoTitle } from "@/lib/seo-title";
 import { latestPageUpdate } from "@/lib/site-content-dates";
@@ -92,6 +92,8 @@ interface SEOHeadProps {
   articleModifiedTime?: string;
   /** For blog/article pages: author display name */
   articleAuthor?: string;
+  /** Profile URL of the author of an article. */
+  articleAuthorUrl?: string;
   /** For blog/article pages: article section/category */
   articleSection?: string;
   /** For reviewed articles: reviewer name exposed in first-response metadata. */
@@ -161,6 +163,7 @@ export function SEOHead({
   articlePublishedTime,
   articleModifiedTime,
   articleAuthor,
+  articleAuthorUrl,
   articleSection,
   reviewedBy,
   ogImageAlt,
@@ -246,17 +249,13 @@ export function SEOHead({
     : (noRegionPrefix && sharedTitleOverrides[basePath])
       ? sharedTitleOverrides[basePath]
       : (isSyr ? syriafyText(title) : title);
-  // Optimized meta titles are already final — never append a suffix to them.
-  // For fallback (non-map) titles, append "| CounselO Legal" only if not already present.
-  const fullTitle = limitTitle(metaOverride && !preferPageMetadata
-    ? rawTitle
-    : (rawTitle.endsWith("| CounselO Legal") ||
-        rawTitle.endsWith("| كاونسلو للاستشارات القانونية") ||
-        rawTitle.endsWith("كاونسلو للاستشارات القانونية")
-          ? rawTitle
-          : isArabic
-            ? `${rawTitle} | كاونسلو للاستشارات القانونية`
-            : `${rawTitle} | CounselO Legal`));
+  // Preserve published regional title copy and give fallback titles a single brand suffix.
+  const brandedTitle = currentBrandText(rawTitle, effectiveLanguage);
+  const titleSuffix = isArabic ? COUNSELO_BRAND.designationAr : COUNSELO_BRAND.en;
+  const titleStem = isArabic ? brandedTitle.replace(/\s*\|\s*كاونسلو\s*$/, "") : brandedTitle;
+  const fullTitle = limitTitle((metaOverride && !preferPageMetadata) || brandedTitle.endsWith(titleSuffix)
+    ? brandedTitle
+    : `${titleStem} | ${titleSuffix}`);
 
   // Shared collection pages (noRegionPrefix=true without explicit alternates,
   // e.g. /blog) emit no regional alternates. Bilingual
@@ -310,8 +309,7 @@ export function SEOHead({
             href: `https://counselo-legal.com${GEO[c.region].pathPrefix}${c.isArabic ? "/ar" : ""}${hrefPath}`,
           };
         });
-  // x-default: region picker for normal pages; the canonical or explicit
-  // primary-language article URL for shared pages.
+  // Regional matter pages provide their own fallback as part of the pair.
   const xDefaultUrl = sharedLanguageAlternates
     ? absoluteUrl(sharedLanguageAlternates.xDefault ?? sharedLanguageAlternates.en)
     : noRegionPrefix
@@ -407,14 +405,15 @@ export function SEOHead({
         <link key={a.hrefLang} rel="alternate" hrefLang={a.hrefLang} href={a.href} />
       ))}
 
-      {/* hreflang — x-default (region picker) */}
-      <link rel="alternate" hrefLang="x-default" href={xDefaultUrl} />
+      {!hreflangAlternates.some(({ hrefLang }) => hrefLang === "x-default") && (
+        <link rel="alternate" hrefLang="x-default" href={xDefaultUrl} />
+      )}
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content="CounselO Legal كاونسلو للاستشارات القانونية" />
+      <meta property="og:site_name" content={isArabic ? COUNSELO_BRAND.designationAr : COUNSELO_BRAND.en} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:secure_url" content={ogImage} />
@@ -436,7 +435,6 @@ export function SEOHead({
 
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@CounselOLegal" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={ogImage} />
@@ -449,8 +447,8 @@ export function SEOHead({
       {ogType === "article" && (articleModifiedTime || articlePublishedTime) && (
         <meta property="article:modified_time" content={articleModifiedTime || articlePublishedTime} />
       )}
-      {ogType === "article" && articleAuthor && (
-        <meta property="article:author" content={articleAuthor} />
+      {ogType === "article" && articleAuthorUrl && (
+        <meta property="article:author" content={articleAuthorUrl} />
       )}
       {ogType === "article" && articleSection && (
         <meta property="article:section" content={articleSection} />

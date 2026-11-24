@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { ArrowRight, Mail, BookOpen, Landmark, Building2, Mountain, Globe2, MessageCircle } from "lucide-react";
+import { COUNSELO_ABOUT_PATHS } from "@workspace/api-zod/browser";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion, type Region } from "@/contexts/RegionContext";
 
@@ -101,6 +102,7 @@ export function Footer() {
             <Link href={p("/contact")}>{isArabic ? "تواصل معنا" : "Contact Us"}<ArrowRight /></Link>
             <Link href={p("/about")}>{isArabic ? "من نحن" : "About Us"}<ArrowRight /></Link>
           </>}
+          {isSharedPath && <Link href={COUNSELO_ABOUT_PATHS[lang]}>{isArabic ? "عن كاونسلو للاستشارات القانونية" : "About CounselO Legal"}<ArrowRight /></Link>}
           <Link href={isArabic ? "/ar/our-work" : "/our-work"}>{isArabic ? "أعمالنا" : "Our Work"}<ArrowRight /></Link>
           <Link href={libraryPath}>{isArabic ? "المكتبة القانونية" : "Legal Library"}<ArrowRight /></Link>
           <Link href={blogIndexPath}>{f.links.blog}<ArrowRight /></Link>
