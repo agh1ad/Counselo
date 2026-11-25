@@ -5,6 +5,7 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Router } from "wouter";
 import { ABDULLAH_PROFILE_PATHS, COOPERATING_OFFICES, PUBLIC_BASE_URL } from "@workspace/api-zod/browser";
+import { GlobalTeamDirectory } from "../components/about/global-team-directory";
 import { RegionalAboutTeam } from "../components/about/regional-about-team";
 import { ABOUT_UPDATED, aboutContent, aboutRegions, syrianPartners } from "../components/about/about-content";
 
@@ -49,8 +50,33 @@ test("Regional About gives each named firm one profile link and no contact links
   }
   assert.equal(aboutRegions.sa.en.partnerTitle, COOPERATING_OFFICES.saudi.name);
   assert.equal(aboutRegions.sa.ar.partnerTitle, COOPERATING_OFFICES.saudi.alternateName);
-  assert.match(aboutRegions.sa.en.partnerText, /Dammam.*Saudi Bar Association.*Abdullah Moghthi/);
-  assert.match(aboutRegions.sa.ar.partnerText, /الدمام.*الهيئة السعودية للمحامين.*عبدالله مغثي/);
+});
+
+test("Global and Saudi listings name both offices and attribute the Bar record to Dammam", () => {
+  for (const language of ["en", "ar"] as const) {
+    const cities = language === "en" ? /one in Dammam and one in Jubail/ : /أحدهما في الدمام والآخر في الجبيل/;
+    const barRecord = language === "en" ? /Saudi Bar Association lists the firm’s Dammam office/ : /الهيئة السعودية للمحامين مكتب الدمام في سجلّ المنشآت القانونية/;
+    const global = renderToStaticMarkup(createElement(GlobalTeamDirectory, { language }));
+    const regional = renderToStaticMarkup(createElement(Router, { ssrPath: language === "en" ? "/sa/about" : "/sa/ar/about" },
+      createElement(RegionalAboutTeam, { region: "sa", language })));
+    for (const listing of [global, regional]) {
+      assert.match(listing, cities);
+      assert.match(listing, barRecord);
+    }
+  }
+});
+
+test("Global and Syrian team listings link to each Syrian firm’s CounselO profile in the active language", () => {
+  for (const language of ["en", "ar"] as const) {
+    const prefix = language === "ar" ? "/syr/ar" : "/syr";
+    const expected = [`${prefix}/about/baghdadi-law`, `${prefix}/about/omar-al-abdullah`];
+    const global = renderToStaticMarkup(createElement(GlobalTeamDirectory, { language }));
+    const syriaGroup = global.slice(global.indexOf('id="about-country-syr"')).split("</article>")[0];
+    const regional = renderToStaticMarkup(createElement(RegionalAboutTeam, { region: "syr", language }));
+    for (const listing of [syriaGroup, regional]) {
+      assert.deepEqual(Array.from(listing.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g), match => match[1]), expected);
+    }
+  }
 });
 
 test("Syria About names both existing cooperating offices in English and Arabic", () => {

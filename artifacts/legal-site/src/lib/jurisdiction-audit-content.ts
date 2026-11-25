@@ -21,6 +21,8 @@ export function jurisdictionAdviceForContaminationCheck(text: string): string {
     // A Syrian firm's colleagues can belong to the wider CounselO team.
     .replace(/regional team with colleagues in Saudi Arabia and the United Arab Emirates/g, "regional team")
     .replace(/فريق إقليمي يجمعهم بزملائهم في المملكة العربية السعودية والإمارات/g, "فريق إقليمي")
+    .replace(/a network of lawyers and law firms in Syria, Saudi Arabia and the United Arab Emirates/g, "a regional legal network")
+    .replace(/علاقات مهنية تجمعه بمحامين ومكاتب محاماة في سوريا والسعودية والإمارات العربية المتحدة/g, "علاقات مهنية إقليمية")
     .replace(/Saudi anti-concealment rules should not be imported into the analysis\./g, "")
     .replace(/ولا تنقل إليه نظام مكافحة التستر السعودي\./g, "")
     .replace(/do not import a Saudi transfer procedure merely because the worker is Syrian\./g, "")

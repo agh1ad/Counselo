@@ -9,6 +9,7 @@ export { default as Contact } from "@/pages/contact";
 export { default as ServiceDetail } from "@/pages/service-detail";
 export { default as LegalProblemDetail } from "@/pages/legal-problem-detail";
 export { default as AbdullahProfile } from "@/pages/abdullah-profile";
+export { default as BaghdadiLawProfile } from "@/pages/baghdadi-law-profile";
 export { default as OmarAbdullahProfile } from "@/pages/omar-abdullah-profile";
 export { default as About } from "@/pages/about";
 export { default as GlobalAbout } from "@/pages/global-about";

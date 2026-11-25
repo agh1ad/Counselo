@@ -1,5 +1,5 @@
 import { FirmProfile } from "@/components/about/firm-profile";
 
 export default function OmarAbdullahProfile() {
-  return <FirmProfile region="syr" />;
+  return <FirmProfile practice="alAbdullah" />;
 }

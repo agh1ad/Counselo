@@ -17,6 +17,17 @@ export const ABDULLAH_PROFILE_PATHS = {
   ar: "/sa/ar/about/abdullah-al-anzi",
 } as const;
 
+export const BAGHDADI_LAW_PROFILE_PATHS = {
+  en: "/syr/about/baghdadi-law",
+  ar: "/syr/ar/about/baghdadi-law",
+} as const;
+
+export const BAGHDADI_LAW_PROFILE_ALTERNATES = [
+  { hrefLang: "en-SY", href: BAGHDADI_LAW_PROFILE_PATHS.en },
+  { hrefLang: "ar-SY", href: BAGHDADI_LAW_PROFILE_PATHS.ar },
+  { hrefLang: "x-default", href: BAGHDADI_LAW_PROFILE_PATHS.en },
+];
+
 export const OMAR_ABDULLAH_PROFILE_PATHS = {
   en: "/syr/about/omar-al-abdullah",
   ar: "/syr/ar/about/omar-al-abdullah",
@@ -87,6 +98,7 @@ export function getPublicRouteInventory(): string[] {
     ...Object.values(COUNSELO_ABOUT_PATHS),
     ...Object.values(ABDULLAH_PROFILE_PATHS),
     ...Object.values(OMAR_ABDULLAH_PROFILE_PATHS),
+    ...Object.values(BAGHDADI_LAW_PROFILE_PATHS),
     ...englishRoutes,
     ...englishRoutes.map(toArabicRoute),
     "/blog",
@@ -252,7 +264,7 @@ function latestDate(values: Array<string | Date | null | undefined>): string | u
 }
 
 export function buildHreflangLinks(path: string): string[] {
-  const profileAlternates = [ABDULLAH_PROFILE_ALTERNATES, OMAR_ABDULLAH_PROFILE_ALTERNATES]
+  const profileAlternates = [ABDULLAH_PROFILE_ALTERNATES, OMAR_ABDULLAH_PROFILE_ALTERNATES, BAGHDADI_LAW_PROFILE_ALTERNATES]
     .find(alternates => alternates.some(({ href }) => href === path));
   if (profileAlternates) {
     return profileAlternates.map(({ hrefLang, href }) => `${hrefLang}|${canonicalPublicUrl(href)}`);

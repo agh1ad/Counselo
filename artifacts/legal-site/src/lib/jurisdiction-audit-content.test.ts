@@ -4,6 +4,8 @@ import { jurisdictionEditorialContent, jurisdictionAdviceForContaminationCheck }
 
 test("network coverage never hides adjacent wrong-jurisdiction advice", () => {
   const coverage = [
+    "a network of lawyers and law firms in Syria, Saudi Arabia and the United Arab Emirates.",
+    "علاقات مهنية تجمعه بمحامين ومكاتب محاماة في سوريا والسعودية والإمارات العربية المتحدة.",
     "regional team with colleagues in Saudi Arabia and the United Arab Emirates.",
     "فريق إقليمي يجمعهم بزملائهم في المملكة العربية السعودية والإمارات.",
     "Your destination for comprehensive online legal services, backed by a strong network of lawyers, law firms and professional partners across Saudi Arabia, the UAE and Syria.",

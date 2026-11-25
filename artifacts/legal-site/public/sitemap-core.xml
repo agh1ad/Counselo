@@ -126,6 +126,24 @@
     <lastmod>2026-11-26</lastmod>
   </url>
 <url>
+    <loc>https://counselo-legal.com/syr/about/baghdadi-law</loc>
+    <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/about/baghdadi-law"/>
+    <xhtml:link rel="alternate" hreflang="ar-SY" href="https://counselo-legal.com/syr/ar/about/baghdadi-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/about/baghdadi-law"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/about/baghdadi-law</loc>
+    <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/about/baghdadi-law"/>
+    <xhtml:link rel="alternate" hreflang="ar-SY" href="https://counselo-legal.com/syr/ar/about/baghdadi-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/about/baghdadi-law"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+<url>
     <loc>https://counselo-legal.com/sa</loc>
     <image:image><image:loc>https://counselo-legal.com/logo.png</image:loc></image:image>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa"/>

@@ -1,4 +1,4 @@
-import { ABDULLAH_PROFILE_PATHS, COUNSELO_ABOUT_PATHS, OMAR_ABDULLAH_PROFILE_PATHS, UAE_SYRIA_CONSULTATION_PATHS } from "@workspace/api-zod";
+import { ABDULLAH_PROFILE_PATHS, BAGHDADI_LAW_PROFILE_PATHS, COUNSELO_ABOUT_PATHS, OMAR_ABDULLAH_PROFILE_PATHS, UAE_SYRIA_CONSULTATION_PATHS } from "@workspace/api-zod";
 
 export const BASE_URL = "https://counselo-legal.com";
 export const TODAY = new Date().toISOString().slice(0, 10);
@@ -19,6 +19,7 @@ const CORE_PAGES_EN: CorePage[] = [
   ...Object.values(COUNSELO_ABOUT_PATHS).map((path) => ({ path, changefreq: "monthly", priority: "0.8", isRoot: true })),
   ...Object.values(ABDULLAH_PROFILE_PATHS).map(path => ({ path, changefreq: "monthly", priority: "0.7", isRoot: true })),
   ...Object.values(OMAR_ABDULLAH_PROFILE_PATHS).map(path => ({ path, changefreq: "monthly", priority: "0.7", isRoot: true })),
+  ...Object.values(BAGHDADI_LAW_PROFILE_PATHS).map(path => ({ path, changefreq: "monthly", priority: "0.7", isRoot: true })),
   { path: "/sa", changefreq: "weekly", priority: "0.95" },
   { path: "/sa/services", changefreq: "monthly", priority: "0.9" },
   { path: "/sa/contact", changefreq: "monthly", priority: "0.9" },

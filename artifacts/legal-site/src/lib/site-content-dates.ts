@@ -1,4 +1,4 @@
-import { ABDULLAH_PROFILE_PATHS, COUNSELO_ABOUT_PATHS, OMAR_ABDULLAH_PROFILE_PATHS, UAE_SYRIA_CONSULTATION_PATHS } from "@workspace/api-zod/browser";
+import { ABDULLAH_PROFILE_PATHS, BAGHDADI_LAW_PROFILE_PATHS, COUNSELO_ABOUT_PATHS, OMAR_ABDULLAH_PROFILE_PATHS, UAE_SYRIA_CONSULTATION_PATHS } from "@workspace/api-zod/browser";
 
 // Editorial revisions, not build dates. Keep older dates for content that was
 // not revised, including CMS articles/work and policy pages.
@@ -9,6 +9,7 @@ const brandAndConsultationPages = new Set([
   "/", "/ar", ...Object.values(COUNSELO_ABOUT_PATHS), ...Object.values(UAE_SYRIA_CONSULTATION_PATHS),
   "/sa/about", "/sa/ar/about", ...Object.values(ABDULLAH_PROFILE_PATHS),
   "/uae/about", "/uae/ar/about", "/syr/about", "/syr/ar/about", ...Object.values(OMAR_ABDULLAH_PROFILE_PATHS),
+  ...Object.values(BAGHDADI_LAW_PROFILE_PATHS),
   "/uae/contact", "/uae/ar/contact", "/syr/contact", "/syr/ar/contact",
 ]);
 

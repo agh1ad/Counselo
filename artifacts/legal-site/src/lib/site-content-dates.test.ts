@@ -13,7 +13,7 @@ test("revised bilingual page families share a stable sitemap revision date", () 
   for (const route of ["/sa/services/contracts/contract-drafting-and-review", "/sa/ar/services/contracts/contract-drafting-and-review"]) {
     assert.equal(latestPageUpdate(route), "2026-11-24");
   }
-  for (const route of ["", "/", "/ar", "/about", "/ar/about", "/sa/about/abdullah-al-anzi", "/sa/ar/about/abdullah-al-anzi", "/syr/about/omar-al-abdullah", "/syr/ar/about/omar-al-abdullah", "/uae-syria-legal-consultation", "/ar/uae-syria-legal-consultation"]) assert.equal(latestPageUpdate(route), "2026-11-26");
+  for (const route of ["", "/", "/ar", "/about", "/ar/about", "/sa/about/abdullah-al-anzi", "/sa/ar/about/abdullah-al-anzi", "/syr/about/baghdadi-law", "/syr/ar/about/baghdadi-law", "/syr/about/omar-al-abdullah", "/syr/ar/about/omar-al-abdullah", "/uae-syria-legal-consultation", "/ar/uae-syria-legal-consultation"]) assert.equal(latestPageUpdate(route), "2026-11-26");
   for (const route of ["/our-work", "/ar/our-work"]) assert.equal(latestPageUpdate(route), "2026-11-18");
   for (const route of ["/blog", "/blog/ar"]) assert.equal(latestPageUpdate(route), "2026-11-13");
   for (const prefix of ["", "/ar", "/sa/services", "/sa/ar/services", "/syr/services", "/syr/ar/services", "/uae/services", "/uae/ar/services"]) {

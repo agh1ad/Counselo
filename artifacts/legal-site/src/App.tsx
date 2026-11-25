@@ -1,5 +1,5 @@
 import RemovedPage from "@/pages/removed";
-import { ABDULLAH_PROFILE_PATHS, COUNSELO_ABOUT_PATHS, OMAR_ABDULLAH_PROFILE_PATHS, UAE_SYRIA_CONSULTATION_PATHS, isRetiredPublicPath } from "@workspace/api-zod/browser";
+import { ABDULLAH_PROFILE_PATHS, BAGHDADI_LAW_PROFILE_PATHS, COUNSELO_ABOUT_PATHS, OMAR_ABDULLAH_PROFILE_PATHS, UAE_SYRIA_CONSULTATION_PATHS, isRetiredPublicPath } from "@workspace/api-zod/browser";
 import "@/components/legal/public-readability.css";
 import { legalUpdatesData, type LegalUpdatesData } from "@workspace/api-zod/browser";
 import {
@@ -29,6 +29,7 @@ import { resolveUnqualifiedBlogPath } from "@/lib/blog-route-policy";
 import {
   About,
   AbdullahProfile,
+  BaghdadiLawProfile,
   OmarAbdullahProfile,
   ArRegionPicker,
   Blog,
@@ -325,6 +326,7 @@ function Router() {
 
         {/* SA + Syria routes, English and Arabic */}
         {Object.values(ABDULLAH_PROFILE_PATHS).map(path => <Route key={path} path={path} component={AbdullahProfile} />)}
+        {Object.values(BAGHDADI_LAW_PROFILE_PATHS).map(path => <Route key={path} path={path} component={BaghdadiLawProfile} />)}
         {Object.values(OMAR_ABDULLAH_PROFILE_PATHS).map(path => <Route key={path} path={path} component={OmarAbdullahProfile} />)}
         {buildRegionRoutes()}
 

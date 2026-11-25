@@ -19,15 +19,18 @@
       "indexable": true
     },
     {
-      "id": "saudi-lawyer-profile",
+      "id": "saudi-law-firm-profile",
       "paths": ["/sa/about/abdullah-al-anzi", "/sa/ar/about/abdullah-al-anzi"],
       "canonical": "self",
       "hreflang": "same-region-language",
       "indexable": true
     },
     {
-      "id": "syrian-lawyer-profile",
-      "paths": ["/syr/about/omar-al-abdullah", "/syr/ar/about/omar-al-abdullah"],
+      "id": "syrian-law-firm-profile",
+      "paths": [
+        "/syr/about/omar-al-abdullah", "/syr/ar/about/omar-al-abdullah",
+        "/syr/about/baghdadi-law", "/syr/ar/about/baghdadi-law"
+      ],
       "canonical": "self",
       "hreflang": "same-region-language",
       "indexable": true

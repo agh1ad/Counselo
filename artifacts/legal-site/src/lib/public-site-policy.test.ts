@@ -86,9 +86,9 @@ test("the UAE–Syria consultation has one shared bilingual route pair", () => {
   }
 });
 
-test("each lawyer profile has one English and Arabic URL in the lawyer's jurisdiction", () => {
+test("each law firm has one English and Arabic profile URL in its jurisdiction", () => {
   const inventory = getPublicRouteInventory();
-  for (const [region, code, slug] of [["sa", "SA", "abdullah-al-anzi"], ["syr", "SY", "omar-al-abdullah"]]) {
+  for (const [region, code, slug] of [["sa", "SA", "abdullah-al-anzi"], ["syr", "SY", "omar-al-abdullah"], ["syr", "SY", "baghdadi-law"]]) {
     const english = `/${region}/about/${slug}`;
     const arabic = `/${region}/ar/about/${slug}`;
     assert.deepEqual(inventory.filter(path => path.endsWith("/" + slug)), [english, arabic]);
@@ -117,8 +117,8 @@ test("the checked-in canonical URL matrix covers the generated public inventory"
   const requiredPageTypes = [
     "region-picker",
     "brand-about",
-    "saudi-lawyer-profile",
-    "syrian-lawyer-profile",
+    "saudi-law-firm-profile",
+    "syrian-law-firm-profile",
     "regional-home",
     "regional-static",
     "services-index",

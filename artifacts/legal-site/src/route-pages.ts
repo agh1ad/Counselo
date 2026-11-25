@@ -10,6 +10,7 @@ export const Contact = lazy(() => import("@/pages/contact"));
 export const ServiceDetail = lazy(() => import("@/pages/service-detail"));
 export const LegalProblemDetail = lazy(() => import("@/pages/legal-problem-detail"));
 export const AbdullahProfile = lazy(() => import("@/pages/abdullah-profile"));
+export const BaghdadiLawProfile = lazy(() => import("@/pages/baghdadi-law-profile"));
 export const OmarAbdullahProfile = lazy(() => import("@/pages/omar-abdullah-profile"));
 export const About = lazy(() => import("@/pages/about"));
 export const GlobalAbout = lazy(() => import("@/pages/global-about"));

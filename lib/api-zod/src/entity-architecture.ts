@@ -183,7 +183,7 @@ export const COOPERATING_OFFICES = {
     url: ENTITY_BASE_URL + ABDULLAH_PROFILE_PATHS.en,
     logo: ENTITY_BASE_URL + ABDULLAH_AL_ANZI_OFFICE_LOGO_PATH,
     sameAs: [SAUDI_OFFICE_DIRECTORY_URL],
-    description: "Abdullah Al-Anzi Law Office is an established law firm in Dammam and a member of CounselO Legal’s Saudi team. The firm is registered with the Saudi Bar Association. Its licensed lawyers belong to the CounselO team.",
+    description: "Abdullah Al-Anzi Law Office is a member of CounselO Legal’s Saudi team with two offices in the Eastern Province, one in Dammam and one in Jubail. The firm is registered with the Saudi Bar Association. Its licensed lawyers belong to the CounselO team.",
     memberOf: { "@id": COUNSELO_ENTITY_IDS.organization },
     areaServed: { "@type": "Country", name: "Saudi Arabia" },
   },
