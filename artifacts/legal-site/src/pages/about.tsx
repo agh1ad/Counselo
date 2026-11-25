@@ -3,12 +3,14 @@ import { ArrowLeft, ArrowRight, MonitorSmartphone, UsersRound, Scale, Globe2, Ch
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { COUNSELO_FIRM_TEAM, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, OMAR_PORTRAIT, COOPERATING_OFFICES, COUNSELO_ENTITY_IDS, OMAR_OFFICIAL_PROFILE_URL } from "@workspace/api-zod/browser";
+import { COUNSELO_FIRM_TEAM, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, OMAR_PORTRAIT, COOPERATING_OFFICES, COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
 import { ABOUT_UPDATED, aboutContent, aboutRegions } from "@/components/about/about-content";
 import { RegionalAboutTeam } from "@/components/about/regional-about-team";
 import { EngagementStandards } from "@/components/legal/engagement-standards";
+import { AboutFounder } from "@/components/about/about-founder";
 import { PlatformFacts } from "@/components/legal/platform-facts";
 import "@/components/about/about.css";
+import "@/components/about/global-about.css";
 
 const featureIcons = [MonitorSmartphone, UsersRound, Scale, Globe2];
 
@@ -104,7 +106,7 @@ export default function About() {
         <h3>{c.complexTitle}</h3>
         <div><p>{c.complexText}</p></div>
       </div>
-      <div className="about-story__row">
+      <div id="about-services" className="about-story__row">
         <h3>{c.servicesTitle}</h3>
         <div>
           <p>{c.servicesIntro}</p>
@@ -129,19 +131,7 @@ export default function About() {
     <div className="about-shell about-platform-proof"><PlatformFacts isArabic={isRTL} embedded linkWork={false} /></div>
     <div className="about-shell"><EngagementStandards isArabic={isRTL} regionPath={regionPath} /></div>
 
-    <section className="about-founder" aria-labelledby="about-founder-heading">
-      <div className="about-shell about-founder__grid">
-        <div className="about-founder__portrait"><img src="/omar-baghdadi.jpg" alt={isRTL ? "المحامي والمستشار القانوني عمر البغدادي، مؤسس كاونسلو" : "Lawyer and legal counsel Omar Al-Baghdadi, founder of CounselO Legal"} width={OMAR_PORTRAIT.width} height={OMAR_PORTRAIT.height} loading="lazy" decoding="async" /><p>{c.founderLabel}</p></div>
-        <div>
-          <h2 id="about-founder-heading">{c.founderName}</h2>
-          <p className="about-founder__role">{c.founderRole}</p>
-          <p className="about-lead">{c.founderIntro}</p>
-          <p>{c.founderExperience}</p>
-          <dl className="about-founder__facts">{c.founderFacts.map(item => <div key={item.title}><dt>{item.title}</dt><dd>{item.text}</dd></div>)}</dl>
-          <a className="about-text-link" href={`${OMAR_OFFICIAL_PROFILE_URL}${isRTL ? "/ar" : ""}`} target="_blank" rel="noopener noreferrer">{c.profileLink}<Arrow size={17} aria-hidden="true" /></a>
-        </div>
-      </div>
-    </section>
+    <AboutFounder content={c} language={language} />
 
     <RegionalAboutTeam region={region} language={language} />
 
