@@ -46,9 +46,9 @@ export function EngagementStandards({ isArabic, regionPath, termsLinks, id = "en
       <dl className="engagement-standards__items">
         {copy.items.map(item => <div key={item.title}><dt>{item.title}</dt><dd>{item.text}</dd></div>)}
       </dl>
-      {termsLinks ? <nav aria-label={copy.link} className="global-about-country-links">
+      {termsLinks ? <details className="about-country-disclosure"><summary>{isArabic ? "شروط الخدمة حسب الدولة" : "Service terms by country"}</summary><nav aria-label={copy.link} className="global-about-country-links">
         {termsLinks.map(link => <Link key={link.href} href={link.href} className="engagement-standards__link">{link.label}</Link>)}
-      </nav> : <Link href={`${regionPath}/terms-of-service`} className="engagement-standards__link">{copy.link}</Link>}
+      </nav></details> : <Link href={`${regionPath}/terms-of-service`} className="engagement-standards__link">{copy.link}</Link>}
     </section>
   );
 }

@@ -19,6 +19,20 @@
       "indexable": true
     },
     {
+      "id": "saudi-lawyer-profile",
+      "paths": ["/sa/about/abdullah-al-anzi", "/sa/ar/about/abdullah-al-anzi"],
+      "canonical": "self",
+      "hreflang": "same-region-language",
+      "indexable": true
+    },
+    {
+      "id": "syrian-lawyer-profile",
+      "paths": ["/syr/about/omar-al-abdullah", "/syr/ar/about/omar-al-abdullah"],
+      "canonical": "self",
+      "hreflang": "same-region-language",
+      "indexable": true
+    },
+    {
       "id": "regional-home",
       "paths": ["/{region}", "/{region}/ar"],
       "regions": ["sa", "syr", "uae"],
@@ -77,6 +91,13 @@
       "indexable": true,
       "source": "published-blog-post-slug-with-complete-distinct-bilingual-content",
       "fallback": "unqualified-blog-slug-redirects-to-english"
+    },
+    {
+      "id": "cross-border-consultation",
+      "paths": ["/uae-syria-legal-consultation", "/ar/uae-syria-legal-consultation"],
+      "canonical": "self",
+      "hreflang": "reciprocal-en-ar",
+      "indexable": true
     },
     {
       "id": "legal-library-index",

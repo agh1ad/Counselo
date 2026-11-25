@@ -2,7 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ArrowRight, Globe2, Search, ChevronDown, House, BookOpen, BriefcaseBusiness, Users, Mail, Scale, FileText, Clock3, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { COUNSELO_ABOUT_PATHS, getServicesForRegion } from "@workspace/api-zod/browser";
+import { COUNSELO_ABOUT_PATHS, UAE_SYRIA_CONSULTATION_PATHS, getServicesForRegion } from "@workspace/api-zod/browser";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { readingSearchKey } from "@/lib/article-reading";
@@ -27,7 +27,8 @@ export function Navbar() {
   const country = countries.find(item => item.id === region)!;
   const home = isSharedPath ? (ar ? "/ar" : "/") : regionPrefix;
   const about = isSharedPath ? COUNSELO_ABOUT_PATHS[lang] : `${regionPrefix}/about`;
-  const alternateAbout = location === COUNSELO_ABOUT_PATHS[lang] ? COUNSELO_ABOUT_PATHS[ar ? "en" : "ar"] : undefined;
+  const sharedLanguagePaths = [COUNSELO_ABOUT_PATHS, UAE_SYRIA_CONSULTATION_PATHS].find(paths => paths[lang] === location);
+  const alternatePage = sharedLanguagePaths?.[ar ? "en" : "ar"];
   const library = ar ? "/ar/legal-library" : "/legal-library";
   const blog = ar ? "/blog/ar" : "/blog";
   const work = ar ? "/ar/our-work" : "/our-work";
@@ -98,8 +99,8 @@ export function Navbar() {
           </>}
         </nav>
         <div className="counselo-header__controls">
-          {alternateAbout ? (
-            <Link href={alternateAbout} hrefLang={ar ? "en" : "ar"} className="counselo-language grid place-items-center" aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "EN" : "ع"}</span></Link>
+          {alternatePage ? (
+            <Link href={alternatePage} hrefLang={ar ? "en" : "ar"} className="counselo-language grid place-items-center" aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "EN" : "ع"}</span></Link>
           ) : (
             <button type="button" onClick={changeLanguage} className="counselo-language" aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "EN" : "ع"}</span></button>
           )}
@@ -145,8 +146,8 @@ export function Navbar() {
         </div>
           <div className="counselo-menu__footer">
             <nav className="counselo-menu__countries" aria-label={label.country}><span><Globe2 aria-hidden="true" />{label.country}</span><div>{countries.map(item => <Link key={item.id} href={regionHome(item.id)} onClick={close} aria-current={!isSharedPath && region === item.id ? "location" : undefined}>{item[lang]}{!isSharedPath && region === item.id && <Check aria-hidden="true" />}</Link>)}</div></nav>
-            {alternateAbout ? (
-              <Link href={alternateAbout} hrefLang={ar ? "en" : "ar"} className="counselo-menu__language" onClick={close} aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "English" : "العربية"}</span><ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></Link>
+            {alternatePage ? (
+              <Link href={alternatePage} hrefLang={ar ? "en" : "ar"} className="counselo-menu__language" onClick={close} aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "English" : "العربية"}</span><ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></Link>
             ) : (
               <button type="button" className="counselo-menu__language" onClick={changeLanguage} aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "English" : "العربية"}</span><ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></button>
             )}

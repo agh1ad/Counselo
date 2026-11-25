@@ -73,6 +73,35 @@ test("shared canonical, hreflang, cache, and prerender policies are deterministi
   assert.equal(PUBLIC_CACHE_POLICY.notFound, "no-store");
 });
 
+test("the UAE–Syria consultation has one shared bilingual route pair", () => {
+  const pair = ["/uae-syria-legal-consultation", "/ar/uae-syria-legal-consultation"];
+  const [en, ar] = pair;
+  for (const path of pair) {
+    assert.ok(getPublicRouteInventory().includes(path));
+    assert.deepEqual(buildHreflangLinks(path), [
+      `en|https://counselo-legal.com${en}`,
+      `ar|https://counselo-legal.com${ar}`,
+      `x-default|https://counselo-legal.com${en}`,
+    ]);
+  }
+});
+
+test("each lawyer profile has one English and Arabic URL in the lawyer's jurisdiction", () => {
+  const inventory = getPublicRouteInventory();
+  for (const [region, code, slug] of [["sa", "SA", "abdullah-al-anzi"], ["syr", "SY", "omar-al-abdullah"]]) {
+    const english = `/${region}/about/${slug}`;
+    const arabic = `/${region}/ar/about/${slug}`;
+    assert.deepEqual(inventory.filter(path => path.endsWith("/" + slug)), [english, arabic]);
+    for (const path of [english, arabic]) {
+      assert.deepEqual(buildHreflangLinks(path), [
+        `en-${code}|https://counselo-legal.com${english}`,
+        `ar-${code}|https://counselo-legal.com${arabic}`,
+        `x-default|https://counselo-legal.com${english}`,
+      ]);
+    }
+  }
+});
+
 test("regional service alternatives are reciprocal when UAE shares a route slug", () => {
   for (const slug of ["banking-finance", "intellectual-property"]) {
     const sa = buildHreflangLinks(`/sa/services/${slug}`);
@@ -88,12 +117,15 @@ test("the checked-in canonical URL matrix covers the generated public inventory"
   const requiredPageTypes = [
     "region-picker",
     "brand-about",
+    "saudi-lawyer-profile",
+    "syrian-lawyer-profile",
     "regional-home",
     "regional-static",
     "services-index",
     "service-detail",
     "blog-index",
     "blog-detail-bilingual",
+    "cross-border-consultation",
     "legal-library-index",
     "work-index",
     "work-detail",

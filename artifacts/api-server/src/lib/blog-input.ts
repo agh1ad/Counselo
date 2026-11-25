@@ -1,6 +1,6 @@
 import type { BlogPost, BlogSection, InsertBlogPost } from "@workspace/db";
 import sanitizeHtml from "sanitize-html";
-import { containsPublishingPlaceholder, isRouteLikeSeoTitle } from "@workspace/api-zod";
+import { ARTICLE_AUTHOR_PROFILES, ORIGINAL_FIRM_ARTICLE_CREDIT, articleAuthorFields, hasOriginalFirmCredit, storedArticleAuthor, containsPublishingPlaceholder, isRouteLikeSeoTitle } from "@workspace/api-zod";
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -298,6 +298,25 @@ export function parseBlogPostInput(
     contentAr: hasArabicArticle ? contentAr : [],
     published,
   };
+}
+
+/** Resolve the explicit editor selection after translation, preserving existing credit for older clients. */
+export function resolveBlogAuthorFields(
+  requestedId: unknown,
+  content: Pick<InsertBlogPost, "titleEn" | "titleAr" | "bodyEn" | "bodyAr">,
+  previous?: Pick<BlogPost, "primaryAuthorName" | "primaryAuthorNameAr" | "primaryAuthorUrl">,
+) {
+  const selected = requestedId === undefined
+    ? previous && storedArticleAuthor(previous)
+    : ARTICLE_AUTHOR_PROFILES.find(profile => profile.id === requestedId);
+  if (requestedId !== undefined && requestedId !== "" && !selected) {
+    throw new BlogInputError("Choose an author from the available professional profiles");
+  }
+  if (hasOriginalFirmCredit({ ...content, ...previous })) {
+    if (selected) throw new BlogInputError("This article retains its credited original author, Al-Baghdadi Law Firm");
+    return ORIGINAL_FIRM_ARTICLE_CREDIT;
+  }
+  return articleAuthorFields(selected?.id ?? "");
 }
 
 export function parseBlogLegalReviewDate(input: unknown): string | undefined {

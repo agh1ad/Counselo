@@ -429,7 +429,7 @@ export function SEOHead({
         name="author"
         content={ogType === "article" && articleAuthor
           ? articleAuthor
-          : "CounselO Legal — Lawyer and Legal Counsel Omar Al-Baghdadi"}
+          : COUNSELO_BRAND.en}
       />
       {reviewedBy && <meta name="reviewed-by" content={reviewedBy} />}
 

@@ -16,7 +16,7 @@ import {
   getAnalytics, clearAnalytics, getGTMContainerId, type AnalyticsStore,
 } from "@/lib/analytics";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
-import { ARTICLE_CONTEXT, blogPath, confirmedArticleReviewDate } from "@workspace/api-zod/browser";
+import { ARTICLE_AUTHOR_PROFILES, ARTICLE_CONTEXT, blogPath, confirmedArticleReviewDate, hasOriginalFirmCredit, storedArticleAuthor, type ArticleAuthorId } from "@workspace/api-zod/browser";
 
 const API = "/api";
 type Tab = "updates" | "blog" | "work" | "analytics" | "seo" | "tools" | "enquiries" | "translations";
@@ -46,6 +46,9 @@ interface BlogPost {
   legalReviewerNameAr?: string;
   legalReviewerUrl?: string;
   lastSubstantiveReviewAt?: string;
+  primaryAuthorName?: string;
+  primaryAuthorNameAr?: string;
+  primaryAuthorUrl?: string;
 }
 
 type BlogPostSummary = Pick<
@@ -53,7 +56,7 @@ type BlogPostSummary = Pick<
   "id" | "slug" | "date" | "categoryEn" | "categoryAr" | "titleEn" | "titleAr" | "published" | "contentType" | "createdAt"
 >;
 
-type FormData = Omit<BlogPost, "id" | "createdAt" | "updatedAt" | "legalReviewerName" | "legalReviewerNameAr" | "legalReviewerUrl" | "lastSubstantiveReviewAt">;
+type FormData = Omit<BlogPost, "id" | "createdAt" | "updatedAt" | "legalReviewerName" | "legalReviewerNameAr" | "legalReviewerUrl" | "lastSubstantiveReviewAt"> & { authorProfileId?: ArticleAuthorId | "" };
 type SavedArticleReview = Partial<Pick<BlogPost, "updatedAt" | "legalReviewerName" | "legalReviewerNameAr" | "legalReviewerUrl" | "lastSubstantiveReviewAt">>;
 
 const emptyForm = (): FormData => ({
@@ -210,6 +213,19 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualField
           </select>
           <p className="text-[10px] text-gray-400 mt-1">Legal guidance displays the applicable jurisdiction, law and primary sources.</p>
         </div>
+        <div>
+          <label className={labelCls} htmlFor="blog-article-author">{lang === "ar" ? "مؤلف المقال" : "Article author"}</label>
+          {hasOriginalFirmCredit(form) ? <output id="blog-article-author" className="text-xs text-gray-700">{lang === "ar" ? "البغدادي للمحاماة (المؤلف الأصلي)" : "Al-Baghdadi Law Firm (original author)"}</output>
+            : <select id="blog-article-author" className={inputCls} value={form.authorProfileId ?? ""} onChange={event => set("authorProfileId", event.target.value)}>
+              <option value="">{lang === "ar" ? "فريق كاونسلو للاستشارات القانونية" : "CounselO Legal Team"}</option>
+              <optgroup label={lang === "ar" ? "مكاتب المحاماة" : "Law firms"}>
+                {ARTICLE_AUTHOR_PROFILES.filter(author => author.type === "LegalService").map(author => <option key={author.id} value={author.id}>{author[lang]}</option>)}
+              </optgroup>
+              <optgroup label={lang === "ar" ? "المحامون" : "Individual lawyers"}>
+                {ARTICLE_AUTHOR_PROFILES.filter(author => author.type === "Person").map(author => <option key={author.id} value={author.id}>{author[lang]}</option>)}
+              </optgroup>
+            </select>}
+        </div>
         {legalReview}
         <div className="border border-gray-100 rounded-lg overflow-hidden">
           <button type="button" onClick={() => setSeoOpen((o) => !o)} className="w-full flex items-center justify-between px-3 py-2.5 bg-gray-50 text-[10px] font-bold text-gray-600 uppercase tracking-wide">
@@ -256,7 +272,7 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualField
 function PostEditor({ initial, token, onSave, onBack }: {
   initial: FormData & SavedArticleReview & { id?: number }; token: string; onSave: () => void; onBack: () => void;
 }) {
-  const [form, setForm] = useState<FormData>({ ...initial });
+  const [form, setForm] = useState<FormData>(() => ({ ...initial, authorProfileId: storedArticleAuthor(initial)?.id ?? "" }));
   const [lang, setLang] = useState<"en" | "ar">(
     initial.titleAr.trim() && !initial.titleEn.trim() ? "ar" : "en",
   );
@@ -370,7 +386,10 @@ function PostEditor({ initial, token, onSave, onBack }: {
   }, [form.bodyAr, form.bodyEn, lang]);
 
   const save = useCallback(async (publishState?: boolean) => {
-    const selectedForm = lang === "en"
+    // A byline-only edit keeps both saved language versions and their existing legal review.
+    const bylineOnly = initial.id && form.authorProfileId !== (storedArticleAuthor(initial)?.id ?? "")
+      && (Object.keys(form) as (keyof FormData)[]).every(key => key === "authorProfileId" || form[key] === initial[key]);
+    const selectedForm = bylineOnly ? form : lang === "en"
       ? { ...form, titleAr: "", excerptAr: "", categoryAr: "", seoTitleAr: "", seoDescriptionAr: "", bodyAr: "", contentEn: [], contentAr: [] }
       : { ...form, titleEn: "", excerptEn: "", categoryEn: "", seoTitleEn: "", seoDescriptionEn: "", bodyEn: "", contentEn: [], contentAr: [] };
     const payload = publishState !== undefined ? { ...selectedForm, published: publishState } : selectedForm;
@@ -395,7 +414,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
     } finally {
       setSaving(false);
     }
-  }, [form, initial.id, lang, token, onSave]);
+  }, [form, initial, lang, token, onSave]);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">

@@ -14,9 +14,10 @@ const countryNamesAr: Record<string, string> = {
 };
 const languageNamesAr: Record<string, string> = { Arabic: "العربية", English: "الإنجليزية" };
 
-export function PlatformFacts({ isArabic, embedded = false, className = "" }: {
+export function PlatformFacts({ isArabic, embedded = false, linkWork = true, className = "" }: {
   isArabic: boolean;
   embedded?: boolean;
+  linkWork?: boolean;
   className?: string;
 }) {
   const headingId = useId();
@@ -46,13 +47,13 @@ export function PlatformFacts({ isArabic, embedded = false, className = "" }: {
   return <section className={`platform-facts${embedded ? " platform-facts--embedded" : ""} ${className}`} dir={isArabic ? "rtl" : "ltr"} aria-labelledby={headingId}>
     <Heading id={headingId} className="platform-facts__heading">{copy.factsTitle}</Heading>
     <dl className="platform-facts__grid">
-      <div className="platform-facts__item">
+      {(linkWork || hasPublishedCount) && <div className="platform-facts__item">
         <dt>{copy.workCountLabel}</dt>
         <dd className={`platform-facts__value${hasPublishedCount ? "" : " platform-facts__value--link"}`}>
-          <Link href={isArabic ? "/ar/our-work" : "/our-work"}>{hasPublishedCount ? publishedCount.toLocaleString(locale) : (isArabic ? "استعرض الأعمال" : "Explore Our Work")}</Link>
+          {linkWork ? <Link href={isArabic ? "/ar/our-work" : "/our-work"}>{hasPublishedCount ? publishedCount.toLocaleString(locale) : (isArabic ? "استعرض الأعمال" : "Explore Our Work")}</Link> : publishedCount?.toLocaleString(locale)}
         </dd>
         <dd className="platform-facts__detail">{copy.workCountDetail}</dd>
-      </div>
+      </div>}
       <div className="platform-facts__item">
         <dt>{isArabic ? "دول ضمن نطاق خدماتنا" : "Countries served"}</dt>
         <dd className="platform-facts__value">{COUNSELO_SERVICE_COUNTRY_COUNT.toLocaleString(locale)}</dd>

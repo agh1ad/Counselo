@@ -3,6 +3,7 @@
 /* The contact process is above the fold in prerendered HTML. Load its layout
    before first paint instead of waiting for the contact page JavaScript. */
 @import "./components/contact/consultation-steps.css";
+@import "./components/about/firm-profile.css";
 @plugin "@tailwindcss/typography";
 
 /* Local subsets preserve the existing typography without a render-blocking

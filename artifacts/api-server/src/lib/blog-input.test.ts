@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { articleAuthorFields, assignArticleProvenance, ORIGINAL_FIRM_ARTICLE_CREDIT, storedArticleAuthor } from "@workspace/api-zod";
 import {
   BlogInputError,
   parseBlogLegalReviewDate,
+  resolveBlogAuthorFields,
   parseBlogPostInput,
   parsePositiveId,
   sanitizeRichText,
@@ -211,4 +213,50 @@ test("validates numeric route identifiers", () => {
   assert.equal(parsePositiveId("42"), 42);
   assert.throws(() => parsePositiveId("not-a-number"), BlogInputError);
   assert.throws(() => parsePositiveId("0"), BlogInputError);
+});
+
+
+test("article author selection survives drafts, bilingual publication and older clients, and can be cleared", () => {
+  const draft = parseBlogPostInput(validPost);
+  const credit = resolveBlogAuthorFields("abdullah-al-anzi", draft);
+  assert.equal(storedArticleAuthor(credit)?.id, "abdullah-al-anzi");
+  const published = parseBlogPostInput({ ...publishableBilingualPost, published: true });
+  assert.deepEqual(resolveBlogAuthorFields(undefined, published, credit), credit);
+  assert.deepEqual(resolveBlogAuthorFields("omar-al-baghdadi", published, credit), articleAuthorFields("omar-al-baghdadi"));
+  assert.deepEqual(resolveBlogAuthorFields("", published, credit), articleAuthorFields(""));
+  assert.equal(assignArticleProvenance({ ...published, ...credit }, "ar").primaryAuthorUrl, "/sa/ar/about/abdullah-al-anzi#lawyer");
+  assert.equal(assignArticleProvenance({ ...published, ...credit }).lastSubstantiveReviewAt, "");
+  const syrian = resolveBlogAuthorFields("omar-al-abdullah", published, credit);
+  assert.equal(storedArticleAuthor(syrian)?.id, "omar-al-abdullah");
+  assert.equal(assignArticleProvenance({ ...published, ...syrian }, "ar").primaryAuthorUrl, "/syr/ar/about/omar-al-abdullah#lawyer");
+});
+
+test("an article can only credit a listed person explicitly, and retains the original firm's credit", () => {
+  const original = { ...validPost, titleEn: "Hidden Defects in Contracts and Their Legal Effect", bodyEn: "<p>Prepared by Al-Baghdadi Law Firm and published on baghdadilaw.co</p>" };
+  assert.deepEqual(resolveBlogAuthorFields("", original), ORIGINAL_FIRM_ARTICLE_CREDIT);
+  assert.deepEqual(resolveBlogAuthorFields(undefined, validPost, ORIGINAL_FIRM_ARTICLE_CREDIT), ORIGINAL_FIRM_ARTICLE_CREDIT);
+  assert.throws(() => resolveBlogAuthorFields("omar-al-baghdadi", original), BlogInputError);
+  assert.throws(() => resolveBlogAuthorFields("https://example.com/author", validPost), BlogInputError);
+  const rawInput = parseBlogPostInput({ ...validPost, ...articleAuthorFields("omar-al-baghdadi") });
+  assert.deepEqual(resolveBlogAuthorFields(undefined, rawInput), articleAuthorFields(""));
+  assert.equal(storedArticleAuthor({ primaryAuthorName: "Omar Al-Baghdadi" }), undefined);
+});
+
+
+test("older personal credits sharing a law office URL continue to resolve to the individual", () => {
+  for (const [personId, firmId] of [
+    ["abdullah-al-anzi", "abdullah-al-anzi-law-office"],
+    ["omar-al-abdullah", "omar-al-abdullah-law-office"],
+  ] as const) {
+    const firm = resolveBlogAuthorFields(firmId, validPost);
+    const lawyer = resolveBlogAuthorFields(personId, validPost);
+    const oldLawyer = { ...lawyer, primaryAuthorUrl: firm.primaryAuthorUrl };
+    assert.equal(storedArticleAuthor(firm)?.id, firmId);
+    assert.equal(storedArticleAuthor(oldLawyer)?.id, personId);
+    assert.equal(assignArticleProvenance({ ...validPost, ...oldLawyer }).primaryAuthorType, "Person");
+    assert.deepEqual(resolveBlogAuthorFields(undefined, validPost, oldLawyer), lawyer);
+    assert.deepEqual(resolveBlogAuthorFields(firmId, validPost, oldLawyer), firm);
+    assert.deepEqual(resolveBlogAuthorFields(undefined, validPost, firm), firm);
+    assert.deepEqual(resolveBlogAuthorFields("", validPost, firm), articleAuthorFields(""));
+  }
 });

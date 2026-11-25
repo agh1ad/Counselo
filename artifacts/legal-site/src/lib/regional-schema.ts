@@ -1,6 +1,6 @@
 // Entity facts and already-localized answers must not be rewritten by a page's
 // legacy country substitution. This also applies when nested in an @graph.
-const PRESERVED_TYPES = new Set(["Organization", "Person", "WebSite", "FAQPage", "Question", "Answer"]);
+const PRESERVED_TYPES = new Set(["Organization", "LegalService", "Person", "WebSite", "FAQPage", "Question", "Answer"]);
 
 export function localizeLegacySyriaSchema(value: unknown, localizeText: (text: string) => string): unknown {
   if (typeof value === "string") return localizeText(value);

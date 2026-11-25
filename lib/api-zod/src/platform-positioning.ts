@@ -1,3 +1,9 @@
+// Membership and experience review confirmed by CounselO Legal.
+export const COUNSELO_FIRM_TEAM = {
+  en: "Each member firm has a team of licensed lawyers. All are part of CounselO Legal. CounselO and its founder, Omar Al-Baghdadi, independently verify each lawyer’s professional experience.",
+  ar: "يضمّ كل مكتب محاماة فريقاً من المحامين المرخّصين، وجميعهم أعضاء في فريق كاونسلو. وتتحقّق كاونسلو ومؤسسها المحامي عمر البغدادي بصورة مستقلة من الخبرة المهنية لكل محامٍ.",
+} as const;
+
 export const COUNSELO_PLATFORM_POSITIONING = {
   name: "CounselO Legal",
   jurisdictions: ["Saudi Arabia", "Syria", "United Arab Emirates"],

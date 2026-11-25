@@ -4,7 +4,8 @@ export const BAGHDADI_LAW_PROFILE_URL = "https://www.baghdadilaw.co/who-we-are";
 export const OMAR_CANONICAL_ENTITY_ID = `${OMAR_OFFICIAL_PROFILE_URL}/#omar-al-baghdadi`;
 export const BAGHDADI_LAW_CANONICAL_ENTITY_ID = "https://www.baghdadilaw.co/#legalservice";
 import { COUNSELO_PLATFORM_POSITIONING } from "./platform-positioning";
-import { COUNSELO_BRAND } from "./brand";
+import { COUNSELO_ABOUT_PATHS, COUNSELO_BRAND } from "./brand";
+import { ABDULLAH_PROFILE_PATHS, OMAR_ABDULLAH_PROFILE_PATHS } from "./public-site-policy";
 
 // The official profile, BaghdadiLaw and this site's /omar-baghdadi.jpg publish
 // the same portrait. Reuse the official image identity in every founder record.
@@ -24,12 +25,14 @@ export const COUNSELO_ENTITY_IDS = {
   organization: `${ENTITY_BASE_URL}/#organization`,
   website: `${ENTITY_BASE_URL}/#website`,
   omar: OMAR_CANONICAL_ENTITY_ID,
+  omarAlAbdullah: `${ENTITY_BASE_URL}${OMAR_ABDULLAH_PROFILE_PATHS.en}#person`,
   saudiOffice: `${ENTITY_BASE_URL}/#office-abdullah-al-anzi`,
   alBaghdadiOffice: BAGHDADI_LAW_CANONICAL_ENTITY_ID,
   syriaAbdullahOffice: `${ENTITY_BASE_URL}/#office-omar-al-abdullah`,
 } as const;
 
 const serviceAreas = COUNSELO_PLATFORM_POSITIONING.jurisdictions.map((name) => ({ "@type": "Country", name }));
+const consultationContact = { telephone: "+966594850247", email: "info@counselo-legal.com" } as const;
 const legalServices = [
   { id: "legal-consultation", name: "Legal consultation and written advice", description: "Assessment of the facts, legal position and available options, from focused questions to complex multi-party and cross-border matters." },
   { id: "contracts-and-documents", name: "Contract drafting and document review", description: "Contract and transaction review, risk analysis, revised terms, agreements and legal memoranda for personal and business matters." },
@@ -64,6 +67,7 @@ export const COUNSELO_ORGANIZATION = {
   alternateName: [COUNSELO_BRAND.designationAr, "CounselO", COUNSELO_BRAND.ar],
   description: COUNSELO_PLATFORM_POSITIONING.descriptionEn,
   url: ENTITY_BASE_URL,
+  mainEntityOfPage: Object.values(COUNSELO_ABOUT_PATHS).map(path => ({ "@id": `${ENTITY_BASE_URL}${path}#webpage` })),
   logo: COUNSELO_LOGO,
   image: COUNSELO_LOGO,
   founder: { "@id": COUNSELO_ENTITY_IDS.omar },
@@ -73,10 +77,11 @@ export const COUNSELO_ORGANIZATION = {
     { "@id": COUNSELO_ENTITY_IDS.syriaAbdullahOffice },
   ],
   areaServed: serviceAreas,
+  ...consultationContact,
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+966594850247",
-    email: "info@counselo-legal.com",
+    url: `${ENTITY_BASE_URL}/#contact`,
+    ...consultationContact,
     contactType: "legal consultation and representation enquiries",
     areaServed: ["SA", "SY", "AE"],
     availableLanguage: [...COUNSELO_PLATFORM_POSITIONING.languages],
@@ -165,15 +170,20 @@ export const OMAR_AL_BAGHDADI = {
 
 export const SAUDI_OFFICE_DIRECTORY_URL = "https://eservice.sba.gov.sa/directory/855";
 
+export const ABDULLAH_AL_ANZI_OFFICE_LOGO_PATH = "/images/abdullah-alenezi-law-office-logo.jpg";
+export const OMAR_AL_ABDULLAH_OFFICE_LOGO_PATH = "/images/omar-al-abdullah-law-office.webp";
+
 export const COOPERATING_OFFICES = {
   saudi: {
     "@type": "LegalService",
     "@id": COUNSELO_ENTITY_IDS.saudiOffice,
-    name: "Lawyer Abdullah Al-Anzi",
-    alternateName: "المحامي عبدالله العنزي",
+    name: "Abdullah Al-Anzi Law Office",
+    alternateName: "مكتب المحامي عبدالله العنزي",
     legalName: "مكتب عبدالله مغثي قاعد العنزي للمحاماة",
+    url: ENTITY_BASE_URL + ABDULLAH_PROFILE_PATHS.en,
+    logo: ENTITY_BASE_URL + ABDULLAH_AL_ANZI_OFFICE_LOGO_PATH,
     sameAs: [SAUDI_OFFICE_DIRECTORY_URL],
-    description: "Abdullah Al-Anzi’s law office is part of the CounselO legal team in Saudi Arabia, providing legal advice and representation within its local professional authority.",
+    description: "Abdullah Al-Anzi Law Office is an established law firm in Dammam and a member of CounselO Legal’s Saudi team. The firm is registered with the Saudi Bar Association. Its licensed lawyers belong to the CounselO team.",
     memberOf: { "@id": COUNSELO_ENTITY_IDS.organization },
     areaServed: { "@type": "Country", name: "Saudi Arabia" },
   },
@@ -182,7 +192,7 @@ export const COOPERATING_OFFICES = {
     "@id": COUNSELO_ENTITY_IDS.alBaghdadiOffice,
     name: "Al-Baghdadi Law Firm",
     alternateName: "مكتب البغدادي للمحاماة",
-    description: "Al-Baghdadi Law Firm is part of the CounselO legal team, bringing its legal practice to consultation, preparation and representation.",
+    description: "Al-Baghdadi Law Firm was established in 1957. Two generations of lawyers have shaped the firm. Its licensed lawyers form part of the CounselO Legal team.",
     memberOf: { "@id": COUNSELO_ENTITY_IDS.organization },
     url: "https://www.baghdadilaw.co/",
     areaServed: ["Saudi Arabia", "United Arab Emirates", "Syria"],
@@ -190,9 +200,11 @@ export const COOPERATING_OFFICES = {
   syriaAbdullah: {
     "@type": "LegalService",
     "@id": COUNSELO_ENTITY_IDS.syriaAbdullahOffice,
-    name: "Lawyer Omar Al-Abdullah Office",
+    name: "Omar Al-Abdullah Law Office",
     alternateName: "مكتب المحامي عمر العبد الله",
-    description: "Lawyer Omar Al-Abdullah Office is part of the CounselO legal team in Syria, providing legal advice and representation within its local professional authority.",
+    url: ENTITY_BASE_URL + OMAR_ABDULLAH_PROFILE_PATHS.en,
+    logo: `${ENTITY_BASE_URL}${OMAR_AL_ABDULLAH_OFFICE_LOGO_PATH}`,
+    description: "Omar Al-Abdullah Law Office is an established law firm in Damascus and a member of CounselO Legal’s Syrian team. The firm has its own team of licensed Syrian lawyers, all members of CounselO Legal.",
     memberOf: { "@id": COUNSELO_ENTITY_IDS.organization },
     areaServed: { "@type": "Country", name: "Syria" },
   },

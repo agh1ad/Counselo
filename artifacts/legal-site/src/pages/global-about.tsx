@@ -1,9 +1,10 @@
 import { Link } from "wouter";
-import { ArrowLeft, ArrowRight, MonitorSmartphone, UsersRound, Scale, Globe2, Check, ShieldCheck, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, MonitorSmartphone, UsersRound, Scale, Globe2, Check } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { COUNSELO_ABOUT_PATHS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, OMAR_AL_BAGHDADI, OMAR_PORTRAIT, COOPERATING_OFFICES, COUNSELO_ENTITY_IDS, OMAR_OFFICIAL_PROFILE_URL, ENTITY_BASE_URL } from "@workspace/api-zod/browser";
-import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, SAUDI_LAWYER_DIRECTORY, globalAboutContent, aboutRegions, regionalCredentialLookup, syrianPartners } from "@/components/about/global-about-content";
+import { ABOUT_UPDATED, globalAboutContent, aboutRegions } from "@/components/about/global-about-content";
+import { GlobalTeamDirectory } from "@/components/about/global-team-directory";
 import { EngagementStandards } from "@/components/legal/engagement-standards";
 import { PlatformFacts } from "@/components/legal/platform-facts";
 import "@/components/about/about.css";
@@ -23,16 +24,13 @@ export default function GlobalAbout() {
   const url = `${ENTITY_BASE_URL}${pagePath}`;
   const breadcrumbId = `${url}#breadcrumb`;
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
-  const whatsapp = `https://wa.me/${COUNSELO_ORGANIZATION.contactPoint.telephone.slice(1)}?text=${encodeURIComponent(isRTL
-    ? "مرحباً كاونسلو، أود مناقشة مسألة قانونية وتحديد نطاق العمل والأتعاب."
-    : "Hello CounselO, I would like to discuss a legal matter and confirm the scope and fee.")}`;
   const offices = Object.values(COOPERATING_OFFICES);
   const countryName = (country: typeof countries[number]) => country === "uae"
     ? (isRTL ? "الإمارات العربية المتحدة" : "United Arab Emirates")
     : aboutRegions[country][language].country;
   const termsLinks = countries.map(country => ({
     href: `/${country}${languagePath}/terms-of-service`,
-    label: `${isRTL ? "شروط الخدمة" : "Service terms"} · ${countryName(country)}`,
+    label: countryName(country),
   }));
   const schema = [
     { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
@@ -77,14 +75,12 @@ export default function GlobalAbout() {
           <h1 id="about-title">{c.heading}</h1>
           <p className="about-hero__lead">{c.lead}</p>
           <div className="about-actions">
-            <a href="#about-contact" className="about-button about-button--gold" data-cta="contact" data-conversion-position="about-hero" data-lang={language}>{c.contact}<Arrow size={18} aria-hidden="true" /></a>
-            <a href="#about-services" className="about-hero__services">{c.servicesLink}<Arrow size={18} aria-hidden="true" /></a>
+            <a href="#team-office" className="about-button about-button--gold">{isRTL ? "تعرّف على الفريق" : "Meet our team"}<Arrow size={18} aria-hidden="true" /></a>
           </div>
         </div>
         <aside className="about-hero__promise" aria-labelledby="about-promise-title">
           <h2 id="about-promise-title">{c.heroSideTitle}</h2>
           <ul>{c.heroServices.map(text => <li key={text}><Check size={19} aria-hidden="true" /><span>{text}</span></li>)}</ul>
-          <Link href={workPath} className="about-hero__services about-hero__work">{c.workLink}<Arrow size={17} aria-hidden="true" /></Link>
         </aside>
       </div>
     </section>
@@ -116,7 +112,7 @@ export default function GlobalAbout() {
         <div>
           <p>{c.servicesIntro}</p>
           <ul className="about-service-list">{c.services.map(item => <li key={item.title}><h4>{item.title}</h4><p>{item.text}</p></li>)}</ul>
-          <nav aria-label={c.countryServicesLink} className="global-about-country-links">{countries.map(country => <Link key={country} href={`/${country}${languagePath}/services`} className="about-text-link" aria-label={`${c.servicesLink}: ${countryName(country)}`}>{countryName(country)}<Arrow size={17} aria-hidden="true" /></Link>)}</nav>
+          <details className="about-country-disclosure"><summary>{c.countryServicesLink}</summary><nav aria-label={c.countryServicesLink} className="global-about-country-links">{countries.map(country => <Link key={country} href={`/${country}${languagePath}/services`} className="about-text-link" aria-label={`${c.servicesLink}: ${countryName(country)}`}>{countryName(country)}<Arrow size={17} aria-hidden="true" /></Link>)}</nav></details>
         </div>
       </div>
       <div className="about-story__row">
@@ -125,7 +121,7 @@ export default function GlobalAbout() {
       </div>
       <div className="about-story__row">
         <h3>{c.standardsTitle}</h3>
-        <div><p>{c.standards}</p><p>{c.privacy}</p><nav aria-label={c.privacyLink} className="global-about-country-links">{countries.map(country => <Link key={country} href={`/${country}${languagePath}/privacy-policy`} className="about-text-link" aria-label={`${c.privacyLink}: ${countryName(country)}`}>{c.privacyLink} · {countryName(country)}<Arrow size={17} aria-hidden="true" /></Link>)}</nav></div>
+        <div><p>{c.standards}</p><p>{c.privacy}</p><details className="about-country-disclosure"><summary>{isRTL ? "سياسات الخصوصية حسب الدولة" : "Privacy policies by country"}</summary><nav aria-label={c.privacyLink} className="global-about-country-links">{countries.map(country => <Link key={country} href={`/${country}${languagePath}/privacy-policy`} className="about-text-link" aria-label={`${c.privacyLink}: ${countryName(country)}`}>{countryName(country)}<Arrow size={17} aria-hidden="true" /></Link>)}</nav></details></div>
       </div>
       <div className="about-story__row">
         <h3>{c.workTitle}</h3>
@@ -133,7 +129,7 @@ export default function GlobalAbout() {
       </div>
     </section>
 
-    <div className="about-shell about-platform-proof"><PlatformFacts isArabic={isRTL} embedded /></div>
+    <div className="about-shell about-platform-proof"><PlatformFacts isArabic={isRTL} embedded linkWork={false} /></div>
     <div className="about-shell"><EngagementStandards isArabic={isRTL} termsLinks={termsLinks} /></div>
 
     <section className="about-founder" aria-labelledby="about-founder-heading">
@@ -150,39 +146,7 @@ export default function GlobalAbout() {
       </div>
     </section>
 
-    <section id="team-office" className="about-shell global-about-team" aria-labelledby="about-team-heading">
-      <header className="about-story__intro">
-        <h2 id="about-team-heading">{c.countriesTitle}</h2>
-        <div><p>{c.countriesIntro}</p></div>
-      </header>
-      {countries.map(country => {
-        const local = aboutRegions[country][language];
-        const credentialLookup = regionalCredentialLookup[country][language];
-        return <article id={`about-country-${country}`} className="about-partner global-about-team__country" key={country} aria-labelledby={`about-country-${country}-heading`}>
-          <h3 id={`about-country-${country}-heading`} className="global-about-team__country-name">{countryName(country)}</h3>
-          <div className="about-partner__identity">
-            {country === "sa"
-              ? <img className="about-partner__logo" src="/images/abdullah-alenezi-law-office-logo.jpg" width={569} height={762} alt={isRTL ? "شعار مكتب المحامي عبدالله العنزي" : "Abdullah Al-Anzi Law Office logo"} loading="lazy" decoding="async" />
-              : <ShieldCheck size={32} strokeWidth={1.5} aria-hidden="true" />}
-            <div className="about-partner__name"><h4>{local.partnerTitle}</h4></div>
-            {country === "sa" && <div className="about-partner__licence">
-              <span>{c.licenceLabel}</span>
-              <a className="about-partner__licence-link" href={SAUDI_LAWYER_DIRECTORY[language]} target="_blank" rel="noopener noreferrer" aria-label={`${c.directoryLabel}: ${local.partnerTitle} — ${SAUDI_PARTNER_LICENCE}`} title={c.directoryLabel}><strong><bdi dir="ltr">{SAUDI_PARTNER_LICENCE}</bdi></strong></a>
-            </div>}
-          </div>
-          <p>{local.partnerText}</p>
-          {country === "syr" && <ul className="about-partner__offices">
-            {syrianPartners[language].map(partner => <li key={partner.name}>
-              {partner.logo && <img className="about-partner__office-logo" src={partner.logo} alt={partner.logoAlt} width={700} height={300} loading="lazy" decoding="async" />}
-              <h4>{partner.name}</h4><p>{partner.location}</p>
-              {partner.licence && <p>{isRTL ? "رقم الترخيص: " : "Licence number: "}<strong><bdi dir="ltr">{partner.licence}</bdi></strong></p>}
-            </li>)}
-          </ul>}
-          <p className="about-partner__credentials">{credentialLookup.text}</p>
-          <a className="about-text-link" href={credentialLookup.directory.url} target="_blank" rel="noopener noreferrer">{credentialLookup.directory.label}<Arrow size={17} aria-hidden="true" /></a>
-        </article>;
-      })}
-    </section>
+    <GlobalTeamDirectory language={language} />
 
     <section id="faq" className="about-faq about-shell" aria-labelledby="about-faq-heading">
       <h2 id="about-faq-heading">{c.faqTitle}</h2>
@@ -190,20 +154,9 @@ export default function GlobalAbout() {
         {c.faqs.map(faq => <article key={faq.question}>
           <h3>{faq.question}</h3>
           <p>{faq.answer}</p>
-          {faq.link && <Link href={faq.link.href} className="about-text-link">{faq.link.label}<Arrow size={17} aria-hidden="true" /></Link>}
         </article>)}
       </div>
     </section>
 
-    <section id="about-contact" className="about-closing about-shell" aria-labelledby="about-contact-heading">
-      <div className="about-closing__panel">
-        <div><h2 id="about-contact-heading">{c.ctaTitle}</h2><p>{c.ctaText}</p><p className="about-closing__note">{c.ctaNote}</p></div>
-        <div className="about-closing__actions">
-          <p className="global-about-contact-label">{c.countryContactLink}</p>
-          {countries.map(country => <Link key={country} href={`/${country}${languagePath}/contact`} className="about-button about-button--gold" data-cta="contact" data-conversion-position="about-contact" data-region={country} data-lang={language} aria-label={`${c.contact}: ${countryName(country)}`}>{countryName(country)}<Arrow size={18} aria-hidden="true" /></Link>)}
-          <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="about-button about-button--outline" data-cta="whatsapp" data-conversion-position="about-contact" data-lang={language}><MessageCircle size={19} aria-hidden="true" />{c.whatsapp}</a>
-        </div>
-      </div>
-    </section>
   </div>;
 }

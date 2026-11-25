@@ -1,17 +1,17 @@
 import type { Region } from "@workspace/api-zod/browser";
-import { COOPERATING_OFFICES, SAUDI_OFFICE_DIRECTORY_URL } from "@workspace/api-zod/browser";
+import { BAGHDADI_LAW_PROFILE_URL, COOPERATING_OFFICES, OMAR_ABDULLAH_PROFILE_PATHS, OMAR_AL_ABDULLAH_OFFICE_LOGO_PATH, SAUDI_OFFICE_DIRECTORY_URL } from "@workspace/api-zod/browser";
 import { COUNSELO_CLIENT_TRUST } from "@/lib/public-claims";
 
 // Owner-confirmed team relationship, 2026-11-18: the local lawyers and offices
-// are part of the CounselO team. Licence 37440 identifies Abdullah Al-Anzi;
+// are part of the CounselO team. Licence 37/440 identifies Abdullah Al-Anzi;
 // it is not a licence held by every team member or by the CounselO brand.
-export const SAUDI_PARTNER_LICENCE = "37440";
+export const SAUDI_PARTNER_LICENCE = "37/440";
 export const ABOUT_UPDATED = "2026-11-24";
 
 // Official public lookup routes for readers checking current professional status.
 export const SAUDI_LAWYER_DIRECTORY = {
-  en: "https://eservice.sba.gov.sa/en/lawyers",
-  ar: "https://eservice.sba.gov.sa/lawyers",
+  en: "https://eservice.sba.gov.sa/en/lawyers?search=37%2F440",
+  ar: "https://eservice.sba.gov.sa/lawyers?search=37%2F440",
 } as const;
 const SYRIAN_LAWYER_DIRECTORY = "https://syrianbar.org.sy/lawyer-directory/";
 
@@ -21,12 +21,12 @@ export const regionalCredentialLookup: Record<Region, Record<"en" | "ar", {
 }>> = {
   sa: {
     en: {
-      text: "Search the Saudi Bar Association directory by the number above to check the lawyer’s current licence status.",
-      directory: { url: SAUDI_OFFICE_DIRECTORY_URL, label: "Abdullah Al-Anzi Law Office in the Saudi Bar Association directory (Arabic)" },
+      text: "The Saudi Bar Association lists the firm in Dammam under the registered name Abdullah Moghthi Qaid Al-Anazi Law Firm.",
+      directory: { url: "https://eservice.sba.gov.sa/en/directory/855", label: "View the firm’s Saudi Bar Association record" },
     },
     ar: {
-      text: "ابحث برقم الترخيص أعلاه في دليل الهيئة السعودية للمحامين للتحقّق من حالة ترخيص المحامي الحالية.",
-      directory: { url: SAUDI_OFFICE_DIRECTORY_URL, label: "سجل مكتب المحامي عبدالله العنزي لدى الهيئة السعودية للمحامين" },
+      text: "تُدرج الهيئة السعودية للمحامين المنشأة في الدمام باسم «مكتب عبدالله مغثي قاعد العنزي للمحاماة».",
+      directory: { url: SAUDI_OFFICE_DIRECTORY_URL, label: "سجل المنشأة لدى الهيئة السعودية للمحامين" },
     },
   },
   syr: {
@@ -54,18 +54,18 @@ export const regionalCredentialLookup: Record<Region, Record<"en" | "ar", {
 // Existing business record: en-syr.ts/ar-syr.ts at HEAD and the published
 // https://counselo-legal.com/syr/ar partner card (checked 2026-11-03).
 // This identifies Omar Al-Abdullah's licence, not a CounselO platform licence.
-const SYRIAN_ABDULLAH_LICENCE = "4519";
+export const SYRIAN_ABDULLAH_LICENCE = "4519";
 
 // Names match the shared entity registry; locations match the Syrian office
 // records already published in en-syr.ts and ar-syr.ts.
 export const syrianPartners = {
   en: [
-    { name: COOPERATING_OFFICES.alBaghdadi.name, location: "Syria", licence: null, logo: "/images/baghdadi-law-logo-en.webp", logoAlt: "Baghdadi Law logo" },
-    { name: COOPERATING_OFFICES.syriaAbdullah.name, location: "Damascus, Syria", licence: SYRIAN_ABDULLAH_LICENCE, logo: null, logoAlt: null },
+    { name: COOPERATING_OFFICES.alBaghdadi.name, location: "Syria", description: "Riyad Al-Baghdadi founded the firm in 1957. The next generation, lawyers Mosef and Omar Al-Baghdadi, carried the family practice forward. Today Omar leads a regional firm that retains its roots in the Syrian legal profession and brings together lawyers and member firms across Syria, Saudi Arabia and the United Arab Emirates.", licence: null, licenceLabel: null, logo: "/images/baghdadi-law-logo-en.webp", profileHref: BAGHDADI_LAW_PROFILE_URL, profileLabel: "Firm profile", logoAlt: "Baghdadi Law logo" },
+    { name: COOPERATING_OFFICES.syriaAbdullah.name, location: "Damascus, Syria", description: "Omar Al-Abdullah Law Office is an established Damascus firm with its own team of lawyers licensed in Syria. Omar Al-Abdullah practises alongside colleagues whose professional experience is rooted in the Syrian capital. Together they form the Damascus office’s team within CounselO Legal.", licence: SYRIAN_ABDULLAH_LICENCE, licenceLabel: "Omar Al-Abdullah’s lawyer licence, as listed by CounselO Legal", logo: OMAR_AL_ABDULLAH_OFFICE_LOGO_PATH, profileHref: OMAR_ABDULLAH_PROFILE_PATHS.en, profileLabel: "Firm profile", logoAlt: "Omar Al-Abdullah Law Office logo" },
   ],
   ar: [
-    { name: COOPERATING_OFFICES.alBaghdadi.alternateName, location: "سوريا", licence: null, logo: "/images/baghdadi-law-logo-ar.webp", logoAlt: "شعار البغدادي للمحاماة" },
-    { name: COOPERATING_OFFICES.syriaAbdullah.alternateName, location: "دمشق، سوريا", licence: SYRIAN_ABDULLAH_LICENCE, logo: null, logoAlt: null },
+    { name: COOPERATING_OFFICES.alBaghdadi.alternateName, location: "سوريا", description: "أسّس المحامي رياض البغدادي المكتب عام 1957، وواصل المحاميان مسعف وعمر البغدادي مسيرته في الجيل الثاني من العائلة. يقود عمر اليوم مكتباً إقليمياً يحتفظ بجذوره في المحاماة السورية، ويجمع ضمن شبكته المهنية محامين ومكاتب محاماة في سوريا والسعودية والإمارات العربية المتحدة.", licence: null, licenceLabel: null, logo: "/images/baghdadi-law-logo-ar.webp", profileHref: "https://www.baghdadilaw.co/ar/who-we-are", profileLabel: "ملف المكتب", logoAlt: "شعار البغدادي للمحاماة" },
+    { name: COOPERATING_OFFICES.syriaAbdullah.alternateName, location: "دمشق، سوريا", description: "مكتب المحامي عمر العبد الله مكتب محاماة راسخ في دمشق، يضمّ فريقاً من المحامين المرخّصين في سوريا. يزاول عمر العبد الله المحاماة إلى جانب زملائه في العاصمة السورية، حيث تكوّنت خبرتهم المهنية. ويشكّل محامو المكتب معاً جزءاً من فريق كاونسلو القانوني.", licence: SYRIAN_ABDULLAH_LICENCE, licenceLabel: "رقم رخصة المحامي عمر العبد الله بحسب بيانات كاونسلو", logo: OMAR_AL_ABDULLAH_OFFICE_LOGO_PATH, profileHref: OMAR_ABDULLAH_PROFILE_PATHS.ar, profileLabel: "ملف المكتب", logoAlt: "شعار مكتب المحامي عمر العبد الله" },
   ],
 } as const;
 
@@ -87,9 +87,9 @@ export const aboutContent = {
     platformTitle: "Professional legal support, built around you.",
     introduction: "CounselO Legal was founded by lawyer and legal counsel Omar Al-Baghdadi to bring legal services together in one destination. Our team includes licensed lawyers and offices in Saudi Arabia, Syria and the UAE, delivering consultation, drafting, negotiation, dispute work and representation. Consult online, share documents and follow your matter remotely with the same team.",
     purpose: "You do not need an office appointment to access our team's expertise. Share your question and documents from home, discuss them in Arabic or English and receive advice you can act on. From a family concern or employment dispute to a property transaction or business decision, we build the service around your facts and objectives.",
-    teamTitle: "Your team from advice to representation",
-    team: "Our legal team draws on its practical experience in contracts, disputes, arbitration and cross-border legal analysis. We examine the chronology, test the documents against the legal questions and identify the strengths, gaps and risks before preparing our recommendations. This discipline carries through to our drafting, settlement reviews and preparation for proceedings.",
-    teamSupport: "You work with the CounselO team throughout your matter. Our team comprises licensed lawyers and law offices, combining analysis, drafting, negotiation and representation. The same CounselO team handles your online communication and court and authority representation, including required attendance through its members licensed in the relevant country. We keep your preparation, deadlines and follow-up connected, and keep you informed as the work progresses.",
+    teamTitle: "The lawyers behind CounselO",
+    team: "CounselO Legal brings together lawyers who have built their careers in three different legal systems. They practise with member firms in Saudi Arabia, Syria and the United Arab Emirates.",
+    teamSupport: "Each firm retains its own name and professional identity. The firm profiles introduce its lawyers and the legal community in which its team gained its experience.",
     complexTitle: "From everyday questions to complex cases",
     complexText: "We handle straightforward questions, detailed transactions and complex disputes involving multiple parties, substantial evidence or more than one country. Our work connects case analysis, legal strategy, drafting, settlement negotiations and follow-up. We agree one work plan with you, including the responsible team members, legal steps and any required representation.",
     workTitle: "Published legal work you can examine",
@@ -125,7 +125,7 @@ export const aboutContent = {
     ],
     profileLink: "View his professional profile",
     partnerLabel: "Part of our CounselO team in Saudi Arabia",
-    licenceLabel: "Saudi lawyer licence number",
+    licenceLabel: "Abdullah Al-Anzi’s lawyer licence",
     directoryLabel: "Search the Saudi Bar Association lawyers directory",
     faqTitle: "Your questions about our legal services",
     faqs: [
@@ -155,9 +155,9 @@ export const aboutContent = {
     platformTitle: "دعم قانوني مهني، مصمم حول احتياجك.",
     introduction: "أسس المحامي والمستشار القانوني عمر البغدادي كاونسلو لتجمع الخدمات القانونية في وجهة واحدة. يضم فريقنا محامين ومكاتب مرخصة في السعودية وسوريا والإمارات، ويتولى الاستشارة والصياغة والتفاوض والمنازعات والتمثيل. استشرنا أونلاين وأرسل مستنداتك وتابع مسألتك عن بُعد مع الفريق نفسه.",
     purpose: "لا تحتاج إلى موعد في مكتب للاستفادة من خبرة فريقنا. أرسل سؤالك ومستنداتك من منزلك، وناقشها بالعربية أو الإنجليزية، وتسلّم مشورة تساعدك على اتخاذ القرار. من المسائل الأسرية والنزاعات العمالية إلى المعاملات العقارية والقرارات التجارية، نبني الخدمة حول وقائعك وأهدافك.",
-    teamTitle: "فريقك من الاستشارة إلى التمثيل",
-    team: "يستند فريقنا القانوني إلى خبرته العملية في العقود والمنازعات والتحكيم والتحليل القانوني للمسائل العابرة للحدود. نفحص تسلسل الوقائع، ونربط المستندات بالأسئلة القانونية، ونحدد نقاط القوة والنقص والمخاطر قبل إعداد التوصيات. ويمتد هذا المنهج إلى الصياغة ومراجعة التسويات والتحضير للإجراءات.",
-    teamSupport: "تتعامل مع فريق كاونسلو طوال مسألتك. يجمع فريقنا، المكوّن من محامين ومكاتب مرخّصة، بين التحليل والصياغة والتفاوض والتمثيل. ويتولى فريق كاونسلو نفسه التواصل معك أونلاين والتمثيل أمام المحاكم والجهات المختصة، بما يشمل الحضور المطلوب بأعضائه المرخصين في الدولة المعنية. نتابع الإعداد والمواعيد والإجراءات ضمن خطة واحدة، ونطلعك على المستجدات مع تقدم العمل.",
+    teamTitle: "المحامون الذين يشكّلون فريق كاونسلو",
+    team: "يجمع كاونسلو محامين بنوا مسيرتهم المهنية في ثلاثة أنظمة قانونية مختلفة، ويزاولون المحاماة ضمن المكاتب الأعضاء في السعودية وسوريا والإمارات العربية المتحدة.",
+    teamSupport: "يحتفظ كلّ مكتب باسمه وهويّته المهنية. وتعرّف ملفات المكاتب بمحاميها والبيئة القانونية التي اكتسب فيها كلّ فريق خبرته.",
     complexTitle: "من الأسئلة اليومية إلى القضايا المعقدة",
     complexText: "نتولى الأسئلة المباشرة والمعاملات التفصيلية والنزاعات المعقدة التي تتعدد أطرافها أو تتسع أدلتها أو ترتبط بأكثر من دولة. ويربط عملنا تحليل الملف بالاستراتيجية القانونية والصياغة ومفاوضات التسوية والمتابعة. ونتفق معك على خطة عمل واحدة تحدد أعضاء الفريق المسؤولين والخطوات القانونية والتمثيل المطلوب.",
     workTitle: "أعمال قانونية منشورة يمكنك الاطّلاع عليها",
@@ -193,7 +193,7 @@ export const aboutContent = {
     ],
     profileLink: "اطّلع على ملفه المهني",
     partnerLabel: "من فريق كاونسلو في السعودية",
-    licenceLabel: "رقم ترخيص المحاماة السعودي",
+    licenceLabel: "رخصة المحامي عبدالله العنزي",
     directoryLabel: "البحث في دليل المحامين لدى الهيئة السعودية للمحامين",
     faqTitle: "أسئلتك عن خدماتنا القانونية",
     faqs: [
@@ -210,15 +210,15 @@ export const aboutContent = {
 
 export const aboutRegions: Record<Region, { en: { country: string; focus: string; partnerTitle: string; partnerText: string }; ar: { country: string; focus: string; partnerTitle: string; partnerText: string } }> = {
   sa: {
-    en: { country: "Saudi Arabia", focus: "For Saudi matters, we assess family, employment, property, commercial and investment questions against the relevant Saudi rules and documents, with online support available throughout the Kingdom.", partnerTitle: "Lawyer Abdullah Al-Anzi", partnerText: "Abdullah Al-Anzi Law Office is part of the CounselO team in Saudi Arabia. Lawyer Abdullah Al-Anzi contributes his local practice to our legal services." },
-    ar: { country: "السعودية", focus: "في المسائل السعودية، نراجع شؤون الأسرة والعمل والعقارات والتجارة والاستثمار في ضوء الأنظمة والمستندات ذات الصلة، مع إتاحة الدعم أونلاين في جميع أنحاء المملكة.", partnerTitle: "المحامي عبدالله العنزي", partnerText: "مكتب المحامي عبدالله العنزي جزء من فريق كاونسلو في السعودية. يسهم المحامي عبدالله العنزي بخبرته المحلية في خدماتنا القانونية." },
+    en: { country: "Saudi Arabia", focus: "For Saudi matters, we assess family, employment, property, commercial and investment questions against the relevant Saudi rules and documents, with online support available throughout the Kingdom.", partnerTitle: COOPERATING_OFFICES.saudi.name, partnerText: "Based in Dammam, Abdullah Al-Anzi Law Office is an established Saudi firm listed in the Saudi Bar Association’s register of law firms. Abdullah Moghthi Qaid Al-Anazi practises alongside the office’s group of licensed Saudi lawyers. They bring their experience in the Saudi legal profession to CounselO Legal as members of its Saudi team." },
+    ar: { country: "السعودية", focus: "في المسائل السعودية، نراجع شؤون الأسرة والعمل والعقارات والتجارة والاستثمار في ضوء الأنظمة والمستندات ذات الصلة، مع إتاحة الدعم أونلاين في جميع أنحاء المملكة.", partnerTitle: COOPERATING_OFFICES.saudi.alternateName, partnerText: "مكتب المحامي عبدالله العنزي مكتب محاماة سعودي راسخ مقره الدمام، ومقيّد في سجل المنشآت القانونية لدى الهيئة السعودية للمحامين. يزاول المحامي عبدالله مغثي قاعد العنزي المحاماة إلى جانب زملائه المرخّصين في المكتب. وينتمي محامو المكتب جميعاً إلى فريق كاونسلو السعودي، بما يحملونه من خبرة مهنية في المملكة." },
   },
   syr: {
-    en: { country: "Syria", focus: "For Syrian matters, we review family and inheritance questions, property records, civil obligations and commercial disputes, and prepare advice and documents around the relevant Syrian law and procedural stage.", partnerTitle: "Our CounselO team in Syria", partnerText: "Al-Baghdadi Law Firm and Lawyer Omar Al-Abdullah’s office are part of the CounselO team in Syria. Together, the lawyers on our team handle consultation, document preparation, negotiation and representation before Syrian courts and authorities, with continuing follow-up through the stages agreed with you." },
-    ar: { country: "سوريا", focus: "في المسائل السورية، نراجع شؤون الأسرة والميراث والسجلات العقارية والالتزامات المدنية والمنازعات التجارية، ونعد الاستشارة والمستندات وفق القانون السوري ذي الصلة والمرحلة الإجرائية للمسألة.", partnerTitle: "فريق كاونسلو في سوريا", partnerText: "مكتب البغدادي للمحاماة ومكتب المحامي عمر العبد الله جزء من فريق كاونسلو في سوريا. يتولى محامو الفريق معاً الاستشارة وإعداد المستندات والتفاوض والتمثيل أمام المحاكم والجهات المختصة، مع متابعة مستمرة خلال مراحل العمل المتفق عليها معك." },
+    en: { country: "Syria", focus: "For Syrian matters, we review family and inheritance questions, property records, civil obligations and commercial disputes, and prepare advice and documents around the relevant Syrian law and procedural stage.", partnerTitle: "Law firms on our team in Syria", partnerText: "Two established law firms belong to CounselO Legal’s Syrian team, each with its own history and group of licensed lawyers." },
+    ar: { country: "سوريا", focus: "في المسائل السورية، نراجع شؤون الأسرة والميراث والسجلات العقارية والالتزامات المدنية والمنازعات التجارية، ونعد الاستشارة والمستندات وفق القانون السوري ذي الصلة والمرحلة الإجرائية للمسألة.", partnerTitle: "مكاتب المحاماة في فريقنا السوري", partnerText: "يضمّ فريق كاونسلو السوري مكتبين راسخين للمحاماة، لكلّ منهما مسيرته المهنية وفريقه من المحامين المرخّصين." },
   },
   uae: {
-    en: { country: "the UAE", focus: "For UAE matters, we assess employment, property, family, company and commercial questions with attention to the emirate, the relevant authority and any mainland or free-zone framework affecting the request.", partnerTitle: "Our CounselO team in the UAE", partnerText: "The CounselO team in the UAE comprises licensed lawyers and law offices. We handle consultation, document preparation, negotiation and representation, including work before the relevant courts and authorities within the same team. You stay with CounselO throughout your matter." },
-    ar: { country: "الإمارات", focus: "في المسائل الإماراتية، نراجع شؤون العمل والعقارات والأسرة والشركات والتجارة، مع تحديد الإمارة والجهة المختصة وأثر القواعد المنطبقة داخل الدولة أو في المنطقة الحرة على الطلب.", partnerTitle: "فريق كاونسلو في الإمارات", partnerText: "فريق كاونسلو في الإمارات مكوّن من محامين ومكاتب مرخّصة. نتولى الاستشارة وإعداد المستندات والتفاوض والتمثيل، بما يشمل العمل أمام المحاكم والجهات المختصة ضمن الفريق نفسه. وتبقى مع كاونسلو طوال مسألتك." },
+    en: { country: "the UAE", focus: "For UAE matters, we assess employment, property, family, company and commercial questions with attention to the emirate, the relevant authority and any mainland or free-zone framework affecting the request.", partnerTitle: "Our CounselO team in the UAE", partnerText: "CounselO Legal’s team in the Emirates brings together member law firms and the licensed lawyers who practise with them. Each firm contributes its own group of lawyers, whose professional experience in the UAE is part of the collective experience of CounselO’s regional team." },
+    ar: { country: "الإمارات", focus: "في المسائل الإماراتية، نراجع شؤون العمل والعقارات والأسرة والشركات والتجارة، مع تحديد الإمارة والجهة المختصة وأثر القواعد المنطبقة داخل الدولة أو في المنطقة الحرة على الطلب.", partnerTitle: "فريق كاونسلو في الإمارات", partnerText: "يجمع فريق كاونسلو في الإمارات مكاتب المحاماة الأعضاء والمحامين المرخّصين العاملين فيها. وينضمّ كل مكتب بفريقه من المحامين إلى كاونسلو، لتكون خبراتهم المهنية في الإمارات جزءاً من الخبرة التي يجمعها الفريق القانوني في البلدان الثلاثة." },
   },
 };

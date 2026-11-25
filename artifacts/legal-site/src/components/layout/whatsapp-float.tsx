@@ -26,7 +26,7 @@ function rememberPromptDismissal() {
 export function WhatsAppFloat() {
   const [promptVisible, setPromptVisible] = useState(false);
   const buttonRef = useRef<HTMLAnchorElement>(null);
-  const { region, lang } = useRegion();
+  const { region, lang, isSharedPath } = useRegion();
   const isRTL = lang === "ar";
   const label = isRTL ? "ابدأ استشارة قانونية عبر واتساب" : "Start a legal consultation on WhatsApp";
   const promptTitle = isRTL ? "هل تحتاج إلى استشارة قانونية؟" : "Need legal advice?";
@@ -91,7 +91,7 @@ export function WhatsAppFloat() {
             rel="noopener noreferrer"
             data-cta="whatsapp"
             data-conversion-position="floating-prompt"
-            data-region={region}
+            data-region={isSharedPath ? undefined : region}
             data-lang={lang}
             data-testid="whatsapp-prompt-link"
           >
@@ -112,7 +112,7 @@ export function WhatsAppFloat() {
         title={label}
         data-cta="whatsapp"
         data-conversion-position="floating-dock"
-        data-region={region}
+        data-region={isSharedPath ? undefined : region}
         data-lang={lang}
         data-testid="whatsapp-floating-button"
       >

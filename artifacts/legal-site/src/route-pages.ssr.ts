@@ -8,6 +8,8 @@ export { default as Services } from "@/pages/services";
 export { default as Contact } from "@/pages/contact";
 export { default as ServiceDetail } from "@/pages/service-detail";
 export { default as LegalProblemDetail } from "@/pages/legal-problem-detail";
+export { default as AbdullahProfile } from "@/pages/abdullah-profile";
+export { default as OmarAbdullahProfile } from "@/pages/omar-abdullah-profile";
 export { default as About } from "@/pages/about";
 export { default as GlobalAbout } from "@/pages/global-about";
 export { default as Blog } from "@/pages/blog";
@@ -19,4 +21,5 @@ export { default as TermsOfService } from "@/pages/terms-of-service";
 export { default as PrivacyPolicy } from "@/pages/privacy-policy";
 export { default as NotFound } from "@/pages/not-found";
 
+export { default as UaeSyriaConsultation } from "@/pages/uae-syria-consultation";
 export { default as UrgentLegalAssistance } from "@/pages/urgent-legal-assistance";

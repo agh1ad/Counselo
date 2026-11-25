@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Mail, MessageCircle, Phone, Globe2, MonitorSmartphone, Clock3, MessagesSquare } from "lucide-react";
-import { COUNSELO_ABOUT_PATHS, COUNSELO_BRAND, COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
+import { COOPERATING_OFFICES, COUNSELO_ABOUT_PATHS, COUNSELO_BRAND, COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { PracticeDirectory } from "./practice-directory";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { homepageContent } from "./homepage-content";
@@ -42,6 +42,7 @@ export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolea
     "@graph": [
       COUNSELO_WEBSITE,
       { ...COUNSELO_ORGANIZATION, description: c.intro },
+      ...Object.values(COOPERATING_OFFICES),
       OMAR_AL_BAGHDADI,
       {
         "@type": "WebPage", "@id": `${url}#webpage`, url,

@@ -63,7 +63,7 @@ test("distinct services preserve boundaries for safety, technical recovery and n
 
 test("experience is not rewritten as invented outcomes, admission or platform age", () => {
   for (const { support } of MATTER_SUPPORT) for (const lang of locales) {
-    assert.doesNotMatch(support[lang], /guaranteed (?:success|recovery)|ranked #?1|24\/7|we are licensed|نضمن الفوز|نضمن النجاح|الأفضل بلا منافس|37440|4519/i);
+    assert.doesNotMatch(support[lang], /guaranteed (?:success|recovery)|ranked #?1|24\/7|we are licensed|نضمن الفوز|نضمن النجاح|الأفضل بلا منافس|37\/?440|4519/i);
   }
   assert.equal(sentenceTopic("VAT refund and registration dispute"), "VAT refund and registration dispute");
   assert.equal(sentenceTopic("Divorce and separation"), "divorce and separation");

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { getConsultationPrice, getConsultationPrices } from "@workspace/api-zod/browser";
+import { COUNSELO_ORGANIZATION, getConsultationPrice, getConsultationPrices } from "@workspace/api-zod/browser";
 import { getDirectContactDetails } from "./contact-direct-links";
 import { LEGAL_PROBLEM_PAGES } from "./legal-problem-pages";
 
@@ -14,7 +14,13 @@ test("the contact page offers direct channels at the existing anchor without a f
   }
   assert.doesNotMatch(page, /<form\b|<input\b|<textarea\b|<select\b|<Form\b|<Select\b|useForm|FileReader|onSubmit|\/api\/contact|setWasSent|uploadLabel|generate_lead/);
   assert.match(page, /hydrated \? search : ""/, "query context must not conflict with query-free prerendered HTML");
-  assert.match(page, /contactType": "legal services"/);
+  assert.match(page, /"@context": "https:\/\/schema\.org", \.\.\.COUNSELO_ORGANIZATION/);
+  const { contactPoint } = COUNSELO_ORGANIZATION;
+  assert.equal(contactPoint.contactType, "legal consultation and representation enquiries");
+  const direct = getDirectContactDetails("sa", "", false);
+  assert.equal(contactPoint.telephone, new URL(direct.phoneUrl).pathname);
+  assert.equal(contactPoint.email, new URL(direct.emailUrl).pathname);
+  assert.equal(new URL(direct.whatsappUrl).pathname, `/${contactPoint.telephone.slice(1)}`);
 });
 
 test("every published consultation category retains its amount in direct WhatsApp and email drafts", () => {

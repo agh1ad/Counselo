@@ -2,9 +2,14 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import type { BlogPost } from "@workspace/db";
 import {
+  ABDULLAH_PROFILE_PATHS,
+  OMAR_ABDULLAH_PROFILE_PATHS,
   BLOG_REVIEWER_ATTRIBUTION,
   BLOG_SOCIAL_IMAGE,
+  COUNSELO_ENTITY_IDS,
+  ENTITY_BASE_URL,
   OMAR_OFFICIAL_PROFILE_URL,
+  articleAuthorFields,
   articleLegalReviewFields,
   blogPath,
 } from "@workspace/api-zod";
@@ -122,7 +127,7 @@ for (const language of ["en", "ar"] as const) {
     assert.doesNotMatch(html, /name="reviewed-by"|"reviewedBy"/);
     const aboutPath = language === "ar" ? "/ar/about" : "/about";
     assert.ok(html.includes(`<meta property="article:author" content="https://counselo-legal.com${aboutPath}">`));
-    assert.ok(html.includes(`href="${OMAR_OFFICIAL_PROFILE_URL}">${reviewer}</a>`));
+    assert.ok(html.includes(`href="${OMAR_OFFICIAL_PROFILE_URL}${language === "ar" ? "/ar" : ""}">${reviewer}</a>`));
     assert.ok(html.includes(`>${reviewer}</a>`));
     const visibleBody = html.split("<body>")[1].replace(/<script\b[\s\S]*?<\/script>/gi, "");
     assert.ok(visibleBody.includes(language === "ar" ? futurePost.bodyAr : futurePost.bodyEn));
@@ -138,6 +143,35 @@ test("a named legal review links the professional profile and dates the reviewed
   assert.equal(article.mainEntityOfPage.lastReviewed, "2026-08-22");
   assert.match(html, /Reviewed by: <a href="https:\/\/omarbaghdadi\.com"/);
   assert.match(html, /Last legal review: 2026-08-22/);
+});
+
+test("personal and law firm credits agree in the byline, social tags and article schema", () => {
+  const cases = [
+    ["abdullah-al-anzi-law-office", "LegalService", COUNSELO_ENTITY_IDS.saudiOffice, ABDULLAH_PROFILE_PATHS, ""],
+    ["omar-al-abdullah-law-office", "LegalService", COUNSELO_ENTITY_IDS.syriaAbdullahOffice, OMAR_ABDULLAH_PROFILE_PATHS, ""],
+    ["abdullah-al-anzi", "Person", ENTITY_BASE_URL + ABDULLAH_PROFILE_PATHS.en + "#person", ABDULLAH_PROFILE_PATHS, "#lawyer"],
+    ["omar-al-abdullah", "Person", COUNSELO_ENTITY_IDS.omarAlAbdullah, OMAR_ABDULLAH_PROFILE_PATHS, "#lawyer"],
+    ["omar-al-baghdadi", "Person", COUNSELO_ENTITY_IDS.omar, { en: OMAR_OFFICIAL_PROFILE_URL, ar: OMAR_OFFICIAL_PROFILE_URL + "/ar" }, ""],
+  ] as const;
+  for (const [id, type, entityId, paths, fragment] of cases) {
+    const credit = articleAuthorFields(id);
+    for (const language of ["en", "ar"] as const) {
+      const profile = paths[language] + fragment;
+      const name = language === "ar" ? credit.primaryAuthorNameAr : credit.primaryAuthorName;
+      const url = new URL(profile, ENTITY_BASE_URL).href;
+      const html = buildDynamicBlogHtml({ ...futurePost, ...credit }, language, shell);
+      const article = [...html.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+        .map(match => JSON.parse(match[1])).find(node => node["@type"] === "Article");
+      assert.equal(article.author["@type"], type);
+      assert.equal(article.author["@id"], entityId);
+      assert.equal(article.author.name, name);
+      assert.equal(article.author.url, url);
+      assert.equal(article.publisher["@id"], COUNSELO_ENTITY_IDS.organization);
+      assert.ok(html.includes(`<a rel="author" href="${profile}">${name}</a>`));
+      assert.ok(html.includes(`<meta property="article:author" content="${url}">`));
+      assert.equal(article.mainEntityOfPage.reviewedBy, undefined);
+    }
+  }
 });
 
 test("route-like legacy SEO titles fall back to the descriptive article title", () => {

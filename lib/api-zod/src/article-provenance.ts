@@ -1,12 +1,14 @@
 import {
   BAGHDADI_LAW_PROFILE_URL,
   BAGHDADI_LAW_CANONICAL_ENTITY_ID,
+  COOPERATING_OFFICES,
   COUNSELO_ENTITY_IDS,
   COUNSELO_LOGO,
   ENTITY_BASE_URL,
   OMAR_OFFICIAL_PROFILE_URL,
 } from "./entity-architecture";
 import { COUNSELO_ABOUT_PATHS, COUNSELO_BRAND } from "./brand";
+import { ABDULLAH_PROFILE_PATHS, OMAR_ABDULLAH_PROFILE_PATHS } from "./public-site-policy";
 import { getRegionLabel, type Region } from "./region-services";
 
 export type ArticleSource = {
@@ -16,6 +18,10 @@ export type ArticleSource = {
 };
 
 export type ArticleContentType = "legal-guidance" | "professional-commentary";
+
+export function articleReviewerProfileUrl(language: "en" | "ar") {
+  return language === "ar" ? `${OMAR_OFFICIAL_PROFILE_URL}/ar` : OMAR_OFFICIAL_PROFILE_URL;
+}
 
 export function articleLegalReviewFields(date: string) {
   return {
@@ -45,6 +51,7 @@ export type ArticleProvenance = {
   primaryAuthorNameAr: string;
   primaryAuthorUrl: string;
   primaryAuthorEntityId?: string;
+  primaryAuthorType?: "Person" | "LegalService";
   legalReviewerName: string;
   legalReviewerNameAr: string;
   legalReviewerUrl: string;
@@ -64,6 +71,60 @@ const REVIEWER = "Omar Al-Baghdadi";
 const REVIEWER_AR = "عمر البغدادي";
 const AUTHOR = "CounselO Legal Team";
 const AUTHOR_AR = "فريق كاونسلو للاستشارات القانونية";
+
+export const ARTICLE_AUTHOR_PROFILES = [
+  {
+    id: "abdullah-al-anzi-law-office", type: "LegalService",
+    en: COOPERATING_OFFICES.saudi.name, ar: COOPERATING_OFFICES.saudi.alternateName,
+    urls: ABDULLAH_PROFILE_PATHS, entityId: COUNSELO_ENTITY_IDS.saudiOffice,
+  },
+  {
+    id: "omar-al-abdullah-law-office", type: "LegalService",
+    en: COOPERATING_OFFICES.syriaAbdullah.name, ar: COOPERATING_OFFICES.syriaAbdullah.alternateName,
+    urls: OMAR_ABDULLAH_PROFILE_PATHS, entityId: COUNSELO_ENTITY_IDS.syriaAbdullahOffice,
+  },
+  {
+    id: "omar-al-baghdadi", type: "Person", en: REVIEWER, ar: REVIEWER_AR,
+    urls: { en: OMAR_OFFICIAL_PROFILE_URL, ar: articleReviewerProfileUrl("ar") },
+    entityId: COUNSELO_ENTITY_IDS.omar,
+  },
+  {
+    id: "abdullah-al-anzi", type: "Person", en: "Abdullah Moghthi Qaid Al-Anazi", ar: "عبدالله مغثي قاعد العنزي",
+    urls: { en: `${ABDULLAH_PROFILE_PATHS.en}#lawyer`, ar: `${ABDULLAH_PROFILE_PATHS.ar}#lawyer` },
+    entityId: `${ENTITY_BASE_URL}${ABDULLAH_PROFILE_PATHS.en}#person`,
+  },
+  {
+    id: "omar-al-abdullah", type: "Person", en: "Omar Al-Abdullah", ar: "عمر العبد الله",
+    urls: { en: `${OMAR_ABDULLAH_PROFILE_PATHS.en}#lawyer`, ar: `${OMAR_ABDULLAH_PROFILE_PATHS.ar}#lawyer` },
+    entityId: COUNSELO_ENTITY_IDS.omarAlAbdullah,
+  },
+] as const;
+
+export type ArticleAuthorId = typeof ARTICLE_AUTHOR_PROFILES[number]["id"];
+type StoredByline = Partial<Pick<ArticleProvenance, "primaryAuthorName" | "primaryAuthorNameAr" | "primaryAuthorUrl">>;
+export const ORIGINAL_FIRM_ARTICLE_CREDIT = {
+  primaryAuthorName: "Al-Baghdadi Law Firm",
+  primaryAuthorNameAr: "البغدادي للمحاماة",
+  primaryAuthorUrl: BAGHDADI_LAW_PROFILE_URL,
+};
+
+export function storedArticleAuthor(credit: StoredByline) {
+  return ARTICLE_AUTHOR_PROFILES.find(author => {
+    if (author.en !== credit.primaryAuthorName || author.ar !== credit.primaryAuthorNameAr) return false;
+    // Individual credits saved before office profiles were introduced used the page's bare URL.
+    return author.urls.en === credit.primaryAuthorUrl
+      || (author.type === "Person" && author.urls.en.endsWith("#lawyer") && author.urls.en.split("#")[0] === credit.primaryAuthorUrl);
+  });
+}
+
+export function articleAuthorFields(id: ArticleAuthorId | "", language: "en" | "ar" = "en") {
+  const author = ARTICLE_AUTHOR_PROFILES.find(profile => profile.id === id);
+  return {
+    primaryAuthorName: author?.en ?? AUTHOR,
+    primaryAuthorNameAr: author?.ar ?? AUTHOR_AR,
+    primaryAuthorUrl: author?.urls[language] ?? COUNSELO_ABOUT_PATHS[language],
+  };
+}
 
 const SOURCES: Record<Region, ArticleSource[]> = {
   sa: [
@@ -191,7 +252,24 @@ function sourcesForArticle(region: Region, relatedServiceSlugs: string[] = []): 
   return topicSource ? [topicSource, SOURCES.sa[0]] : SOURCES.sa;
 }
 
-export function assignArticleProvenance(input: {
+export function hasOriginalFirmCredit(input: StoredByline & {
+  titleEn?: string; titleAr?: string; bodyEn?: string; bodyAr?: string;
+}) {
+  if (input.primaryAuthorName === ORIGINAL_FIRM_ARTICLE_CREDIT.primaryAuthorName
+    && input.primaryAuthorNameAr === ORIGINAL_FIRM_ARTICLE_CREDIT.primaryAuthorNameAr
+    && input.primaryAuthorUrl === ORIGINAL_FIRM_ARTICLE_CREDIT.primaryAuthorUrl) return true;
+  return (
+    input.titleEn?.trim() === "Hidden Defects in Contracts and Their Legal Effect"
+    || input.titleAr?.trim() === "العيوب الخفية في العقود وأثرها القانوني"
+  ) && [input.bodyEn, input.bodyAr].some((body) => body && (
+    body.includes("Prepared by Al-Baghdadi Law Firm and published on baghdadilaw.co")
+    || body.includes("من اعداد البغدادي للمحاماة والمقال منشور على الموقع baghdadilaw.co")
+    || body.includes("Original credit in the supplied article: Al-Baghdadi Law Firm, with publication attributed to baghdadilaw.co.")
+    || body.includes("نسبة التأليف الواردة في المقال المقدم: البغدادي للمحاماة، مع نسبة النشر إلى baghdadilaw.co.")
+  ));
+}
+
+export function assignArticleProvenance(input: StoredByline & {
   contentType?: ArticleContentType;
   titleEn?: string;
   titleAr?: string;
@@ -207,26 +285,18 @@ export function assignArticleProvenance(input: {
 }, language: "en" | "ar" = "en"): ArticleProvenance {
   const attributedBlankSignatureCommentary = /(?:التوقيع على بياض|sign(?:ing|ature).*blank)/i.test([input.titleEn, input.titleAr].filter(Boolean).join(" "))
     && [input.bodyEn, input.bodyAr].some(body => body && /(?:باشراف المحامون بغدادي|بإشراف المحامون بغدادي|under the supervision of.*baghdadi)/i.test(body) && /baghdadilaw\.co/i.test(body));
-  // Preserve the supplied original credit only for this identified article.
-  const attributedLatentDefectArticle = (
-    input.titleEn?.trim() === "Hidden Defects in Contracts and Their Legal Effect"
-    || input.titleAr?.trim() === "العيوب الخفية في العقود وأثرها القانوني"
-  ) && [input.bodyEn, input.bodyAr].some((body) => body && (
-    body.includes("Prepared by Al-Baghdadi Law Firm and published on baghdadilaw.co")
-    || body.includes("من اعداد البغدادي للمحاماة والمقال منشور على الموقع baghdadilaw.co")
-    || body.includes("Original credit in the supplied article: Al-Baghdadi Law Firm, with publication attributed to baghdadilaw.co.")
-    || body.includes("نسبة التأليف الواردة في المقال المقدم: البغدادي للمحاماة، مع نسبة النشر إلى baghdadilaw.co.")
-  ));
+  const attributedLatentDefectArticle = hasOriginalFirmCredit(input);
+  const author = attributedLatentDefectArticle ? undefined : storedArticleAuthor(input);
   const contentType = input.contentType ?? "professional-commentary";
   const text = [input.titleEn, input.titleAr, input.excerptEn, input.excerptAr, input.categoryEn, input.categoryAr, input.bodyEn, input.bodyAr].filter(Boolean).join(" ");
   const jurisdiction = inferRegion(text);
   const [applicableLaw, applicableLawAr] = regionLaw(jurisdiction, input.categoryEn || input.categoryAr || "legal guidance");
   return {
     contentType,
-    primaryAuthorName: attributedLatentDefectArticle ? "Al-Baghdadi Law Firm" : AUTHOR,
-    primaryAuthorNameAr: attributedLatentDefectArticle ? "البغدادي للمحاماة" : AUTHOR_AR,
-    primaryAuthorUrl: attributedLatentDefectArticle ? BAGHDADI_LAW_PROFILE_URL : COUNSELO_ABOUT_PATHS[language],
-    ...(attributedLatentDefectArticle ? { primaryAuthorEntityId: BAGHDADI_LAW_CANONICAL_ENTITY_ID } : {}),
+    ...(attributedLatentDefectArticle
+      ? { ...ORIGINAL_FIRM_ARTICLE_CREDIT, primaryAuthorEntityId: BAGHDADI_LAW_CANONICAL_ENTITY_ID }
+      : articleAuthorFields(author?.id ?? "", language)),
+    ...(author ? { primaryAuthorType: author.type, primaryAuthorEntityId: author.entityId } : {}),
     ...articleLegalReviewFields(""),
     jurisdiction: contentType === "legal-guidance" ? jurisdiction : undefined,
     applicableLaw: contentType === "legal-guidance" ? applicableLaw : "",
@@ -259,12 +329,12 @@ export function articleProvenanceSchema(
           "@type": "Person",
           "@id": COUNSELO_ENTITY_IDS.omar,
           name: isArabic ? REVIEWER_AR : REVIEWER,
-          url: OMAR_OFFICIAL_PROFILE_URL,
+          url: articleReviewerProfileUrl(language),
         },
       } : {}),
     },
     author: {
-      "@type": "Organization",
+      "@type": provenance.primaryAuthorType ?? "Organization",
       "@id": provenance.primaryAuthorEntityId ?? COUNSELO_ENTITY_IDS.organization,
       name: provenance.primaryAuthorEntityId ? byline : COUNSELO_BRAND.en,
       ...(!provenance.primaryAuthorEntityId && byline !== COUNSELO_BRAND.en ? { alternateName: byline } : {}),

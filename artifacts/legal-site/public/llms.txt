@@ -1,6 +1,6 @@
 # CounselO Legal — optional machine-readable documentation
 
-Last updated: 2026-11-19
+Last updated: 2026-11-26
 
 CounselO Legal provides comprehensive legal support for individuals, families, businesses and investors across Saudi Arabia, Syria and the UAE, in Arabic and English. Consult online, review documents and follow your matter remotely from home or work. One CounselO team handles the full legal journey: online consultation, contracts, dispute strategy, litigation, arbitration, representation and continuing support. The CounselO team comprises locally licensed lawyers and law offices that handle representation in the relevant jurisdiction. Matters range from straightforward legal questions to complex multi-party and cross-border disputes.
 
@@ -72,7 +72,10 @@ The same CounselO team handles online communication, legal work and representati
 
 Online legal consultations have published fixed category fees in SAR for Saudi Arabia, AED for the UAE and USD for Syria. The fee includes detailed professional written advice and discussion and questions within the same consultation topic. Representation fees are agreed separately for the requested work, delivered by the same CounselO team.
 
-The regional About pages identify the founder and team members, including Abdullah Al-Anzi’s law office in Saudi Arabia and the named offices in Syria. These offices are part of the CounselO team. Professional licences belong to the named professional or office and the relevant jurisdiction.
+CounselO’s team includes Abdullah Al-Anzi Law Office in Dammam, Saudi Arabia, and Omar Al-Abdullah Law Office in Damascus, Syria. Both are established law firms. Every member firm has a team of licensed lawyers who are also members of CounselO Legal. CounselO Legal and its founder, Omar Al-Baghdadi, independently verify the professional experience of each lawyer. The firm profiles distinguish each practice from its named lawyer and identify the holder of each professional credential. Al-Baghdadi Law Firm is also part of the Syrian team.
+
+- [Abdullah Al-Anzi Law Office](https://counselo-legal.com/sa/about/abdullah-al-anzi) · [ملف المكتب بالعربية](https://counselo-legal.com/sa/ar/about/abdullah-al-anzi)
+- [Omar Al-Abdullah Law Office](https://counselo-legal.com/syr/about/omar-al-abdullah) · [ملف المكتب بالعربية](https://counselo-legal.com/syr/ar/about/omar-al-abdullah)
 
 ## Regional service hubs
 

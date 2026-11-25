@@ -2,8 +2,10 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { jurisdictionEditorialContent, jurisdictionAdviceForContaminationCheck } from "./jurisdiction-audit-content";
 
-test("shared footer network coverage never hides adjacent wrong-jurisdiction advice", () => {
+test("network coverage never hides adjacent wrong-jurisdiction advice", () => {
   const coverage = [
+    "regional team with colleagues in Saudi Arabia and the United Arab Emirates.",
+    "فريق إقليمي يجمعهم بزملائهم في المملكة العربية السعودية والإمارات.",
     "Your destination for comprehensive online legal services, backed by a strong network of lawyers, law firms and professional partners across Saudi Arabia, the UAE and Syria.",
     "وجهتك لخدمات قانونية متكاملة عبر الإنترنت، تدعمها شبكة قوية من المحامين ومكاتب المحاماة والشركاء المهنيين في السعودية والإمارات وسوريا.",
     "Connected professional platforms, complemented by a strong network of lawyers and partners across Saudi Arabia, the UAE and Syria.",

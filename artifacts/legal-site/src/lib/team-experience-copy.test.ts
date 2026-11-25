@@ -59,8 +59,9 @@ test("active and retained regional translation experience notes do not inherit p
 
 test("About keeps platform expertise separate from the founder's personal biography", () => {
   for (const copy of Object.values(aboutContent)) {
-    assert.match(copy.team, team);
-    assert.doesNotMatch(copy.team, personalExperience);
+    const teamSection = [copy.teamTitle, copy.team, copy.teamSupport].join(" ");
+    assert.match(teamSection, team);
+    assert.doesNotMatch(teamSection, personalExperience);
     assert.match(copy.founderExperience, /1996/);
   }
 });

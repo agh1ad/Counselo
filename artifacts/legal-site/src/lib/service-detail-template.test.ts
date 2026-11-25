@@ -36,7 +36,7 @@ test("every registered practice has explicit bilingual experience copy", () => {
         const copy = serviceExperience(region, service.slug, lang);
         assert.ok(copy.hero.length > 65, `${region}/${service.slug}/${lang}`);
         assert.ok(copy.approach.length > 90, `${region}/${service.slug}/${lang}`);
-        assert.doesNotMatch(JSON.stringify(copy), /guaranteed success|ranked #?1|24\/7|37440|4519/i);
+        assert.doesNotMatch(JSON.stringify(copy), /guaranteed success|ranked #?1|24\/7|37\/?440|4519/i);
       }
     }
   }

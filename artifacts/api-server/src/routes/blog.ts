@@ -12,6 +12,7 @@ import {
   parseBlogLegalReviewDate,
   parseBlogPostInput,
   parsePositiveId,
+  resolveBlogAuthorFields,
   sanitizeBlogPost,
 } from "../lib/blog-input.js";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
@@ -195,9 +196,10 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
         ...assignArticleProvenance(values),
       };
     }
+    const authorFields = resolveBlogAuthorFields(req.body?.authorProfileId, values);
     const [post] = await withPublicContentMutation(() => db
       .insert(blogPostsTable)
-      .values({ ...values, ...linkValues, ...articleLegalReviewFields("") })
+      .values({ ...values, ...linkValues, ...authorFields, ...articleLegalReviewFields("") })
       .returning(), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
     if (post.published) {
       await invalidatePublicResponseCache();
@@ -236,6 +238,9 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
       contentEn: blogPostsTable.contentEn,
       contentAr: blogPostsTable.contentAr,
       contentType: blogPostsTable.contentType,
+      primaryAuthorName: blogPostsTable.primaryAuthorName,
+      primaryAuthorNameAr: blogPostsTable.primaryAuthorNameAr,
+      primaryAuthorUrl: blogPostsTable.primaryAuthorUrl,
       legalReviewerName: blogPostsTable.legalReviewerName,
       legalReviewerNameAr: blogPostsTable.legalReviewerNameAr,
       legalReviewerUrl: blogPostsTable.legalReviewerUrl,
@@ -296,6 +301,7 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
       || values.contentType !== before.contentType
       || JSON.stringify(values.contentEn) !== JSON.stringify(before.contentEn)
       || JSON.stringify(values.contentAr) !== JSON.stringify(before.contentAr);
+    const authorFields = resolveBlogAuthorFields(req.body?.authorProfileId, values, before);
     const legalReview = contentChanged
       ? articleLegalReviewFields("")
       : {
@@ -306,7 +312,7 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
       };
     const [post] = await withPublicContentMutation(() => db
       .update(blogPostsTable)
-      .set({ ...values, ...linkValues, ...legalReview, updatedAt: new Date() })
+      .set({ ...values, ...linkValues, ...authorFields, ...legalReview, updatedAt: new Date() })
       .where(and(
         eq(blogPostsTable.id, id),
         sql`${blogPostsTable.updatedAt}::text = ${before.revision}`,

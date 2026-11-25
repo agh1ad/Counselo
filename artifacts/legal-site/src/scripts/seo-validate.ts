@@ -177,9 +177,9 @@ function validatePage(filepath: string): PageResult {
 
   const ogUrl = meta(html, "property", "og:url");
   const route = ogUrl ? ogUrl.replace(BASE, "") || "/" : "/";
-  const isSyr = route.startsWith("/syr");
-  const isUae = route.startsWith("/uae");
-  const isSa = route.startsWith("/sa");
+  const isSyr = route === "/syr" || route.startsWith("/syr/");
+  const isUae = route === "/uae" || route.startsWith("/uae/");
+  const isSa = route === "/sa" || route.startsWith("/sa/");
   const isSharedWork =
     route === "/legal-library" ||
     route === "/ar/legal-library" ||

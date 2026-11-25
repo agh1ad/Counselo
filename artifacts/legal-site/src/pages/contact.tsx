@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { Clock, Mail, Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
-import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_SCOPE } from "@workspace/api-zod/browser";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, CONSULTATION_SCOPE, UAE_SYRIA_CONSULTATION_PATHS } from "@workspace/api-zod/browser";
+import { latestPageUpdate } from "@/lib/site-content-dates";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { getDirectContactDetails } from "@/lib/contact-direct-links";
 
@@ -75,7 +76,10 @@ export default function Contact() {
           {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "dateModified": "2026-11-18",
+            "@id": `${pageUrl}#webpage`,
+            "mainEntity": { "@id": COUNSELO_ENTITY_IDS.organization },
+            "spatialCoverage": { "@type": "Country", "name": countryName },
+            "dateModified": latestPageUpdate(pageUrl, "2026-11-18"),
             "name": isRTL ? "تواصل مع كاونسلو للاستشارات القانونية" : "Contact CounselO Legal",
             "description": isUae
               ? (isRTL
@@ -90,18 +94,7 @@ export default function Contact() {
                 : "Contact CounselO’s team online for legal advice, contracts and representation in Saudi Arabia, in Arabic or English."),
             "url": pageUrl,
           },
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "@id": COUNSELO_ENTITY_IDS.organization,
-            "name": "CounselO Legal",
-            "telephone": "+966594850247",
-            "email": "info@counselo-legal.com",
-            "url": "https://counselo-legal.com",
-            "founder": OMAR_AL_BAGHDADI,
-            "areaServed": { "@type": "Country", "name": countryName },
-            "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal services", "availableLanguage": ["Arabic", "English"] },
-          },
+          { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -169,6 +162,7 @@ export default function Contact() {
               : "Online consultations have published fixed fees. The same CounselO team handles drafting, representation and other legal work at fees agreed before work begins."}</p>}
             <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
               <Link href={`${regionPrefix}/services#complete-service-directory`} className="inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4">{isRTL ? "الخدمات وأسعار الاستشارات" : "Services and consultation fees"}</Link>
+              {(isUae || isSyr) && <Link href={UAE_SYRIA_CONSULTATION_PATHS[isRTL ? "ar" : "en"]} className="inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4">{isRTL ? "استشارة قانونية بين الإمارات وسوريا" : "UAE–Syria legal consultation"}</Link>}
               <Link href={`${regionPrefix}/privacy-policy`} className="inline-flex min-h-11 items-center text-muted-foreground underline underline-offset-4">{isRTL ? "سياسة الخصوصية" : "Privacy policy"}</Link>
             </div>
           </div>

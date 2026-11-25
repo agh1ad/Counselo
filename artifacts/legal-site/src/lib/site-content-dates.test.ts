@@ -5,14 +5,15 @@ import { latestPageUpdate } from "./site-content-dates";
 test("revised bilingual page families share a stable sitemap revision date", () => {
   for (const region of ["sa", "syr", "uae"]) for (const lang of ["", "/ar"]) {
     for (const page of ["", "/about", "/contact", "/services", "/services/employment-law", "/services/employment-law/unpaid-wages"]) {
-      const expected = page === "" || page === "/about" ? "2026-11-24" : "2026-11-18";
+      const revised = page === "/about" || (region !== "sa" && page === "/contact");
+      const expected = revised ? "2026-11-26" : page === "" || page === "/about" ? "2026-11-24" : "2026-11-18";
       assert.equal(latestPageUpdate(`/${region}${lang}${page}`, "2026-09-07"), expected);
     }
   }
-  for (const route of ["", "/", "/ar", "/sa/services/contracts/contract-drafting-and-review", "/sa/ar/services/contracts/contract-drafting-and-review"]) {
+  for (const route of ["/sa/services/contracts/contract-drafting-and-review", "/sa/ar/services/contracts/contract-drafting-and-review"]) {
     assert.equal(latestPageUpdate(route), "2026-11-24");
   }
-  for (const route of ["/about", "/ar/about"]) assert.equal(latestPageUpdate(route), "2026-11-25");
+  for (const route of ["", "/", "/ar", "/about", "/ar/about", "/sa/about/abdullah-al-anzi", "/sa/ar/about/abdullah-al-anzi", "/syr/about/omar-al-abdullah", "/syr/ar/about/omar-al-abdullah", "/uae-syria-legal-consultation", "/ar/uae-syria-legal-consultation"]) assert.equal(latestPageUpdate(route), "2026-11-26");
   for (const route of ["/our-work", "/ar/our-work"]) assert.equal(latestPageUpdate(route), "2026-11-18");
   for (const route of ["/blog", "/blog/ar"]) assert.equal(latestPageUpdate(route), "2026-11-13");
   for (const prefix of ["", "/ar", "/sa/services", "/sa/ar/services", "/syr/services", "/syr/ar/services", "/uae/services", "/uae/ar/services"]) {
@@ -26,5 +27,5 @@ test("sitemap revisions cover revised policies and preserve CMS dates and never 
     assert.equal(latestPageUpdate(route, "2026-09-07"), "2026-09-07");
   }
   for (const route of ["/sa/terms-of-service", "/syr/ar/privacy-policy"]) assert.equal(latestPageUpdate(route), "2026-11-18");
-  assert.equal(latestPageUpdate("https://counselo-legal.com/uae/contact", "2026-11-19"), "2026-11-19");
+  assert.equal(latestPageUpdate("https://counselo-legal.com/uae/contact", "2026-11-27"), "2026-11-27");
 });

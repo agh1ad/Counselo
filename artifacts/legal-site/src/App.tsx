@@ -1,5 +1,5 @@
 import RemovedPage from "@/pages/removed";
-import { COUNSELO_ABOUT_PATHS, isRetiredPublicPath } from "@workspace/api-zod/browser";
+import { ABDULLAH_PROFILE_PATHS, COUNSELO_ABOUT_PATHS, OMAR_ABDULLAH_PROFILE_PATHS, UAE_SYRIA_CONSULTATION_PATHS, isRetiredPublicPath } from "@workspace/api-zod/browser";
 import "@/components/legal/public-readability.css";
 import { legalUpdatesData, type LegalUpdatesData } from "@workspace/api-zod/browser";
 import {
@@ -28,6 +28,8 @@ import { resolveUnqualifiedBlogPath } from "@/lib/blog-route-policy";
 
 import {
   About,
+  AbdullahProfile,
+  OmarAbdullahProfile,
   ArRegionPicker,
   Blog,
   BlogPost,
@@ -43,6 +45,7 @@ import {
   ServiceDetail,
   Services,
   TermsOfService,
+  UaeSyriaConsultation,
   UrgentLegalAssistance,
   WorkSample,
 } from "@/route-pages";
@@ -95,7 +98,12 @@ function createSsrQueryClient(posts: InitialBlogPost[], workSamples: WorkSampleP
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    const fragment = window.location.hash;
+    if (fragment) {
+      document.getElementById(fragment.slice(1))?.scrollIntoView({ behavior: "instant" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
     return trackPageview(location);
   }, [location]);
   return null;
@@ -302,18 +310,22 @@ function Router() {
 
   return (
     <ErrorBoundary>
-      <ScrollToTop />
       <Suspense fallback={<div className="min-h-[60vh]" aria-live="polite" />}>
+      <ScrollToTop />
       <Switch>
         {/* Region picker — English (x-default) and Arabic */}
         <Route path="/" component={RegionPicker} />
         <Route path="/ar" component={ArRegionPicker} />
         <Route path={COUNSELO_ABOUT_PATHS.en} component={GlobalAbout} />
         <Route path={COUNSELO_ABOUT_PATHS.ar} component={GlobalAbout} />
+        <Route path={UAE_SYRIA_CONSULTATION_PATHS.en} component={UaeSyriaConsultation} />
+        <Route path={UAE_SYRIA_CONSULTATION_PATHS.ar} component={UaeSyriaConsultation} />
         <Route path="/urgent-legal-assistance" component={UrgentLegalAssistance} />
         <Route path="/ar/urgent-legal-assistance" component={UrgentLegalAssistance} />
 
         {/* SA + Syria routes, English and Arabic */}
+        {Object.values(ABDULLAH_PROFILE_PATHS).map(path => <Route key={path} path={path} component={AbdullahProfile} />)}
+        {Object.values(OMAR_ABDULLAH_PROFILE_PATHS).map(path => <Route key={path} path={path} component={OmarAbdullahProfile} />)}
         {buildRegionRoutes()}
 
         {/* Legacy routes (no prefix → defaults to SA/English) */}
@@ -405,7 +417,7 @@ function AppShell() {
         <Router />
       </main>
       <Footer />
-      <WhatsAppFloat />
+      {!/^\/(?:sa\/|syr\/|uae\/)?(?:ar\/)?about(?:\/|$)/.test(location) && <WhatsAppFloat />}
     </div>
   );
 }

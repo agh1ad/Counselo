@@ -7,6 +7,33 @@ import { publicWorkDocumentPath, type WorkDocumentMetadata } from "./public-work
 
 export const PUBLIC_BASE_URL = "https://counselo-legal.com";
 
+export const UAE_SYRIA_CONSULTATION_PATHS = {
+  en: "/uae-syria-legal-consultation",
+  ar: "/ar/uae-syria-legal-consultation",
+} as const;
+
+export const ABDULLAH_PROFILE_PATHS = {
+  en: "/sa/about/abdullah-al-anzi",
+  ar: "/sa/ar/about/abdullah-al-anzi",
+} as const;
+
+export const OMAR_ABDULLAH_PROFILE_PATHS = {
+  en: "/syr/about/omar-al-abdullah",
+  ar: "/syr/ar/about/omar-al-abdullah",
+} as const;
+
+export const OMAR_ABDULLAH_PROFILE_ALTERNATES = [
+  { hrefLang: "en-SY", href: OMAR_ABDULLAH_PROFILE_PATHS.en },
+  { hrefLang: "ar-SY", href: OMAR_ABDULLAH_PROFILE_PATHS.ar },
+  { hrefLang: "x-default", href: OMAR_ABDULLAH_PROFILE_PATHS.en },
+];
+
+export const ABDULLAH_PROFILE_ALTERNATES = [
+  { hrefLang: "en-SA", href: ABDULLAH_PROFILE_PATHS.en },
+  { hrefLang: "ar-SA", href: ABDULLAH_PROFILE_PATHS.ar },
+  { hrefLang: "x-default", href: ABDULLAH_PROFILE_PATHS.en },
+];
+
 export const PUBLIC_CACHE_POLICY = {
   immutableAsset: "public, max-age=31536000, immutable",
   crawlControl: "public, max-age=3600, must-revalidate",
@@ -58,6 +85,8 @@ export function getPublicRouteInventory(): string[] {
     "/",
     "/ar",
     ...Object.values(COUNSELO_ABOUT_PATHS),
+    ...Object.values(ABDULLAH_PROFILE_PATHS),
+    ...Object.values(OMAR_ABDULLAH_PROFILE_PATHS),
     ...englishRoutes,
     ...englishRoutes.map(toArabicRoute),
     "/blog",
@@ -66,6 +95,7 @@ export function getPublicRouteInventory(): string[] {
     "/ar/legal-library",
     "/urgent-legal-assistance",
     "/ar/urgent-legal-assistance",
+    ...Object.values(UAE_SYRIA_CONSULTATION_PATHS),
     "/our-work",
     "/ar/our-work",
   ];
@@ -222,6 +252,11 @@ function latestDate(values: Array<string | Date | null | undefined>): string | u
 }
 
 export function buildHreflangLinks(path: string): string[] {
+  const profileAlternates = [ABDULLAH_PROFILE_ALTERNATES, OMAR_ABDULLAH_PROFILE_ALTERNATES]
+    .find(alternates => alternates.some(({ href }) => href === path));
+  if (profileAlternates) {
+    return profileAlternates.map(({ hrefLang, href }) => `${hrefLang}|${canonicalPublicUrl(href)}`);
+  }
   if (/^(?:\/(?:sa|syr|uae)(?:\/ar)?\/services|(?:\/ar)?)\/urgent-legal-assistance$/.test(path)) {
     return [
       ["en", "/urgent-legal-assistance"], ["ar", "/ar/urgent-legal-assistance"],
@@ -239,11 +274,12 @@ export function buildHreflangLinks(path: string): string[] {
       ["ar", "/ar"],
     ].map(([language, target]) => `${language}|${canonicalPublicUrl(target)}`);
   }
-  if (path === COUNSELO_ABOUT_PATHS.en || path === COUNSELO_ABOUT_PATHS.ar) {
+  const sharedPair = [COUNSELO_ABOUT_PATHS, UAE_SYRIA_CONSULTATION_PATHS].find(({ en, ar }) => path === en || path === ar);
+  if (sharedPair) {
     return [
-      ["en", COUNSELO_ABOUT_PATHS.en],
-      ["ar", COUNSELO_ABOUT_PATHS.ar],
-      ["x-default", COUNSELO_ABOUT_PATHS.en],
+      ["en", sharedPair.en],
+      ["ar", sharedPair.ar],
+      ["x-default", sharedPair.en],
     ].map(([language, target]) => `${language}|${canonicalPublicUrl(target)}`);
   }
   const regionMatch = path.match(new RegExp(`^/(${REGION_PREFIX_PATTERN})(/ar)?(?=/|$)`));

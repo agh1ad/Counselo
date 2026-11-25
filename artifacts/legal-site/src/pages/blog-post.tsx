@@ -2,7 +2,7 @@ import { prepareArticleHtml } from "@/lib/article-reading";
 import { PageContents } from "@/components/legal/page-contents";
 import { useParams, Link, Redirect, useLocation } from "wouter";
 import * as m from "framer-motion/m";
-import { Clock, ArrowLeft, ArrowRight, BadgeCheck, Calendar, MessageCircle } from "lucide-react";
+import { Clock, ArrowLeft, ArrowRight, Calendar, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -22,7 +22,7 @@ import {
   hasQualityBilingualBlogContent,
   localizeArticleProvenanceUrl,
   confirmedArticleReviewDate,
-  OMAR_OFFICIAL_PROFILE_URL,
+  articleReviewerProfileUrl,
   getServiceDefinition,
   getServicesForRegion,
   safeSeoTitle,
@@ -265,6 +265,8 @@ export default function BlogPost() {
   provenance.correctionUrl = localizeArticleProvenanceUrl(provenance.correctionUrl, articleRegion, effectiveLanguage, "correction");
   const reviewDate = confirmedArticleReviewDate(post, curatedContext?.editorialUpdatedAt);
   const reviewerAttribution = useAr ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
+  const reviewerProfile = articleReviewerProfileUrl(effectiveLanguage);
+  const authorByline = useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName;
   const contentUpdatedAt = editorialUpdatedAt ?? post.updatedAt ?? post.date;
   const validRegionServices = new Set(articleRegion ? getServicesForRegion(articleRegion).map((service) => service.slug) : []);
   const categoryService = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? BLOG_CATEGORY_TO_SERVICE[post.categoryAr];
@@ -340,7 +342,7 @@ export default function BlogPost() {
         ogType="article"
         articlePublishedTime={post.date}
         articleModifiedTime={editorialUpdatedAt ?? post.updatedAt ?? post.date}
-        articleAuthor={useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}
+        articleAuthor={authorByline}
         articleAuthorUrl={articleSchema.author.url}
         articleSection={category}
         reviewedBy={reviewDate ? reviewerAttribution : undefined}
@@ -373,13 +375,10 @@ export default function BlogPost() {
             </h1>
             <div className="premium-hero-rule mb-6" />
 
-            <a
-              href={OMAR_OFFICIAL_PROFILE_URL}
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
-            >
-              <BadgeCheck className="h-4 w-4 text-[#e0c078]" aria-hidden="true" />
-              {reviewDate ? useAr ? "راجعه" : "Reviewed by" : useAr ? "بقيادة قانونية من" : "Under the legal leadership of"} {reviewerAttribution}
-            </a>
+            <div className="mt-5 space-y-1 text-sm text-white/90">
+              <p>{useAr ? "بقلم" : "Written by"} <a className="font-semibold underline" rel="author" href={provenance.primaryAuthorUrl}>{authorByline}</a></p>
+              {reviewDate && <p>{useAr ? "راجعه" : "Reviewed by"} <a className="font-semibold underline" href={reviewerProfile}>{reviewerAttribution}</a></p>}
+            </div>
           </m.div>
         </div>
       </section>
@@ -402,8 +401,8 @@ export default function BlogPost() {
                 {contentType === "legal-guidance" ? (useAr ? "بيانات المراجعة والمصادر" : "Review and source information") : (useAr ? "بيانات المقال التحريري" : "Editorial information")}
               </h2>
               <dl className="grid gap-3 text-sm sm:grid-cols-2">
-                <div><dt className="font-semibold text-foreground">{useAr ? "كتب بواسطة" : "Written by"}</dt><dd><a className="text-primary hover:underline" href={provenance.primaryAuthorUrl}>{useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}</a></dd></div>
-                <div><dt className="font-semibold text-foreground">{reviewDate ? useAr ? "تمت المراجعة بواسطة" : "Reviewed by" : useAr ? "القيادة القانونية" : "Legal leadership"}</dt><dd><a className="text-primary hover:underline" href={OMAR_OFFICIAL_PROFILE_URL}>{reviewerAttribution}</a></dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? "كتب بواسطة" : "Written by"}</dt><dd><a className="text-primary hover:underline" rel="author" href={provenance.primaryAuthorUrl}>{authorByline}</a></dd></div>
+                <div><dt className="font-semibold text-foreground">{reviewDate ? useAr ? "تمت المراجعة بواسطة" : "Reviewed by" : useAr ? "القيادة القانونية" : "Legal leadership"}</dt><dd><a className="text-primary hover:underline" href={reviewerProfile}>{reviewerAttribution}</a></dd></div>
                 {contentType === "legal-guidance" && provenance.jurisdiction && <div><dt className="font-semibold text-foreground">{useAr ? "الاختصاص" : "Jurisdiction"}</dt><dd>{articleJurisdictionLabel(provenance.jurisdiction, useAr)}</dd></div>}
                 <div><dt className="font-semibold text-foreground">{useAr ? "تاريخ النشر" : "Publication date"}</dt><dd>{formatDate(post.date, useAr ? "ar" : "en")}</dd></div>
                 <div><dt className="font-semibold text-foreground">{useAr ? "تحديث المحتوى" : "Content updated"}</dt><dd>{formatDate(contentUpdatedAt, effectiveLanguage)}</dd></div>

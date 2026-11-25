@@ -9,6 +9,8 @@ export const Services = lazy(() => import("@/pages/services"));
 export const Contact = lazy(() => import("@/pages/contact"));
 export const ServiceDetail = lazy(() => import("@/pages/service-detail"));
 export const LegalProblemDetail = lazy(() => import("@/pages/legal-problem-detail"));
+export const AbdullahProfile = lazy(() => import("@/pages/abdullah-profile"));
+export const OmarAbdullahProfile = lazy(() => import("@/pages/omar-abdullah-profile"));
 export const About = lazy(() => import("@/pages/about"));
 export const GlobalAbout = lazy(() => import("@/pages/global-about"));
 export const Blog = lazy(() => import("@/pages/blog"));
@@ -20,4 +22,5 @@ export const TermsOfService = lazy(() => import("@/pages/terms-of-service"));
 export const PrivacyPolicy = lazy(() => import("@/pages/privacy-policy"));
 export const NotFound = lazy(() => import("@/pages/not-found"));
 
+export const UaeSyriaConsultation = lazy(() => import("@/pages/uae-syria-consultation"));
 export const UrgentLegalAssistance = lazy(() => import("@/pages/urgent-legal-assistance"));
