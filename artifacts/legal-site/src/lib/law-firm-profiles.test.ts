@@ -78,17 +78,18 @@ for (const { page, office, paths, personId, licence } of firms) {
         }
         const licenceLabel = isRTL ? "رخصة المحامي عبدالله العنزي" : "Abdullah Al-Anzi’s Saudi lawyer licence";
         assert.ok(licenceLine.includes(licenceLabel));
-        const lawyerSection = html.match(/<section id="lawyer"[^>]*>([\s\S]*?)<\/section>/)?.[1];
-        assert.ok(lawyerSection);
-        assert.ok(lawyerSection.includes(`>${person.name}</h2>`));
+        assert.match(licenceLine, /<p\b[^>]*\bid="lawyer"/);
+        assert.doesNotMatch(html, /id="lawyer-name"|<details\b/);
         assert.deepEqual(headings, [isRTL ? "هوية المكتب في السجل المهني" : "The Saudi Bar Association record"]);
-        const directory = "https://eservice.sba.gov.sa" + (isRTL ? "" : "/en");
-        const lawyerUrl = directory + "/lawyers?search=37%2F440";
-        assert.ok(lawyerSection.includes(`href="${directory}/directory/855"`));
-        assert.ok(lawyerSection.includes(`href="${lawyerUrl}"`));
         const credential = person.hasCredential as Record<string, unknown>;
         assert.equal(credential.identifier, licence);
-        assert.equal(credential.url, lawyerUrl);
+        const sources = [...html.matchAll(/<a\b[^>]*\bhref="(https:\/\/eservice\.sba\.gov\.sa\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
+        assert.equal(sources.length, 1, "Render one Saudi Bar source link on the firm profile");
+        const [link, href, label] = sources[0];
+        assert.equal(href.replaceAll("&amp;", "&"), credential.url);
+        assert.ok(label.replace(/<[^>]+>/g, "").trim(), "Show the source link's text");
+        const recordSection = editorial.match(/<section\b[^>]*>([\s\S]*?)<\/section>/)?.[1];
+        assert.ok(recordSection?.includes(link), "Place the source beneath the Saudi Bar record");
       } else {
         assert.equal(person.hasCredential, undefined);
         assert.match(licenceLine, /<p\b[^>]*\bid="lawyer"/);

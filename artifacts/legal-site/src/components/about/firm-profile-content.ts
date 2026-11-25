@@ -1,3 +1,5 @@
+import { SAUDI_LAWYER_DIRECTORY } from "./about-content";
+
 // Firm identity and team membership are confirmed by CounselO Legal.
 // The Saudi Bar Association's firm record is https://eservice.sba.gov.sa/en/directory/855.
 export const firmProfileContent = {
@@ -9,6 +11,7 @@ export const firmProfileContent = {
         {
           title: "The Saudi Bar Association record",
           text: "The Saudi Bar Association lists the practice as Abdullah Moghthi Qaid Al-Anazi Law Firm and identifies Dammam as the seat of its main office.",
+          source: { href: SAUDI_LAWYER_DIRECTORY.en, label: "View Abdullah Al-Anzi’s Saudi Bar Association record" },
         },
       ],
     },
@@ -19,6 +22,7 @@ export const firmProfileContent = {
         {
           title: "هوية المكتب في السجل المهني",
           text: "يرد المكتب في دليل الهيئة السعودية للمحامين باسمه الكامل «مكتب عبدالله مغثي قاعد العنزي للمحاماة»، ويتّخذ من الدمام مقراً رئيسياً له.",
+          source: { href: SAUDI_LAWYER_DIRECTORY.ar, label: "سجل المحامي عبدالله العنزي لدى الهيئة السعودية للمحامين" },
         },
       ],
     },

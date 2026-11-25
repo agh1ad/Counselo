@@ -26,13 +26,8 @@
 .firm-profile__people { border-block-start: 3px solid #a48145; background: #f5f7f3; padding: clamp(1.25rem, 2.5vw, 1.85rem); }
 .firm-profile__people h2 { font-size: 1.42rem; }
 .firm-profile__people p { font-size: .95rem; }
-.firm-profile__people section + section { margin-top: 1.35rem; padding-top: 1.35rem; border-top: 1px solid var(--firm-line); scroll-margin-top: 7rem; }
 .firm-profile__source { display: inline-block; margin-block-start: .75rem; font-size: .9rem; font-weight: 650; text-decoration: underline; text-underline-offset: .2em; }
-.firm-profile__records { margin-top: .75rem; }
-.firm-profile__records summary, .firm-profile__records a { padding-block: .6rem; font-weight: 650; font-size: .9rem; }
-.firm-profile__records summary { cursor: pointer; }
-.firm-profile__records a { display: block; width: fit-content; text-decoration: underline; text-underline-offset: .2em; }
-.firm-profile :is(a, summary):focus-visible { outline: 2px solid #8e642b; outline-offset: 3px; }
+.firm-profile a:focus-visible { outline: 2px solid #8e642b; outline-offset: 3px; }
 .firm-profile[dir=rtl] :is(h1,h2) { letter-spacing: 0; line-height: 1.4; }
 .firm-profile[dir=rtl] :is(p,dd) { line-height: 1.85; }
 @media (max-width: 760px) {

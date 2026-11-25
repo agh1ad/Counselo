@@ -5,7 +5,7 @@ import {
 } from "@workspace/api-zod/browser";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { regionalCredentialLookup, SAUDI_LAWYER_DIRECTORY, SAUDI_PARTNER_LICENCE, SYRIAN_ABDULLAH_LICENCE } from "./about-content";
+import { SAUDI_LAWYER_DIRECTORY, SAUDI_PARTNER_LICENCE, SYRIAN_ABDULLAH_LICENCE } from "./about-content";
 import { firmProfileContent } from "./firm-profile-content";
 
 const practices = {
@@ -102,7 +102,7 @@ export function FirmProfile({ practice }: { practice: keyof typeof practices }) 
           <p className="firm-profile__location">{c.location}</p>
           <h1>{name}</h1>
           <p className="firm-profile__lead">{c.lead}</p>
-          {lawyer && <p className="firm-profile__hero-licence" id={saudi ? undefined : "lawyer"}>
+          {lawyer && <p className="firm-profile__hero-licence" id="lawyer">
             {lawyer.licenceLabel[lang]} <bdi dir="ltr">{lawyer.licence}</bdi>
           </p>}
         </div>
@@ -121,18 +121,8 @@ export function FirmProfile({ practice }: { practice: keyof typeof practices }) 
         </section>)}
       </div>
       <aside className="firm-profile__people" aria-labelledby="firm-team">
-        <section aria-labelledby="firm-team">
-          <h2 id="firm-team">{isRTL ? "المكتب وفريق كاونسلو" : "The firm’s place in CounselO"}</h2>
-          <p>{COUNSELO_FIRM_TEAM[lang]}</p>
-        </section>
-        {saudi && lawyer && <section id="lawyer" aria-labelledby="lawyer-name">
-          <h2 id="lawyer-name">{lawyer.name[lang]}</h2>
-          <details className="firm-profile__records">
-            <summary>{isRTL ? "السجلات المهنية" : "Professional records"}</summary>
-            <a href={regionalCredentialLookup.sa[lang].directory.url}>{isRTL ? "سجل المكتب لدى الهيئة السعودية للمحامين" : "Saudi Bar firm registration"}</a>
-            <a href={SAUDI_LAWYER_DIRECTORY[lang]}>{isRTL ? "قيد المحامي لدى الهيئة السعودية للمحامين" : "Saudi Bar lawyer registration"}</a>
-          </details>
-        </section>}
+        <h2 id="firm-team">{isRTL ? "المكتب وفريق كاونسلو" : "The firm’s place in CounselO"}</h2>
+        <p>{COUNSELO_FIRM_TEAM[lang]}</p>
       </aside>
     </div>
   </article>;
