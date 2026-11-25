@@ -36,35 +36,37 @@ export function GlobalTeamDirectory({ language }: { language: Language }) {
       <h2 id="about-team-heading">{c.countriesTitle}</h2>
       <p>{c.countriesIntro}</p>
     </header>
-    <CountryGroup country="sa" name={saudi.country}>
-      <div className="team-directory__office">
-        <OfficeMark src={ABDULLAH_AL_ANZI_OFFICE_LOGO_PATH} width={569} height={762} />
-        <div>
-          <h4>{ar ? COOPERATING_OFFICES.saudi.alternateName : COOPERATING_OFFICES.saudi.name}</h4>
-          <p>{saudi.partnerText}</p>
-          <div className="team-directory__links">
-            <a href={ABDULLAH_PROFILE_PATHS[language]} aria-label={ar ? "ملف مكتب المحامي عبدالله العنزي" : "Abdullah Al-Anzi Law Office firm profile"}>{ar ? "ملف المكتب" : "Firm profile"}<Arrow /></a>
+    <div className="team-directory__register">
+      <CountryGroup country="sa" name={saudi.country}>
+        <div className="team-directory__office">
+          <OfficeMark src={ABDULLAH_AL_ANZI_OFFICE_LOGO_PATH} width={569} height={762} />
+          <div className="team-directory__description">
+            <h4>{ar ? COOPERATING_OFFICES.saudi.alternateName : COOPERATING_OFFICES.saudi.name}</h4>
+            <p>{saudi.partnerText}</p>
+            <div className="team-directory__links">
+              <a href={ABDULLAH_PROFILE_PATHS[language]} aria-label={ar ? "ملف مكتب المحامي عبدالله العنزي" : "Abdullah Al-Anzi Law Office firm profile"}>{ar ? "ملف المكتب" : "Firm profile"}<Arrow aria-hidden="true" /></a>
+            </div>
           </div>
         </div>
-      </div>
-    </CountryGroup>
-    <CountryGroup country="syr" name={aboutRegions.syr[language].country}>
-      {syrianPartners[language].map(partner => <div className="team-directory__office" key={partner.name}>
-        <OfficeMark src={partner.logo} />
-        <div>
-          <h4>{partner.name}</h4>
-          <p>{partner.description}</p>
-          <div className="team-directory__links">
-            <a href={partner.profileHref} aria-label={`${partner.profileLabel} — ${partner.name}`}>{partner.profileLabel}<Arrow /></a>
+      </CountryGroup>
+      <CountryGroup country="syr" name={aboutRegions.syr[language].country}>
+        {syrianPartners[language].map(partner => <div className="team-directory__office team-directory__office--wordmark" key={partner.name}>
+          <OfficeMark src={partner.logo} />
+          <div className="team-directory__description">
+            <h4>{partner.name}</h4>
+            <p>{partner.description}</p>
+            <div className="team-directory__links">
+              <a href={partner.profileHref} aria-label={`${partner.profileLabel} — ${partner.name}`}>{partner.profileLabel}<Arrow aria-hidden="true" /></a>
+            </div>
           </div>
+        </div>)}
+      </CountryGroup>
+      <CountryGroup country="uae" name={ar ? "الإمارات العربية المتحدة" : "United Arab Emirates"}>
+        <div className="team-directory__uae">
+          <h4>{ar ? "محامو كاونسلو في الإمارات" : "CounselO’s UAE legal team"}</h4>
+          <p>{aboutRegions.uae[language].partnerText}</p>
         </div>
-      </div>)}
-    </CountryGroup>
-    <CountryGroup country="uae" name={ar ? "الإمارات العربية المتحدة" : "United Arab Emirates"}>
-      <div className="team-directory__uae">
-        <h4>{ar ? "محامو كاونسلو في الإمارات" : "CounselO’s UAE legal team"}</h4>
-        <p>{aboutRegions.uae[language].partnerText}</p>
-      </div>
-    </CountryGroup>
+      </CountryGroup>
+    </div>
   </section>;
 }

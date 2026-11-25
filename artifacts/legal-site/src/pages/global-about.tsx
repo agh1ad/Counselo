@@ -107,14 +107,23 @@ export default function GlobalAbout() {
         <h3>{c.complexTitle}</h3>
         <div><p>{c.complexText}</p></div>
       </div>
-      <div id="about-services" className="about-story__row">
-        <h3>{c.servicesTitle}</h3>
-        <div>
+      <section id="about-services" className="about-services" aria-labelledby="about-services-title">
+        <header className="about-services__intro">
+          <h3 id="about-services-title">{c.servicesTitle}</h3>
           <p>{c.servicesIntro}</p>
-          <ul className="about-service-list">{c.services.map(item => <li key={item.title}><h4>{item.title}</h4><p>{item.text}</p></li>)}</ul>
-          <details className="about-country-disclosure"><summary>{c.countryServicesLink}</summary><nav aria-label={c.countryServicesLink} className="global-about-country-links">{countries.map(country => <Link key={country} href={`/${country}${languagePath}/services`} className="about-text-link" aria-label={`${c.servicesLink}: ${countryName(country)}`}>{countryName(country)}<Arrow size={17} aria-hidden="true" /></Link>)}</nav></details>
-        </div>
-      </div>
+        </header>
+        <ul className="about-services__index">
+          {c.services.map(item => <li key={item.title}><h4>{item.title}</h4><p>{item.text}</p></li>)}
+        </ul>
+        <details className="about-country-disclosure">
+          <summary>{c.countryServicesLink}</summary>
+          <nav aria-label={c.countryServicesLink} className="global-about-country-links">
+            {countries.map(country => <Link key={country} href={`/${country}${languagePath}/services`} className="about-text-link" aria-label={`${c.servicesLink}: ${countryName(country)}`}>
+              {countryName(country)}<Arrow size={17} aria-hidden="true" />
+            </Link>)}
+          </nav>
+        </details>
+      </section>
       <div className="about-story__row">
         <h3>{c.processTitle}</h3>
         <ol className="about-process">{c.process.map((item, index) => <li key={item.title}><span className="about-process__number" aria-hidden="true">{index + 1}</span><div><h4>{item.title}</h4><p>{item.text}</p></div></li>)}</ol>

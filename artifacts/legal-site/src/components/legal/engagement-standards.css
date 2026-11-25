@@ -14,3 +14,83 @@
   .engagement-standards__items { grid-template-columns: 1fr; gap: 1.25rem; }
   .engagement-standards { padding-block: 2rem; }
 }
+
+.global-about-page .engagement-standards {
+  margin-block: .75rem clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.2rem, 4.4vw, 3.5rem);
+  color: #173e30;
+  background: #faf7ef;
+  border: 1px solid #c9b68c;
+  border-radius: .4rem;
+}
+.global-about-page .engagement-standards header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+  align-items: end;
+  gap: clamp(1.5rem, 5vw, 4.25rem);
+  max-width: none;
+}
+.global-about-page .engagement-standards h2 {
+  margin: 0;
+  font-family: var(--app-font-serif);
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  font-weight: 550;
+  letter-spacing: -.025em;
+  line-height: 1.22;
+}
+.global-about-page .engagement-standards header p {
+  margin: 0;
+  color: #3f554a;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+.global-about-page .engagement-standards .engagement-standards__items {
+  column-gap: clamp(1.75rem, 5vw, 4.25rem);
+  row-gap: 0;
+  margin: clamp(1.4rem, 3vw, 2.2rem) 0 0;
+}
+.global-about-page .engagement-standards .engagement-standards__items > div {
+  padding: clamp(1rem, 2vw, 1.45rem) 0;
+  border-inline-start: 0;
+  border-block-start: 1px solid #d7cbb0;
+}
+.global-about-page .engagement-standards dt {
+  margin: 0 0 .4rem;
+  font-family: var(--app-font-serif);
+  font-size: clamp(1.12rem, 1.7vw, 1.32rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.global-about-page .engagement-standards dd {
+  margin: 0;
+  color: #3f554a;
+  font-size: .97rem;
+  line-height: 1.72;
+}
+.global-about-page .engagement-standards details {
+  margin: .2rem 0 0;
+  padding-block-start: .5rem;
+  border-block-start: 1px solid #c9b68c;
+}
+.global-about-page .engagement-standards summary {
+  width: fit-content;
+  min-height: 44px;
+  padding-block: .65rem;
+  font-size: .96rem;
+  font-weight: 650;
+  line-height: 1.55;
+  cursor: pointer;
+}
+.global-about-page .engagement-standards summary::marker { color: #725823; }
+.global-about-page .engagement-standards .engagement-standards__link { color: #234d3b; text-decoration-color: #a1854e; }
+.global-about-page .engagement-standards :is(summary, a):hover { color: #655022; }
+.global-about-page .engagement-standards :is(summary, a):focus-visible { outline: 2px solid #735921; outline-offset: 3px; }
+.global-about-page .engagement-standards:lang(ar) :is(h2, dt) { font-weight: 700; letter-spacing: 0; line-height: 1.5; }
+.global-about-page .engagement-standards:lang(ar) :is(header p, dd) { font-size: 1.04rem; line-height: 1.85; }
+
+@media (max-width: 760px) {
+  .global-about-page .engagement-standards header { grid-template-columns: 1fr; gap: .7rem; }
+}
+@media (max-width: 600px) {
+  .global-about-page .engagement-standards .engagement-standards__items { grid-template-columns: 1fr; }
+}
