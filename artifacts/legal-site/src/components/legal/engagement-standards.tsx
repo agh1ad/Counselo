@@ -28,12 +28,14 @@ const content = {
 
 type EngagementStandardsProps = {
   isArabic: boolean;
-  regionPath: string;
   id?: string;
-};
+} & (
+  | { regionPath: string; termsLinks?: never }
+  | { regionPath?: never; termsLinks: { href: string; label: string }[] }
+);
 
 /** Public engagement commitments; these do not assert a completed credentials audit. */
-export function EngagementStandards({ isArabic, regionPath, id = "engagement-standards" }: EngagementStandardsProps) {
+export function EngagementStandards({ isArabic, regionPath, termsLinks, id = "engagement-standards" }: EngagementStandardsProps) {
   const copy = content[isArabic ? "ar" : "en"];
   return (
     <section className="engagement-standards" id={id} aria-labelledby={`${id}-title`}>
@@ -44,7 +46,9 @@ export function EngagementStandards({ isArabic, regionPath, id = "engagement-sta
       <dl className="engagement-standards__items">
         {copy.items.map(item => <div key={item.title}><dt>{item.title}</dt><dd>{item.text}</dd></div>)}
       </dl>
-      <Link href={`${regionPath}/terms-of-service`} className="engagement-standards__link">{copy.link}</Link>
+      {termsLinks ? <nav aria-label={copy.link} className="global-about-country-links">
+        {termsLinks.map(link => <Link key={link.href} href={link.href} className="engagement-standards__link">{link.label}</Link>)}
+      </nav> : <Link href={`${regionPath}/terms-of-service`} className="engagement-standards__link">{copy.link}</Link>}
     </section>
   );
 }

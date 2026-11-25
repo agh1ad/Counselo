@@ -1,18 +1,13 @@
-.global-about-page section[id] { scroll-margin-top: 6.5rem; }
-.global-about-nav { display: flex; flex-wrap: wrap; column-gap: 1.75rem; padding-block: .35rem; }
-.global-about-nav .about-text-link { text-decoration-color: #977331; }
-.global-about-page :is(.global-about-service-list, .global-about-process, .global-about-work-list, .global-about-policy-list) h3 { font-size: 1.05rem; line-height: 1.5; letter-spacing: 0; margin-bottom: .4rem; }
-.global-about-process { margin-top: 1.5rem; }
-.global-about-policy-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-.global-about-policy-list li { padding-inline-start: .9rem; border-inline-start: 2px solid #bc9a57; }
-.global-about-policy-list .about-text-link { display: flex; width: fit-content; }
-.global-about-publications { border-top: 1px solid var(--about-line); }
-.global-about-publications .platform-facts { margin-block-start: 2rem; }
-.global-about-work-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.global-about-page :is(section, article, div)[id] { scroll-margin-top: 6.5rem; }
+.global-about-page .global-about-country-links { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+.global-about-page .global-about-team { padding-block: 3rem; }
+.global-about-page .global-about-team > header { padding-bottom: 2rem; }
+.global-about-page .global-about-team > header p { color: var(--about-muted); }
+.global-about-page .global-about-team__country { border-top: 1px solid var(--about-line); }
+.global-about-page .global-about-team__country-name { padding-inline-start: .85rem; border-inline-start: 3px solid #b68a3a; margin-bottom: 1.5rem; font-size: clamp(1.4rem, 2.3vw, 1.8rem); }
+.global-about-page .about-partner__name h4 { font-size: 1.25rem; }
+.global-about-page .about-partner__offices h4 { margin-bottom: .4rem; font-size: 1.1rem; }
+.global-about-page .global-about-contact-label { margin: 0; font-size: .9rem; font-weight: 700; flex-basis: 100%; }
 @media (max-width: 760px) {
-  .global-about-nav { column-gap: 1.1rem; }
-  .global-about-work-list { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) {
-  .global-about-policy-list { grid-template-columns: 1fr; }
+  .global-about-page .global-about-team { padding-block: 2.5rem; }
 }
