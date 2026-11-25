@@ -1,0 +1,115 @@
+.global-about-page .global-founder {
+  padding-block: clamp(2.6rem, 5vw, 4.7rem);
+  background: #f3f4ed;
+  border-block: 1px solid #d2d4c3;
+  color: #173e30;
+}
+.global-founder__grid {
+  display: grid;
+  grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.65fr);
+  grid-template-areas: "portrait identity" "portrait biography";
+  gap: 1.15rem clamp(2rem, 6vw, 5.7rem);
+  align-items: start;
+}
+.global-founder__portrait {
+  grid-area: portrait;
+  margin: 0;
+  padding: clamp(.3rem, .6vw, .5rem);
+  border: 1px solid #b8a578;
+  background: #faf9f3;
+}
+.global-founder__portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 24%;
+}
+.global-founder__identity { grid-area: identity; align-self: end; min-width: 0; }
+.global-founder__identity .global-founder__label {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin: 0 0 .6rem;
+  color: #655127;
+  font-size: .87rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.global-founder__label::before { content: ""; flex: 0 0 1.55rem; border-top: 1px solid #997b3f; }
+.global-about-page .global-founder h2,
+.global-about-page .global-about-faq h2,
+.global-about-page .global-about-faq h3 {
+  margin: 0;
+  font-family: var(--app-font-serif);
+  font-weight: 550;
+  line-height: 1.17;
+  letter-spacing: -.025em;
+}
+.global-about-page .global-founder h2 { font-size: clamp(2rem, 4.4vw, 3.8rem); }
+.global-founder__identity .global-founder__role { margin: .45rem 0 0; color: #456153; font-size: 1rem; line-height: 1.55; }
+.global-founder__bio { grid-area: biography; min-width: 0; }
+.global-founder__bio > p { max-width: 72ch; margin: 0; color: #42584d; font-size: 1rem; line-height: 1.74; }
+.global-founder__bio > .global-founder__intro { color: #214b3a; font-size: 1.09rem; }
+.global-founder__bio > p + p { margin-top: .65rem; }
+.global-founder__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0 .65rem;
+  padding: 1rem 0;
+  border-block: 1px solid #c5c9b6;
+}
+.global-founder__facts dt { color: #68552c; font-size: .89rem; font-weight: 650; line-height: 1.45; }
+.global-founder__facts dd { margin: .35rem 0 0; font-size: .96rem; line-height: 1.55; }
+.global-founder__profile {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 44px;
+  color: #194532;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: #a1874f;
+  text-underline-offset: .3em;
+}
+.global-founder__profile:hover { color: #6c5424; }
+.global-founder__profile svg { flex: none; }
+.global-about-page .global-about-faq {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.75fr);
+  align-items: start;
+  gap: 1.2rem clamp(2rem, 6vw, 5.7rem);
+  margin-block: clamp(.5rem, 2vw, 1.7rem) clamp(2.5rem, 6vw, 5rem);
+  padding-block-start: clamp(1.5rem, 3vw, 2.7rem);
+  border-block-start: 1px solid #bca575;
+  color: #183f31;
+}
+.global-about-page .global-about-faq h2 { font-size: clamp(1.9rem, 3.25vw, 2.8rem); }
+.global-about-faq__answers article + article { margin-block-start: 1.15rem; padding-block-start: 1.15rem; border-block-start: 1px solid #d8ded3; }
+.global-about-page .global-about-faq h3 { font-size: clamp(1.18rem, 1.7vw, 1.38rem); line-height: 1.36; letter-spacing: -.012em; }
+.global-about-page .global-about-faq p { max-width: 76ch; margin: .5rem 0 0; color: #42584d; font-size: 1rem; line-height: 1.72; }
+.global-about-page[dir="rtl"] :is(.global-founder, .global-about-faq) :is(h2, h3) { font-weight: 700; letter-spacing: 0; line-height: 1.45; }
+.global-about-page[dir="rtl"] :is(.global-founder__bio, .global-about-faq__answers) p,
+.global-about-page[dir="rtl"] .global-founder__facts dd { line-height: 1.85; }
+.global-about-page[dir="rtl"] .global-founder__label,
+.global-about-page[dir="rtl"] .global-founder__facts dt,
+.global-about-page[dir="rtl"] .global-founder__profile { font-weight: 700; }
+
+@media (max-width: 780px) {
+  .global-founder__grid { grid-template-columns: minmax(0, .45fr) minmax(0, 1fr); grid-template-areas: "portrait identity" "biography biography"; gap: 1.25rem clamp(1rem, 3vw, 1.5rem); }
+  .global-founder__identity { align-self: center; }
+  .global-founder__portrait { max-width: 10rem; }
+  .global-about-page .global-about-faq { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .global-founder__grid { grid-template-columns: minmax(5rem, .52fr) minmax(0, 1fr); gap: .9rem; }
+  .global-founder__identity .global-founder__label { display: block; margin-bottom: .35rem; font-size: .79rem; }
+  .global-founder__label::before { display: none; }
+  .global-founder__identity .global-founder__role { margin-top: .25rem; font-size: .91rem; }
+  .global-about-page .global-founder h2 { font-size: 1.8rem; }
+  .global-founder__facts { grid-template-columns: 1fr; gap: .6rem; }
+  .global-founder__facts > div { display: grid; grid-template-columns: minmax(5.7rem, .65fr) minmax(0, 1.35fr); gap: .7rem; }
+  .global-founder__facts dd { margin: 0; }
+}
